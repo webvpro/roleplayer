@@ -79,6 +79,8 @@
         </button>
       </div>
     </div>
-    <slot />
+    <div class="md:container md:mx-auto p-4">
+      <slot />
+    </div>
   </div>
 </template>
