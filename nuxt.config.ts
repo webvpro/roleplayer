@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@nuxtjs/color-mode', 'nuxt-icon'],
   colorMode: {
-    preference: 'system', // default theme
+    preference: 'wireframe', // default theme
     dataValue: 'theme', // activate data-theme in <html> tag
     classSuffix: '',
   },

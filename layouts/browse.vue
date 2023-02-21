@@ -15,7 +15,7 @@
       </div>
       <div class="navbar-end">
         <select
-          class="select w-auto max-w-xs capitalize text-base-content"
+          class="select w-auto max-w-xs capitalize text-base-content mr-1"
           v-model="colorMode.preference"
         >
           <option disabled selected>Theme</option>
@@ -23,10 +23,10 @@
             {{ theme }}
           </option>
         </select>
-        <div class="avatar ml-2">
+        <div class="avatar mx-2">
           <div
             class="
-              w-12
+              w-10
               rounded-full
               ring ring-secondary ring-offset-base-100 ring-offset-2
               bg-accent
@@ -34,7 +34,7 @@
           >
             <img
               class=""
-              src="https://api.dicebear.com/5.x/adventurer/svg"
+              src="https://api.dicebear.com/4.10/bottts/svg"
               alt="avatar"
             />
           </div>
@@ -42,7 +42,48 @@
       </div>
     </div>
     <div class="">
-      <slot />
+      <div class="drawer drawer-mobile">
+        <input
+          id="csrd-search-drawer-1"
+          type="checkbox"
+          class="drawer-toggle"
+        />
+        <div
+          class="
+            drawer-content
+            flex flex-col
+            content-center
+            bg-neutral
+            text-neutral-content
+            w-full
+            h-full
+          "
+        >
+          <slot />
+        </div>
+        <div class="drawer-side">
+          <label for="csrd-search-drawer-1" class="drawer-overlay"></label>
+          <div
+            class="w-80 flex flex-col items-start bg-base-100 text-base-content"
+          >
+            <div class="navbar h-auto w-full">
+              <label
+                for="csrd-search-drawer-1"
+                class="btn btn-ghost normal-case text-xl drawer-button"
+                >Browse CSRD <Icon class="pl-1" name="circum:circle-chev-left"
+              /></label>
+            </div>
+            <ul class="menu p-4 h-full">
+              <!-- Sidebar content here -->
+              <li class="" v-for="(collection, key) in collectionJSON">
+                <a class="capitalize" :href="`/${key}`">{{
+                  collection.name
+                }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -50,10 +91,11 @@
 import { createAvatar } from "@dicebear/core";
 import { adventurer } from "@dicebear/collection";
 
+import collectionJSON from "@/JSON/CSRD/csrd_collections.json";
+
 const avatar = createAvatar(adventurer, {
   // ... options
 });
-
 const avatarSVG = avatar.toString();
 const colorMode = useColorMode();
 
