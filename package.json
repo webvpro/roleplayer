@@ -10,7 +10,7 @@
   },
   "type": "module",
   "engines": {
-    "node": "18.x"
+    "node": "16.x"
   },
   "devDependencies": {
     "@nuxt/content": "^2.3.0",
