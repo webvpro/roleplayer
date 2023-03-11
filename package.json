@@ -8,8 +8,9 @@
     "postinstall": "nuxt prepare",
     "start": "node .output/server/index.mjs"
   },
+  "type": "module",
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "devDependencies": {
     "@nuxt/content": "^2.3.0",
@@ -33,6 +34,7 @@
     "@dicebear/collection": "^5.3.4",
     "@dicebear/core": "^5.3.4",
     "appwrite": "^10.2.0",
-    "axios": "^1.3.3"
+    "axios": "^1.3.3",
+    "nuxt-appwrite": "^1.0.3"
   }
 }

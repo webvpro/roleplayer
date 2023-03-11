@@ -1,27 +1,54 @@
-import { account } from './useAW.js'
 
-const state = reactive({
-  user: null,
-  error: false,
-  loading: true
-})
 
-export const loginWithDisord = async () => {
-  try {
-    await account.createOAuth2Session('discord', process.env.AW_ENDPOINT)
-  } catch (error) {
-    console.log(error)
-    state.error = error
+export const useUser = () => {
+  return useState("user", () => undefined);
+};
+
+export const useAuth = () => {
+  const config = useRuntimeConfig();
+  const { account } = useAppwrite();
+  const { router } = useRouter();
+  const user = useUser();
+  const isLoggedIn = computed(() => !!user.value);
+  
+  async function refresh() {
+    try {
+      user.value = await fetchCurrentUser();
+    } catch {
+      user.value = null;
+    }
   }
-  state.loading = false
+
+  async function discordLogin() {
+    if (isLoggedIn.value) return;
+
+    account.createOAuth2Session('discord', config.DISCORD_LOGIN_REDIRECT)
+    await refresh();
+  }
+
+  async function logout() {
+    if (!isLoggedIn.value) return;
+    await account.deleteSession('current')
+    user.value = null;
+    await router.push("/login");
+  }
+  
+  return {
+    user,
+    isLoggedIn,
+    discordLogin,
+    logout,
+    refresh,
+  };
 }
 
-export const getUserSession = async () => {
+export const fetchCurrentUser = async () => {
+  const { account } = useAppwrite();
   try {
-    state.user = await account.get()
+    return await account.getSession('current')
   } catch (error) {
-    console.log(error)
-    state.error = error
+    if ([401, 419].includes(error?.response?.status)) return null;
+    throw error;
   }
-  return { ...toRefs(state) }
 }
+
