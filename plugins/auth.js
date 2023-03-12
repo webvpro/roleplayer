@@ -7,5 +7,5 @@ export default defineNuxtPlugin(async () => {
     // Skip if already initialized on server
     if (user.value !== undefined) return
   
-    user.value = await fetchCurrentUser()
+    //user.value = await fetchCurrentUser()
   });
