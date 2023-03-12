@@ -47,8 +47,8 @@ export const fetchCurrentUser = async () => {
   try {
     return await account.get()
   } catch (error) {
-    if ([401, 419].includes(error?.response?.status)) return null;
-    throw error;
+    console.log('fetchUser ERROR',error)
+    return null
   }
 }
 

@@ -50,7 +50,7 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 const features = [
   { name: "Types", icon: "game-icons:winged-sword", path: "/types" },
   { name: "Foci", icon: "ion:accessibility-sharp", path: "/foci" },
@@ -60,11 +60,10 @@ const features = [
   { name: "NPCs", icon: "game-icons:bookshelf", path: "/npcs" },
   { name: "Ablilities", icon: "game-icons:bookshelf", path: "/" },
 ];
-export default {
-  setup() {
-    return {
-      features,
-    };
-  },
-};
+definePageMeta({
+  middleware: ['auth'],
+})
+const currentUser = useUser();
+
+console.log(currentUser.value)
 </script>

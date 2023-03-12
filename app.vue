@@ -15,4 +15,13 @@ useHead({
     },
   ],
 });
+
+const user = useUser();
+
+console.log(user.value)
+
+
+onMounted(async () => {
+  user.value = await fetchCurrentUser()
+})
 </script>

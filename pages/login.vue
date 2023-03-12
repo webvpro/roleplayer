@@ -14,7 +14,9 @@
  </div>
  </template>
  <script setup>
- const { discordLogin, isLoggedIn, logout } = useAuth()
+ const { discordLogin, isLoggedIn, logout, user } = useAuth()
+
+ console.log('User Obj',user.value)
  
  
  

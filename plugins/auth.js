@@ -2,10 +2,10 @@
 import { useUser, fetchCurrentUser } from '../composables/useAuth';
 
 export default defineNuxtPlugin(async () => {
-     //const user = useUser();
+     const user = useUser();
 
     // Skip if already initialized on server
-    //if (user.value !== undefined) return
+    if (user.value !== undefined) return
   
-    //user.value = await fetchCurrentUser()
+    user.value = await fetchCurrentUser()
   });
