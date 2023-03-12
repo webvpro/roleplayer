@@ -30,7 +30,7 @@ export const useAuth = () => {
     if (!isLoggedIn.value) return;
     await account.deleteSession('current')
     user.value = null;
-    await router.push("/login");
+    router.push("/login");
   }
   
   return {
