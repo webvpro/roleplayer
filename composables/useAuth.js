@@ -5,7 +5,6 @@ export const useUser = () => {
 };
 
 export const useAuth = () => {
-  const config = useRuntimeConfig();
   const { account } = useAppwrite();
   const { router } = useRouter();
   const user = useUser();
@@ -21,8 +20,9 @@ export const useAuth = () => {
 
   async function discordLogin() {
     if (isLoggedIn.value) return;
-
+    const config = useRuntimeConfig()
     account.createOAuth2Session('discord', config.DISCORD_LOGIN_REDIRECT)
+    //console.log(config.DISCORD_LOGIN_REDIRECT)
     await refresh();
   }
 
@@ -45,7 +45,7 @@ export const useAuth = () => {
 export const fetchCurrentUser = async () => {
   const { account } = useAppwrite();
   try {
-    return await account.getSession('current')
+    return await account.get()
   } catch (error) {
     if ([401, 419].includes(error?.response?.status)) return null;
     throw error;

@@ -21,5 +21,11 @@ export default defineNuxtConfig({
   appwrite: {
     endpoint: process.env.AW_ENDPOINT,
     project: process.env.AW_PROJECT_ID
-  }
+  },
+  runtimeConfig: {
+    // The private keys which are only 
+    public: {
+      DISCORD_LOGIN_REDIRECT: process.env.DISCORD_LOGIN_REDIRECT,
+    },
+  },
 })

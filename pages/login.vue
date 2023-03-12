@@ -6,14 +6,15 @@
              <h2 class="card-title text-secondary-content">Login</h2>
              <p><Icon class="text-4xl w-full h-28" name="logos:discord" /></p>
              <div class="card-actions">
-                 <button class="btn-secondary btn-lg" @click="discordLogin">Login</button>
+                 <button  v-if="!isLoggedIn" class="btn-info btn-lg" @click="discordLogin">Login</button>
+                 <button  v-else class="btn-warning btn-lg" @click="logout">Logout</button>
              </div>
          </div>
      </div>
  </div>
  </template>
  <script setup>
- const { discordLogin } = useAuth()
+ const { discordLogin, isLoggedIn, logout } = useAuth()
  
  
  
