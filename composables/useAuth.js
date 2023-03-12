@@ -21,7 +21,7 @@ export const useAuth = () => {
   async function discordLogin() {
     if (isLoggedIn.value) return;
     const config = useRuntimeConfig()
-    //account.createOAuth2Session('discord', config.DISCORD_LOGIN_REDIRECT)
+    account.createOAuth2Session('discord', config.DISCORD_LOGIN_REDIRECT)
     //console.log(config.DISCORD_LOGIN_REDIRECT)
     await refresh();
   }
