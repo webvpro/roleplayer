@@ -23,22 +23,7 @@
             {{ theme }}
           </option>
         </select>
-        <div class="avatar ml-2">
-          <div
-            class="
-              w-12
-              rounded-full
-              ring ring-secondary ring-offset-base-100 ring-offset-2
-              bg-accent
-            "
-          >
-            <img
-              class=""
-              src="https://api.dicebear.com/5.x/adventurer/svg"
-              alt="avatar"
-            />
-          </div>
-        </div>
+        <ProfileNav />
       </div>
     </div>
     <div class="">

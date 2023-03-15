@@ -20,9 +20,7 @@ export const useAuth = () => {
 
   async function discordLogin() {
     if (isLoggedIn.value) return;
-    account.createOAuth2Session('discord', config.DISCORD_LOGIN_REDIRECT)
-    //console.log(config.DISCORD_LOGIN_REDIRECT)
-    await refresh();
+    await account.createOAuth2Session('discord', config.DISCORD_LOGIN_REDIRECT)
   }
 
  async function magicURL(to) {
@@ -52,7 +50,7 @@ export const useAuth = () => {
     if (!isLoggedIn.value) return;
     await account.deleteSession('current')
     user.value = null;
-    await refresh()//
+    return navigateTo({ name: 'login' })
   }
   
   return {
@@ -71,10 +69,10 @@ export const fetchCurrentUser = async () => {
   let resp = null
   try {
     resp = await account.get()
-    return 
+    return resp
     
   } catch (error) {
-    console.log('fetchUser ERROR')
+    console.log('fetchUser ERROR', error)
     return null;
   }
 }

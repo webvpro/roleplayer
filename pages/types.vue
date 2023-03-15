@@ -63,7 +63,4 @@ const features = [
 definePageMeta({
   middleware: ['auth'],
 })
-const currentUser = useUser();
-
-console.log(currentUser.value)
 </script>

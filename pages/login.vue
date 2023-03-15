@@ -17,10 +17,8 @@
  </div>
  </template>
  <script setup>
- const { discordLogin, isLoggedIn, logout, magicURL  } = useAuth()
- const user = useUser()
- console.log('client Obj',user.value)
-const  sendMagicURL = async () => {
+ const { discordLogin, isLoggedIn, user, logout, magicURL  } = useAuth()
+const sendMagicURL = async () => {
     await magicURL('mlstanley@gmail.com');
 }
  

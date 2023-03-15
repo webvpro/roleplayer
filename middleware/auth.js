@@ -1,12 +1,9 @@
-
-export default defineNuxtRouteMiddleware(async (to,from) => {
-     
-    const user = useUser()
-    console.log(useState('user'))
+export default defineNuxtRouteMiddleware(async (to, from) => {
+  const { user } = useAuth()
+  if (process.client) {
     if (user.value) {
-      if(process.server)
-        return
+      return
     }
-    console.log('middleware auth', user) 
     return navigateTo({ name: 'login' })
-  })
+  }
+})
