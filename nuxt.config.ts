@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     project: process.env.AW_PROJECT_ID
   },
   runtimeConfig: {
-    // The private keys which are only 
+    VERIFY_EMAIL: process.env.VERIFY_EMAIL,
     public: {
       DISCORD_LOGIN_REDIRECT: process.env.DISCORD_LOGIN_REDIRECT,
     },
