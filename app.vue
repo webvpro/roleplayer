@@ -3,15 +3,9 @@
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-    <pre>
-        {{ JSON.stringify(user, null, 2) }}
-      </pre>
   </div>
 </template>
 <script setup>
-
-const { user } = useAuth();
-
 useHead({
   
   link: [
