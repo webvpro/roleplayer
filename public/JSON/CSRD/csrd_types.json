@@ -1,0 +1,1438 @@
+{
+    "types": [
+        {
+            "name": "WARRIOR",
+            "intrusions": [
+                {
+                    "name": "Perfect Setup",
+                    "description": "You're fighting at least three foes and each one is standing in exactly the right spot for you to use a move you trained in long ago, allowing you to attack all three as a single action. Make a separate attack roll for each foe. You remain limited by the amount of Effort you can apply on one action."
+                },
+                {
+                    "name": "Old Friend",
+                    "description": "A comrade in arms from your past shows up unexpectedly and provides aid in whatever you're doing. They are on a mission of their own and can't stay longer than it takes to help out, chat for a while after, and perhaps share a quick meal."
+                },
+                {
+                    "name": "Weapon Break",
+                    "description": "Your foe's weapon has a weak spot. In the course of the combat, it quickly becomes damaged and moves two steps down the object damage track."
+                }
+            ],
+            ls -la
+            "special_abilities_per_tier": [
+                {
+                    "tier": 1,
+                    "special_abilities": 4
+                },
+                {
+                    "tier": 2,
+                    "special_abilities": 2
+                },
+                {
+                    "tier": 3,
+                    "special_abilities": 3
+                },
+                {
+                    "tier": 4,
+                    "special_abilities": 2
+                },
+                {
+                    "tier": 5,
+                    "special_abilities": 3
+                },
+                {
+                    "tier": 6,
+                    "special_abilities": 2
+                }
+            ],
+            "abilities": [
+                {
+                    "name": "Effort",
+                    "description": "Your Effort is 1."
+                },
+                {
+                    "name": "Physical Nature",
+                    "description": "You have a Might Edge of 1 and a Speed Edge of 0, or you have a Might Edge of 0 and a Speed Edge of 1. Either way, you have an Intellect Edge of 0."
+                },
+                {
+                    "name": "Cypher Use",
+                    "description": "You can bear two cyphers at a time."
+                },
+                {
+                    "name": "Weapons",
+                    "description": "You become practiced with light, medium, and heavy weapons and suffer no penalty when using any kind of weapon. Enabler."
+                },
+                {
+                    "name": "Starting Equipment",
+                    "description": "Appropriate clothing and two weapons of your choice, plus one expensive item, two moderately priced items, and up to four inexpensive items."
+                }
+            ],
+            "special_abilities": [
+                {
+                    "name": "Bash",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Combat Prowess",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Control the Field",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Improved Edge",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "No Need for Weapons",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Overwatch",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Physical Skills",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Practiced in Armor",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Quick Throw",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Swipe",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Trained Without Armor",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Crushing Blow",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Hemorrhage",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Reload",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Skill With Attacks",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Skill With Defense",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Successive Attack",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Deadly Aim",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Energy Resistance",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Experienced in Armor",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Expert Cypher Use",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Fury",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Lunge",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Reaction",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Seize the Moment",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Slice",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Spray",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Trick Shot",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Vigilance",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Amazing Effort",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Capable Warrior",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Experienced Defender",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Feint",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Increased Effects",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Momentum",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Pry Open",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Snipe",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Tough As Nails",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Adroit Cypher Use",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Arc Spray",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Improved Success",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Jump Attack",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Mastery in Armor",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Mastery With Attacks",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Mastery With Defense",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Parry",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Again and Again",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Finishing Blow",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Magnificent Moment",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Murderer",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Spin Attack",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Weapon and Body",
+                    "tier": 6,
+                    "preselected": false
+                }
+            ]
+        },
+        {
+            "name": "ADEPT",
+            "intrusions": [
+                {
+                    "name": "Advantageous Malfunction",
+                    "description": "A device being used against you malfunctions. It might harm the user or one of their allies for a round, or activate a dramatic and distracting side effect for a few rounds."
+                },
+                {
+                    "name": "Convenient Idea",
+                    "description": "A flash of insight provides you with a clear answer or suggests a course of action with regard to an urgent question, problem, or obstacle you're facing."
+                },
+                {
+                    "name": "Inexplicably Unbroken",
+                    "description": "An inactive, ruined, or presumed-destroyed device temporarily activates and performs a useful function relevant to the situation. This is enough to buy you some time for a better solution, alleviate a complication that was interfering with your abilities, or just get you one more use out of a depleted cypher or artifact."
+                }
+            ],
+            "stat_pool": {
+                "Intellect": 12,
+                "Might": 7,
+                "Speed": 9
+            },
+            "special_abilities_per_tier": [
+                {
+                    "tier": 1,
+                    "special_abilities": 4
+                },
+                {
+                    "tier": 2,
+                    "special_abilities": 1
+                },
+                {
+                    "tier": 3,
+                    "special_abilities": 2
+                },
+                {
+                    "tier": 4,
+                    "special_abilities": 1
+                },
+                {
+                    "tier": 5,
+                    "special_abilities": 2
+                },
+                {
+                    "tier": 6,
+                    "special_abilities": 1
+                }
+            ],
+            "abilities": [
+                {
+                    "name": "Effort",
+                    "description": "Your Effort is 1."
+                },
+                {
+                    "name": "Genius",
+                    "description": "You have an Intellect Edge of 1, a Might Edge of 0, and a Speed Edge of 0."
+                },
+                {
+                    "name": "Expert Cypher Use",
+                    "description": "You can bear three cyphers at a time."
+                },
+                {
+                    "name": "Starting Equipment",
+                    "description": "Appropriate clothing, plus two expensive items, two moderately priced items, and up to four inexpensive items of your choice."
+                },
+                {
+                    "name": "Weapons",
+                    "description": "You can use light weapons without penalty. You have an inability with medium weapons and heavy weapons; your attacks with medium and heavy weapons are hindered."
+                }
+            ],
+            "special_abilities": [
+                {
+                    "name": "Distortion",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Erase Memories",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Far Step",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Hedge Magic",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Magic Training",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Onslaught",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Push",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Resonance Field",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Scan",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Shatter",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Ward",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Adaptation",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Cutting Light",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Hover",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Mind Reading",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Retrieve Memories",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Reveal",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Stasis",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Adroit Cypher Use",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Countermeasures",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Energy Protection",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Fire and Ice",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Force Field Barrier",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Sensor",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Targeting Eye",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Death Touch",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Exile",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Invisibility",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Matter Cloud",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Mind Control",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Projection",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Rapid Processing",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Regeneration",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Reshape",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Wormhole",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Absorb Energy",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Concussion",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Conjuration",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Create",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Dust to Dust",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Knowing the Unknown",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Master Cypher Use",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Teleportation",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "True Senses",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Control Weather",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Earthquake",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Move Mountains",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Traverse the Worlds",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Usurp Cypher",
+                    "tier": 6,
+                    "preselected": false
+                }
+            ]
+        },
+        {
+            "name": "EXPLORER",
+            "intrusions": [
+                {
+                    "name": "Fortuitous Malfunction",
+                    "description": "A trap or a dangerous device malfunctions before it can affect you."
+                },
+                {
+                    "name": "Serendipitous Landmark",
+                    "description": "Just when it seems like the path is lost (or you are), a trail marker, a landmark, or simply the way the terrain or corridor bends, rises, or falls away suggests to you the best path forward, at least from this point."
+                },
+                {
+                    "name": "Weak Strain",
+                    "description": "The poison or disease turns out not to be as debilitating or deadly as it first seemed, and inflicts only half the damage that it would have otherwise."
+                }
+            ],
+            "stat_pool": {
+                "Intellect": 9,
+                "Might": 10,
+                "Speed": 9
+            },
+            "special_abilities_per_tier": [
+                {
+                    "tier": 1,
+                    "special_abilities": 4
+                },
+                {
+                    "tier": 2,
+                    "special_abilities": 4
+                },
+                {
+                    "tier": 3,
+                    "special_abilities": 3
+                },
+                {
+                    "tier": 4,
+                    "special_abilities": 2
+                },
+                {
+                    "tier": 5,
+                    "special_abilities": 3
+                },
+                {
+                    "tier": 6,
+                    "special_abilities": 3
+                }
+            ],
+            "abilities": [
+                {
+                    "name": "Effort",
+                    "description": "Your Effort is 1."
+                },
+                {
+                    "name": "Physical Nature",
+                    "description": "You have a Might Edge of 1, a Speed Edge of 0, and an Intellect Edge of 0."
+                },
+                {
+                    "name": "Cypher Use",
+                    "description": "You can bear two cyphers at a time."
+                },
+                {
+                    "name": "Starting Equipment",
+                    "description": "Appropriate clothing and a weapon of your choice, plus two expensive items, two moderately priced items, and up to four inexpensive items."
+                },
+                {
+                    "name": "Weapons",
+                    "description": "You can use light and medium weapons without penalty. You have an inability with heavy weapons; your attacks with heavy weapons are hindered."
+                }
+            ],
+            "special_abilities": [
+                {
+                    "name": "Block",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Danger Sense",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Decipher",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Endurance",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Find the Way",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Fleet of Foot",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Improved Edge",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Knowledge Skills",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Muscles of Iron",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "No Need for Weapons",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Physical Skills",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Practiced in Armor",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Practiced With All Weapons",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Surging Confidence",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Trained Without Armor",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Curious",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Danger Instinct",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Enable Others",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Escape",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Eye for Detail",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Foil Danger",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Hand to Eye",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Investigative Skills",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Quick Recovery",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Range Increase",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Skill With Defense",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Stand Watch",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Travel Skills",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Wreck",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Controlled Fall",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Experienced in Armor",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Expert Cypher Use",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Ignore the Pain",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Obstacle Running",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Resilience",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Run and Fight",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Seize the Moment",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Skill With Attacks",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Stone Breaker",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Think Your Way Out",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Trapfinder",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Wrest From Chance",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Capable Warrior",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Expert Skill",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Increased Effects",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Read the Signs",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Runner",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Subtle Steps",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Tough As Nails",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Adroit Cypher Use",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Free to Move",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Group Friendship",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Hard to Kill",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Jump Attack",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Mastery With Defense",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Parry",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Physically Gifted",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Take Command",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Vigilant",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Again and Again",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Inspire Coordinated Actions",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Mastery in Armor",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Mastery With Attacks",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Negate Danger",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Share Defense",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Spin Attack",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Wild Vitality",
+                    "tier": 6,
+                    "preselected": false
+                }
+            ]
+        },
+        {
+            "name": "SPEAKER",
+            "intrusions": [
+                {
+                    "name": "Friendly NPC",
+                    "description": "An NPC you don't know, someone you don't know that well, or someone you know but who hasn't been particularly friendly in the past chooses to help you, though doesn't necessarily explain why. Maybe they'll ask you for a favor in return afterward, depending on how much trouble they go to."
+                },
+                {
+                    "name": "Perfect Suggestion",
+                    "description": "A follower or other already-friendly NPC suggests a course of action with regard to an urgent question, problem, or obstacle you're facing."
+                },
+                {
+                    "name": "Unexpected Gift",
+                    "description": "An NPC hands you a physical gift you were not expecting, one that helps put the situation at ease if things seem strained, or provides you with a new insight for understanding the context of the situation if there's something you're failing to understand or grasp."
+                }
+            ],
+            "stat_pool": {
+                "Speed": 9,
+                "Might": 8,
+                "Intellect": 11
+            },
+            "special_abilities_per_tier": [
+                {
+                    "tier": 1,
+                    "special_abilities": 4
+                },
+                {
+                    "tier": 2,
+                    "special_abilities": 2
+                },
+                {
+                    "tier": 3,
+                    "special_abilities": 3
+                },
+                {
+                    "tier": 4,
+                    "special_abilities": 2
+                },
+                {
+                    "tier": 5,
+                    "special_abilities": 3
+                },
+                {
+                    "tier": 6,
+                    "special_abilities": 2
+                }
+            ],
+            "abilities": [
+                {
+                    "name": "Effort",
+                    "description": "Your Effort is 1."
+                },
+                {
+                    "name": "Genius",
+                    "description": "You have an Intellect Edge of 1, a Might Edge of 0, and a Speed Edge of 0."
+                },
+                {
+                    "name": "Cypher Use",
+                    "description": "You can bear two cyphers at a time."
+                },
+                {
+                    "name": "Weapons",
+                    "description": "You can use light weapons without penalty. You have an inability with medium and heavy weapons; your attacks with medium and heavy weapons are hindered."
+                },
+                {
+                    "name": "Starting Equipment",
+                    "description": "Appropriate clothing and a light weapon of your choice, plus two expensive items, two moderately priced items, and up to four inexpensive items."
+                }
+            ],
+            "special_abilities": [
+                {
+                    "name": "Anecdote",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Babel",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Demeanor of Command",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Encouragement",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Enthrall",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Erase Memories",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Fast Talk",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Inspire Aggression",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Interaction Skills",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Practiced With Medium Weapons",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Spin Identity",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Terrifying Presence",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Understanding",
+                    "tier": 1,
+                    "preselected": false
+                },
+                {
+                    "name": "Basic Follower",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Calm Stranger",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Disincentivize",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Gather Intelligence",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Impart Ideal",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Inspiring Ease",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Interaction Skills",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Practiced in Armor",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Skill With Defense",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Speedy Recovery",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Unexpected Betrayal",
+                    "tier": 2,
+                    "preselected": false
+                },
+                {
+                    "name": "Accelerate",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Blend In",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Discerning Mind",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Expert Cypher Use",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Expert Follower",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Grand Deception",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Lead by Inquiry",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Mind Reading",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Oratory",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Perfect Stranger",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Quick Wits",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Telling",
+                    "tier": 3,
+                    "preselected": false
+                },
+                {
+                    "name": "Anticipate Attack",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Confounding Banter",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Feint",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Heightened Skills",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Psychosis",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Read the Signs",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Spur Effort",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Strategize",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Suggestion",
+                    "tier": 4,
+                    "preselected": false
+                },
+                {
+                    "name": "Adroit Cypher Use",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Discipline of Watchfulness",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Experienced in Armor",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Flee",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Foul Aura",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Knowing the Unknown",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Regeneration",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Skill With Attacks",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Stimulate",
+                    "tier": 5,
+                    "preselected": false
+                },
+                {
+                    "name": "Assume Control",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Battle Management",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Crowd Control",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Inspiring Success",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Recruit Deputy",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Shatter Mind",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "True Senses",
+                    "tier": 6,
+                    "preselected": false
+                },
+                {
+                    "name": "Word of Command",
+                    "tier": 6,
+                    "preselected": false
+                }
+            ]
+        }
+    ]
+}

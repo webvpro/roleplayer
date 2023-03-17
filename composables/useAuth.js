@@ -26,7 +26,6 @@ export const useAuth = () => {
  async function magicURL(to) {
     try {
       await account.createMagicURLSession(ID.unique(), to , config.VERIFY_EMAIL)
-      console.log('Magic URL sent')
     } catch (error) {
       console.log('Magic URL',error)
     }
