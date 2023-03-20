@@ -16,7 +16,6 @@
                     "description": "Your foe's weapon has a weak spot. In the course of the combat, it quickly becomes damaged and moves two steps down the object damage track."
                 }
             ],
-            ls -la
             "special_abilities_per_tier": [
                 {
                     "tier": 1,

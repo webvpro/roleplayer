@@ -1,9 +1,15 @@
-import { useAuth } from '../composables/useAuth.js';
+
 export default defineNuxtRouteMiddleware(async (to, from) => {
-  const { user } = useAuth()
-   if (user.value) {
+  const { user, refresh } = useAuth()
+  
+  if(process.client) {
+  await refresh()
+     console.log(user.value)
+    if (user.value) {
       return
+    } else {
+      return navigateTo('/login')
     }
-    return navigateTo({ name: 'login' })
+  }  
   
 })

@@ -49,7 +49,7 @@ export const useAuth = () => {
     if (!isLoggedIn.value) return;
     await account.deleteSession('current')
     user.value = null;
-    return navigateTo({ name: 'login' })
+    window.location.reload(true);
   }
   
   return {

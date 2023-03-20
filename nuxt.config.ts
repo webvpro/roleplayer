@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     'nuxt-icon',
-    'nuxt-appwrite'
+    'nuxt-appwrite',
+    '@nuxt/devtools'
   ],
   colorMode: {
     preference: 'wireframe', // default theme
@@ -28,4 +29,11 @@ export default defineNuxtConfig({
       DISCORD_LOGIN_REDIRECT: process.env.DISCORD_LOGIN_REDIRECT,
     },
   },
+  devtools: {
+    // Enable devtools (default: true)
+    enabled: !process.env.NUXT_DEVTOOLS
+    // VS Code Server options
+    //vscode: {},
+    // ...other options
+  }
 })

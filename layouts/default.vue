@@ -32,16 +32,7 @@
   </div>
 </template>
 <script setup>
-import { createAvatar } from "@dicebear/core";
-import { adventurer } from "@dicebear/collection";
-
-const avatar = createAvatar(adventurer, {
-  // ... options
-});
-
-const avatarSVG = avatar.toString();
 const colorMode = useColorMode();
-
 const themes = [
   "light",
   "dark",

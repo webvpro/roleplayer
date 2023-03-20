@@ -17,12 +17,10 @@
       </div>
     </div>
   </div>
-  <div class="mt-12 snap-start">
-    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      <div v-for="feature in features" :key="feature.name" class="pt-6">
-        <div class="shadow-xl card card-compact w-96 bg-base-100">
-          <div class="">
-            <div class="text-center">
+  <div class="mt-3 mx-auto p-3 snap-start container">
+    <div class="grid content-around grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
+      <div v-for="feature in features" :key="feature.name" class="shadow-xl card card-compact w-96 bg-base-100">
+        <div class="text-center">
               <span class="inline-flex items-center justify-center p-3">
                 <Icon
                   :name="`${feature.icon}`"
@@ -44,13 +42,13 @@
                 >
               </div>
             </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </template>
 <script setup>
+const { crsd } = useCompendium();
+
 const features = [
   { name: "Types", icon: "game-icons:winged-sword", path: "/types" },
   { name: "Foci", icon: "ion:accessibility-sharp", path: "/foci" },
