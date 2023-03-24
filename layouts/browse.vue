@@ -60,7 +60,7 @@
             </div>
             <ul class="menu p-4 h-full">
               <!-- Sidebar content here -->
-              <li class="" v-for="(collection, key) in collectionJSON">
+              <li class="" v-for="(collection, key) in collections">
                 <a class="capitalize" :href="`/${key}`">{{
                   collection.name
                 }}</a>
@@ -73,46 +73,10 @@
   </div>
 </template>
 <script setup>
-import { createAvatar } from "@dicebear/core";
-import { adventurer } from "@dicebear/collection";
 
-import collectionJSON from "@/JSON/CSRD/csrd_collections.json";
 
-const avatar = createAvatar(adventurer, {
-  // ... options
-});
-const avatarSVG = avatar.toString();
+import collections from "@/JSON/CSRD/csrd_collections.json";
+import { themes } from "@/JSON/ui_themes.json" 
 const colorMode = useColorMode();
 
-const themes = [
-  "light",
-  "dark",
-  "cupcake",
-  "bumblebee",
-  "emerald",
-  "corporate",
-  "synthwave",
-  "retro",
-  "cyberpunk",
-  "valentine",
-  "halloween",
-  "garden",
-  "forest",
-  "aqua",
-  "lofi",
-  "pastel",
-  "fantasy",
-  "wireframe",
-  "black",
-  "luxury",
-  "dracula",
-  "cmyk",
-  "autumn",
-  "business",
-  "acid",
-  "lemonade",
-  "night",
-  "coffee",
-  "winter",
-];
 </script>

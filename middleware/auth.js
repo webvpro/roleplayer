@@ -1,15 +1,13 @@
-
 export default defineNuxtRouteMiddleware(async (to, from) => {
-  const { user, refresh } = useAuth()
-  
-  if(process.client) {
-  await refresh()
-     console.log(user.value)
+  const {user, refresh} = useAuth();
+
+  if (process.client) {
+    await refresh();
+    //console.log(user.value)
     if (user.value) {
-      return
+      return;
     } else {
-      return navigateTo('/login')
+      return navigateTo('/login');
     }
-  }  
-  
-})
+  }
+});

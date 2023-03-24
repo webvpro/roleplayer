@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="navbar bg-primary text-primary-content">
+    <div class="navbar sticky top-0 z-30 bg-primary text-primary-content">
       <div class="navbar-start">
         <a href="/" class="btn btn-ghost normal-case text-xl">PlayCypher.com</a>
       </div>
@@ -8,7 +8,7 @@
         <ul
           class="menu menu-horizontal bg-base-100 text-base-content rounded-box"
         >
-          <li><a href="csrdbrowse">Browse</a></li>
+          <li><NuxtLink to="/compendium">Compendiums</NuxtLink></li>
           <li><a>Create</a></li>
           <li><a>Play</a></li>
         </ul>
@@ -26,42 +26,42 @@
         <ProfileNav />
       </div>
     </div>
-    <div class="">
+    <div class="h-full w-full">
       <slot />
     </div>
   </div>
 </template>
 <script setup>
-const colorMode = useColorMode();
-const themes = [
-  "light",
-  "dark",
-  "cupcake",
-  "bumblebee",
-  "emerald",
-  "corporate",
-  "synthwave",
-  "retro",
-  "cyberpunk",
-  "valentine",
-  "halloween",
-  "garden",
-  "forest",
-  "aqua",
-  "lofi",
-  "pastel",
-  "fantasy",
-  "wireframe",
-  "black",
-  "luxury",
-  "dracula",
-  "cmyk",
-  "autumn",
-  "business",
-  "acid",
-  "lemonade",
-  "night",
-  "coffee",
-  "winter",
-];
+  const colorMode = useColorMode();
+  const themes = [
+    'light',
+    'dark',
+    'cupcake',
+    'bumblebee',
+    'emerald',
+    'corporate',
+    'synthwave',
+    'retro',
+    'cyberpunk',
+    'valentine',
+    'halloween',
+    'garden',
+    'forest',
+    'aqua',
+    'lofi',
+    'pastel',
+    'fantasy',
+    'wireframe',
+    'black',
+    'luxury',
+    'dracula',
+    'cmyk',
+    'autumn',
+    'business',
+    'acid',
+    'lemonade',
+    'night',
+    'coffee',
+    'winter',
+  ];
 </script>

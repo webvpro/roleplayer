@@ -7,20 +7,12 @@
           class="max-w-sm mask mask-squircle"
         />
         <div class="text-base-content">
-          <h1 class="text-5xl font-bold">Play Cypher System!</h1>
+          <h1 class="text-5xl font-bold">Cypher System Compendiums</h1>
           <p class="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi. Provident cupiditate voluptatem et in. Quaerat fugiat ut
-            assumenda excepturi exercitationem quasi. In deleniti eaque aut
-            repudiandae et a id nisi. Provident cupiditate voluptatem et in.
-            Quaerat fugiat ut assumenda excepturi exercitationem quasi. In
-            deleniti eaque aut repudiandae et a id nisi. Provident cupiditate
-            voluptatem et in. Quaerat fugiat ut assumenda excepturi
-            exercitationem quasi. In deleniti eaque aut repudiandae et a id
-            nisi.
+            Here on PlayCypher.com we use the term Compendium to describe all of the things that make up a Cypher System setting. These things will be referred to as Collections. These are Cypher System related collections such as Types, Descriptors, Foci, Abilities, Cyphers, Artifacts, Creatures and NPCs.
           </p>
-          <button class="btn btn-primary">Get Started</button>
+          <p class="py-3">Currently the only Compendium available to view is based off of the CSRD (Cypher System Resource Document), In future releases we will be granting the ability to create and curate custom Compendiums and Collections. </p>
+          <NuxtLink to="view/csrd" class="btn btn-primary">View CSRD Compendiums</NuxtLink>
         </div>
       </div>
     </div>

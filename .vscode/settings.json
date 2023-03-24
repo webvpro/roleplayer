@@ -5,10 +5,18 @@
     "source.fixAll.eslint": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "vs-code-prettier-eslint.prettierLast": true,
   "prettier.bracketSameLine": true,
-  "formattingToggle.affects": ["editor.codeActionsOnSave.source.fixAll.eslint"]
+  "formattingToggle.affects": ["editor.codeActionsOnSave.source.fixAll.eslint"],
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true
 }
