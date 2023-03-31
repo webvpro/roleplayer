@@ -33,7 +33,7 @@
     </div>
     <div class="drawer-side">
       <label for="item-details" class="drawer-overlay"></label>
-      <div v-if="selectedItem" class="w-96 bg-secondary text-secondary-content">
+      <div v-if="selectedItem" class="w-96 md:w-2/3 bg-secondary text-secondary-content">
         <div class="navbar">
           <div class="navbar-start">
             <a class="btn btn-ghost text-xl capitalize">{{
@@ -71,7 +71,6 @@
         >
           <h3 class="font-bold text-lg">{{ selectedAbility.name }}</h3>
           <p class="p-3">{{ selectedAbility.description }}</p>
-           <p class="p-3"><h3>GM Intrusion</h3>{{ selectedAbility.intrusion }}</p>
           <div class="modal-action">
             <button class="btn m-3" @click.stop="closeAbilityModal()">
               Close

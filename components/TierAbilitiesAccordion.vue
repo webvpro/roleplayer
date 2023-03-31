@@ -62,7 +62,7 @@
     v-for="(tier, idx) in tierAbilities"
     :key="tier.key"
     :tabindex="idx + tab_index_bump"
-    class="collapse"
+    class="collapse bg-primary text-primary-content rounded-md m-3"
   >
     <input type="checkbox" />
     <div class="collapse-title text-xl">

@@ -37,7 +37,10 @@
     </div>
     <div class="drawer-side">
       <label for="item-details" class="drawer-overlay"></label>
-      <div v-if="selectedItem" class="w-96 bg-secondary text-secondary-content">
+      <div
+        v-if="selectedItem"
+        class="w-96 md:w-2/3 bg-secondary text-secondary-content"
+      >
         <div class="navbar">
           <div class="navbar-start">
             <a class="btn btn-ghost normal-case text-xl">{{
