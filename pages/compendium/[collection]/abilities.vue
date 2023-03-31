@@ -8,46 +8,68 @@
     />
     <div class="drawer-content">
       <BrowseToolBar />
-      <div class="mt-3 mx-auto p-3 snap-start container">
+      <div class="mx-auto snap-start container">
         <div
-          class="grid content-around grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 place-items-center"
+          class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-3 xl:grid-cols-4"
         >
           <div
             v-for="ability in abilities"
-            :key="ability.name"
-            class="shadow-xl p-6 card card-compact w-96 bg-base-100 min-h-56 max-h-56"
+            class="shadow-xl p-6 card card-compact w-96 bg-base-100 min-h-56 max-h-64"
+            :key="ability[0]"
           >
-            <ListItem
-              :item-data="ability"
-              item-type="ability"
-              @view-item="setSelected(ability.name)"
-            />
+            <div class="card-body">
+              <h2 class="card-title">{{ ability[1].name }}</h2>
+              <p class="overflow-ellipsis overflow-hidden w-80 p-4 h-24">
+                {{ ability[1].description }}
+              </p>
+              <div class="card-actions justify-end mt-2">
+                <button
+                  class="btn btn-primary"
+                  @click="getSelectedItem(ability[0])"
+                >
+                  Details
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="drawer-side">
-      <label
-        for="item-details"
-        @click="clearSelected"
-        class="drawer-overlay"
-      ></label>
-      <div class="p-4 w-96 bg-secondary text-secondary-content">
-        <h1 class="text-xl font-bold p-3">{{ selectedItem.name }}</h1>
-        <div v-if="selectedItem.pool[0]" class="badge badge-primary m-1">
-          {{ selectedItem.pool[0] }}:{{ selectedItem.cost }}
+      <label for="item-details" class="drawer-overlay"></label>
+      <div v-if="selectedItem" class="w-96 bg-secondary text-secondary-content">
+        <div class="navbar">
+          <div class="navbar-start">
+            <a class="btn btn-ghost normal-case text-xl">{{
+              selectedItem.name
+            }}</a>
+          </div>
+          <div class="navbar-center hidden lg:flex"></div>
+          <div class="navbar-end">
+            <button class="btn btn-ghost" @click="closeDrawer">
+              <Icon class="text-lg" name="radix-icons:cross-2" />
+            </button>
+          </div>
         </div>
-        <div v-if="selectedItem.tier" class="badge m-1">
+        <div
+          v-if="selectedItem.pool"
+          class="badge badge-primary m-1 capitalize"
+        >
+          {{ selectedItem.pool }}: {{ selectedItem.cost }}
+        </div>
+        <div v-if="selectedItem.tier" class="badge m-1 capitalize">
           tier: {{ selectedItem.tier }}
         </div>
         <div
           v-for="category in selectedItem.categories"
-          class="badge badge-accent m-1"
+          class="badge badge-accent m-1 capitalize"
         >
-          {{ category.toLowerCase() }}
+          {{ category.split('_').join(' ').trim().toLowerCase() }}
         </div>
         <div class="divider"></div>
-        <div class="p-6 rounded-md border-dashed border-2 border-base-content">
+        <div
+          class="p-6 rounded-md border-dashed border-2 border-base-content m-2"
+        >
           {{ selectedItem.description }}
         </div>
       </div>
@@ -55,42 +77,37 @@
   </div>
 </template>
 <script setup>
+  const {compendium} = useCompendium('csrd');
   const toggleDetailDrawer = ref(false);
-  const abilityItemState = {
-    id: '',
-    name: null,
-    description: '',
-    pool: '',
-    cost: 0,
-    tier: '',
-    categories: [],
-  };
-  let selectedItem = reactive(abilityItemState);
-  const {getCollection, getCollectionItem} = useCompendium();
-  const abilities = getCollection('abilities').sort((a, b) => {
-    let fa = a.name.toLowerCase(),
-      fb = b.name.toLowerCase();
+  const abilities = computed(() =>
+    Object.entries(compendium.value.collections.abilities.items).sort(
+      (a, b) => {
+        let fa = a[1].name.toLowerCase(),
+          fb = b[1].name.toLowerCase();
 
-    if (fa < fb) {
-      return -1;
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      },
+    ),
+  );
+
+  const selectedItem = ref(null);
+  watch(toggleDetailDrawer, value => {
+    if (!value) {
+      selectedItem.value = null;
     }
-    if (fa > fb) {
-      return 1;
-    }
-    return 0;
   });
-  const setSelected = id => {
-    const abilityObj = getCollectionItem('abilities', id);
-    selectedItem.name = abilityObj.name;
-    selectedItem.description = abilityObj.description;
-    selectedItem.cost = abilityObj.cost ? abilityObj.cost : 0;
-    selectedItem.pool = abilityObj.pool;
-    selectedItem.tier = abilityObj.tier;
-    selectedItem.categories = abilityObj.category;
+  const getSelectedItem = id => {
+    selectedItem.value = compendium.value.collections.abilities.items[id];
+    //console.log(compendium.value.collections.abilities.items[id]);
     toggleDetailDrawer.value = true;
   };
-
-  const clearSelected = () => {
-    selectedItem = reactive(abilityItemState);
+  const closeDrawer = () => {
+    toggleDetailDrawer.value = false;
   };
 </script>

@@ -1,0 +1,5608 @@
+{
+    "abides_in_stone": {
+        "name": "abides in stone",
+        "description": "Your flesh is made of hard mineral, making you a hulking, difficult-to-harm humanoid.",
+        "intrusion": "Creatures of stone sometimes forget their own strength or weight. A walking statue can terrify common folk.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "golem_body",
+                        "golem_healing"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "golem_grip"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [
+                        "trained_basher"
+                    ],
+                    "select": [
+                        "golem_stomp",
+                        "weaponization"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "deep_reserves"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "specialized_basher",
+                        "still_as_a_statue"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "ultra_enhancement",
+                        "mind_surge"
+                    ]
+                }
+            }
+        }
+    },
+    "absorbs_energy": {
+        "name": "absorbs energy",
+        "description": "You can harness kinetic energy and transform it into other kinds of energy.",
+        "intrusion": "Energy goes to ground in a destructive way. Some predators feed directly on energy. An unintended item is drained of energy.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "absorb_kinetic_energy",
+                        "release_energy"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "energize_object"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "absorb_pure_energy",
+                        "improved_absorb_kinetic_energy"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "overcharge_energy"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "energize_creature"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "energize_crowd",
+                        "overcharge_device"
+                    ]
+                }
+            }
+        }
+    },
+    "awakens_dreams": {
+        "name": "awakens dreams",
+        "description": "You can pull images from dreams and bring them to life in the waking world.",
+        "intrusion": "An unexpected sleepwalking episode puts the character into a dangerous situation. A nightmare breaks free of a dream.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "dreamcraft",
+                        "oneirochemy"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "dream_thief"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "dream_becomes_reality",
+                        "enhanced_intellect"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "daydream"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "nightmare"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "chamber_of_dreams",
+                        "reactive_field"
+                    ]
+                }
+            }
+        }
+    },
+    "battles_robots": {
+        "name": "battles robots",
+        "description": "You excel in battling robots, automatons, and machine entities.",
+        "intrusion": "The robot explodes upon defeat. Other robots come after the character for revenge.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "machine_vulnerabilities",
+                        "tech_skills"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "defense_against_robots",
+                        "machine_hunting"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "disable_mechanisms",
+                        "surprise_attack"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "robot_fighter"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "drain_power"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "deactivate_mechanisms",
+                        "lethal_damage"
+                    ]
+                }
+            }
+        }
+    },
+    "bears_a_halo_of_fire": {
+        "name": "bears a halo of fire",
+        "description": "You can sheath your body in flames, which protects you and harms your foes.",
+        "intrusion": "Fire burns flammable material. Fire spreads out of control. Primitive creatures fear fire and often attack what they fear.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "shroud_of_flame"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "hurl_flame"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "wings_of_fire",
+                        "fiery_hand_of_doom"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "flameblade"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "fire_tendrils"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "fire_servant",
+                        "inferno_trail"
+                    ]
+                }
+            }
+        }
+    },
+    "blazes_with_radiance": {
+        "name": "blazes with radiance",
+        "description": "You can create light, sculpt it, bend it away from you, or gather it to use as a weapon.",
+        "intrusion": "Allies are accidentally dazzled or blinded. Bright flashes draw guards.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "enlightened",
+                        "illuminating_touch"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "dazzling_sunburst"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "burning_light",
+                        "skill_with_defense"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "sunlight"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "disappear"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "living_light",
+                        "defensive_field"
+                    ]
+                }
+            }
+        }
+    },
+    "brandishes_an_exotic_shield": {
+        "name": "brandishes an exotic shield",
+        "description": "You deploy an amazing shield of pure force that provides protection and some offensive options.",
+        "intrusion": "The shield is temporarily lost. A foe temporarily ends up with the shield.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "force_field_shield",
+                        "force_bash"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "enveloping_shield"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "healing_pulse",
+                        "throw_force_shield"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "energized_shield"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "force_wall"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "bouncing_shield",
+                        "shield_burst"
+                    ]
+                }
+            }
+        }
+    },
+    "builds_robots": {
+        "name": "builds robots",
+        "description": "Your robotic creations do as they are commanded.",
+        "intrusion": "The robot is hacked, gains a mind of its own, or unexpectedly detonates.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "robot_assistant",
+                        "robot_builder"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "robot_control"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "expert_follower",
+                        "skill_with_defense"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "robot_upgrade"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "robot_fleet"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "robot_evolution",
+                        "robot_upgrade"
+                    ]
+                }
+            }
+        }
+    },
+    "calculates_the_incalculable": {
+        "name": "calculates the incalculable",
+        "description": "Awesome mathematical ability allows you to model the world in real time, giving you an edge over everyone.",
+        "intrusion": "Too many predicted results threaten to overwhelm and stun the character. A result points to imminent disaster.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "predictive_equation",
+                        "higher_mathematics"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "predictive_model"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "subconscious_defense",
+                        "enhanced_intellect"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "cognizant_offense"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_intellect",
+                        "further_mathematics"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "knowing_the_unknown",
+                        "greater_enhanced_intellect"
+                    ]
+                }
+            }
+        }
+    },
+    "channels_divine_blessings": {
+        "name": "channels divine blessings",
+        "description": "A devout follower of a divine being, you channel some of your deity's power to achieve wonders.",
+        "intrusion": "A demon investigates divine magic use. A rival cult has issues with the character's teachings.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "blessing_of_the_gods"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_intellect"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "divine_radiance",
+                        "fire_bloom"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "overawe"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "divine_intervention"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "divine_symbol",
+                        "summon_demon"
+                    ]
+                }
+            }
+        }
+    },
+    "commands_mental_powers": {
+        "name": "commands mental powers",
+        "description": "You can pull images from dreams and bring them to life in the waking world.",
+        "intrusion": "Something glimpsed in the target's mind is horrifying. A feedback loop allows the target to read the character's mind.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "telepathic"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "mind_reading"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "psychic_burst",
+                        "psychic_suggestion"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "use_senses_of_others"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "precognition"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "mind_control",
+                        "telepathic_network"
+                    ]
+                }
+            }
+        }
+    },
+    "conducts_weird_science": {
+        "name": "conducts weird science",
+        "description": "Your preternatural insight and ability make you a scientist capable of amazing feats.",
+        "intrusion": "Creations get out of control. Side effects cannot always be predicted. Weird science terrifies people and can draw the media. When a device created or modified by weird science is depleted, it detonates.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "lab_analysis",
+                        "knowledge_skills"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "modify_device"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "better_living_through_chemistry",
+                        "incredible_health"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "knowledge_skills",
+                        "just_a_bit_mad"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "weird_science_breakthrough"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [
+                        "incredible_feat_of_science"
+                    ],
+                    "select": [
+                        "inventor",
+                        "defensive_field"
+                    ]
+                }
+            }
+        }
+    },
+    "consorts_with_the_dead": {
+        "name": "consorts with the dead",
+        "description": "The dead answer your questions, and their reanimated corpses serve you.",
+        "intrusion": "The character's necromantic reputation precedes them. A corpse seeks revenge for being reanimated.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "speaker_for_the_dead"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "necromancy"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "reading_the_room",
+                        "repair_flesh"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "greater_necromancy"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "terrifying_gaze"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "true_necromancy",
+                        "word_of_death"
+                    ]
+                }
+            }
+        }
+    },
+    "controls_beasts": {
+        "name": "controls beasts",
+        "description": "Your ability to communicate and lead beasts is uncanny.",
+        "intrusion": "The community is reluctant to welcome dangerous animals. Out-of-control beasts become a real hazard.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "beast_companion"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "soothe_the_savage",
+                        "communication"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "mount",
+                        "stronger_together"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "beast_eyes",
+                        "improved_companion"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "beast_call"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "as_if_one_creature",
+                        "control_the_savage"
+                    ]
+                }
+            }
+        }
+    },
+    "controls_gravity": {
+        "name": "controls gravity",
+        "description": "You can sway the attraction of gravity itself.",
+        "intrusion": "Onlookers react with unreasoning fear. A weird interaction sends an ally or object careening into the sky.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "hover"
+                    ],
+                    "select": [
+                        "weighty"
+                    ]
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_speed_edge"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "define_down",
+                        "gravity_cleave"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "field_of_gravity"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "flight"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "improved_gravity_cleave",
+                        "weight_of_the_world"
+                    ]
+                }
+            }
+        }
+    },
+    "crafts_illusions": {
+        "name": "crafts illusions",
+        "description": "You fashion images from light that are so perfect they seem real.",
+        "intrusion": "The illusion isn't believable. The illusion is pierced at just the wrong moment.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "minor_illusion"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "illusory_disguise"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "cast_illusion",
+                        "major_illusion"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "illusory_selves"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "terrifying_image"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "grandiose_illusion",
+                        "permanent_illusion"
+                    ]
+                }
+            }
+        }
+    },
+    "crafts_unique_objects": {
+        "name": "crafts unique objects",
+        "description": "You're an inventor of strange and useful objects.",
+        "intrusion": "The object malfunctions, breaks, or suffers catastrophic or unexpected failure.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "crafter",
+                        "master_identifier"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "artifact_tinkerer",
+                        "quick_work"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "master_crafter",
+                        "built-in_weaponry"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "cyphersmith"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "innovator"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "inventor",
+                        "fusion_armor"
+                    ]
+                }
+            }
+        }
+    },
+    "dances_with_dark_matter": {
+        "name": "dances with dark matter",
+        "description": "You can manipulate shadow and \"dark\" matter.",
+        "intrusion": "Dark matter skulks away as if possessed by a mind of its own.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "ribbons_of_dark_matter"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "void_wings"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "dark_matter_shroud",
+                        "dark_matter_strike"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "dark_matter_shell"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "windwracked_traveler"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "dark_matter_structure",
+                        "embrace_the_night"
+                    ]
+                }
+            }
+        }
+    },
+    "defends_the_gate": {
+        "name": "defends the gate",
+        "description": "Everyone wants you on their side when it comes to a fight because nothing gets by you.",
+        "intrusion": "A strategically important structure collapses. The enemy attacks from an unexpected direction.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "fortified_position",
+                        "rally_to_me"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "mind_for_might"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "fortification_builder",
+                        "divert_attacks"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_might"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "reinforcing_field"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "generate_force_field",
+                        "stun_attack"
+                    ]
+                }
+            }
+        }
+    },
+    "defends_the_weak": {
+        "name": "defends the weak",
+        "description": "You stand up for the helpless, the weak, and the unprotected.",
+        "intrusion": "A character focused on protecting others may periodically leave themselves vulnerable to attacks.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "courageous",
+                        "warding_shield"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "devoted_defender",
+                        "insight"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "dual_wards",
+                        "true_guardian"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "combat_challenge"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "willing_sacrifice"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "resuscitate",
+                        "true_defender"
+                    ]
+                }
+            }
+        }
+    },
+    "descends_from_nobility": {
+        "name": "descends from nobility",
+        "description": "A descendent of wealth and power, you carry a noble title and the abilities granted by a privileged upbringing.",
+        "intrusion": "Debts incurred by a family are owed by the character. A long-lost sibling seeks to disinherit rivals. An assassin finds the character.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "privileged_nobility"
+                    ],
+                    "select": [
+                        "retinue"
+                    ]
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "trained_interlocutor"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "advanced_command",
+                        "noble's_courage"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "expert_follower"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "asserting_your_privilege"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "able_assistance",
+                        "mind_of_a_leader"
+                    ]
+                }
+            }
+        }
+    },
+    "doesn't_do_much": {
+        "name": "doesn't do much",
+        "description": "You're a slacker, but you know a little about a lot of things.",
+        "intrusion": "New situations are confounding and stressful. Past actions (or inactions) come back to haunt the character.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "life_lessons"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "totally_chill"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "skill_with_attacks",
+                        "improvise"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "life_lessons",
+                        "greater_skill_with_defense"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_potential"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": []
+                }
+            }
+        }
+    },
+    "drives_like_a_maniac": {
+        "name": "drives like a maniac",
+        "description": "Whether balancing on two wheels, jumping another vehicle, or driving head-on toward an oncoming enemy car, you don't think about the risks when you're behind the wheel.",
+        "intrusion": "The engine develops a knock. The bridge on the road ahead is out. The windshield shatters. Someone unexpectedly runs in front of the vehicle.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "driver",
+                        "driving_on_the_edge"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "car_surfer",
+                        "stare_them_down"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "expert_driver",
+                        "enhanced_speed_edge"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "sharp-eyed",
+                        "enhanced_speed"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "something_in_the_road"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "trick_driver",
+                        "lethal_damage"
+                    ]
+                }
+            }
+        }
+    },
+    "emerged_from_the_obelisk": {
+        "name": "emerged from the obelisk",
+        "description": "Your body, hard as crystal, gives you a suite of unique abilities, gained after an interaction with a floating crystalline obelisk.",
+        "intrusion": "Cyphers and artifacts react unexpectedly in the character's hands.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "crystalline_body"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "hover"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "inhabit_crystal",
+                        "immovable"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "crystal_lens"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "resonant_frequency"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "resonant_quake",
+                        "return_to_the_obelisk"
+                    ]
+                }
+            }
+        }
+    },
+    "employs_magnetism": {
+        "name": "employs magnetism",
+        "description": "You command metal and the power of magnetism.",
+        "intrusion": "The metal twists, bends, or produces shrapnel. A lapse in concentration might cause something to slip or drop at just the wrong time.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "move_metal"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "repel_metal"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "destroy_metal",
+                        "guide_bolt"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "magnetic_field"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "command_metal"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "diamagnetism",
+                        "iron_punch"
+                    ]
+                }
+            }
+        }
+    },
+    "entertains": {
+        "name": "entertains",
+        "description": "You perform, mostly for the benefit of others.",
+        "intrusion": "The audience is annoyed or offended. Musical instruments break. Paints dry in their pots. The words to a poem or song are forgotten.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "levity"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "inspiration"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "knowledge_skills",
+                        "greater_enhanced_potential"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "calm"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "able_assistance"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "master_entertainer",
+                        "vindictive_performance"
+                    ]
+                }
+            }
+        }
+    },
+    "exists_in_two_places_at_once": {
+        "name": "exists in two places at once",
+        "description": "You exist in two places at once.",
+        "intrusion": "Perceiving the world from two different places disorients the character, causing momentary vertigo, nausea, or confusion.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "duplicate"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "share_senses"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "superior_duplicate",
+                        "resilient_duplicate"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "damage_transference"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "coordinated_effort"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "multiplicity",
+                        "resilient_duplicate"
+                    ]
+                }
+            }
+        }
+    },
+    "exists_partially_out_of_phase": {
+        "name": "exists partially out of phase",
+        "description": "A bit translucent, you're slightly out of phase and can move through solid objects.",
+        "intrusion": "The character is sent phasing into an unexpected dimension. The character becomes lost in a large solid.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "walk_through_walls"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "defensive_phasing"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "phased_attack",
+                        "phase_door"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "ghost"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "untouchable"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "enhanced_phased_attack",
+                        "phase_foe"
+                    ]
+                }
+            }
+        }
+    },
+    "explores_dark_places": {
+        "name": "explores dark places",
+        "description": "You're the archetypal treasure hunter, scavenger, and finder of lost things.",
+        "intrusion": "Possessions fall out of pockets or bags in the dark; maps get lost; information gained fails to include an important detail.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "superb_explorer"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "superb_infiltrator",
+                        "eyes_adjusted"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "nightstrike",
+                        "slippery_customer"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "hard-won_resilience"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "dark_explorer"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "blinding_attack",
+                        "embraced_by_darkness"
+                    ]
+                }
+            }
+        }
+    },
+    "fights_dirty": {
+        "name": "fights dirty",
+        "description": "You'll do anything to win a fight: bite, scratch, kick, trick, and worse.",
+        "intrusion": "People look poorly upon those who cheat or fight without honor. Sometimes a dirty trick backfires.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "tracker",
+                        "stalker"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "sneak",
+                        "quarry"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "betrayal",
+                        "surprise_attack"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "mind_games",
+                        "capable_warrior"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "using_the_environment"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "twisting_the_knife",
+                        "murderer"
+                    ]
+                }
+            }
+        }
+    },
+    "fights_with_panache": {
+        "name": "fights with panache",
+        "description": "You're a swashbuckling daredevil who fights with flamboyant style that's entertaining to watch.",
+        "intrusion": "The display comes off looking silly, clumsy, or unattractive.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "attack_flourish"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "quick_block"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "acrobatic_attack",
+                        "flamboyant_boast"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "block_for_another",
+                        "fast_kill"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "using_the_environment"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "agile_wit",
+                        "return_to_sender"
+                    ]
+                }
+            }
+        }
+    },
+    "flies_faster_than_a_bullet": {
+        "name": "flies faster than a bullet",
+        "description": "You can fly, and you're superstrong, hard to hurt, and fast too. Is there anything you can't do?",
+        "intrusion": "A nemesis finds the character. A strange material is found to nullify the character's abilities.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "hover"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_potential"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "hidden_reserves",
+                        "see_through_matter"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "blink_of_an_eye",
+                        "up_to_speed"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "not_dead_yet"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "burning_light",
+                        "ignore_affliction"
+                    ]
+                }
+            }
+        }
+    },
+    "focuses_mind_over_matter": {
+        "name": "focuses mind over matter",
+        "description": "You can telekinetically move objects with your mind without physically touching them.",
+        "intrusion": "One mental slip, and moving objects drop or fragile objects break. Sometimes the wrong item moves, falls, or breaks.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "divert_attacks"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "telekinesis"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "cloak_of_opportunity",
+                        "enhance_strength"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "apportation"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "psychokinetic_attack"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "improved_apportation",
+                        "reshape"
+                    ]
+                }
+            }
+        }
+    },
+    "fuses_flesh_and_steel": {
+        "name": "fuses flesh and steel",
+        "description": "Your body is part machine.",
+        "intrusion": "People in most societies are afraid of someone who is revealed to have mechanical parts.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_body"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "interface"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "sensing_package",
+                        "weaponization"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "fusion"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "deep_reserves"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "mind_surge",
+                        "ultra_enhancement"
+                    ]
+                }
+            }
+        }
+    },
+    "fuses_mind_and_machine": {
+        "name": "fuses mind and machine",
+        "description": "Electronic aids implanted in your brain make you a mental powerhouse.",
+        "intrusion": "Machines malfunction and shut down. Powerful machine intelligences can take control of lesser thinking machines. Some people don't trust a person who isn't fully organic.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_intellect",
+                        "knowledge_skills"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "network_tap"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "action_processor",
+                        "machine_telepathy"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_intellect",
+                        "knowledge_skills"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "see_the_future"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "machine_enhancement",
+                        "mind_surge"
+                    ]
+                }
+            }
+        }
+    },
+    "grows_to_towering_heights": {
+        "name": "grows to towering heights",
+        "description": "For brief periods, you can grow larger and, with enough experience, to towering heights.",
+        "intrusion": "Rapid growth knocks over furnishings or smashes through ceilings or hanging lights. An enlarged character breaks through the floor.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "enlarge",
+                        "freakishly_large"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "bigger",
+                        "advantages_of_being_big"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "huge",
+                        "throw"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "grab"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "gargantuan"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "colossal",
+                        "lethal_damage"
+                    ]
+                }
+            }
+        }
+    },
+    "helps_their_friends": {
+        "name": "helps their friends",
+        "description": "You love your friends and help them out of any difficulty, no matter what.",
+        "intrusion": "Others sometimes have ulterior motives. The law takes an undue interest. Even when everything goes right, repercussions follow.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "friendly_help",
+                        "courageous"
+                    ],
+                    "select": [
+                        "advice_from_a_friend"
+                    ]
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "weather_the_vicissitudes"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "buddy_system",
+                        "skill_with_attacks"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "in_harm's_way",
+                        "enhanced_physique"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "inspire_action"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "deep_consideration",
+                        "skill_with_defense"
+                    ]
+                }
+            }
+        }
+    },
+    "howls_at_the_moon": {
+        "name": "howls at the moon",
+        "description": "For brief periods, you become a fearsome and powerful creature with control issues.",
+        "intrusion": "The change happens in an uncontrolled fashion. People are terrified of monsters.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "beast_form"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "controlled_change"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "bigger_beast_form",
+                        "greater_beast_form"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "greater_controlled_change"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_beast_form"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "lethal_damage",
+                        "perfect_control"
+                    ]
+                }
+            }
+        }
+    },
+    "hunts": {
+        "name": "hunts",
+        "description": "You are a stalking hunter who excels at bringing down your selected quarry.",
+        "intrusion": "The quarry notices the character. The quarry isn't as vulnerable as it seemed.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "attack_flourish",
+                        "tracker"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "quarry",
+                        "sneak"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "horde_fighting",
+                        "sprint_and_grab"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "surprise_attack"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "hunter's_drive"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "greater_skill_with_attacks",
+                        "multiple_quarry"
+                    ]
+                }
+            }
+        }
+    },
+    "infiltrates": {
+        "name": "infiltrates",
+        "description": "Subtlety, guile, and stealth allow you to get in where others can't.",
+        "intrusion": "Spies are treated harshly when caught. Allies disavow infiltrators who get caught. Some secrets are better left unknown.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "stealth_skills",
+                        "sense_attitudes"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "impersonate",
+                        "flight_not_fight"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "awareness",
+                        "skill_with_attacks"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "invisibility"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "evasion"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "brainwashing",
+                        "spring_away"
+                    ]
+                }
+            }
+        }
+    },
+    "interprets_the_law": {
+        "name": "interprets the law",
+        "description": "You excel at winning others over to your views.",
+        "intrusion": "Onlookers react badly to a know-it-all. A distraction or interruption throws the character's argument off the rails.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "opening_statement",
+                        "knowledge_of_the_law"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "debate"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "able_assistance",
+                        "enhanced_intellect_edge"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "castigate"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "no_one_knows_better"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "greater_enhanced_potential",
+                        "legal_intern"
+                    ]
+                }
+            }
+        }
+    },
+    "is_idolized_by_millions": {
+        "name": "is idolized by millions",
+        "description": "You're a celebrity and most people adore you.",
+        "intrusion": "Fans are endangered or hurt on your behalf. Someone in your entourage betrays you. Your show, tour, contract, or other event is canceled. The media posts photos of you in an embarrassing situation.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "entourage",
+                        "celebrity_talent"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "perks_of_stardom"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "incredible_health",
+                        "skill_with_attacks"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "captivate_with_starshine",
+                        "expert_follower"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "do_you_know_who_i_am?"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "transcend_the_script",
+                        "improved_companion"
+                    ]
+                }
+            }
+        }
+    },
+    "is_licensed_to_carry": {
+        "name": "is licensed to carry",
+        "description": "You carry a gun and you know how to use it in a fight.",
+        "intrusion": "Misfire or jam! The attack fails and the action is lost, plus an additional action is needed to fix the problem.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "gunner",
+                        "practiced_with_guns"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "careful_shot"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "trained_gunner",
+                        "damage_dealer"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "snap_shot"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "arc_spray"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "special_shot",
+                        "lethal_damage"
+                    ]
+                }
+            }
+        }
+    },
+    "is_wanted_by_the_law": {
+        "name": "is wanted by the law",
+        "description": "\"WANTED, DEAD OR ALIVE\" posters (or their equivalent) have appeared featuring your face. It's up to you whether it's a mistake that snowballed out of control or you actually would kill someone just for looking at you.",
+        "intrusion": "Most people do not take well to discovering a wanted outlaw in their midst.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_speed",
+                        "danger_sense"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "surprise_attack"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "outlaw_reputation",
+                        "successive_attack"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "fast_kill"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "band_of_desperados"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "not_dead_yet",
+                        "lethal_damage"
+                    ]
+                }
+            }
+        }
+    },
+    "keeps_a_magic_ally": {
+        "name": "keeps a magic ally",
+        "description": "An allied magic creature bound to an object (such as a minor djinn in a lamp, or a ghost in a pipe) is your friend, protector, and weapon.",
+        "intrusion": "The creature unexpectedly disappears into its bound object. The bound object cracks. The creature disagrees and doesn't do as asked. The creature says it's leaving unless a task is performed for it.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "bound_magic_creature"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "object_bond",
+                        "hidden_closet"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "minor_wish",
+                        "mount"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "improved_object_bond"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "moderate_wish"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "object_bond_mastery",
+                        "trust_to_luck"
+                    ]
+                }
+            }
+        }
+    },
+    "leads": {
+        "name": "leads",
+        "description": "Your natural leadership capability allows you to command others, including a loyal band of followers.",
+        "intrusion": "Followers fail, betray, lie, become corrupted, get kidnapped, or die.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "natural_charisma",
+                        "good_advice"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_potential",
+                        "basic_follower"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "advanced_command",
+                        "expert_follower"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "captivate_or_inspire"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_potential"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "band_of_followers",
+                        "mind_of_a_leader"
+                    ]
+                }
+            }
+        }
+    },
+    "learns_quickly": {
+        "name": "learns quickly",
+        "description": "You deal with bad situations as they arise, learning new lessons each time.",
+        "intrusion": "Accidents and mistakes are great teachers.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_intellect",
+                        "there's_your_problem"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "quick_study"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [
+                        "hard_to_distract"
+                    ],
+                    "select": [
+                        "enhanced_intellect_edge",
+                        "flex_skill"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "pay_it_forward"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_intellect",
+                        "learned_a_few_things"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "two_things_at_once",
+                        "skill_with_defense"
+                    ]
+                }
+            }
+        }
+    },
+    "lives_in_the_wilderness": {
+        "name": "lives in the wilderness",
+        "description": "You can survive in badlands where others perish.",
+        "intrusion": "People in cities and towns sometimes disparage those who look (and smell) like they live in the wilds, as if they were ignorant or barbaric.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "wilderness_life",
+                        "enhanced_might"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "living_off_the_land",
+                        "wilderness_explorer"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "animal_senses_and_sensibilities",
+                        "wilderness_encouragement"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "wilderness_awareness"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "the_wild_is_on_your_side"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "one_with_the_wild",
+                        "wild_camouflage"
+                    ]
+                }
+            }
+        }
+    },
+    "looks_for_trouble": {
+        "name": "looks for trouble",
+        "description": "You're a scrapper and love a good fight.",
+        "intrusion": "Weapons break or fly from even the strongest grip. Brawlers trip and fall. Even the battlefield can work against you with things falling or collapsing.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "fists_of_fury",
+                        "wound_tender"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "protector",
+                        "straightforward"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "skill_with_attacks",
+                        "greater_enhanced_potential"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "knock_out"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "mastery_with_attacks"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "greater_enhanced_might",
+                        "lethal_damage"
+                    ]
+                }
+            }
+        }
+    },
+    "loves_the_void": {
+        "name": "loves the void",
+        "description": "When it's just you, your spacesuit, and the panorama of stars wheeling out forever and always, you are at peace.",
+        "intrusion": "Spacesuits develop glitches. Air refill cartridges sometimes misreport capacity. Micrometeorites are common in space.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "vacuum_skilled",
+                        "microgravity_adept"
+                    ],
+                    "select": [
+                        "have_spacesuit,_will_travel"
+                    ]
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_speed_edge",
+                        "enhanced_physique"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "space_fighting",
+                        "fusion_armor"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "silent_as_space",
+                        "push_off_and_throw"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "microgravity_avoidance"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "weightless_shot",
+                        "reactive_field"
+                    ]
+                }
+            }
+        }
+    },
+    "masters_defense": {
+        "name": "masters defense",
+        "description": "You use protective equipment and practiced techniques to avoid becoming hurt in a fight.",
+        "intrusion": "Shields break when hit, as do weapons used to parry. Armor straps break.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "shield_master"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "sturdy",
+                        "practiced_in_armor"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "dodge_and_resist",
+                        "dodge_and_respond"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "tower_of_will",
+                        "experienced_in_armor"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "nothing_but_defend"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "defense_master",
+                        "wear_it_well"
+                    ]
+                }
+            }
+        }
+    },
+    "masters_spells": {
+        "name": "masters spells",
+        "description": "By specializing in spellcasting and keeping a spellbook, you can quickly cast spells of arcing lightning, rolling fire, creeping shadow, and summoning.",
+        "intrusion": "The spell goes wrong. The summoned creature turns on the caster. A rival spellcaster is drawn to the magic use.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "arcane_flare"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "ray_of_confusion"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "fire_bloom",
+                        "summon_giant_spider"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "soul_interrogation"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "granite_wall"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "summon_demon",
+                        "word_of_death"
+                    ]
+                }
+            }
+        }
+    },
+    "masters_the_swarm": {
+        "name": "masters the swarm",
+        "description": "Insects. Rats. Bats. Even birds. You master one type of small creature that obeys you.",
+        "intrusion": "A command is misunderstood. Control is erratic or is lost. Bites and stings are not uncommon for masters of the swarm.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "influence_swarm"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "control_swarm"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "living_armor",
+                        "skill_with_attacks"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "call_swarm"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "gain_unusual_companion"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "deadly_swarm",
+                        "skill_with_defense"
+                    ]
+                }
+            }
+        }
+    },
+    "masters_weaponry": {
+        "name": "masters weaponry",
+        "description": "You are a master user of a particular type of weapon, be it a sword, whip, dagger, gun, or something else.",
+        "intrusion": "Weapons break. Weapons can be stolen. Weapons can be dropped or forced out of your hand.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "weapon_master",
+                        "weapon_crafter"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "weapon_defense"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "rapid_attack",
+                        "disarming_strike"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "never_fumble"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "extreme_mastery"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "murderer",
+                        "deadly_strike"
+                    ]
+                }
+            }
+        }
+    },
+    "metes_out_justice": {
+        "name": "metes out justice",
+        "description": "You right wrongs, protect the innocent, and punish the guilty.",
+        "intrusion": "Guilt or innocence can be complicated. Some people resent the presumption of a self-appointed judge. Passing judgment makes enemies.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "make_judgment",
+                        "designation"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "defend_the_innocent",
+                        "improved_designation"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "defend_all_the_innocent",
+                        "punish_the_guilty"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "find_the_guilty",
+                        "greater_designation"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "punish_all_the_guilty"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "damn_the_guilty",
+                        "inspire_the_innocent"
+                    ]
+                }
+            }
+        }
+    },
+    "moves_like_a_cat": {
+        "name": "moves like a cat",
+        "description": "Lithe, flexible, and graceful, you move quickly and smoothly, and never seem to be where danger is.",
+        "intrusion": "Even a cat can be clumsy. A jump isn't quite as easy as it looks. An escape move is so overzealous that it sends the character right into harm's way.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_speed",
+                        "balance"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "movement_skills",
+                        "safe_fall"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [
+                        "hard_to_hit"
+                    ],
+                    "select": [
+                        "enhanced_speed_edge",
+                        "greater_enhanced_speed"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "quick_strike"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "slippery"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "perfect_speed_burst",
+                        "greater_enhanced_speed"
+                    ]
+                }
+            }
+        }
+    },
+    "moves_like_the_wind": {
+        "name": "moves like the wind",
+        "description": "You can move so fast that you become a blur.",
+        "intrusion": "Surfaces can be slick or offer hidden obstacles. The movement of other creatures can be unpredictable, and the character might run into them.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_speed",
+                        "fleet_of_foot"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "hard_to_hit"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "speed_burst",
+                        "greater_enhanced_speed"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "blink_of_an_eye"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "hard_to_see"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "perfect_speed_burst",
+                        "incredible_running_speed"
+                    ]
+                }
+            }
+        }
+    },
+    "murders": {
+        "name": "murders",
+        "description": "You're an assassin, whether by trade, by inclination, or because it was that or be killed yourself. (Someone who Murders might have additional equipment, including three doses of a level 2 blade poison that inflicts 5 points of damage.)",
+        "intrusion": "Most people do not react well to a professional killer.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "surprise_attack",
+                        "assassin_skills"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "quick_death",
+                        "infiltrator"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "awareness",
+                        "poison_crafter"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "better_surprise_attack"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "damage_dealer"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "escape_plan",
+                        "murderer"
+                    ]
+                }
+            }
+        }
+    },
+    "needs_no_weapon": {
+        "name": "needs no weapon",
+        "description": "Powerful punches, kicks, elbows, knees, and full body movements are all the weapons you need.",
+        "intrusion": "Striking certain foes hurts you as much as it hurts them. Opponents with weapons have greater reach. Complicated martial arts moves can knock you off balance.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "fists_of_fury",
+                        "flesh_of_stone"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "advantage_to_disadvantage",
+                        "unarmed_fighting_style"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "moving_like_water",
+                        "greater_enhanced_potential"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "divert_attacks"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "stun_attack"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "master_of_unarmed_fighting_style",
+                        "lethal_damage"
+                    ]
+                }
+            }
+        }
+    },
+    "never_says_die": {
+        "name": "never says die",
+        "description": "You never quit, can shrug off a beating, and always come back for more.",
+        "intrusion": "Sometimes, it's equipment or weapons that give out.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "improved_recovery",
+                        "push_on_through"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "ignore_the_pain"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "blood_fever",
+                        "hidden_reserves"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "increasing_determination",
+                        "outlast_the_foe"
+                    ]
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "not_dead_yet"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "final_defiance",
+                        "ignore_affliction"
+                    ]
+                }
+            }
+        }
+    },
+    "operates_undercover": {
+        "name": "operates undercover",
+        "description": "Under the guise of someone else, you seek to find answers the powerful do not want divulged.",
+        "intrusion": "Bad luck can ruin the best plans. Disguises fail. Allies are revealed to be agents, too.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "investigate"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "disguise"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "agent_provocateur",
+                        "run_and_fight"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "pull_a_fast_one"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "using_what's_available"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "trust_to_luck",
+                        "deadly_strike"
+                    ]
+                }
+            }
+        }
+    },
+    "performs_feats_of_strength": {
+        "name": "performs feats of strength",
+        "description": "A muscled prodigy, you can haul incredible weight, hurl your body through the air, and punch through doors.",
+        "intrusion": "It's easy to break delicate things or hurt someone accidentally.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "athlete",
+                        "enhanced_might_edge"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "feat_of_strength"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "iron_fist",
+                        "throw"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_might"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "brute_strike"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "greater_enhanced_might",
+                        "jump_attack"
+                    ]
+                }
+            }
+        }
+    },
+    "pilots_starcraft": {
+        "name": "pilots starcraft",
+        "description": "You're a crack starship pilot.",
+        "intrusion": "Starcraft get lost, break down, and are attacked in space. An alien stowaway is found.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "pilot",
+                        "flex_lore"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "salvage_and_comfort",
+                        "mentally_tough"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [
+                        "expert_pilot"
+                    ],
+                    "select": [
+                        "ship_footing",
+                        "machine_companion"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "sensor_array",
+                        "enhanced_speed"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "like_the_back_of_your_hand"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [
+                        "incomparable_pilot"
+                    ],
+                    "select": [
+                        "remote_control",
+                        "skill_with_attacks"
+                    ]
+                }
+            }
+        }
+    },
+    "plays_too_many_games": {
+        "name": "plays too many games",
+        "description": "Lessons, reflexes, and strategies you've learned by playing too many games have applications in the real world, where people who don't play enough toil and live their dreary lives.",
+        "intrusion": "Missed attacks strike the wrong target. Equipment breaks. Sometimes people react negatively to someone who has lived most of their life in imaginary game worlds.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "game_lessons",
+                        "gamer"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "zero_dark_eyes",
+                        "resist_tricks"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "sniper's_aim",
+                        "enhanced_speed_edge"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "mind_games",
+                        "enhanced_intellect"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "gamer's_fortitude"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "mind_surge",
+                        "gaming_god"
+                    ]
+                }
+            }
+        }
+    },
+    "rages": {
+        "name": "rages",
+        "description": "When you go berserk, everyone fears you.",
+        "intrusion": "It's easy for a berserker to lose control and attack friend as well as foe.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "frenzy"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_might",
+                        "movement_skills"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "power_strike",
+                        "unarmored_fighter"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "greater_frenzy"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "attack_and_attack_again"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "greater_enhanced_potential",
+                        "lethal_damage"
+                    ]
+                }
+            }
+        }
+    },
+    "rides_the_lightning": {
+        "name": "rides the lightning",
+        "description": "You create and discharge electrical power.",
+        "intrusion": "Targets other than those intended are shocked. Objects explode.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "shock",
+                        "charge"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "bolt_rider"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "electric_armor",
+                        "drain_charge"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "bolts_of_power"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "electrical_flight"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "flash_across_the_miles",
+                        "wall_of_lightning"
+                    ]
+                }
+            }
+        }
+    },
+    "runs_away": {
+        "name": "runs away",
+        "description": "Your first instinct is to run from danger, and you've gotten very good at it.",
+        "intrusion": "Quick movements sometimes lead to dropped items, slipping on uneven ground, or going the wrong way by accident.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "go_defensive"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_speed",
+                        "quick_to_flee"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "incredible_running_speed",
+                        "greater_enhanced_speed"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "increasing_determination",
+                        "quick_wits"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "go_to_ground"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "burst_of_escape",
+                        "skill_with_defense"
+                    ]
+                }
+            }
+        }
+    },
+    "sailed_beneath_the_jolly_roger": {
+        "name": "sailed beneath the jolly roger",
+        "description": "You sailed with a crew of dread pirates, but you've decided to end your days as a pirate and join some other cause. The question is, will your past let you go so easily?",
+        "intrusion": "The dangers of the high seas are many, including severe storms and disease. Other pirates sometimes get ahead through betrayal. A pirate tracks down former sailing mates to find hidden treasure.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "ignore_the_pain",
+                        "sailor"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "taking_advantage",
+                        "fearsome_reputation"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "skill_with_attacks",
+                        "skill_with_defense"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "sea_legs",
+                        "movement_skills"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "lost_in_the_chaos"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "duel_to_the_death",
+                        "successive_attack"
+                    ]
+                }
+            }
+        }
+    },
+    "scavenges": {
+        "name": "scavenges",
+        "description": "When not running and hiding, you sift the ruins of civilization for useful remnants to ensure your survival.",
+        "intrusion": "An item made with recycled junk breaks. Someone shows up claiming that the useful item or piece of junk scavenged belongs to them. A recycled cypher explodes.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "post-apocalyptic_survivor",
+                        "ruin_lore"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "junkmonger"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "taking_advantage",
+                        "incredible_health"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "know_where_to_look"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "recycled_cyphers"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "artifact_scavenger",
+                        "reactive_field"
+                    ]
+                }
+            }
+        }
+    },
+    "sees_beyond": {
+        "name": "sees beyond",
+        "description": "You have a psychic sense that allows you to see what others cannot.",
+        "intrusion": "Some secrets are too terrible to know.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "see_the_unseen"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "see_through_matter"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "find_the_hidden",
+                        "sensor"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "remote_viewing"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "see_through_time"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "mental_projection",
+                        "total_awareness"
+                    ]
+                }
+            }
+        }
+    },
+    "separates_mind_from_body": {
+        "name": "separates mind from body",
+        "description": "You can project your mind out of your body to see faraway places and learn secrets that would otherwise remain hidden.",
+        "intrusion": "Reuniting mind and body can sometimes be disorienting and require a character to spend a few moments to get their bearings.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "third_eye"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "open_mind",
+                        "sharp_senses"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "roaming_third_eye",
+                        "find_the_hidden"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "sensor"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "psychic_passenger"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "mental_projection",
+                        "improved_sensor"
+                    ]
+                }
+            }
+        }
+    },
+    "shepherds_the_community": {
+        "name": "shepherds the community",
+        "description": "You keep the place where you live safe from all danger.",
+        "intrusion": "People in the community misunderstand the character's motives. Rivals try to oust the character.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "community_knowledge",
+                        "community_activist"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "skill_with_attacks"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "shepherd's_fury",
+                        "skill_with_defense"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_potential"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "evasion"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "greater_skill_with_attacks",
+                        "protective_wall"
+                    ]
+                }
+            }
+        }
+    },
+    "shepherds_spirits": {
+        "name": "shepherds spirits",
+        "description": "Wandering souls, nature spirits, and elemental beings aid and support you.",
+        "intrusion": "Some people don't trust those who deal with spirits. The dead sometimes don't want shepherding.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "question_the_spirits"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "spirit_accomplice"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "command_spirit",
+                        "preternatural_senses"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "wraith_cloak"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "call_dead_spirit"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "call_otherworldly_spirit",
+                        "infuse_spirit"
+                    ]
+                }
+            }
+        }
+    },
+    "shreds_the_walls_of_the_world": {
+        "name": "shreds the walls of the world",
+        "description": "Speed plus phasing gives you a unique ability to evade danger and simultaneously inflict damage.",
+        "intrusion": "Moving so quickly while sprinting sometimes leads to stumbles on unexpected, exotic obstacles.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "phase_sprint",
+                        "disrupting_touch"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "scratch_existence"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "invisible_phasing",
+                        "walk_through_walls"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "phase_detonation"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "very_long_sprinting"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "shred_existence",
+                        "untouchable_while_moving"
+                    ]
+                }
+            }
+        }
+    },
+    "siphons_power": {
+        "name": "siphons power",
+        "description": "You suck power out of machines and creatures alike in order to empower yourself.",
+        "intrusion": "Drained power also transmits something unwanted-compulsions, afflictions, or alien thoughts. Siphoned power can overload the character, causing feedback.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "drain_machine"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "drain_creature"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "drain_at_a_distance",
+                        "unraveling_consumption"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "store_energy"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "share_the_power"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "explosive_release",
+                        "sun_siphon"
+                    ]
+                }
+            }
+        }
+    },
+    "slays_monsters": {
+        "name": "slays monsters",
+        "description": "You kill monsters.",
+        "intrusion": "The monster laid a trap or set an ambush. The monster has previously undisclosed abilities. The monster's mother vows revenge.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "practiced_with_swords",
+                        "monster_bane",
+                        "monster_lore"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "will_of_legend"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [
+                        "trained_slayer"
+                    ],
+                    "select": [
+                        "improved_monster_bane",
+                        "misdirect"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "fight_on"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "greater_skill_with_attacks"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "murderer",
+                        "heroic_monster_bane"
+                    ]
+                }
+            }
+        }
+    },
+    "solves_mysteries": {
+        "name": "solves mysteries",
+        "description": "You're a master of deduction, using evidence to find the answer.",
+        "intrusion": "Evidence disappears, red herrings confuse, and witnesses lie. Initial research can be faulty.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "investigator",
+                        "sleuth"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "out_of_harm's_way"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "you_studied",
+                        "skill_with_attacks"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "draw_conclusion"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "defuse_situation"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "seize_the_initiative",
+                        "greater_skill_with_defense"
+                    ]
+                }
+            }
+        }
+    },
+    "speaks_for_the_land": {
+        "name": "speaks for the land",
+        "description": "Your spiritual connection to nature and the environment grants you mystical abilities.",
+        "intrusion": "An injured natural (but dangerous) creature is discovered. Someone's poaching wildlife for their skins, leaving the carcasses to rot. A tree falls in the forest, one of the last elder trees.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "seeds_of_fury",
+                        "wilderness_lore"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "grasping_foliage"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "soothe_the_savage",
+                        "communication"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "moon_shape"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "insect_eruption"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "call_the_storm",
+                        "earthquake"
+                    ]
+                }
+            }
+        }
+    },
+    "stands_like_a_bastion": {
+        "name": "stands like a bastion",
+        "description": "Your armor, along with your size, strength, incredible training, or machine enhancement, makes you difficult to move or hurt.",
+        "intrusion": "Armor is damaged. Small foes conspire in ingenious ways.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "practiced_in_armor",
+                        "experienced_defender"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "resist_the_elements"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [
+                        "unmovable"
+                    ],
+                    "select": [
+                        "greater_enhanced_might",
+                        "practiced_with_all_weapons"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "living_wall"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "hardiness",
+                        "mastery_in_armor"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "lethal_damage",
+                        "shield_training"
+                    ]
+                }
+            }
+        }
+    },
+    "takes_animal_shape": {
+        "name": "takes animal shape",
+        "description": "A shapechanger who can take the form of various animals.",
+        "intrusion": "The character unexpectedly changes form. An NPC is frightened by or aggressive toward the shapeshifter. The transformation takes longer than expected.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "animal_shape"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "communication",
+                        "soothe_the_savage"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "bigger_animal_shape",
+                        "greater_beast_form"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "animal_scrying"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "hard_to_kill"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "blurring_speed",
+                        "lend_animal_shape"
+                    ]
+                }
+            }
+        }
+    },
+    "talks_to_machines": {
+        "name": "talks to machines",
+        "description": "You use your organic brain like a computer, interfacing \"wirelessly\" with any electronic device. You can control and influence them in ways that others can't.",
+        "intrusion": "The machine malfunctions or acts unpredictably.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "machine_affinity",
+                        "distant_interface"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "coaxing_power",
+                        "charm_machine"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "intelligent_interface",
+                        "command_machine"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "machine_companion",
+                        "robot_fighter"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "information_gathering"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "control_machine",
+                        "improved_machine_companion"
+                    ]
+                }
+            }
+        }
+    },
+    "throws_with_deadly_accuracy": {
+        "name": "throws with deadly accuracy",
+        "description": "Everything that leaves your hand goes exactly where you'd like it to go and at the range and speed to make the perfect impact.",
+        "intrusion": "Missed attacks strike the wrong target. Ricochets can be dangerous. Improvised weapons break.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "precision"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "careful_aim"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "quick_throw",
+                        "skill_with_defense"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "everything_is_a_weapon",
+                        "specialized_throwing"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "whirlwind_of_throws"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "lethal_damage",
+                        "mastery_with_defense"
+                    ]
+                }
+            }
+        }
+    },
+    "thunders": {
+        "name": "thunders",
+        "description": "You emit destructive sound and manipulate soundscapes.",
+        "intrusion": "Loud noises attract attention.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "thunder_beam"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "sound_conversion_barrier"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "nullify_sound",
+                        "echolocation"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "shattering_shout"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "subsonic_rumble",
+                        "amplify_sounds"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "earthquake",
+                        "lethal_vibration"
+                    ]
+                }
+            }
+        }
+    },
+    "travels_through_time": {
+        "name": "travels through time",
+        "description": "You can see through time, try to reach through it, and eventually even travel through it.",
+        "intrusion": "Paradoxes are created. Others remember past events differently.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "anticipation"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "see_history"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "temporal_acceleration",
+                        "time_loop"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "temporal_dislocation"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "time_doppelganger"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "call_through_time",
+                        "time_travel"
+                    ]
+                }
+            }
+        }
+    },
+    "uses_wild_magic": {
+        "name": "uses wild magic",
+        "description": "spellcaster who learns a variety of spells instead of focusing on just one kind of magic.",
+        "intrusion": "A spell performs erratically or rebounds upon the caster. Something interferes with preparing spells. Spellcasting attracts the attention of a powerful creature or potential rival. The cypher spell being cast is replaced with that of a random cypher.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "magical_repertoire",
+                        "cypher_casting"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "expanded_repertoire"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "cypher_surge",
+                        "faster_wild_magic"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "expanded_repertoire"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "magical_training"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "maximize_cypher",
+                        "wild_insight"
+                    ]
+                }
+            }
+        }
+    },
+    "walks_the_wild_woods": {
+        "name": "walks the wild woods",
+        "description": "An adherent of nature magic who draws on the power and strength of trees.",
+        "intrusion": "A wooden character catches fire. A wild swing from a tree branch hits or trips an ally. Some trees have evil hearts and hate all walking things.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "wilderness_life",
+                        "patient_recovery"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "wooden_body"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "tree_companion",
+                        "wilderness_awareness"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "tree_travel"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "great_tree"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "dreadwood",
+                        "restorative_bloom"
+                    ]
+                }
+            }
+        }
+    },
+    "was_foretold": {
+        "name": "was foretold",
+        "description": "You are the \"chosen one,\" and prophecy, prediction, prognostication, or some other method of determination expects great things of you one day.",
+        "intrusion": "An enemy described in prophecy appears. Unbelievers threaten to ruin the moment. The character gains a reputation in outside circles as a fraud.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "interaction_skills",
+                        "knowing"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "destined_for_greatness"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "overcome_all_obstacles",
+                        "hard-won_resilience"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "center_of_attention"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "show_them_the_way"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "as_foretold_in_prophecy",
+                        "greater_enhanced_potential"
+                    ]
+                }
+            }
+        }
+    },
+    "wears_a_sheen_of_ice": {
+        "name": "wears a sheen of ice",
+        "description": "You command the wintery power of cold and ice.",
+        "intrusion": "Ice makes surfaces slippery. Extreme cold causes objects to crack and break.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "ice_armor"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "frost_touch"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "freezing_touch",
+                        "ice_creation"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "resilient_ice_armor"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "cold_burst"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "ice_storm",
+                        "winter_gauntlets"
+                    ]
+                }
+            }
+        }
+    },
+    "wears_power_armor": {
+        "name": "wears power armor",
+        "description": "Tier 1: Powered Armor",
+        "intrusion": "The armor won't come off. The armor acts under its own power. The armor suffers a momentary power loss. NPCs are scared by the power armor.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_might"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "heads-up_display"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "fusion_armor",
+                        "incredible_health"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "force_blast"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "field-reinforced_armor"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "masterful_armor_modification",
+                        "masterful_armor_modification"
+                    ]
+                }
+            }
+        }
+    },
+    "weilds_an_enchanted_weapon": {
+        "name": "weilds an enchanted weapon",
+        "description": "One who channels magic through or from a weapon to create a unique fighting style.",
+        "intrusion": "A weapon breaks or is dropped. The weapon loses its connection to you until you use an action to reestablish the attunement. The weapon's energy discharges in an unexpected way.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "enchanted_weapon",
+                        "innate_power",
+                        "charge_weapon"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "power_crash"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "rapid_attack",
+                        "throw_enchanted_weapon"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "defending_weapon"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "enchanted_movement"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "deadly_strike",
+                        "spin_attack"
+                    ]
+                }
+            }
+        }
+    },
+    "wields_two_weapons_at_once": {
+        "name": "wields two weapons at once",
+        "description": "You bear steel with both hands, ready to take on any foe.",
+        "intrusion": "A blade snaps in two or a weapon flies loose from its bearer's grip.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "dual_light_wield"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "double_strike",
+                        "infiltrator"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "dual_medium_wield",
+                        "precise_cut"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "dual_defense"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "dual_distraction"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "disarming_attack",
+                        "spin_attack"
+                    ]
+                }
+            }
+        }
+    },
+    "works_for_a_living": {
+        "name": "works for a living",
+        "description": "You take great satisfaction in a job well done, whether it's coding, building houses, or mining asteroids.",
+        "intrusion": "Repairs sometimes fail. Wiring can be tricky to decipher and still carry an electrical charge. Some people are rude to those who work for a living.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "handy"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "muscles_of_iron"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "eye_for_detail",
+                        "improvise"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "enhanced_might",
+                        "tough_it_out"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "expert_skill"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "greater_enhanced_potential",
+                        "hard-won_resilience"
+                    ]
+                }
+            }
+        }
+    },
+    "works_miracles": {
+        "name": "works miracles",
+        "description": "You can heal others with a touch, alter time to help others, and are generally beloved by everyone.",
+        "intrusion": "Attempts to heal might cause harm instead. A community or individual needs a healer so desperately that they hold one against their will.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "healing_touch"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "alleviate"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "font_of_healing",
+                        "miraculous_health"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "inspire_action"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "undo"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "greater_healing_touch",
+                        "restore_life"
+                    ]
+                }
+            }
+        }
+    },
+    "works_the_back_alleys": {
+        "name": "works the back alleys",
+        "description": "You make your way unseen, stealing from the wealthy to achieve your ends.",
+        "intrusion": "Thieves are thrown in jail. Powerful enemies are made.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "stealth_skills"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "underworld_contacts"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "pull_a_fast_one",
+                        "guild_training"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "master_thief"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "dirty_fighter"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "alley_rat",
+                        "all-out_con"
+                    ]
+                }
+            }
+        }
+    },
+    "works_the_system": {
+        "name": "works the system",
+        "description": "You can exploit flaws in artificial systems, including but not limited to computer code.",
+        "intrusion": "Contacts sometimes have ulterior motives. Devices sometimes have failsafes or even traps.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "hack_the_impossible",
+                        "computer_programming"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "connected"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "confidence_artist",
+                        "skill_with_attacks"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "confuse_enemy"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "work_the_friendship"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "call_in_favor",
+                        "greater_enhanced_potential"
+                    ]
+                }
+            }
+        }
+    },
+    "would_rather_be_reading": {
+        "name": "would rather be reading",
+        "description": "Books are your friends. What's more important than knowledge? Nothing.",
+        "intrusion": "Books burn, get wet, or get lost. Computers break or lose power. Glasses break.",
+        "tier_abilities": {
+            "tier_1": {
+                "abilities": {
+                    "granted": [
+                        "knowledge_is_power"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_2": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_intellect"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_3": {
+                "abilities": {
+                    "granted": [],
+                    "select": [
+                        "applying_your_knowledge",
+                        "flex_skill"
+                    ]
+                }
+            },
+            "tier_4": {
+                "abilities": {
+                    "granted": [
+                        "knowledge_is_power",
+                        "knowing_the_unknown"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_5": {
+                "abilities": {
+                    "granted": [
+                        "greater_enhanced_intellect"
+                    ],
+                    "select": []
+                }
+            },
+            "tier_6": {
+                "abilities": {
+                    "granted": [
+                        "knowledge_is_power"
+                    ],
+                    "select": [
+                        "tower_of_intellect",
+                        "read_the_signs"
+                    ]
+                }
+            }
+        }
+    }
+}

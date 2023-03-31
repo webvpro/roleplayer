@@ -1,34 +1,44 @@
 <template>
-  <div>
-    <div class="navbar sticky top-0 z-30 bg-primary text-primary-content">
+  <div class="flex flex-col h-screen">
+    <div
+      class="navbar sticky top-0 z-30 bg-primary text-primary-content max-h-12"
+    >
       <div class="navbar-start">
-        <a href="/" class="btn btn-ghost normal-case text-xl">PlayCypher.com</a>
+        <div class="dropdown sm:hidden">
+          <button class="btn btn-square btn-ghost text-base-content text-2xl">
+            <Icon name="ic:outline-menu" />
+          </button>
+          <ul
+            tabindex="0"
+            class="dropdown-content menu bg-base-100 text-base-content w-56"
+          >
+            <li><NuxtLink to="/compendium">Compendiums</NuxtLink></li>
+            <li><a>Create</a></li>
+            <li><a>Play</a></li>
+          </ul>
+        </div>
+        <a href="/" class="btn btn-ghost normal-case md:text-xl text-sm"
+          >PlayCypher.com</a
+        >
       </div>
       <div class="navbar-center">
-        <ul
-          class="menu menu-horizontal bg-base-100 text-base-content rounded-box"
-        >
-          <li><NuxtLink to="/compendium">Compendiums</NuxtLink></li>
-          <li><a>Create</a></li>
-          <li><a>Play</a></li>
-        </ul>
+        <div class="hidden md:block">
+          <ul
+            class="menu menu-horizontal bg-base-100 text-base-content rounded-box"
+          >
+            <li><NuxtLink to="/compendium">Compendiums</NuxtLink></li>
+            <li><a>Create</a></li>
+            <li><a>Play</a></li>
+          </ul>
+        </div>
       </div>
       <div class="navbar-end">
-        <select
-          class="select w-auto max-w-xs capitalize text-base-content"
-          v-model="colorMode.preference"
-        >
-          <option disabled selected>Theme</option>
-          <option v-for="theme of themes" :key="theme">
-            {{ theme }}
-          </option>
-        </select>
         <ProfileNav />
       </div>
     </div>
-    <div class="h-full w-full">
+    <main id="main-body" class="relative flex flex-col flex-1 overflow-hidden">
       <slot />
-    </div>
+    </main>
   </div>
 </template>
 <script setup>

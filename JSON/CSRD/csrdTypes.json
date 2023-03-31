@@ -1,7 +1,7 @@
 {
     "warrior": {
-        "name": "WARRIOR",
-        "descriptions": [],
+        "name": "Warrior",
+        "description": "Warriors are a good ally to have in a fight. Warriors know how to use weapons and defend yourself. Depending on the genre and setting in question, this might mean wielding a sword and shield in the gladiatorial arena, an AK-47 and a bandolier of grenades in a savage firefight, or a blaster rifle and powered armor when exploring an alien planet.",
         "intrusions": [
             {
                 "name": "Perfect Setup",
@@ -43,10 +43,35 @@
                 "description": "Appropriate clothing and two weapons of your choice, plus one expensive item, two moderately priced items, and up to four inexpensive items."
             }
         ],
+        "backgrounds": [
+            "You were in the military and have friends who still serve. Your former commander remembers you well.",
+            "You were the bodyguard of a wealthy woman who accused you of theft. You left her service in disgrace.",
+            "You were the bouncer in a local bar for a while, and the patrons there remember you.",
+            "You trained with a highly respected mentor. They regard you well, but they have many enemies.",
+            "You trained in an isolated monastery. The monks think of you as a brother, but you're a stranger to all others.",
+            "You have no formal training. Your abilities come to you naturally (or unnaturally).",
+            "You spent time on the streets and were in prison for a while.",
+            "You were conscripted into military service, but you deserted before long.",
+            "You served as a bodyguard to a powerful criminal who now owes you their life.",
+            "You worked as a police officer or constable of some kind. Everyone knows you, but their opinions of you vary.",
+            "Your older sibling is an infamous character who has been disgraced.",
+            "You served as a guard for someone who traveled extensively. You know a smattering of people in many locations.",
+            "Your best friend is a teacher or scholar. They are a great source of knowledge.",
+            "You and a friend both smoke the same kind of rare, expensive tobacco. The two of you get together weekly to chat and smoke.",
+            "Your uncle runs a theater in town. You know all the actors and watch all the shows for free.",
+            "Your craftsman friend sometimes calls on you for help. However, they pay you well.",
+            "Your mentor wrote a book on martial arts. Sometimes people seek you out to ask about its stranger passages.",
+            "Someone you fought alongside in the military is now the mayor of a nearby town.",
+            "You saved the lives of a family when their house burned down. They're indebted to you, and their neighbors regard you as a hero.",
+            "Your old trainer still expects you to come back and clean up after their classes; when you do, they occasionally share interesting rumors."
+        ],
         "tier_abilities": {
             "tier_1": {
                 "number": 1,
-                "limit": 4,
+                "limit": {
+                    "name": "four",
+                    "number": 4
+                },
                 "abilities": [
                     "bash",
                     "combat_prowess",
@@ -63,7 +88,10 @@
             },
             "tier_2": {
                 "number": 2,
-                "limit": 2,
+                "limit": {
+                    "name": "two",
+                    "number": 2
+                },
                 "abilities": [
                     "crushing_blow",
                     "hemorrhage",
@@ -75,7 +103,10 @@
             },
             "tier_3": {
                 "number": 3,
-                "limit": 3,
+                "limit": {
+                    "name": "three",
+                    "number": 3
+                },
                 "abilities": [
                     "deadly_aim",
                     "energy_resistance",
@@ -93,7 +124,10 @@
             },
             "tier_4": {
                 "number": 4,
-                "limit": 2,
+                "limit": {
+                    "name": "two",
+                    "number": 2
+                },
                 "abilities": [
                     "amazing_effort",
                     "capable_warrior",
@@ -108,7 +142,10 @@
             },
             "tier_5": {
                 "number": 5,
-                "limit": 3,
+                "limit": {
+                    "name": "three",
+                    "number": 3
+                },
                 "abilities": [
                     "adroit_cypher_use",
                     "arc_spray",
@@ -122,7 +159,10 @@
             },
             "tier_6": {
                 "number": 6,
-                "limit": 2,
+                "limit": {
+                    "name": "two",
+                    "number": 2
+                },
                 "abilities": [
                     "again_and_again",
                     "finishing_blow",
@@ -135,8 +175,8 @@
         }
     },
     "adept": {
-        "name": "ADEPT",
-        "descriptions": [],
+        "name": "Adept",
+        "description": "Adepts master powers or abilities outside the experience, understanding, and sometimes belief of others. They might be magic, psychic powers, mutant abilities, or just a wide variety of intricate devices, depending on the setting.",
         "intrusions": [
             {
                 "name": "Advantageous Malfunction",
@@ -150,6 +190,28 @@
                 "name": "Inexplicably Unbroken",
                 "description": "An inactive, ruined, or presumed-destroyed device temporarily activates and performs a useful function relevant to the situation. This is enough to buy you some time for a better solution, alleviate a complication that was interfering with your abilities, or just get you one more use out of a depleted cypher or artifact."
             }
+        ],
+        "backgrounds": [
+            "You served as an apprentice for an Adept respected and feared by many people. Now you bear their mark.",
+            "You studied in a school infamous for its dark, brooding instructors and graduates.",
+            "You learned your abilities in the temple of an obscure god. Its priests and worshippers, although small in number, respect and admire your talents and potential.",
+            "While traveling alone, you saved the life of a powerful person. They remain indebted to you.",
+            "Your mother was a powerful Adept while she lived, helpful to many locals. They look upon you kindly, but they also expect much from you.",
+            "You owe money to a number of people and don't have the funds to pay your debts.",
+            "You failed disgracefully at your initial studies with your teacher and now proceed on your own.",
+            "You learned your skills faster than your teachers had ever seen before. The powers that be took notice and are paying close attention.",
+            "You killed a well-known criminal in self-defense, earning the respect of many and the enmity of a dangerous few.",
+            "You trained as a Warrior, but your Adept predilections eventually led you down a different path. Your former comrades don't understand you, but they respect you.",
+            "While studying to be an Adept, you worked as an assistant for a bank, making friends with the owner and the clientele.",
+            "Your family owns a large vineyard nearby known to all for its fine wine and fair business dealings.",
+            "You trained for a time with a group of influential Adepts, and they still look upon you with fondness.",
+            "You worked the gardens in the palace of an influential noble or person of wealth. They wouldn't remember you, but you made friends with their young daughter.",
+            "An experiment you conducted in the past went horribly awry. The locals remember you as a dangerous and foolhardy individual.",
+            "You hail from a distant place where you were well known and regarded, but people here treat you with suspicion.",
+            "People you meet seem put off by the strange birthmark on your face.",
+            "Your best friend is also an Adept. You and your friend share discoveries and secrets readily.",
+            "You know a local merchant very well. Since you give them so much business, they offer you discounts and special treatment.",
+            "You belong to a secretive social club that gathers monthly to drink and talk."
         ],
         "starting_pools": {
             "Intellect": 12,
@@ -181,7 +243,10 @@
         "tier_abilities": {
             "tier_1": {
                 "number": 1,
-                "limit": 4,
+                "limit": {
+                    "name": "four",
+                    "number": 4
+                },
                 "abilities": [
                     "distortion",
                     "erase_memories",
@@ -198,7 +263,10 @@
             },
             "tier_2": {
                 "number": 2,
-                "limit": 1,
+                "limit": {
+                    "name": "one",
+                    "number": 1
+                },
                 "abilities": [
                     "adaptation",
                     "cutting_light",
@@ -211,7 +279,10 @@
             },
             "tier_3": {
                 "number": 3,
-                "limit": 2,
+                "limit": {
+                    "name": "two",
+                    "number": 2
+                },
                 "abilities": [
                     "adroit_cypher_use",
                     "countermeasures",
@@ -224,7 +295,10 @@
             },
             "tier_4": {
                 "number": 4,
-                "limit": 1,
+                "limit": {
+                    "name": "one",
+                    "number": 1
+                },
                 "abilities": [
                     "death_touch",
                     "exile",
@@ -240,7 +314,10 @@
             },
             "tier_5": {
                 "number": 5,
-                "limit": 2,
+                "limit": {
+                    "name": "two",
+                    "number": 2
+                },
                 "abilities": [
                     "absorb_energy",
                     "concussion",
@@ -255,7 +332,10 @@
             },
             "tier_6": {
                 "number": 6,
-                "limit": 1,
+                "limit": {
+                    "name": "one",
+                    "number": 1
+                },
                 "abilities": [
                     "control_weather",
                     "earthquake",
@@ -267,8 +347,8 @@
         }
     },
     "explorer": {
-        "name": "EXPLORER",
-        "descriptions": [],
+        "name": "Explorer",
+        "description": "Explorers are a person of action and physical ability, fearlessly facing the unknown. Explorers travel to strange, exotic, and dangerous places, and discover new things. This means Explorers are physical but also probably knowledgeable.",
         "intrusions": [
             {
                 "name": "Fortuitous Malfunction",
@@ -282,6 +362,28 @@
                 "name": "Weak Strain",
                 "description": "The poison or disease turns out not to be as debilitating or deadly as it first seemed, and inflicts only half the damage that it would have otherwise."
             }
+        ],
+        "backgrounds": [
+            "You were a star high school athlete. You're still in great shape, but those were the glory days, man.",
+            "Your brother is the lead singer in a really popular band.",
+            "You have made a number of discoveries in your explorations, but not all opportunities to capitalize on them have panned out yet.",
+            "You were a cop, but you gave it up after encountering corruption on the force.",
+            "Your parents were missionaries, so you spent much of your young life traveling to exotic places.",
+            "You served in the military with honor.",
+            "You received assistance from a secretive organization, which paid for your schooling. Now they seem to want a lot more from you.",
+            "You went to a prestigious university on an athletic scholarship, but you excelled in class as well as on the field.",
+            "Your best friend from your youth is now an influential member of the government.",
+            "You used to be a teacher. Your students remember you fondly.",
+            "You worked as a small-time criminal operative until you were caught and served some time in jail, after which you tried to go straight.",
+            "Your greatest discovery to date was stolen by your arch-rival.",
+            "You belong to an exclusive organization of Explorers whose existence is not widely known.",
+            "You were kidnapped as a small child under mysterious circumstances, although you were recovered safely. The case still has some notoriety.",
+            "When you were young, you were addicted to narcotics, and now you are a recovering addict.",
+            "While exploring a remote location, you saw something strange you've never been able to explain.",
+            "You own a small bar or restaurant.",
+            "You published a book about some of your exploits and discoveries, and it has achieved some acclaim.",
+            "Your sister owns a store and gives you a hefty discount.",
+            "Your father is a high-ranking officer in the military with many connections."
         ],
         "starting_pools": {
             "Intellect": 9,
@@ -313,7 +415,10 @@
         "tier_abilities": {
             "tier_1": {
                 "number": 1,
-                "limit": 4,
+                "limit": {
+                    "name": "four",
+                    "number": 4
+                },
                 "abilities": [
                     "block",
                     "danger_sense",
@@ -354,7 +459,10 @@
             },
             "tier_3": {
                 "number": 3,
-                "limit": 3,
+                "limit": {
+                    "name": "three",
+                    "number": 3
+                },
                 "abilities": [
                     "controlled_fall",
                     "experienced_in_armor",
@@ -373,7 +481,10 @@
             },
             "tier_4": {
                 "number": 4,
-                "limit": 2,
+                "limit": {
+                    "name": "two",
+                    "number": 2
+                },
                 "abilities": [
                     "capable_warrior",
                     "expert_skill",
@@ -386,7 +497,10 @@
             },
             "tier_5": {
                 "number": 5,
-                "limit": 3,
+                "limit": {
+                    "name": "three",
+                    "number": 3
+                },
                 "abilities": [
                     "adroit_cypher_use",
                     "free_to_move",
@@ -402,7 +516,10 @@
             },
             "tier_6": {
                 "number": 6,
-                "limit": 3,
+                "limit": {
+                    "name": "three",
+                    "number": 3
+                },
                 "abilities": [
                     "again_and_again",
                     "inspire_coordinated_actions",
@@ -417,8 +534,8 @@
         }
     },
     "speaker": {
-        "name": "SPEAKER",
-        "descriptions": [],
+        "name": "Speaker",
+        "description": "Speakers good with words and good with people. Speakers talk their way past challenges and out of jams, and get people to do what they want.",
         "intrusions": [
             {
                 "name": "Friendly NPC",
@@ -432,6 +549,28 @@
                 "name": "Unexpected Gift",
                 "description": "An NPC hands you a physical gift you were not expecting, one that helps put the situation at ease if things seem strained, or provides you with a new insight for understanding the context of the situation if there's something you're failing to understand or grasp."
             }
+        ],
+        "backgrounds": [
+            "One of your parents was a famous entertainer in their early years and hoped you would excel in the same medium.",
+            "Your brother is the lead singer in a really popular band.",
+            "You were inducted into a secret society that claims to hold and protect esoteric knowledge opposing the forces of evil.",
+            "You lost one of your parents to alcoholism. They may still be alive, but you'd be hard pressed to find forgiveness.",
+            "You have no memory of anything that happened to you before the age of 18.",
+            "Your grandparents raised you on a farm far from bustling urban centers. You like to think the instruction they gave you prepared you for anything.",
+            "As an orphan, you had a difficult childhood, and your entry into adulthood was challenging.",
+            "You grew up in extreme poverty, among criminals. You still have some connections with the old neighborhood.",
+            "You served as an envoy for a powerful and influential person in the past, and they still look upon you with favor.",
+            "You have an annoying rival who always seems to get in your way or foil your plans.",
+            "You've worked yourself into the position of spokesperson for an organization or company of some importance.",
+            "Your neighbors were murdered, and the mystery remains unsolved.",
+            "You have traveled extensively, and during that time you accumulated quite a collection of strange souvenirs.",
+            "Your childhood sweetheart ended up with your best friend (now your ex-best friend).",
+            "You are part of a maligned minority, but you work to bring the injustice of your status to public attention.",
+            "You're part owner of a local bar, where you're something of a whiz in creating specialty cocktails.",
+            "You once ran a con that cheated important people out of money, and they want revenge.",
+            "You used to act in a traveling theater, and they remember you fondly (as do people in the places you visited).",
+            "You are in a close romantic relationship with someone in local politics.",
+            "Someone out there tries to pose as you, using your identity, often for nefarious ends. You've never met the culprit, but you'd certainly like to."
         ],
         "starting_pools": {
             "Speed": 9,
@@ -463,7 +602,10 @@
         "tier_abilities": {
             "tier_1": {
                 "number": 1,
-                "limit": 4,
+                "limit": {
+                    "name": "four",
+                    "number": 2
+                },
                 "abilities": [
                     "anecdote",
                     "babel",
@@ -482,7 +624,10 @@
             },
             "tier_2": {
                 "number": 2,
-                "limit": 2,
+                "limit": {
+                    "name": "two",
+                    "number": 2
+                },
                 "abilities": [
                     "basic_follower",
                     "calm_stranger",
@@ -499,7 +644,10 @@
             },
             "tier_3": {
                 "number": 3,
-                "limit": 3,
+                "limit": {
+                    "name": "three",
+                    "number": 3
+                },
                 "abilities": [
                     "accelerate",
                     "blend_in",
@@ -517,7 +665,10 @@
             },
             "tier_4": {
                 "number": 4,
-                "limit": 2,
+                "limit": {
+                    "name": "two",
+                    "number": 2
+                },
                 "abilities": [
                     "anticipate_attack",
                     "confounding_banter",
@@ -532,7 +683,10 @@
             },
             "tier_5": {
                 "number": 5,
-                "limit": 3,
+                "limit": {
+                    "name": "three",
+                    "number": 3
+                },
                 "abilities": [
                     "adroit_cypher_use",
                     "discipline_of_watchfulness",
@@ -547,7 +701,10 @@
             },
             "tier_6": {
                 "number": 6,
-                "limit": 2,
+                "limit": {
+                    "name": "two",
+                    "number": 2
+                },
                 "abilities": [
                     "assume_control",
                     "battle_management",
