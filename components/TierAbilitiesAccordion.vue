@@ -86,7 +86,7 @@
       </div>
       <div v-if="tier.select.length">
         <p
-          :v-if="collection !== 'flavors'"
+          v-if="collection !== 'flavors'"
           class="p-6 rounded-md bg-secondary text-secondary-content border-2 border-base-content m-2"
         >
           {{ collectionTierAbilityText(tier) }}
