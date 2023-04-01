@@ -4,7 +4,7 @@ import csrdTypesJSON from '@/JSON/CSRD/csrdTypes.json';
 import csrdAbilitiesJSON from '@/JSON/CSRD/csrdAbilities.json';
 import csrdFociJSON from '@/JSON/CSRD/csrdFoci.json';
 import csrdDescriptorsJSON from '@/JSON/CSRD/csrdDescriptors.json';
-
+import csrdFlavorsJSON from '@/JSON/CSRD/csrdFlavors.json';
 export const useCollections = key => {
   return useState(key, () => undefined);
 };
@@ -41,6 +41,12 @@ export const useCompendium = (key = 'csrd') => {
         description:
           'The descriptor defines a character, it flavors everything they do. The differences between a Charming Explorer and a Vicious Explorer are considerable. The descriptor changes the way those characters go about every action. Your descriptor places your character in the situation (the first adventure, which starts the campaign) and helps provide motivation. It is the adjective of the sentence "I am an adjective noun who verbs."',
         items: csrdDescriptorsJSON,
+      },
+      flavors: {
+        name: 'Flavors',
+        description:
+          'Flavors are groups of special abilities the GM and players can use to alter a character type to make it more to their liking or more appropriate to the genre or setting. For example, if a player wants to create a magic-using thief character, she could play an Adept with stealth flavoring. In a science fiction setting, a Warrior might also have knowledge of machinery, so the character could be flavored with technology.',
+        items: csrdFlavorsJSON,
       },
     },
   };

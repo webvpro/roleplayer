@@ -1,7 +1,7 @@
 {
     "stealth_flavor": {
         "name": "stealth flavor",
-        "description": "",
+        "description": "Characters with the stealth flavor are good at sneaking around, infiltrating places they don't belong, and deceiving others. They use these abilities in a variety of ways, including combat. An Explorer with stealth flavor might be a thief, while a Warrior with stealth flavor might be an assassin. An Explorer with stealth flavor in a superhero setting might be a crimefighter who stalks the streets at night.",
         "tier_abilities": {
             "tier_1": {
                 "abilities": {
@@ -79,7 +79,7 @@
     },
     "technology_flavor": {
         "name": "technology flavor",
-        "description": "",
+        "description": "Characters with a flavor of technology typically are from science fiction or at least modern-day settings (although anything is possible). They excel at using, dealing with, and building machines. An Explorer with technology flavor might be a starship pilot, and a Speaker flavored with technology could be a techno-priest.",
         "tier_abilities": {
             "tier_1": {
                 "abilities": {
@@ -155,7 +155,7 @@
     },
     "magic_flavor": {
         "name": "magic flavor",
-        "description": "",
+        "description": "You know a little about magic. You might not be a wizard, but you know the basics—how it works, and how to accomplish a few wondrous things. Of course, in your setting, \"magic\" might actually mean psychic powers, mutant abilities, weird alien tech, or anything else that produces interesting and useful effects.",
         "tier_abilities": {
             "tier_1": {
                 "abilities": {
@@ -232,7 +232,7 @@
     },
     "combat_flavor": {
         "name": "combat flavor",
-        "description": "",
+        "description": "Combat flavor makes a character more martial. A Speaker with combat flavor in a fantasy setting would be a battle bard. An Explorer with combat flavor in a historical game might be a pirate. An Adept flavored with combat in a science fiction setting could be a veteran of a thousand psychic wars.",
         "tier_abilities": {
             "tier_1": {
                 "abilities": {
@@ -301,7 +301,7 @@
     },
     "skills_and_knowledge_flavor": {
         "name": "skills and knowledge flavor",
-        "description": "",
+        "description": "This flavor is for characters in roles that call for more knowledge and more real-world application of talent. It's less flashy and dramatic than supernatural powers or the ability to hack apart multiple foes, but sometimes expertise or know-how is the real solution to a problem.",
         "tier_abilities": {
             "tier_1": {
                 "abilities": {
