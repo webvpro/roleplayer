@@ -6,7 +6,7 @@
     },
     collection: {
       type: String,
-      default: 'focus',
+      default: 'i',
     },
     tab_index_bump: {
       type: Number,
@@ -15,13 +15,14 @@
   });
   const collectionTierAbilityText = tier => {
     const tierNum = parseInt(tier.key.split('_').slice(-1));
-    if (props.collection === 'focus') {
+    if (props.collection === 'i') {
       return `Choose one of the abilities listed`;
-    } else {
+    } else if (props.collection === 'types') {
       return tierNum == 1
-        ? `Choose four of the abilities listed below. You can't choose the same ability more than once unless its description says otherwise. The full description for each listed ability can be found in Abilities, which also has descriptions for flavor and focus abilities in a single vast catalog.`
+        ? `Choose four of the abilities listed below. You can't choose the same ability more than once unless its description says otherwise. The full description for each listed ability can be found in Abilities, which also has descriptions for flavor and us abilities in a single vast catalog.`
         : `Choose ${tier.limit} of the abilities listed below (or from a lower tier) to add to your repertoire. In addition, you can replace one of your lower-tier abilities with a different one`;
     }
+    return null;
   };
   const emit = defineEmits(['SelectedItem']);
   const itemClick = id => {
@@ -41,7 +42,7 @@
       };
 
       console.log(abilities);
-      if (props.collection !== 'focus') {
+      if (props.collection == 'types') {
         tierAbilitiesObj.key = tierKey;
         tierAbilitiesObj.granted = [];
         tierAbilitiesObj.select = abilities;
@@ -86,6 +87,7 @@
       </div>
       <div v-if="tier.select.length">
         <p
+          v-if="!!collectionTierAbilityText(tier)"
           class="p-6 rounded-md bg-primary text-primary-content border-2 border-base-content m-2"
         >
           {{ collectionTierAbilityText(tier) }}
