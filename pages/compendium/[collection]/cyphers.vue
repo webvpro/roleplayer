@@ -1,5 +1,5 @@
 <template>
-  <div class="drawer drawer-end">
+  <div class="drawer drawer-end h-full mb-3 w-auto">
     <input
       id="item-details"
       type="checkbox"
@@ -14,12 +14,12 @@
         >
           <div
             v-for="cypherKey in Object.keys(cyphers)"
-            class="shadow-xl p-6 card card-compact w-96 bg-base-100 min-h-56 max-h-64"
+            class="shadow-xl p-3 card card-compact w-full bg-base-100 h-96 min-w-98 sm:mb-2"
             :key="cypherKey"
           >
             <h2 class="card-title capitalize">{{ cyphers[cypherKey].name }}</h2>
             <div class="card-body">
-              <p class="overflow-ellipsis overflow-hidden w-80 p-4 h-24">
+              <p class="line-clamp-5 max-h-56">
                 {{ cyphers[cypherKey].effect }}
               </p>
               <div class="card-actions justify-end mt-2">

@@ -62,15 +62,15 @@
     v-for="(tier, idx) in tierAbilities"
     :key="tier.key"
     :tabindex="idx + tab_index_bump"
-    class="collapse bg-primary text-primary-content rounded-md m-3"
+    class="collapse text-primary-content m-3 p-0 rounded-b-md peer-checked:rounded-b-none"
   >
-    <input type="checkbox" />
-    <div class="collapse-title text-xl">
-      <button class="btn text-left text-lg text-neutral-content capitalize">
-        {{ tier.key.split('_').join(': ') }}
-      </button>
+    <input type="checkbox" class="peer" />
+    <div
+      class="collapse-title text-xl btn rounded-b-none text-left text-lg text-neutral-content capitalize"
+    >
+      {{ tier.key.split('_').join(': ') }}
     </div>
-    <div class="collapse-content rounded-md m-3">
+    <div :id="`list-${tier.key}`" class="collapse-content bg-primary">
       <div v-if="tier.granted.length" class="">
         <a
           v-for="ability in tier.granted"
