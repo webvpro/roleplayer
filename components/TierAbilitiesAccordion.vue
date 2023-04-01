@@ -22,7 +22,7 @@
         ? `Choose four of the abilities listed below. You can't choose the same ability more than once unless its description says otherwise. The full description for each listed ability can be found in Abilities, which also has descriptions for flavor and focus abilities in a single vast catalog.`
         : `Choose ${tier.limit} of the abilities listed below (or from a lower tier) to add to your repertoire. In addition, you can replace one of your lower-tier abilities with a different one`;
     }
-    return null;
+    return '';
   };
   const emit = defineEmits(['SelectedItem']);
   const itemClick = id => {
@@ -86,7 +86,8 @@
       </div>
       <div v-if="tier.select.length">
         <p
-          class="p-6 rounded-md bg-primary text-primary-content border-2 border-base-content m-2"
+          :v-if="collection !== 'flavors'"
+          class="p-6 rounded-md bg-secondary text-secondary-content border-2 border-base-content m-2"
         >
           {{ collectionTierAbilityText(tier) }}
         </p>

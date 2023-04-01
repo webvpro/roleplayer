@@ -60,10 +60,16 @@
         >
           {{ selectedItem.description }}
         </div>
-
+        <p
+          class="p-6 rounded-md bg-secondary text-secondary-content border-2 border-base-content m-2"
+        >
+          At a given tier, abilities from a flavor are traded one for one with
+          standard abilities from a type.
+        </p>
         <TierAbilitiesAccordion
           :tier_abilities="selectedItem.tier_abilities"
           @selected-item="openAbilityModal"
+          collection="flavors"
         />
       </div>
     </div>
