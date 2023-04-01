@@ -5,6 +5,7 @@ import csrdAbilitiesJSON from '@/JSON/CSRD/csrdAbilities.json';
 import csrdFociJSON from '@/JSON/CSRD/csrdFoci.json';
 import csrdDescriptorsJSON from '@/JSON/CSRD/csrdDescriptors.json';
 import csrdFlavorsJSON from '@/JSON/CSRD/csrdFlavors.json';
+import csrdCyphersJSON from '@/JSON/CSRD/csrdCyphers.json';
 export const useCollections = key => {
   return useState(key, () => undefined);
 };
@@ -47,6 +48,12 @@ export const useCompendium = (key = 'csrd') => {
         description:
           'Flavors are groups of special abilities the GM and players can use to alter a character type to make it more to their liking or more appropriate to the genre or setting. For example, if a player wants to create a magic-using thief character, she could play an Adept with stealth flavoring. In a science fiction setting, a Warrior might also have knowledge of machinery, so the character could be flavored with technology.',
         items: csrdFlavorsJSON,
+      },
+      cyphers: {
+        name: 'Cyphers',
+        description:
+          'Cyphers are one-use abilities that characters gain over the course of play. They have cool powers that can heal, make attacks, ease or hinder task rolls, or (in a more supernatural and extreme example) produce effects such as nullifying gravity or turning something invisible.',
+        items: csrdCyphersJSON,
       },
     },
   };
