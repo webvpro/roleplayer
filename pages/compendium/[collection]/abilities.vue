@@ -41,13 +41,12 @@
         v-if="selectedItem"
         class="w-96 md:w-2/3 bg-secondary text-secondary-content"
       >
-        <div class="navbar">
+        <div class="navbar h-auto">
           <div class="navbar-start">
             <a class="btn btn-ghost normal-case text-xl">{{
               selectedItem.name
             }}</a>
           </div>
-          <div class="navbar-center hidden lg:flex"></div>
           <div class="navbar-end">
             <button class="btn btn-ghost" @click="closeDrawer">
               <Icon class="text-lg" name="radix-icons:cross-2" />

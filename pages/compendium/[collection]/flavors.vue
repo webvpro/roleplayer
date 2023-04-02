@@ -41,7 +41,9 @@
         v-if="selectedItem"
         class="w-96 md:w-2/3 bg-secondary text-secondary-content"
       >
-        <div class="navbar">
+        <div
+          class="navbar border-b-base-300 border-b-2 text-secondary-content h-16"
+        >
           <div class="navbar-start">
             <a class="btn btn-ghost text-xl capitalize">{{
               selectedItem.name
@@ -54,7 +56,6 @@
             </button>
           </div>
         </div>
-        <div class="divider"></div>
         <div
           class="p-6 rounded-md border-dashed border-2 border-base-content m-2"
         >
@@ -73,34 +74,12 @@
         />
       </div>
     </div>
-    <input
-      type="checkbox"
-      id="ability-modal"
-      class="modal-toggle"
-      v-model="toggleAbilityModal"
-    />
-    <label for="ability-modal" class="modal modal-bottom sm:modal-middle">
-      <div class="modal-box p-0">
-        <div
-          v-if="selectedAbility"
-          class="mockup-window border bg-base-300 p-6"
-        >
-          <h3 class="font-bold text-lg">{{ selectedAbility.name }}</h3>
-          <p class="p-3">{{ selectedAbility.description }}</p>
-          <div class="modal-action">
-            <button class="btn m-3" @click.stop="closeAbilityModal()">
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-    </label>
+    <AbilityModal :ability="selectedAbility" @close-modal="closeAbilityModal" />
   </div>
 </template>
 <script setup>
   const {compendium} = useCompendium('csrd');
   const toggleDetailDrawer = ref(false);
-  const toggleAbilityModal = ref(false);
   const selectedAbility = ref(null);
   const flavors = compendium.value.collections.flavors.items;
   const abilities = compendium.value.collections.abilities;
@@ -111,25 +90,16 @@
       selectedItem.value = null;
     }
   });
-  watch(toggleAbilityModal, value => {
-    if (!value) {
-      selectedAbility.value = null;
-    }
-  });
+
   const getSelectedItem = id => {
     console.log(id);
     selectedItem.value = flavors[id];
     toggleDetailDrawer.value = true;
   };
-  const closeDrawer = () => {
-    toggleDetailDrawer.value = false;
-  };
   const openAbilityModal = id => {
-    console.log(id);
     selectedAbility.value = abilities.items[id];
-    toggleAbilityModal.value = true;
   };
-  const closeAbilityModal = () => {
-    toggleAbilityModal.value = false;
+  const closeAbilityModal = item => {
+    selectedAbility.value = null;
   };
 </script>

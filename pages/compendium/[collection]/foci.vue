@@ -57,34 +57,12 @@
         <TierAbilitiesAccordion :tier_abilities="selectedItem.tier_abilities" @selected-item="openAbilityModal" />
       </div>
     </div>
-    <input
-      type="checkbox"
-      id="ability-modal"
-      class="modal-toggle"
-      v-model="toggleAbilityModal"
-    />
-    <label for="ability-modal" class="modal modal-bottom sm:modal-middle">
-      <div class="modal-box p-0">
-        <div
-          v-if="selectedAbility"
-          class="mockup-window border bg-base-300 p-6"
-        >
-          <h3 class="font-bold text-lg">{{ selectedAbility.name }}</h3>
-          <p class="p-3">{{ selectedAbility.description }}</p>
-          <div class="modal-action">
-            <button class="btn m-3" @click.stop="closeAbilityModal()">
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-    </label>
+    <AbilityModal :ability="selectedAbility" @close-modal="closeAbilityModal" />
   </div>
 </template>
 <script setup>
   const {compendium} = useCompendium('csrd');
   const toggleDetailDrawer = ref(false);
-  const toggleAbilityModal = ref(false);
   const selectedAbility = ref(null);
   const foci = compendium.value.collections.foci.items;
   const abilities = compendium.value.collections.abilities;
@@ -93,11 +71,6 @@
   watch(toggleDetailDrawer, value => {
     if (!value) {
       selectedItem.value = null;
-    }
-  });
-  watch(toggleAbilityModal, value => {
-    if (!value) {
-      selectedAbility.value = null;
     }
   });
 const getSelectedItem = id => {
@@ -111,10 +84,9 @@ const getSelectedItem = id => {
 const openAbilityModal = id => {
     console.log(id)
     selectedAbility.value = abilities.items[id];
-    toggleAbilityModal.value = true;
   };
   const closeAbilityModal = () => {
-    toggleAbilityModal.value = false;
+    selectedAbility.value = null;
   };
   
 </script>

@@ -140,34 +140,12 @@
         />
       </div>
     </div>
-    <input
-      type="checkbox"
-      id="ability-modal"
-      class="modal-toggle"
-      v-model="toggleAbilityModal"
-    />
-    <label for="ability-modal" class="modal modal-bottom sm:modal-middle">
-      <div class="modal-box p-0">
-        <div
-          v-if="selectedAbility"
-          class="mockup-window border bg-base-300 p-6"
-        >
-          <h3 class="font-bold text-lg">{{ selectedAbility.name }}</h3>
-          <p class="p-3">{{ selectedAbility.description }}</p>
-          <div class="modal-action">
-            <button class="btn m-3" @click.stop="closeAbilityModal()">
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-    </label>
+    <AbilityModal :ability="selectedAbility" @close-modal="closeAbilityModal" />
   </div>
 </template>
 <script setup>
   const {compendium} = useCompendium('csrd');
   const toggleDetailDrawer = ref(false);
-  const toggleAbilityModal = ref(false);
   const selectedAbility = ref(null);
   const selectedTab = ref('features');
   const pcTypes = compendium.value.collections.types.items;
@@ -179,11 +157,7 @@
       selectedItem.value = null;
     }
   });
-  watch(toggleAbilityModal, value => {
-    if (!value) {
-      selectedAbility.value = null;
-    }
-  });
+
   const getSelectedItem = id => {
     selectedItem.value = pcTypes[id];
     toggleDetailDrawer.value = true;
@@ -193,20 +167,14 @@
   };
   const openAbilityModal = id => {
     selectedAbility.value = abilities.items[id];
-    toggleAbilityModal.value = true;
   };
   const closeAbilityModal = () => {
-    toggleAbilityModal.value = false;
+    selectedAbility.value = null;
   };
   const isActiveTab = tab => {
     return tab === selectedTab.value ? 'tab-active text-neutral-600' : '';
   };
   const setActiveTab = tab => {
     selectedTab.value = tab;
-  };
-  const tierText = (tier = 0, limitName = 'zero') => {
-    return tier == 1
-      ? `Choose four of the abilities listed below. You can't choose the same ability more than once unless its description says otherwise. The full description for each listed ability can be found in Abilities, which also has descriptions for flavor and focus abilities in a single vast catalog.`
-      : `Choose ${limitName} of the abilities listed below (or from a lower tier) to add to your repertoire. In addition, you can replace one of your lower-tier abilities with a different one`;
   };
 </script>
