@@ -133,46 +133,11 @@
           </div>
         </div>
         <div class="divider"></div>
-        <div
-          v-for="(tierKey, idx) in Object.keys(selectedItem.tier_abilities)"
-          :key="tierKey"
-          :tabindex="idx + 10"
-          class="collapse bg-primary text-primary-content rounded-md m-3"
-        >
-          <input type="checkbox" />
-          <div class="collapse-title text-xl">
-            <button
-              class="btn btn-ghost text-left text-lg bg-neutral-500 text-neutral-content"
-            >
-              Tier: {{ selectedItem.tier_abilities[tierKey].number }}
-            </button>
-          </div>
-          <div class="collapse-content">
-            <p
-              class="p-6 rounded-md border-dashed bg-secondary text-secondary-content border-2 border-base-content m-2"
-            >
-              {{
-                tierText(
-                  selectedItem.tier_abilities[tierKey].number,
-                  selectedItem.tier_abilities[tierKey].limit.name,
-                )
-              }}
-            </p>
-            <div
-              class="mt-3 grid grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3"
-            >
-              <a
-                v-for="ability in selectedItem.tier_abilities[tierKey]
-                  .abilities"
-                class="capitalize btn btn-ghost text-center text-lg"
-                :key="ability"
-                @click.stop="openAbilityModal(ability)"
-              >
-                {{ ability.split('_').join(' ') }}
-              </a>
-            </div>
-          </div>
-        </div>
+        <TierAbilitiesAccordion
+          :tier_abilities="selectedItem.tier_abilities"
+          @selected-item="openAbilityModal"
+          collection="types"
+        />
       </div>
     </div>
     <input

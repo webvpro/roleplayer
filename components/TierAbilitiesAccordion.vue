@@ -17,10 +17,11 @@
     const tierNum = parseInt(tier.key.split('_').slice(-1));
     if (props.collection === 'foci') {
       return `Choose one of the abilities listed`;
-    } else if (props.collection === 'type') {
+    } else if (props.collection === 'types') {
+      console.log(tier);
       return tierNum == 1
         ? `Choose four of the abilities listed below. You can't choose the same ability more than once unless its description says otherwise. The full description for each listed ability can be found in Abilities, which also has descriptions for flavor and focus abilities in a single vast catalog.`
-        : `Choose ${tier.limit} of the abilities listed below (or from a lower tier) to add to your repertoire. In addition, you can replace one of your lower-tier abilities with a different one`;
+        : `Choose ${tier.limitTxt} of the abilities listed below (or from a lower tier) to add to your repertoire. In addition, you can replace one of your lower-tier abilities with a different one`;
     }
     return '';
   };
@@ -38,14 +39,15 @@
         key: '',
         granted: [],
         select: [],
-        limit: 1,
+        limitTxt: '',
       };
 
-      if (props.collection == 'types') {
+      if (props.collection === 'types') {
+        console.log(limit);
         tierAbilitiesObj.key = tierKey;
         tierAbilitiesObj.granted = [];
         tierAbilitiesObj.select = abilities;
-        tierAbilities.limit = limit.name;
+        tierAbilitiesObj.limitTxt = limit.name;
       } else {
         tierAbilitiesObj.key = tierKey;
         tierAbilitiesObj.granted = abilities.granted;
