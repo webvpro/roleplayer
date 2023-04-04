@@ -6,6 +6,7 @@ import csrdFociJSON from '@/JSON/CSRD/csrdFoci.json';
 import csrdDescriptorsJSON from '@/JSON/CSRD/csrdDescriptors.json';
 import csrdFlavorsJSON from '@/JSON/CSRD/csrdFlavors.json';
 import csrdCyphersJSON from '@/JSON/CSRD/csrdCyphers.json';
+import csrdArtifactsJSON from '@/JSON/CSRD/csrdArtifacts.json';
 export const useCollections = key => {
   return useState(key, () => undefined);
 };
@@ -54,6 +55,12 @@ export const useCompendium = (key = 'csrd') => {
         description:
           'Cyphers are one-use abilities that characters gain over the course of play. They have cool powers that can heal, make attacks, ease or hinder task rolls, or (in a more supernatural and extreme example) produce effects such as nullifying gravity or turning something invisible.',
         items: csrdCyphersJSON,
+      },
+      artifacts: {
+        name: 'Artifacts',
+        description:
+          'Cyphers are one-use abilities that characters gain over the course of play. They have cool powers that can heal, make attacks, ease or hinder task rolls, or (in a more supernatural and extreme example) produce effects such as nullifying gravity or turning something invisible.',
+        items: csrdArtifactsJSON,
       },
     },
   };

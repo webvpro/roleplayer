@@ -26,9 +26,15 @@
     return '';
   };
   const emit = defineEmits(['SelectedItem']);
+  const tierCollapseModel = reactive({});
   const itemClick = id => {
-    console.log(id);
+    //console.log(id);
     emit('SelectedItem', id);
+  };
+  const tierToggle = key => {
+    // toggle tiers not working
+    console.log(key, tierCollapseModel[key], !tierCollapseModel[key]);
+    tierCollapseModel[key] = !tierCollapseModel[key];
   };
   const tierAbilities = computed(() => {
     const tiers = Object.keys(props.tier_abilities);
@@ -57,22 +63,36 @@
     });
     return returnAry;
   });
+  onMounted(() => {
+    //auto open 1st tier not working
+    Object.keys(props.tier_abilities).forEach(key => {
+      tierCollapseModel[key] = key == 'tier_1' ? true : false;
+    });
+  });
 </script>
 
 <template>
   <div
     v-for="(tier, idx) in tierAbilities"
     :key="tier.key"
+    :id="`collapse_${tier.key}`"
     :tabindex="idx + tab_index_bump"
-    class="collapse text-primary-content m-3 p-0 rounded-b-md peer-checked:rounded-b-none"
+    @click.prevent="tierToggle(tier.key)"
+    class="collapse collapse-arrow text-primary-content m-3 p-0 rounded-md peer-checked:rounded-b-none"
   >
-    <input type="checkbox" class="peer" />
+    <input
+      :id="`input_${tier.key}`"
+      :v-model="tierAbilities[tier.key]"
+      type="checkbox"
+      class="peer"
+    />
     <div
-      class="collapse-title text-xl btn rounded-b-none text-left text-lg text-neutral-content capitalize"
+      class="collapse-title text-xl btn rounded-t-md rounded-b-none text-left text-lg text-neutral-content capitalize"
+      id="tier.key"
     >
       {{ tier.key.split('_').join(': ') }}
     </div>
-    <div :id="`list-${tier.key}`" class="collapse-content bg-primary">
+    <div :id="`list_${tier.key}`" class="collapse-content bg-primary">
       <div v-if="tier.granted.length" class="">
         <a
           v-for="ability in tier.granted"
