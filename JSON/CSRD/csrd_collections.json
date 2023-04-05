@@ -27,7 +27,7 @@
         "name": "Artifacts",
         "description": "In terms of the narrative, artifacts are a lot like cyphers, except that most are not one-use items. Mechanically, they serve a very different purpose. It's assumed that characters are exploring with some cyphers at their disposal. Artifacts, however, are added abilities that make characters broader, deeper, and often more powerful. They aren't assumed—they're extra."
     },
-    "creatures_npcs": {
+    "creatures": {
         "name": "Creatures & NPCs",
         "description": "Creatures & NPCs, describes many common and uncommon creatures that the characters might meet—and fight—in a Cypher System game and gives their stats."
     },

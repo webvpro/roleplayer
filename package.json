@@ -37,6 +37,7 @@
   "dependencies": {
     "@dicebear/collection": "^5.3.4",
     "@dicebear/core": "^5.3.4",
+    "@nuxtjs/apollo": "^5.0.0-alpha.6",
     "axios": "^1.3.3",
     "nuxt-appwrite": "^1.0.3"
   }

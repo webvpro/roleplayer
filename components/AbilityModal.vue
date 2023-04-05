@@ -2,7 +2,7 @@
   const props = defineProps({
     ability: {
       type: Object,
-      required: true,
+      default: {},
     },
   });
 

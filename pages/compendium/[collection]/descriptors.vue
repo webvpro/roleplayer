@@ -21,7 +21,7 @@
               <h2 class="card-title capitalize">
                 {{ descriptors[descriptorKey].name }}
               </h2>
-              <p class="overflow-ellipsis overflow-hidden w-80 p-2 mb-1 h-64">
+              <p class="line-clamp-5 w-64 p-2 mb-1 h-64">
                 {{ descriptors[descriptorKey].description }}
               </p>
               <div class="card-actions justify-end">

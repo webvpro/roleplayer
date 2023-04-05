@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     'nuxt-icon',
     'nuxt-appwrite',
     '@nuxt/devtools',
+    '@nuxtjs/apollo',
   ],
   colorMode: {
     preference: 'wireframe', // default theme
@@ -35,5 +36,12 @@ export default defineNuxtConfig({
     // VS Code Server options
     //vscode: {},
     // ...other options
+  },
+  apollo: {
+    clients: {
+      default: {
+        httpEndpoint: process.env.CSRD_GQL_ENDPOINT,
+      },
+    },
   },
 });
