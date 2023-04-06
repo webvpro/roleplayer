@@ -73,19 +73,19 @@
 
         <div class="tabs w-full pl-2">
           <a
-            class="tab tab-lifted bg-neutral-600 text-neutral-content"
+            class="tab tab-bordered text-xl"
             :class="isActiveTab('features')"
             @click="setActiveTab('features')"
             >Features</a
           >
           <a
-            class="tab tab-lifted bg-neutral-600 text-neutral-content"
+            class="tab tab-bordered text-xl"
             :class="isActiveTab('intrusions')"
             @click="setActiveTab('intrusions')"
             >Intrusions</a
           >
           <a
-            class="tab tab-lifted bg-neutral-600 text-neutral-content"
+            class="tab tab-bordered text-xl"
             :class="isActiveTab('backgrounds')"
             @click="setActiveTab('backgrounds')"
             >Backgrounds</a

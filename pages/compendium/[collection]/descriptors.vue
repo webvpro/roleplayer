@@ -64,13 +64,13 @@
         </p>
         <div class="tabs w-full pl-2">
           <a
-            class="tab tab-lifted bg-neutral-600 text-neutral-content"
+            class="tab tab-bordered text-xl"
             :class="isActiveTab('characteristics')"
             @click="setActiveTab('characteristics')"
             >Characteristics</a
           >
           <a
-            class="tab tab-lifted bg-neutral-600 text-neutral-content"
+            class="tab tab-bordered text-xl"
             :class="isActiveTab('links')"
             @click="setActiveTab('links')"
             >Starter Links</a

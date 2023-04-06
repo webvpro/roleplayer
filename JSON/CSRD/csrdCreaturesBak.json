@@ -73,7 +73,7 @@
         "health": 30,
         "damage": "7",
         "armor": "2 or 3",
-        "movement": "Short, long when mounted",
+        "movement": "Defense, conquest, revenge on a world that's rejected them",
         "modifications": [
             "Perception and Intellect defense as level 7"
         ],
@@ -102,7 +102,7 @@
         "interactions": null,
         "use": null,
         "loot": null,
-        "intrusions": null
+        "intrusions": []
     },
     "cambion": {
         "name": "cambion",
@@ -211,7 +211,7 @@
             "The mage's attack spell is incredibly painful, stunning the character for one round if they fail a Might defense roll."
         ]
     },
-    "flesh_beast": {
+    "fleshbeast": {
         "name": "flesh beast",
         "level": 4,
         "kind": "Creature",
@@ -229,7 +229,7 @@
         "interactions": null,
         "use": null,
         "loot": null,
-        "intrusions": null
+        "intrusions": []
     },
     "cyclops": {
         "name": "cyclops",
@@ -326,7 +326,7 @@
         "damage": "12",
         "armor": 5,
         "movement": "Short; long when flying",
-        "modifications": null,
+        "modifications": [],
         "interactions": "For all their power, demigods share most human traits and weaknesses. This means it's possible to negotiate with one, though the consequences for angering a demigod in the process are dire.",
         "use": "A demigod was banned from the higher realm of their birth for unknown reasons. Now they seek to show their worth by undertaking a great quest in the mortal world, and they are looking to assemble a group of mortal comrades (sycophants?) to aid them.",
         "loot": "Demigods might carry an artifact related to some aspect of their domain (such as wind, messages, or death), if they have one, and 1d6 cyphers.",
@@ -382,7 +382,7 @@
         "health": 100,
         "damage": "12",
         "armor": 5,
-        "movement": "Short; long when flying",
+        "movement": "Short; immediate while flying",
         "modifications": [
             "History and magical knowledge as level 10"
         ],
@@ -409,7 +409,7 @@
         "health": 12,
         "damage": "5",
         "armor": 3,
-        "movement": "Short when walking or flying",
+        "movement": "Short",
         "modifications": [
             "All tasks related to deception as level 7"
         ],
@@ -435,7 +435,7 @@
         "health": 35,
         "damage": "9",
         "armor": 0,
-        "movement": "Short; long when flying",
+        "movement": "Short",
         "modifications": [
             "Knowledge of Arabian history as level 8"
         ],
@@ -520,7 +520,7 @@
         "damage": "6",
         "armor": 3,
         "movement": "Immediate; short when burrowing",
-        "modifications": null,
+        "modifications": [],
         "interactions": "Although brooding and slow to respond if encountered as immobile stone, earth elementals are intelligent. The ones that are summoned with a spell have about a 5% chance of breaking the geas and turning on their summoner.",
         "use": "Oddly articulated monoliths were discovered high in the mountains around a shrine containing an ancient treasure. A merchant wants someone to investigate the monoliths in case they represent a trap. In fact, the monoliths are inactive earth elementals.",
         "loot": null,
@@ -543,7 +543,7 @@
         "health": 24,
         "damage": "4",
         "armor": 0,
-        "movement": "Long when flying",
+        "movement": "Long",
         "modifications": [
             "Stealth as level 6"
         ],
@@ -569,11 +569,11 @@
         "damage": "6",
         "armor": 2,
         "movement": "Immediate",
-        "modifications": null,
+        "modifications": [],
         "interactions": "Thorn elementals communicate through speech, though they generally disdain talking to creatures of the animal kingdom. Thorn elementals exist within a hierarchy; those that have a greater capacity for communication are also usually more powerful. Summoned thorn elementals have about a 5 percent chance of breaking the geas and turning on their summoner.",
         "use": "Adventuring characters journey through a forest that is under threat of destruction by an encroachment of other humanoids. Thinking the PCs are part of the encroachers, a thorn elemental attacks them. If communication is opened, it might break off hostilities and instead ask the characters to help.",
         "loot": "The bodies of those previously defeated by thorn elementals dangle from the forest or jungle canopy with all their former possessions. One or two might have a cypher and other tools and treasure.",
-        "intrusions": null
+        "intrusions": []
     },
     "elemental,_water": {
         "name": "elemental, water",
@@ -971,7 +971,7 @@
         "damage": "5",
         "armor": 0,
         "movement": "Short",
-        "modifications": null,
+        "modifications": [],
         "interactions": "Bitterness consumes gorgons. They lead lonely lives, cut off from everyone they have loved. Negotiating with one would be something of a feat.",
         "use": "A gorgon's head retains its power to petrify for several days after being cut from the creature. The PCs might brave the gorgon so they can use its head to defeat an even more powerful foe.",
         "loot": "A gorgon typically has a few cyphers and may have an artifact as well.",
@@ -1250,7 +1250,7 @@
         "damage": "5",
         "armor": 1,
         "movement": "Short when flying",
-        "modifications": null,
+        "modifications": [],
         "interactions": "A killing white light is too alien for interaction and may not be intelligent in a way humans can understand.",
         "use": "An inactive killing white light (which looks something like an albino lump of volcanic glass) is sometimes mistaken for a cypher whose properties can't quite be identified-until the creature becomes active, at which point its true nature is revealed.",
         "loot": null,
@@ -1441,7 +1441,7 @@
         "motive": "Play",
         "environment": "Almost anywhere, usually as static images on walls or in storybooks",
         "health": 9,
-        "damage": "3 points, unless enlarged; see Combat",
+        "damage": "3",
         "armor": 0,
         "movement": "Short; long if flying",
         "modifications": [
@@ -1552,7 +1552,7 @@
         "damage": "4",
         "armor": 1,
         "movement": "Short",
-        "modifications": null,
+        "modifications": [],
         "interactions": "If approached, a nuppeppo turns to \"face\" its interlocutor, but it doesn't respond to questions or orders. However, it may begin to follow its interlocutor from that point forward unless physically prevented-at which point the nuppeppo becomes violent.",
         "use": "The PCs open a grave, a coffin, or a sealed research lab, and several nuppeppos spill out. Unless stopped, the creatures attempt to \"adopt\" their discoverers.",
         "loot": null,
@@ -1718,7 +1718,7 @@
         "health": 18,
         "damage": "6",
         "armor": 0,
-        "movement": "Short",
+        "movement": "short",
         "modifications": [
             "Tasks related to pleasant social interaction, understanding human social norms, and deception as level 2"
         ],
@@ -1997,7 +1997,7 @@
         "health": 50,
         "damage": "10",
         "armor": 0,
-        "movement": "Short",
+        "movement": "Hungers for flesh",
         "modifications": [
             "Perception as level 5",
             "Speed defense as level 5 due to size"
@@ -2088,7 +2088,7 @@
         "health": 9,
         "damage": "3",
         "armor": 0,
-        "movement": "Short",
+        "movement": "Self-destruction through endless aggression",
         "modifications": [
             "Speed defense as level 4 due to frenzied alacrity"
         ],
@@ -2119,7 +2119,7 @@
         "health": 30,
         "damage": "8",
         "armor": 3,
-        "movement": "Short; some models can fly a short distance each round",
+        "movement": "Maintain control, crush, kill, destroy",
         "modifications": [
             "Attacks as level 7"
         ],
@@ -2179,7 +2179,7 @@
         "health": 21,
         "damage": "5",
         "armor": 0,
-        "movement": "Short; long when flying (on a broomstick)",
+        "movement": "Domination of others, knowledge",
         "modifications": [
             "Deception and disguise as level 7",
             "Speed defense as level 6 due to familiar",
@@ -2234,7 +2234,7 @@
         "health": 6,
         "damage": "3",
         "armor": 1,
-        "movement": "Short while flying",
+        "movement": "Destruction",
         "modifications": [
             "Stealth as level 5"
         ],
@@ -2288,7 +2288,7 @@
         "health": 28,
         "damage": "6",
         "armor": 2,
-        "movement": "Short; long when flying",
+        "movement": "Eat and reproduce",
         "modifications": [
             "All stealth actions as level 8"
         ],
@@ -2369,12 +2369,12 @@
         "health": 60,
         "damage": "10",
         "armor": 3,
-        "movement": "Short; flies a very long distance each round; can maneuver like an autonomous level 5 spacecraft if using extended vehicular combat rules.",
-        "modifications": null,
+        "movement": "Kill away the pain",
+        "modifications": [],
         "interactions": "If communication can be opened up through a cybrid's haze of pain, it might be possible to temporarily wake the consciousness of the human remnant inside. However, that remnant consciousness might not be happy to discover what it's become.",
         "use": "A cybrid has appeared in orbit around the station, ship, or moon with a compromised life support system or fragile dome. If it engages, the death toll will be staggering.",
         "loot": "PCs who investigate the inert remains of the creature discover several manifest cyphers",
-        "intrusions": null
+        "intrusions": []
     },
     "devolved": {
         "name": "devolved",
@@ -2414,7 +2414,7 @@
         "damage": "4",
         "armor": 0,
         "movement": "Flies a long distance",
-        "modifications": null,
+        "modifications": [],
         "interactions": "Someone with an ability to communicate with machines might be able to interact with a swarm. Even then, attempts to influence it are hindered by three steps.",
         "use": "A promising new nanotech \"printing\" technology was hacked by radical elements",
         "loot": null,
@@ -2433,14 +2433,14 @@
         "health": 33,
         "damage": "6",
         "armor": 0,
-        "movement": "Immediate; immediate when climbing or burrowing",
+        "movement": "Hungers for information",
         "modifications": [
             "Speed defense as level 5 due to size"
         ],
         "interactions": "An exoslime prefers to eat a newly-encountered creature, then create a duplicate of it to act as a translator. Of course, a stranger might not understand why the exoslime is trying to eat it.",
         "use": "The sample brought in from the exterior has a weird, mucus-like growth that seems able to slowly eat through most materials.",
         "loot": null,
-        "intrusions": null
+        "intrusions": []
     },
     "godmind": {
         "name": "godmind",
@@ -2456,7 +2456,7 @@
         "damage": "15",
         "armor": 0,
         "movement": "Very long when flying",
-        "modifications": null,
+        "modifications": [],
         "interactions": "To actually get a godmind's attention and negotiate could require ancient command code, finding an old input device, or showing up with a relic from an ancient ultra or other prize. If a godmind does render aid, it's likely to be in a form that is initially enigmatic, though ultimately extremely powerful.",
         "use": "A universal threat requires a defense that is equally potent. Research suggests that the diffuse nebula known as the Double Helix may actually be the visible form of a vast godmind. Perhaps it can help.",
         "loot": "Sometimes a godmind provides powerful artifacts to aid those who petition them for aid, assuming the need is dire.",
@@ -2497,14 +2497,14 @@
         "health": 9,
         "damage": "3-10",
         "armor": 3,
-        "movement": "Short",
+        "movement": "Hungers for information",
         "modifications": [
             "Attacks and defends at an ever-escalating level"
         ],
         "interactions": "Infovores are fractured, fragmented beings. Characters who can talk to machines might be able to keep one from \"spinning up\" to become a threat and learn something valuable, but only for a short period.",
         "use": "Among the devices collected from trade, salvage, archeological dig, or some other unique source, one was actually an inactive infovore, quiescent until plugged in or scanned.",
         "loot": "An infovore that has undergone spontaneous disassembly leaves one or two manifest cyphers; however, there's a chance that one of those cyphers is actually the infovore seed.",
-        "intrusions": null
+        "intrusions": []
     },
     "inquisitor": {
         "name": "inquisitor",
@@ -2563,12 +2563,12 @@
         "health": 18,
         "damage": "5",
         "armor": 2,
-        "movement": "Short",
-        "modifications": null,
+        "movement": "Defense or destruction",
+        "modifications": [],
         "interactions": "A mock organism is intelligent and can sometimes be swayed by reason. It might be passive, but if disturbed in a place it thought was secure against intrusion, it could grow belligerent and even murderous. Once so roused, a mock organism might still be calmed, but all such attempts are hindered.",
         "use": "A scientist's ruined lab contains several unexpected surprises, including a mock organism that yet grieves over the loss of its creator.",
         "loot": "A mock organism requires many parts. Salvage from a destroyed mock organism could result in a manifest cypher or two and another item that, with a bit of jury-rigging, works as an artifact.",
-        "intrusions": null
+        "intrusions": []
     },
     "natathim": {
         "name": "natathim",
@@ -2628,14 +2628,14 @@
         "health": 22,
         "damage": "8",
         "armor": 3,
-        "movement": "Reconstitutes itself anywhere light can reach within long range as part of another action",
+        "movement": "Varies",
         "modifications": [
             "Knowledge tasks as level 8"
         ],
         "interactions": "Photonomorphs are intelligent and paranoid, but not automatically hostile. They have their own self-serving agendas, which often involve elaborate schemes.",
         "use": "A photonomorph appears, claiming to be a herald of some vastly more powerful cosmic entity or approaching alien vessel.",
         "loot": null,
-        "intrusions": null
+        "intrusions": []
     },
     "posthuman": {
         "name": "posthuman",
@@ -2675,7 +2675,7 @@
         "damage": "5",
         "armor": 4,
         "movement": "Flies (magnetically levitates) a short distance each round",
-        "modifications": null,
+        "modifications": [],
         "interactions": "If any kind of radio or similar communication is in use, these creatures can commandeer it and speak through it, learning a new language seemingly over the course of minutes. Redivi will cooperate with reasonable requests and negotiate, especially if there's a chance they'll find out something new.",
         "use": "A redivi pod smashes into the side of the spacecraft, and might at first seem like some kind of attack or boarding action of something truly terrible.",
         "loot": null,
@@ -2694,12 +2694,12 @@
         "health": 12,
         "damage": "3",
         "armor": 1,
-        "movement": "Immediate",
-        "modifications": null,
+        "movement": "Feed",
+        "modifications": [],
         "interactions": "Sentinel trees are about as smart as well-trained guard dogs. They can't speak, but can understand some words and gestures.",
         "use": "A grove of sentinel trees guard a compound that the characters need to break into.",
         "loot": null,
-        "intrusions": null
+        "intrusions": []
     },
     "silicon_parasite": {
         "name": "silicon parasite",
@@ -2759,7 +2759,7 @@
         "health": 15,
         "damage": "6",
         "armor": 4,
-        "movement": "Long; flies a long distance each round",
+        "movement": "Achieve mission goals",
         "modifications": [
             "Perception as level 6",
             "attacks as level 5 due to combat targeting neuro-wetware."
@@ -2767,7 +2767,7 @@
         "interactions": "A storm marine might negotiate, but getting one to act against their mission is difficult.",
         "use": "A fireteam of storm marines are sent to eliminate the PCs or someone the PCs know on suspicion of being radical elements that need to be dealt with.",
         "loot": "Though bio-locked to each storm marine, someone who succeeds on a difficulty 8 Intellect task to reprogram the suit could gain a battlesuit of their own, minus the drones (which fly off or detonate).",
-        "intrusions": null
+        "intrusions": []
     },
     "shining_one": {
         "name": "shining one",
@@ -2809,7 +2809,7 @@
         "health": 23,
         "damage": "6",
         "armor": 0,
-        "movement": "Short; flies a long distance (even through airless vacuum); can teleport to any known location once per ten hours as an action",
+        "movement": "Capture humans and similar life forms, and bring them somewhere unknown.",
         "modifications": [
             "All knowledge tasks as level 6",
             "stealth tasks as level 7 while invisible"
@@ -2817,7 +2817,7 @@
         "interactions": "Although supernals only speak telepathically, peaceful interaction with these creatures is not impossible. It's just very difficult, as they see most other creatures as something to be collected and taken to some undisclosed location, for unknown reasons.",
         "use": "A character is followed by a supernal intent on collecting them. Loot: A supernal usually has a few manifest cyphers, and possibly an artifact.",
         "loot": null,
-        "intrusions": null
+        "intrusions": []
     },
     "synthetic_person": {
         "name": "synthetic person",
@@ -2879,7 +2879,7 @@
         "damage": "6",
         "armor": 0,
         "movement": "Climbs (adheres) an immediate distance each round",
-        "modifications": null,
+        "modifications": [],
         "interactions": "No real interaction with vacuum fungus is possible.",
         "use": "Scientists are incredibly excited to discover that the strange ooze they've noticed staining the exterior of their research domes is actually a variety of fungal life. They will likely become less excited when they discover the large growths secretly growing in the cavity beneath the floor of their research dome in a little-used storage closet.",
         "loot": null,
@@ -3024,7 +3024,7 @@
         "health": 50,
         "damage": "12",
         "armor": 8,
-        "movement": "Short; long when magnetically levitating",
+        "movement": "Revenge; regain memory",
         "modifications": [
             "Speed defense as level 5 due to mass",
             "tasks related to controlling and shaping metal through electromagnetic manipulation as level 11"
@@ -3052,7 +3052,7 @@
         "health": 15,
         "damage": "5",
         "armor": 1,
-        "movement": "Short",
+        "movement": "Accumulate power",
         "modifications": [
             "Poison breath attack and Might defense as level 7",
             "Intellect defense and evil genius as level 6"
@@ -3078,7 +3078,7 @@
         "health": 36,
         "damage": "8",
         "armor": 1,
-        "movement": "Short",
+        "movement": "Save the world",
         "modifications": [
             "Stealth, attacks, and Speed defense as level 8"
         ],
@@ -3102,7 +3102,7 @@
         "health": 18,
         "damage": "6",
         "armor": 1,
-        "movement": "Short",
+        "movement": "Murder (usually for hire)",
         "modifications": [
             "Stealth and deception tasks as level 8",
             "when attacking from hiding, melee and ranged attacks as level 7"
@@ -3126,7 +3126,7 @@
         "health": 12,
         "damage": "5",
         "armor": 1,
-        "movement": "Short",
+        "movement": "Money and power",
         "modifications": [
             "Deception, persuasion, intimidation, and tasks related to friendly interaction as level 7"
         ],
@@ -3151,14 +3151,14 @@
         "health": 10,
         "damage": "3",
         "armor": 0,
-        "movement": "Short",
+        "movement": "Entertainment, interaction, and novel experiences",
         "modifications": [
             "Music, oration, persuasion, stealth, and Speed defense as level 4"
         ],
         "interactions": "Bards are personable and easy to talk to, but they have a sharp wit and a sharper tongue when it comes to critics and tyrants. A bard would rather escape from a dangerous situation than fight to the death.",
         "use": "A bard ally often has useful information about the current situation, drawn from songs and folk tales. In a pinch, they can make do as a scout or spy, especially in an urban setting. An unfriendly bard mocks the characters and turns the will of a crowd against them.",
         "loot": "In addition to a musical instrument and a nice outfit for performing, bards usually have currency equivalent to a moderately priced item and one or two cyphers.",
-        "intrusions": null
+        "intrusions": []
     },
     "berserker": {
         "name": "berserker",
@@ -3174,7 +3174,7 @@
         "health": 12,
         "damage": 4,
         "armor": "1 (or 3 when berserk)",
-        "movement": "Short",
+        "movement": "Glory in battle",
         "modifications": [
             "Climbing, jumping, running, and Speed defense as level 4"
         ],
@@ -3198,14 +3198,14 @@
         "health": 12,
         "damage": "4",
         "armor": 0,
-        "movement": "Short",
+        "movement": "Solve the crime",
         "modifications": [
             "Tasks relating to perception, intuition, initiative, and detecting falsehoods as level 6"
         ],
         "interactions": "Some detectives are insufferable",
         "use": null,
         "loot": null,
-        "intrusions": null
+        "intrusions": []
     },
     "druid": {
         "name": "druid",
@@ -3221,7 +3221,7 @@
         "health": 12,
         "damage": "4",
         "armor": 1,
-        "movement": "Short",
+        "movement": "Protecting nature",
         "modifications": [
             "Nature lore, perception, and stealth as level 5"
         ],
@@ -3246,14 +3246,14 @@
         "health": 12,
         "damage": "5",
         "armor": 1,
-        "movement": "Short",
+        "movement": "Curiosity",
         "modifications": [
             "Perception, Speed defense, and any two noncombat skills as level 5"
         ],
         "interactions": "Elves appreciate beauty, grace, and skill, and they don't respond well to crudeness or bluster, especially from people decades or centuries younger than themselves. They are subtle in their insults but do have a sense of humor.",
         "use": "A group of young elves arrives in a city, wanting to see firsthand how the short-lived humans do things. An elf is said to have lived in the forest for a thousand years, listening to the secrets whispered by the trees.",
         "loot": "In addition to their weapons and light armor, an elf carries a few moderately priced (but extremely well-made) curios and mementos, and usually a cypher.",
-        "intrusions": null
+        "intrusions": []
     },
     "guard": {
         "name": "guard",
@@ -3268,7 +3268,7 @@
         "health": 15,
         "damage": "5",
         "armor": 0,
-        "movement": "Short",
+        "movement": "Keep the peace; follow orders",
         "modifications": [
             "Perception as level 3"
         ],
@@ -3292,12 +3292,12 @@
         "health": 9,
         "damage": 3,
         "armor": "0 or 1",
-        "movement": "Short",
+        "movement": "Defense, comfort",
         "modifications": "Intellect defense, pleasant social interactions, and stealth as level 4",
         "interactions": null,
         "use": null,
         "loot": "In addition to their weapons (and perhaps some light armor) and food, a halfling might have an interesting cypher or two. Most carry several useful moderately priced items, or an expensive item such as an heirloom snuff box or a nice bag of tools.",
-        "intrusions": null
+        "intrusions": []
     },
     "paladin": {
         "name": "paladin",
@@ -3312,7 +3312,7 @@
         "health": 15,
         "damage": 5,
         "armor": "2 or 3",
-        "movement": "Short",
+        "movement": "Protecting the innocent, destroying evil",
         "modifications": [
             "Attacks and Might defense as level 5"
         ],
@@ -3336,7 +3336,7 @@
         "health": 12,
         "damage": "4",
         "armor": 1,
-        "movement": "Short",
+        "movement": "Greed, curiosity, risk",
         "modifications": [
             "Balancing, climbing, perception, pickpocketing, and stealth as level 5"
         ],
@@ -3359,8 +3359,10 @@
         "health": 15,
         "damage": "5",
         "armor": 0,
-        "movement": "Short",
-        "modifications": null,
+        "movement": "Accomplish the goals of the employer while maintaining cover",
+        "modifications": [
+            ""
+        ],
         "interactions": "Secret agents are confident, masterful, and always give the impression of being one step ahead of the game, even when caught off guard.",
         "use": "As an ally, a secret agent can guide the PCs to their next mission, fill in gaps in their knowledge, and warn them of dangers. If the characters encounter an unfriendly agent, the NPC likely pretends to be a friend.",
         "loot": "Agents typically have currency equivalent to an expensive item, a couple of cyphers, tools for spying and maintaining their cover, and possibly an artifact.",
@@ -3381,8 +3383,8 @@
         "health": 9,
         "damage": "4",
         "armor": 1,
-        "movement": "Short",
-        "modifications": null,
+        "movement": "Take what they want",
+        "modifications": [],
         "interactions": "Thugs are interested in money and power, which means they almost always accept bribes. If faced with a real threat, thugs usually retreat.",
         "use": "Thugs are everywhere, sometimes accompanied by guards who are equally malicious but not quite as powerful.",
         "loot": "A thug has currency equivalent to an inexpensive item in addition to weapons, shields, and light armor. One thug in a group might have a cypher.",
@@ -3404,7 +3406,7 @@
         "health": 40,
         "damage": "8",
         "armor": 0,
-        "movement": "Short",
+        "movement": "Seek powerful sources of magic (to collect or to keep safe)",
         "modifications": [
             "All tasks related to knowledge of arcane lore as level 9"
         ],

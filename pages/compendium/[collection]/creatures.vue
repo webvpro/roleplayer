@@ -92,6 +92,26 @@
           </div>
         </div>
         <div v-if="selectedItem" class="m-3">
+          <div class="mx-auto snap-start container h-14 text-lg">
+            <div
+              v-if="selectedItem.level"
+              class="badge badge-neutral text-neutral-content m-1"
+            >
+              {{ `Level: ${selectedItem.level}` }}
+            </div>
+            <div
+              v-if="selectedItem.kind"
+              class="badge badge-neutral text-neutral-content m-1 capitalize"
+            >
+              {{ selectedItem.kind }}
+            </div>
+            <div v-if="selectedItem.health" class="badge badge-success m-1">
+              {{ `Health:${selectedItem.health}` }}
+            </div>
+            <div v-if="selectedItem.damage" class="badge badge-error m-1">
+              {{ `Damage:${selectedItem.damage}` }}
+            </div>
+          </div>
           <div
             v-if="selectedItem.description"
             class="bg-neutral text-neutral-content border-accent border-solid border-2 p-2"
@@ -103,13 +123,102 @@
               {{ pTxt }}
             </p>
           </div>
-          <p
-            v-if="selectedItem.combat"
-            v-for="combat in selectedItem.combat"
-            class="p-2 rounded-md border-dashed border-2 border-base-content m-2"
-          >
-            {{ combat }}
-          </p>
+
+          <div class="tabs w-full pl-2 mt-3">
+            <a
+              class="tab tab-bordered text-xl"
+              :class="isActiveTab('details')"
+              @click="setActiveTab('details')"
+              >Details</a
+            >
+            <a
+              v-if="selectedItem.combat || selectedItem.modifications"
+              class="tab tab-bordered text-xl"
+              :class="isActiveTab('actions')"
+              @click="setActiveTab('actions')"
+              >Actions</a
+            >
+
+            <a
+              v-if="selectedItem.intrusions"
+              class="tab tab-bordered text-xl"
+              :class="isActiveTab('intrusions')"
+              @click="setActiveTab('intrusions')"
+              >Intrusions</a
+            >
+          </div>
+          <div v-if="selectedTab === 'details'" class="p-3 pt-0">
+            <div
+              v-if="selectedItem.motive"
+              class="p-6 border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
+            >
+              <label class="text-2xl p-1 font-semibold w-full block"
+                >Motive</label
+              >
+              <p class="indent-3">{{ selectedItem.motive }}</p>
+            </div>
+            <div
+              class="p-6 border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
+            >
+              <label class="text-2xl p-1 font-semibold w-full block"
+                >Stats</label
+              >
+              <div
+                class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
+              >
+                Health:
+                {{ selectedItem.health > 0 ? selectedItem.health : ` GM Set` }}
+              </div>
+              <div
+                class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-xl"
+              >
+                Damage:
+                {{
+                  parseInt(selectedItem.damage) > 0
+                    ? selectedItem.damage
+                    : ` GM Set `
+                }}
+              </div>
+              <div
+                class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
+              >
+                Armor: {{ selectedItem.armor ?? 0 }}
+              </div>
+              <div
+                class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
+              >
+                Movement: {{ selectedItem.movement ?? ` GM Set ` }}
+              </div>
+            </div>
+          </div>
+          <div v-if="selectedTab === 'actions'" class="p-3 pt-0">
+            <h3 v-if="selectedItem.combat" class="my-2 font-bold">Combat:</h3>
+            <p
+              v-if="selectedItem.combat"
+              v-for="combat in selectedItem.combat"
+              class="p-2 rounded-md border-dashed border-2 border-base-content m-2"
+            >
+              {{ combat }}
+            </p>
+            <h3 v-if="selectedItem.modifications" class="my-2 font-bold">
+              Modifications:
+            </h3>
+            <p
+              v-for="mod in selectedItem.modifications"
+              class="p-2 rounded-md border-dashed border-2 border-base-content m-2"
+            >
+              {{ mod }}
+            </p>
+          </div>
+          <div v-if="selectedTab === 'intrusions'" class="p-3 pt-0">
+            <p
+              v-if="selectedItem.intrusions"
+              v-for="intrusion in selectedItem.intrusions"
+              class="p-3 rounded-md border-dashed border-2 border-base-content m-3"
+            >
+              {{ intrusion }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -118,16 +227,21 @@
 <script setup>
   const {compendium} = useCompendium('csrd');
   const toggleDetailDrawer = ref(false);
+  const selectedTab = ref('details');
+  //const drawerTabs = reactive(initTabs);
   const creatures = computed(
     () => compendium.value.collections.creatures.items,
   );
+
   const selectedItem = ref(null);
+
   watch(selectedItem, value => {
     if (!value) {
       toggleDetailDrawer.value = false;
     } else {
       toggleDetailDrawer.value = true;
     }
+    setActiveTab('details');
   });
   const getSelectedItem = id => {
     selectedItem.value = compendium.value.collections.creatures.items[id];
@@ -137,5 +251,11 @@
   };
   const getParagraphAry = pStr => {
     return pStr.split('\n') ?? [];
+  };
+  const isActiveTab = tab => {
+    return tab === selectedTab.value ? 'tab-active text-neutral-600' : '';
+  };
+  const setActiveTab = tab => {
+    selectedTab.value = tab;
   };
 </script>
