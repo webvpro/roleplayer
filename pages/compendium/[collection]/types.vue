@@ -7,7 +7,7 @@
       v-model="toggleDetailDrawer"
     />
     <div class="drawer-content">
-      <BrowseToolBar />
+      <BrowseToolBar :collections="collections" />
       <div class="mx-auto snap-start container">
         <div
           class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -144,7 +144,8 @@
   </div>
 </template>
 <script setup>
-  const {compendium} = useCompendium('csrd');
+  const {compendium, collections, fetchCompendium} = useCompendium();
+  await fetchCompendium();
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
   const selectedTab = ref('features');

@@ -5,7 +5,9 @@
     </NuxtLayout>
   </div>
 </template>
-<script setup>
+<script async setup>
+  const {user} = useAuth();
+
   useHead({
     link: [
       {
@@ -20,5 +22,8 @@
     htmlAttrs: {
       class: 'h-full',
     },
+  });
+  onMounted(() => {
+    console.log(user.value);
   });
 </script>

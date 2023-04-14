@@ -5,9 +5,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     'nuxt-icon',
-    'nuxt-appwrite',
     '@nuxt/devtools',
-    '@nuxtjs/apollo',
   ],
   colorMode: {
     preference: 'wireframe', // default theme
@@ -20,14 +18,14 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  appwrite: {
-    endpoint: process.env.AW_ENDPOINT,
-    project: process.env.AW_PROJECT_ID,
-  },
   runtimeConfig: {
     VERIFY_EMAIL: process.env.VERIFY_EMAIL,
     public: {
       DISCORD_LOGIN_REDIRECT: process.env.DISCORD_LOGIN_REDIRECT,
+      APPWRITE_ENDPOINT: process.env.APPWRITE_ENDPOINT,
+      APPWRITE_PROJECT_ID: process.env.APPWRITE_PROJECT_ID,
+      CSRD_COMPENDIUM_FILE_ID: process.env.CSRD_COMPENDIUM_FILE_ID,
+      PUBLIC_COMPENDIUMS_BUCKET: process.env.PUBLIC_COMPENDIUMS_BUCKET,
     },
   },
   devtools: {
@@ -36,12 +34,5 @@ export default defineNuxtConfig({
     // VS Code Server options
     //vscode: {},
     // ...other options
-  },
-  apollo: {
-    clients: {
-      default: {
-        httpEndpoint: process.env.CSRD_GQL_ENDPOINT,
-      },
-    },
   },
 });

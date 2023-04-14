@@ -42,27 +42,27 @@
           </option>
         </select>
       </li>
-      <li v-if="isLoggedIn">
+      <li v-if="user">
         <NuxtLink to="/profile" class="justify-between">
           Profile
           <span class="badge">New</span>
         </NuxtLink>
       </li>
-      <li v-if="isLoggedIn"><a>Settings</a></li>
-      <li v-if="isLoggedIn"><a @click="logout">Logout</a></li>
+      <li v-if="user"><a>Settings</a></li>
+      <li v-if="user"><a @click="logout">Logout</a></li>
       <li v-else><NuxtLink to="/login">Login</NuxtLink></li>
     </ul>
   </div>
 </template>
 <script setup>
   const colorMode = useColorMode();
-  const {user, isLoggedIn, logout} = useAuth();
+  const {user, logout} = useAuth();
 
   const userNM = user.value ? user.value.name : 'NobodyWeKnow';
   const getSvgUrl = `https://api.dicebear.com/5.x/bottts/svg?seed=${userNM}`;
 
-  const online = isLoggedIn.value;
-  const offline = !isLoggedIn.value;
+  const online = user.value;
+  const offline = !user.value;
   const themes = [
     'light',
     'dark',

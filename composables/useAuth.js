@@ -1,13 +1,21 @@
 export const useUser = () => {
-  return useState("user", () => undefined);
+  return useState('user', () => undefined);
 };
 
 export const useAuth = () => {
-  const { account, ID } = useAppwrite();
-  const { router } = useRouter();
+  const {account, ID} = useAppwrite();
+  const {router} = useRouter();
   const user = useUser();
   const isLoggedIn = computed(() => !!user.value);
   const config = useRuntimeConfig();
+
+  async function fetchUser() {
+    try {
+      user.value = await account.get();
+    } catch {
+      user.value = null;
+    }
+  }
   async function refresh() {
     try {
       user.value = await fetchCurrentUser();
@@ -16,16 +24,16 @@ export const useAuth = () => {
     }
   }
 
-  async function discordLogin() {
+  function discordLogin() {
     if (isLoggedIn.value) return;
-    await account.createOAuth2Session("discord", config.DISCORD_LOGIN_REDIRECT);
+    account.createOAuth2Session('discord', config.DISCORD_LOGIN_REDIRECT);
   }
 
   async function magicURL(to) {
     try {
       await account.createMagicURLSession(ID.unique(), to, config.VERIFY_EMAIL);
     } catch (error) {
-      console.log("Magic URL", error);
+      console.log('Magic URL', error);
     }
   }
 
@@ -34,19 +42,19 @@ export const useAuth = () => {
     const router = useRouter();
     try {
       await account.updateMagicURLSession(
-        urlParams.get("userId"),
-        urlParams.get("secret")
+        urlParams.get('userId'),
+        urlParams.get('secret'),
       );
-      alert("Magic URL verified");
-      router.push("/browse");
+      alert('Magic URL verified');
+      router.push('/browse');
     } catch (error) {
-      console.log("Magic URL", error);
+      console.log('Magic URL', error);
     }
   }
 
   async function logout() {
-    if (!isLoggedIn.value) return;
-    await account.deleteSession("current");
+    if (!user.value) return;
+    await account.deleteSession('current');
     user.value = null;
     window.location.reload(true);
   }
@@ -59,17 +67,18 @@ export const useAuth = () => {
     refresh,
     magicURL,
     magicURLVerify,
+    fetchUser,
   };
 };
 
 export const fetchCurrentUser = async () => {
-  const { account } = useAppwrite();
-  let resp = null;
+  const {account} = useAppwrite();
+
   try {
-    resp = await account.get();
+    const resp = await account.get();
     return resp;
   } catch (error) {
-    console.log("fetchUser ERROR", error);
+    console.log('fetchUser ERROR', error);
     return null;
   }
 };

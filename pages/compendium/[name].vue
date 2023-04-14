@@ -31,11 +31,12 @@
     </div>
   </div>
 </template>
-<script setup>
-  const {collections} = useCompendium('csrd');
+<script async setup>
+  const {compendium, collections, fetchCompendium} = useCompendium(); // will need to pass in a file id defaults to env
   const router = useRouter();
   const route = useRoute();
   const viewCollection = collectionName => {
     router.push(`${route.path}/${collectionName}`);
   };
+  await fetchCompendium();
 </script>

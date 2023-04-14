@@ -1,11 +1,19 @@
-<script setup>
-  const {collections} = useCompendium();
+<script async setup>
+  const props = defineProps({
+    collections: {
+      type: Object,
+      default: {},
+    },
+  });
+
+  const collections = ref(props.collections);
   const router = useRouter();
   const route = useRoute();
   const selectedCompendium = ref('csrd');
   const selectedCollection = ref(
     route.name.split('-').slice(-1).join('').trim(),
   );
+  console.log(collections.value);
   const changeCollection = () => {
     //console.log(selectedCollection.value);
     router.push(selectedCollection.value);
@@ -31,6 +39,7 @@
           <option value="space_jazz">Space Jazz Compendium</option>
         </select>
         <select
+          v-if="collections"
           class="select select-bordered w-auto max-w-xs text-lg"
           v-model="selectedCollection"
           @change="changeCollection"
@@ -66,6 +75,7 @@
           </li>
           <li>
             <select
+              v-if="collections"
               class="select w-fit"
               v-model="selectedCollection"
               @change="changeCollection"
