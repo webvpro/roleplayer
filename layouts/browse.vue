@@ -34,15 +34,7 @@
           class="drawer-toggle"
         />
         <div
-          class="
-            drawer-content
-            flex flex-col
-            content-center
-            bg-neutral
-            text-neutral-content
-            w-full
-            h-full
-          "
+          class="drawer-content flex flex-col content-center bg-neutral text-neutral-content w-full h-full"
         >
           <slot />
         </div>
@@ -73,10 +65,5 @@
   </div>
 </template>
 <script setup>
-
-
-import collections from "@/JSON/CSRD/csrd_collections.json";
-import { themes } from "@/JSON/ui_themes.json" 
-const colorMode = useColorMode();
-
+  const colorMode = useColorMode();
 </script>

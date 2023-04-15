@@ -31,12 +31,14 @@
     </div>
   </div>
 </template>
-<script async setup>
-  const {compendium, collections, fetchCompendium} = useCompendium(); // will need to pass in a file id defaults to env
+<script setup>
+  const {compendium, fetchCompendium} = useCompendium(); // will need to pass in a file id defaults to env
+  await fetchCompendium();
+  const collections = ref(compendium.value.collections);
   const router = useRouter();
+
   const route = useRoute();
   const viewCollection = collectionName => {
     router.push(`${route.path}/${collectionName}`);
   };
-  await fetchCompendium();
 </script>
