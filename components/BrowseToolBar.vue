@@ -1,12 +1,7 @@
-<script async setup>
-  const props = defineProps({
-    collections: {
-      type: Object,
-      default: {},
-    },
-  });
+<script setup>
+  const {compendium} = useCompendium();
+  const collections = computed(() => compendium.value.collections);
 
-  const collections = ref(props.collections);
   const router = useRouter();
   const route = useRoute();
   const selectedCompendium = ref('csrd');

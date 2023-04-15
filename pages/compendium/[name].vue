@@ -5,6 +5,7 @@
         class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         <div
+          v-if="collections"
           v-for="(key, idx) in Object.keys(collections)"
           :key="key"
           class="shadow-xl p-3 card card-compact w-full bg-base-100 h-full min-w-full sm:mb-2"
@@ -31,10 +32,10 @@
     </div>
   </div>
 </template>
-<script setup>
-  const {compendium, fetchCompendium} = useCompendium(); // will need to pass in a file id defaults to env
+<script async setup>
+  const {compendium, fetchCompendium} = useCompendium();
   await fetchCompendium();
-  const collections = ref(compendium.value.collections);
+  const collections = computed(() => compendium.value.collections);
   const router = useRouter();
 
   const route = useRoute();

@@ -7,7 +7,7 @@
       v-model="toggleDetailDrawer"
     />
     <div class="drawer-content">
-     <BrowseToolBar :collections="collections" />
+     <BrowseToolBar />
       <div class="mx-auto snap-start container">
         <div
           class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-3 xl:grid-cols-4"
