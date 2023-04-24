@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full mb-3 w-auto mx-auto p-4">
+  <div class="h-full mb-3 w-auto overflow-auto">
     <div class="mx-auto snap-start container">
       <div class="hero bg-base-300">
         <div class="hero-content flex-col lg:flex-row w-auto">
@@ -32,7 +32,7 @@
       </div>
 
       <div
-        class="grid justify-center gap-10 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3"
+        class="grid justify-center gap-10 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3 mt-6"
       >
         <div
           v-for="feature in features"
@@ -53,8 +53,7 @@
             </div>
             <div class="card-body">
               <p class="overflow-ellipsis overflow-hidden w-80 p-2 h-48">
-                Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.
-                Et magna sit morbi lobortis.
+                {{ feature.description }}
               </p>
               <div class="justify-center card-actions">
                 <router-link :to="`${feature.path}/`" class="btn btn-primary"
@@ -74,8 +73,22 @@
       name: 'CSRD Compendium',
       icon: 'game-icons:winged-sword',
       path: '/compendium/csrd',
+      description:
+        'A browse ready version of the CSRD great for a quick reference, we will be add own own custom compendiums soon.',
     },
-    {name: 'Characters', icon: 'ion:accessibility-sharp', path: '/characters'},
-    {name: 'Play', icon: 'game-icons:bookshelf', path: '/sessions'},
+    {
+      name: 'Characters',
+      icon: 'ion:accessibility-sharp',
+      path: '/characters',
+      description:
+        'We are working on this feature now, to create characters using the CSRD collections',
+    },
+    {
+      name: 'Play',
+      icon: 'game-icons:bookshelf',
+      path: '/sessions',
+      description:
+        'Coming Soon create Game Dashboards to track your play sessions',
+    },
   ];
 </script>

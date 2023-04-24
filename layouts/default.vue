@@ -13,7 +13,7 @@
             class="dropdown-content menu bg-base-100 text-base-content w-56"
           >
             <li><NuxtLink to="/compendium">Compendiums</NuxtLink></li>
-            <li><a>Create</a></li>
+            <li><NuxtLink to="/character">Characters</NuxtLink></li>
             <li><a>Play</a></li>
           </ul>
         </div>
@@ -27,7 +27,7 @@
             class="menu menu-horizontal bg-base-100 text-base-content rounded-box"
           >
             <li><NuxtLink to="/compendium">Compendiums</NuxtLink></li>
-            <li><a>Create</a></li>
+            <li><NuxtLink to="/character">Characters</NuxtLink></li>
             <li><a>Play</a></li>
           </ul>
         </div>
