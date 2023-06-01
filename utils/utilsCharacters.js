@@ -25,39 +25,56 @@ export default function () {
         ],
       },
       xp: 0,
-      tier: [],
+      abilities: [],
+      tiers: [],
       effort: 0,
-      descriptors: [
-        {
-          sourceKey: '',
-          alias: '',
-          description: '',
-          features: [],
-          starters: [],
-        },
-      ],
-      types: [
-        {
-          sourceKey: '',
-          alias: '',
-          tiers: [{key: 1, swaps: [], selections: []}],
-        },
-      ],
+      descriptors: [],
+      types: [],
       foci: [],
       powerShifts: [],
       skills: [],
       attacks: [],
       background: '',
+      sentence: '',
       arcs: [],
       notes: [],
       equipment: {
         assets: [],
         cyphers: [],
         artifacts: [],
-        armor: [],
       },
     };
   };
 
-  return {initCharacter};
+  const initType = {
+    sourceKey: '',
+    alias: '',
+    tiers: [{key: 1, swaps: [], selections: []}],
+  };
+
+  const initDescriptor = {
+    sourceKey: '',
+    alias: '',
+    description: '',
+    features: [],
+    starters: [],
+  };
+
+  const initFocus = {
+    sourceKey: '',
+    name: '',
+    alias: '',
+    description: '',
+    tiers: [{key: 1, selections: []}],
+  };
+
+  const initFlavor = {
+    sourceKey: '',
+    name: '',
+    alias: '',
+    description: '',
+    tiers: [{key: 1, selections: []}],
+  };
+
+  return {initCharacter, initType, initDescriptor, initFlavor, initFocus};
 }

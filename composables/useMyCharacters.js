@@ -33,6 +33,7 @@ export const useMyCharacter = (opts = {}) => {
         //init
         localStorage.setItem(localKey, JSON.stringify([]));
       } else if (!noWrite.value) {
+        console.log('should write', myCharacters.value);
         localStorage.setItem(localKey, JSON.stringify(myCharacters.value));
       }
       console.log('loading for storage');
@@ -49,11 +50,13 @@ export const useMyCharacter = (opts = {}) => {
 
   function updateCharacter() {
     if (!character.value) return;
-
-    const characterIdx = myCharacters.value.find(
-      char => char.id === opts.loadCharacterId,
-    );
-
+    const allCharacters = myCharacters.value;
+    const characterIdx = allCharacters
+      .map(function (el) {
+        return el.id;
+      })
+      .indexOf(character.value.id);
+    console.log('idx', characterIdx);
     if (!characterIdx) {
       myCharacters.value.push(character.value);
     } else if (!noWrite.value) {

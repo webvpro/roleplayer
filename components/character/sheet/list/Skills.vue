@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <div class="col-span-12 shadow-xl lg:col-span-6 card bg-base-100">
+  <div class="col-span-12 h-full shadow-xl lg:col-span-6 card bg-base-100">
     <div class="card-title tabs">
       <a
         class="tab tab-lifted"
@@ -30,7 +30,7 @@
         class="tab tab-lifted"
         :class="[active === 'POWERSHIFTS' ? 'tab-active' : '']"
         @click.prevent="selectTab('POWERSHIFTS')"
-        >Shifts</a
+        >Power Shifts</a
       >
     </div>
     <div class="card-body">
