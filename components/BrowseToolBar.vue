@@ -1,5 +1,6 @@
 <script setup>
-  const {compendium} = useCompendium();
+  const {compendium, fetchCompendium} = useCompendium();
+  await fetchCompendium();
   const collections = computed(() => compendium.value.collections);
 
   const router = useRouter();
@@ -8,7 +9,7 @@
   const selectedCollection = ref(
     route.name.split('-').slice(-1).join('').trim(),
   );
-  console.log(collections.value);
+
   const changeCollection = () => {
     //console.log(selectedCollection.value);
     router.push(selectedCollection.value);
@@ -21,7 +22,7 @@
 </script>
 
 <template>
-  <div class="navbar sticky top-0 z-20 bg-neutral max-h-12">
+  <div class="navbar sticky top-0 z-10 bg-neutral max-h-12">
     <div class="navbar-start">
       <div class="hidden md:block">
         <select
@@ -88,7 +89,7 @@
         </ul>
       </div>
     </div>
-    <div class="navbar-center"><slot /></div>
+    <div class="navbar-center"></div>
     <div class="navbar-end"></div>
   </div>
 </template>

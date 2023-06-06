@@ -4,7 +4,9 @@
     character: {type: Object, default: () => {}},
   });
 
-  const tierNum = computed(() => props.character.tier.length);
+  const tierNum = computed(() =>
+    props.character.tier ? props.character.tier.length : 0,
+  );
 
   const characterImg = computed(() =>
     props.character.url
@@ -60,11 +62,7 @@
     <div class="card-body col-span-6">
       <p class="text-sm">Sentence here</p>
 
-      <div class="card-actions w-full flex flex-col items-end">
-        <button class="btn btn-info btn-circle btn-sm text">
-          <Icon name="material-symbols:settings" />
-        </button>
-      </div>
+      <div class="card-actions w-full flex flex-col items-end"></div>
     </div>
     <!-- </div> -->
   </div>

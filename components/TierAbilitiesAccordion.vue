@@ -18,7 +18,7 @@
     if (props.collection === 'foci') {
       return `Choose one of the abilities listed`;
     } else if (props.collection === 'types') {
-      console.log(tier);
+      //console.log(tier);
       return tierNum == 1
         ? `Choose four of the abilities listed below. You can't choose the same ability more than once unless its description says otherwise. The full description for each listed ability can be found in Abilities, which also has descriptions for flavor and focus abilities in a single vast catalog.`
         : `Choose ${tier.limitTxt} of the abilities listed below (or from a lower tier) to add to your repertoire. In addition, you can replace one of your lower-tier abilities with a different one`;
@@ -33,7 +33,7 @@
   };
   const tierToggle = key => {
     // toggle tiers not working
-    console.log(key, tierCollapseModel[key], !tierCollapseModel[key]);
+    //console.log(key, tierCollapseModel[key], !tierCollapseModel[key]);
     tierCollapseModel[key] = !tierCollapseModel[key];
   };
   const tierAbilities = computed(() => {
