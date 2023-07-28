@@ -12,27 +12,22 @@ export const useMyCharacter = (opts = {}) => {
   const localKey = 'pc-characters';
   function loadMyCharacters(key = '') {
     try {
-      console.log('find chars');
-      myCharacters.value = JSON.parse(localStorage.getItem(localKey));
-    } catch {}
-
-    try {
-      console.log('find chars');
+      console.log(`Load Local from ${localKey}`);
       myCharacters.value = JSON.parse(localStorage.getItem(localKey));
     } catch (e) {
-      console.log(`loading Characters Error:${e}`);
+      console.log(`loading local Characters from ${localKey} Error:${e}`);
     } finally {
-      //setup and pull from load
-      console.log('sync with local');
       syncCharacters();
     }
   }
   function syncCharacters() {
     if (process.client) {
+      console.log(`Sync With LocalKey ${localKey}`);
       if (!myCharacters.value) {
-        //init
+        console.log('Setup Localkey');
         localStorage.setItem(localKey, JSON.stringify([]));
       } else if (!noWrite.value) {
+        console.log(`write to local ${localKey} value:`, myCharacters.value);
         localStorage.setItem(localKey, JSON.stringify(myCharacters.value));
       }
       console.log('loading for storage');
@@ -49,12 +44,14 @@ export const useMyCharacter = (opts = {}) => {
 
   function updateCharacter() {
     if (!character.value) return;
-
-    const characterIdx = myCharacters.value.find(
-      char => char.id === opts.loadCharacterId,
-    );
-
-    if (!characterIdx) {
+    const allCharacters = myCharacters.value;
+    const characterIdx = allCharacters
+      .map(function (el) {
+        return el.id;
+      })
+      .indexOf(character.value.id);
+    console.log('local character idx', characterIdx);
+    if (characterIdx < 0) {
       myCharacters.value.push(character.value);
     } else if (!noWrite.value) {
       myCharacters.value[characterIdx] = character.value;
@@ -63,14 +60,17 @@ export const useMyCharacter = (opts = {}) => {
     return;
   }
 
-  watch(character, (cv, ov) => {
-    console.log('change', myCharacters.value);
-    if (process.client) {
-      console.log('update character change'); //call write
-      updateCharacter();
-    }
-    return;
-  });
+  watch(
+    character,
+    (cv, ov) => {
+      console.log('change', cv);
+      if (process.client) {
+        console.log('update character change'); //call write
+        updateCharacter();
+      }
+    },
+    {deep: true},
+  );
 
   onMounted(() => {
     loadMyCharacters();

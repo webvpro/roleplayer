@@ -1,13 +1,7 @@
 <template>
-  <div class="drawer drawer-end h-full mb-3 w-auto">
-    <input
-      id="item-details"
-      type="checkbox"
-      class="drawer-toggle"
-      v-model="toggleDetailDrawer"
-    />
-    <div class="drawer-content">
-     <BrowseToolBar />
+  <div>
+  <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
+    <template #main-content>
       <div class="mx-auto snap-start container">
         <div
           class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-3 xl:grid-cols-4"
@@ -30,10 +24,10 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="drawer-side">
-      <label for="item-details" class="drawer-overlay"></label>
-      <div v-if="selectedItem" class="w-96 md:w-2/3 bg-secondary text-secondary-content">
+    </template>
+    <template #drawer-side>
+      <div class="drawer-overlay" @click="closeDrawer"></div>
+      <div v-if="selectedItem" class="w-96 md:w-2/3 bg-secondary text-secondary-content min-h-full h-fit">
         <div class="navbar">
           <div class="navbar-start">
             <a class="btn btn-ghost text-xl capitalize">{{
@@ -56,8 +50,10 @@
 
         <TierAbilitiesAccordion :tier_abilities="selectedItem.tier_abilities" @selected-item="openAbilityModal" />
       </div>
-    </div>
-    <AbilityModal :ability="selectedAbility" @close-modal="closeAbilityModal" />
+    </template>
+    
+  </NuxtLayout>
+  <AbilityModal :ability="selectedAbility" @close-modal="closeAbilityModal" />
   </div>
 </template>
 <script setup>
@@ -89,5 +85,7 @@ const openAbilityModal = id => {
   const closeAbilityModal = () => {
     selectedAbility.value = null;
   };
-  
+  definePageMeta({
+    layout: false,
+  });
 </script>

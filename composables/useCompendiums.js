@@ -7,11 +7,11 @@ export const useCompendium = (id = null) => {
   const fileID = ref(id ?? config.public.CSRD_COMPENDIUM_FILE_ID);
   const compendium = useCompendiums(fileID.value);
 
-  const collections = ref(null);
+  const collections = reactive({});
 
   watch(compendium, value => {
     if (value) {
-      collections.value = value.collections;
+      collections.value = {...value.collections};
     }
   });
 
@@ -24,7 +24,8 @@ export const useCompendium = (id = null) => {
         ),
       );
       compendium.value = JSON.parse(compendiumData.value);
-    } catch {
+    } catch (e) {
+      console.log('ERROR:fetchCompendium', e);
       compendium.value = null;
     }
   }

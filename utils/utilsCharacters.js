@@ -1,4 +1,4 @@
-export default function () {
+export default function (character = {}) {
   const initCharacter = (cId, cName) => {
     return {
       id: cId,
@@ -25,39 +25,91 @@ export default function () {
         ],
       },
       xp: 0,
-      tier: [],
+      abilities: [],
+      tiers: [],
       effort: 0,
-      descriptors: [
-        {
-          sourceKey: '',
-          alias: '',
-          description: '',
-          features: [],
-          starters: [],
-        },
-      ],
-      types: [
-        {
-          sourceKey: '',
-          alias: '',
-          tiers: [{key: 1, swaps: [], selections: []}],
-        },
-      ],
+      descriptors: [],
+      types: [],
       foci: [],
       powerShifts: [],
       skills: [],
       attacks: [],
       background: '',
+      sentence: '',
       arcs: [],
       notes: [],
       equipment: {
         assets: [],
         cyphers: [],
         artifacts: [],
-        armor: [],
       },
     };
   };
 
-  return {initCharacter};
+  const initType = {
+    sourceKey: '',
+    alias: '',
+    tiers: [{key: 1, swaps: [], selections: []}],
+  };
+
+  const initDescriptor = {
+    sourceKey: '',
+    alias: '',
+    description: '',
+    features: [],
+    starters: [],
+  };
+
+  const initFocus = {
+    source: '',
+    name: '',
+    alias: '',
+    description: '',
+    selections: [],
+  };
+
+  const initFlavor = {
+    sourceKey: '',
+    name: '',
+    alias: '',
+    description: '',
+    selections: [],
+  };
+  const initTier = {
+    tier: '',
+    name: '',
+    advancements: [],
+  };
+  const initAdvancement = {
+    name: '',
+    description: [],
+  };
+  const initCollectionItem = {
+    source: '',
+    kind: '',
+    og: {},
+    custom: {},
+  };
+  const getSelectedItemsListText = (
+    items = [],
+    noItemText = 'None',
+    itemLabel = 'name',
+  ) => {
+    let itemNames = [];
+    items.map(d => {
+      console.log(d[itemLabel]);
+      itemNames.push(d[itemLabel]);
+    });
+    return itemNames.length ? itemNames : noItemText;
+  };
+
+  return {
+    initCharacter,
+    initType,
+    initDescriptor,
+    initFlavor,
+    initFocus,
+    initTier,
+    getSelectedItemsListText,
+  };
 }

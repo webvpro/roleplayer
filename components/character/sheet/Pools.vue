@@ -1,22 +1,33 @@
 <script setup>
   const props = defineProps({
-    pools: {type: [], default: []},
+    pools: {type: Array, default: []},
     recovery: {type: Object, default: {}},
   });
   const emit = defineEmits([
     'poolSelect',
     'poolAction',
     'restToggle',
-    'damageToggle',
+    'updatePools',
   ]);
+  function handlePoolChange(e) {
+    console.log('pools - change: ', e.pool);
+    emit('updatePools', e.pool);
+  }
+  const poolData = computed(() => props.pools);
   const restTracker = ref(props.recovery?.rest);
   const damageTracker = ref(props.recovery?.damage);
 </script>
 
 <template>
-  <div class="col-span-12 h-full w-full lg:h-fit shadow-xl lg:col-span-6 card">
-    <div class="stats" v-if="pools">
-      <CharacterStatPool v-for="pool in pools" :pool="pool" />
+  <div
+    class="col-span-12 row-span-4 h-full w-full lg:h-fit shadow-xl lg:col-span-6 card"
+  >
+    <div class="stats stats-vertical md:stats-horizontal" v-if="poolData">
+      <CharacterPoolTracker
+        v-for="pool in poolData"
+        :pool="pool"
+        @pool-change="handlePoolChange"
+      />
     </div>
     <div class="bg-neutral text-neutral-content card-body">
       <div
@@ -30,9 +41,9 @@
               class="recovery-button text-sm"
               @click.prevent="openRecovery"
             >
-              <v-icon name="debilitated" scale="2.33" /><span>{{
+              <Icon name="game-icons:healing" />{{
                 `${recovery.die} d6+ ${recovery.mod}`
-              }}</span>
+              }}
             </button>
           </div>
         </div>
@@ -63,7 +74,7 @@
         <div class="recovery-stat">
           <div class="stat-title text-lg md:text">Damage Track</div>
           <div class="recovery-stat-val">
-            <ul class="flex flex-col justify-start w-1/2">
+            <ul class="flex flex-col justify-start">
               <li class="w-fit form-control" v-for="damage in recovery.damage">
                 <label class="text-lg md:text capitalize cursor-pointer label">
                   <input
@@ -85,10 +96,10 @@
 </template>
 <style lang="postcss">
   .recovery-stat {
-    @apply text-2xl font-bold pb-2 justify-center text-center mb-2 w-full;
+    @apply font-bold pb-2 justify-start text-center mb-2 w-full;
   }
   .recovery-button {
-    @apply text-2xl btn-lg mx-auto w-10/12 gap-2 btn btn-primary text-primary-content mt-1;
+    @apply mx-auto gap-2 btn btn-primary text-primary-content mt-3;
   }
   .recovery-stat-val {
     @apply flex justify-center text-center stat-value text-neutral-content;

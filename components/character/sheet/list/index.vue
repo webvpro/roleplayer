@@ -5,7 +5,7 @@
         <li v-for="(item, idx) in listData" :key="idx" class="py-4 px-3">
           <div class="flex items-center space-x-4">
             <div class="flex-shrink-0">
-              <v-icon
+              <Icon
                 class="btn btn-square btn-primary"
                 :name="item.icon"
                 alt=""
@@ -26,7 +26,7 @@
                 class="inline-flex btn btn-circle btn-primary"
                 @click.prevent="openPoolAction(item.pool)"
               >
-                <v-icon
+                <Icon
                   :name="
                     item?.pool
                       ? poolData[item.pool.toLowerCase()].icon

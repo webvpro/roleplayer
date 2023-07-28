@@ -1,0 +1,458 @@
+[
+    {
+        "id": "5a3079e7-ae4d-40f7-943b-350f9dbc2201",
+        "name": "Mike",
+        "url": "https://i.imgur.com/eHl73qL.jpg",
+        "advancements": [
+            {
+                "tier": 1,
+                "name": "tier",
+                "advancements": [
+                    {
+                        "key": "MOVE_TOWARD_PERFECTION",
+                        "description": "+1 to the Edge of your choice",
+                        "options": []
+                    },
+                    {
+                        "key": "EXTRA_EFFORT",
+                        "description": "+1 into Effort",
+                        "options": []
+                    },
+                    {
+                        "key": "EXTRA_EFFORT",
+                        "description": "+1 into Effort",
+                        "options": []
+                    },
+                    {
+                        "key": "SKILL_TRAINING",
+                        "description": "Train in a skill or specialize in a trained skill",
+                        "options": []
+                    },
+                    {
+                        "key": "OTHER",
+                        "description": "Refer with GM",
+                        "options": []
+                    }
+                ]
+            },
+            {
+                "tier": 2,
+                "name": "tier",
+                "advancements": [
+                    {
+                        "key": "MOVE_TOWARD_PERFECTION",
+                        "description": "+1 to the Edge of your choice",
+                        "options": []
+                    },
+                    {
+                        "key": "INCREASE_CAPABILITIES",
+                        "description": "+4 points into stat Pools",
+                        "options": []
+                    },
+                    {
+                        "key": "MOVE_TOWARD_PERFECTION",
+                        "description": "+1 to the Edge of your choice",
+                        "options": []
+                    }
+                ]
+            },
+            {
+                "tier": 3,
+                "name": "tier",
+                "advancements": [
+                    {
+                        "key": "EXTRA_EFFORT",
+                        "description": "+1 into Effort",
+                        "options": []
+                    }
+                ]
+            }
+        ],
+        "pools": [
+            {
+                "key": "might",
+                "value": 0,
+                "current": 0,
+                "edge": 0
+            },
+            {
+                "key": "speed",
+                "value": 0,
+                "current": 0,
+                "edge": 0
+            },
+            {
+                "key": "intellect",
+                "value": 0,
+                "current": 0,
+                "edge": 0
+            }
+        ],
+        "recovery": {
+            "die": 1,
+            "mod": 1,
+            "rest": [
+                {
+                    "id": "rest_action",
+                    "label": "Action",
+                    "used": false
+                },
+                {
+                    "id": "rest_10_mins",
+                    "label": "10 mins",
+                    "used": false
+                },
+                {
+                    "id": "rest_1_hour",
+                    "label": "1 Hour",
+                    "used": false
+                },
+                {
+                    "id": "rest_10_hours",
+                    "label": "10 hours",
+                    "used": false
+                }
+            ],
+            "damage": [
+                {
+                    "id": "damage_impaired",
+                    "label": "Impaired",
+                    "inflected": false
+                },
+                {
+                    "id": "damage_debilitated",
+                    "label": "Debilitated",
+                    "inflected": false
+                }
+            ]
+        },
+        "xp": "2",
+        "abilities": [],
+        "tiers": 6,
+        "effort": "1",
+        "descriptors": [
+            {
+                "name": "calm",
+                "description": "You've spent most of your life in sedentary pursuits-books, movies, hobbies, and so on-rather than active ones. You're well versed in all manner of academia or other intellectual pursuits, but nothing physical. You're not weak or feeble, necessarily (although this is a good descriptor for characters who are elderly), but you have no experience in more physical activities.",
+                "characteristics": [
+                    {
+                        "name": "Bookish",
+                        "description": "+2 to your Intellect Pool."
+                    },
+                    {
+                        "name": "Skills",
+                        "description": "You are trained in four nonphysical skills of your choice."
+                    },
+                    {
+                        "name": "Trivia",
+                        "description": "You can come up with a random fact pertinent to the current situation when you wish it. This is always a matter of fact, not conjecture or supposition, and must be something you could have logically read or seen in the past. You can do this one time, although the ability is renewed each time you make a recovery roll."
+                    },
+                    {
+                        "name": "Inability",
+                        "description": "You're just not a fighter. All physical attacks are hindered."
+                    },
+                    {
+                        "name": "Inability",
+                        "description": "You're not the outdoorsy type. All climbing, running, jumping, and swimming tasks are hindered."
+                    },
+                    {
+                        "name": "Initial Link to the Starting Adventure",
+                        "description": "From the following list of options, choose how you became involved in the first adventure."
+                    }
+                ],
+                "links": [
+                    "You read about the current situation somewhere and decided to check it out for yourself.",
+                    "You were in the right (wrong?) place at the right (wrong?) time.",
+                    "While avoiding an entirely different situation, you walked into your current situation.",
+                    "One of the other PCs dragged you into it."
+                ]
+            },
+            {
+                "name": "gnome",
+                "description": "You are curious and love discovering ways to turn found things into art, tools, or weapons. You might be a sculptor, smith, artist, chef, storyteller, or inventor. Alchemy, magic, and engineering fascinate you. Other beings may see you as a strange mix of a nature-loving elf and a craft-obsessed dwarf, but you and your kind are unique people with a passion for life, exploration, and creation.",
+                "characteristics": [
+                    {
+                        "name": "Genius",
+                        "description": "+2 to your Intellect Pool."
+                    },
+                    {
+                        "name": "Skill",
+                        "description": "You are trained in two skills that suit your creative nature, such as alchemy, smithing, poetry, cooking, woodcarving, or pottery."
+                    },
+                    {
+                        "name": "Skill",
+                        "description": "You are practiced in using hammers."
+                    },
+                    {
+                        "name": "Natural Affinity: You gain one of the following abilities",
+                        "description": "Communication, Eyes Adjusted, or Minor Illusion."
+                    },
+                    {
+                        "name": "Inability",
+                        "description": "Your small size makes some physical tasks difficult. Might-based tasks are hindered."
+                    },
+                    {
+                        "name": "Additional Equipment",
+                        "description": "You have a bag of light tools or a bag of heavy tools."
+                    },
+                    {
+                        "name": "Initial Link to the Starting Adventure",
+                        "description": "From the following list of options, choose how you became involved in the first adventure."
+                    }
+                ],
+                "links": [
+                    "You think an object or material you've been looking for can be found where the other PCs are going.",
+                    "You were recruited because of your knowledge on a particular subject.",
+                    "You were bored and it sounded like the PCs were going to do something interesting.",
+                    "You owe one of the PCs a favor for a useful gift in the past."
+                ]
+            }
+        ],
+        "types": [
+            {
+                "name": "Adept",
+                "description": "Adepts master powers or abilities outside the experience, understanding, and sometimes belief of others. They might be magic, psychic powers, mutant abilities, or just a wide variety of intricate devices, depending on the setting.",
+                "intrusions": [
+                    {
+                        "name": "Advantageous Malfunction",
+                        "description": "A device being used against you malfunctions. It might harm the user or one of their allies for a round, or activate a dramatic and distracting side effect for a few rounds."
+                    },
+                    {
+                        "name": "Convenient Idea",
+                        "description": "A flash of insight provides you with a clear answer or suggests a course of action with regard to an urgent question, problem, or obstacle you're facing."
+                    },
+                    {
+                        "name": "Inexplicably Unbroken",
+                        "description": "An inactive, ruined, or presumed-destroyed device temporarily activates and performs a useful function relevant to the situation. This is enough to buy you some time for a better solution, alleviate a complication that was interfering with your abilities, or just get you one more use out of a depleted cypher or artifact."
+                    }
+                ],
+                "backgrounds": [
+                    "You served as an apprentice for an Adept respected and feared by many people. Now you bear their mark.",
+                    "You studied in a school infamous for its dark, brooding instructors and graduates.",
+                    "You learned your abilities in the temple of an obscure god. Its priests and worshippers, although small in number, respect and admire your talents and potential.",
+                    "While traveling alone, you saved the life of a powerful person. They remain indebted to you.",
+                    "Your mother was a powerful Adept while she lived, helpful to many locals. They look upon you kindly, but they also expect much from you.",
+                    "You owe money to a number of people and don't have the funds to pay your debts.",
+                    "You failed disgracefully at your initial studies with your teacher and now proceed on your own.",
+                    "You learned your skills faster than your teachers had ever seen before. The powers that be took notice and are paying close attention.",
+                    "You killed a well-known criminal in self-defense, earning the respect of many and the enmity of a dangerous few.",
+                    "You trained as a Warrior, but your Adept predilections eventually led you down a different path. Your former comrades don't understand you, but they respect you.",
+                    "While studying to be an Adept, you worked as an assistant for a bank, making friends with the owner and the clientele.",
+                    "Your family owns a large vineyard nearby known to all for its fine wine and fair business dealings.",
+                    "You trained for a time with a group of influential Adepts, and they still look upon you with fondness.",
+                    "You worked the gardens in the palace of an influential noble or person of wealth. They wouldn't remember you, but you made friends with their young daughter.",
+                    "An experiment you conducted in the past went horribly awry. The locals remember you as a dangerous and foolhardy individual.",
+                    "You hail from a distant place where you were well known and regarded, but people here treat you with suspicion.",
+                    "People you meet seem put off by the strange birthmark on your face.",
+                    "Your best friend is also an Adept. You and your friend share discoveries and secrets readily.",
+                    "You know a local merchant very well. Since you give them so much business, they offer you discounts and special treatment.",
+                    "You belong to a secretive social club that gathers monthly to drink and talk."
+                ],
+                "starting_pools": {
+                    "Intellect": 12,
+                    "Might": 7,
+                    "Speed": 9
+                },
+                "starting_features": [
+                    {
+                        "name": "Effort",
+                        "description": "Your Effort is 1."
+                    },
+                    {
+                        "name": "Genius",
+                        "description": "You have an Intellect Edge of 1, a Might Edge of 0, and a Speed Edge of 0."
+                    },
+                    {
+                        "name": "Expert Cypher Use",
+                        "description": "You can bear three cyphers at a time."
+                    },
+                    {
+                        "name": "Starting Equipment",
+                        "description": "Appropriate clothing, plus two expensive items, two moderately priced items, and up to four inexpensive items of your choice."
+                    },
+                    {
+                        "name": "Weapons",
+                        "description": "You can use light weapons without penalty. You have an inability with medium weapons and heavy weapons; your attacks with medium and heavy weapons are hindered."
+                    }
+                ],
+                "tier_abilities": {
+                    "tier_1": {
+                        "number": 1,
+                        "limit": {
+                            "name": "four",
+                            "number": 4
+                        },
+                        "abilities": [
+                            "distortion",
+                            "erase_memories",
+                            "far_step",
+                            "hedge_magic",
+                            "magic_training",
+                            "onslaught",
+                            "push",
+                            "resonance_field",
+                            "scan",
+                            "shatter",
+                            "ward"
+                        ]
+                    },
+                    "tier_2": {
+                        "number": 2,
+                        "limit": {
+                            "name": "one",
+                            "number": 1
+                        },
+                        "abilities": [
+                            "adaptation",
+                            "cutting_light",
+                            "hover",
+                            "mind_reading",
+                            "retrieve_memories",
+                            "reveal",
+                            "stasis"
+                        ]
+                    },
+                    "tier_3": {
+                        "number": 3,
+                        "limit": {
+                            "name": "two",
+                            "number": 2
+                        },
+                        "abilities": [
+                            "adroit_cypher_use",
+                            "countermeasures",
+                            "energy_protection",
+                            "fire_and_ice",
+                            "force_field_barrier",
+                            "sensor",
+                            "targeting_eye"
+                        ]
+                    },
+                    "tier_4": {
+                        "number": 4,
+                        "limit": {
+                            "name": "one",
+                            "number": 1
+                        },
+                        "abilities": [
+                            "death_touch",
+                            "exile",
+                            "invisibility",
+                            "matter_cloud",
+                            "mind_control",
+                            "projection",
+                            "rapid_processing",
+                            "regeneration",
+                            "reshape",
+                            "wormhole"
+                        ]
+                    },
+                    "tier_5": {
+                        "number": 5,
+                        "limit": {
+                            "name": "two",
+                            "number": 2
+                        },
+                        "abilities": [
+                            "absorb_energy",
+                            "concussion",
+                            "conjuration",
+                            "create",
+                            "dust_to_dust",
+                            "knowing_the_unknown",
+                            "master_cypher_use",
+                            "teleportation",
+                            "true_senses"
+                        ]
+                    },
+                    "tier_6": {
+                        "number": 6,
+                        "limit": {
+                            "name": "one",
+                            "number": 1
+                        },
+                        "abilities": [
+                            "control_weather",
+                            "earthquake",
+                            "move_mountains",
+                            "traverse_the_worlds",
+                            "usurp_cypher"
+                        ]
+                    }
+                }
+            }
+        ],
+        "foci": [
+            {
+                "name": "blazes with radiance",
+                "description": "You can create light, sculpt it, bend it away from you, or gather it to use as a weapon.",
+                "intrusion": "Allies are accidentally dazzled or blinded. Bright flashes draw guards.",
+                "tier_abilities": {
+                    "tier_1": {
+                        "abilities": {
+                            "granted": [
+                                "enlightened",
+                                "illuminating_touch"
+                            ],
+                            "select": []
+                        }
+                    },
+                    "tier_2": {
+                        "abilities": {
+                            "granted": [
+                                "dazzling_sunburst"
+                            ],
+                            "select": []
+                        }
+                    },
+                    "tier_3": {
+                        "abilities": {
+                            "granted": [],
+                            "select": [
+                                "burning_light",
+                                "skill_with_defense"
+                            ]
+                        }
+                    },
+                    "tier_4": {
+                        "abilities": {
+                            "granted": [
+                                "sunlight"
+                            ],
+                            "select": []
+                        }
+                    },
+                    "tier_5": {
+                        "abilities": {
+                            "granted": [
+                                "disappear"
+                            ],
+                            "select": []
+                        }
+                    },
+                    "tier_6": {
+                        "abilities": {
+                            "granted": [],
+                            "select": [
+                                "living_light",
+                                "defensive_field"
+                            ]
+                        }
+                    }
+                }
+            }
+        ],
+        "powerShifts": [],
+        "skills": [],
+        "attacks": [],
+        "background": "",
+        "sentence": "",
+        "arcs": [],
+        "notes": [],
+        "equipment": {
+            "assets": [],
+            "cyphers": [],
+            "artifacts": []
+        }
+    }
+]

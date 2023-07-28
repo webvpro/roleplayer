@@ -91,6 +91,6 @@
     @apply flex flex-col justify-center font-semibold text-center;
   }
   .pool-number {
-    @apply w-10 h-10 text-xl btn-sm md:btn-xl btn btn-circle;
+    @apply w-10 h-10 text-xl btn-sm btn btn-circle;
   }
 </style>
