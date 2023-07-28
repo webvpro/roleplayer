@@ -19,18 +19,10 @@
   }
 </script>
 <template>
-  <div class="collapse">
-    <input type="checkbox" class="peer" v-model="viewContent" />
-    <div
-      class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
-      @click="toggleCollapse"
-    >
-      Click me to show/hide content
-    </div>
-    <div
-      class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
-    >
-      <p>hello</p>
-    </div>
+  <div class="form-control w-full">
+    <label class="input-group input-group-md input-group-vertical">
+      <span class="bg-primary text-primary-content">{{ label }}</span>
+    </label>
+    <ErrorMessage name="name" />
   </div>
 </template>

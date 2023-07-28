@@ -1,14 +1,19 @@
 <script setup>
   const props = defineProps({
-    pools: {type: [], default: []},
+    pools: {type: Array, default: []},
     recovery: {type: Object, default: {}},
   });
   const emit = defineEmits([
     'poolSelect',
     'poolAction',
     'restToggle',
-    'damageToggle',
+    'updatePools',
   ]);
+  function handlePoolChange(e) {
+    console.log('pools - change: ', e.pool);
+    emit('updatePools', e.pool);
+  }
+  const poolData = computed(() => props.pools);
   const restTracker = ref(props.recovery?.rest);
   const damageTracker = ref(props.recovery?.damage);
 </script>
@@ -17,8 +22,12 @@
   <div
     class="col-span-12 row-span-4 h-full w-full lg:h-fit shadow-xl lg:col-span-6 card"
   >
-    <div class="stats stats-vertical md:stats-horizontal" v-if="pools">
-      <CharacterPoolTracker v-for="pool in pools" :pool="pool" />
+    <div class="stats stats-vertical md:stats-horizontal" v-if="poolData">
+      <CharacterPoolTracker
+        v-for="pool in poolData"
+        :pool="pool"
+        @pool-change="handlePoolChange"
+      />
     </div>
     <div class="bg-neutral text-neutral-content card-body">
       <div

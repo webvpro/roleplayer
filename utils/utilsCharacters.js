@@ -1,4 +1,4 @@
-export default function () {
+export default function (character = {}) {
   const initCharacter = (cId, cName) => {
     return {
       id: cId,
@@ -61,11 +61,11 @@ export default function () {
   };
 
   const initFocus = {
-    sourceKey: '',
+    source: '',
     name: '',
     alias: '',
     description: '',
-    tiers: [{key: 1, selections: []}],
+    selections: [],
   };
 
   const initFlavor = {
@@ -73,8 +73,43 @@ export default function () {
     name: '',
     alias: '',
     description: '',
-    tiers: [{key: 1, selections: []}],
+    selections: [],
+  };
+  const initTier = {
+    tier: '',
+    name: '',
+    advancements: [],
+  };
+  const initAdvancement = {
+    name: '',
+    description: [],
+  };
+  const initCollectionItem = {
+    source: '',
+    kind: '',
+    og: {},
+    custom: {},
+  };
+  const getSelectedItemsListText = (
+    items = [],
+    noItemText = 'None',
+    itemLabel = 'name',
+  ) => {
+    let itemNames = [];
+    items.map(d => {
+      console.log(d[itemLabel]);
+      itemNames.push(d[itemLabel]);
+    });
+    return itemNames.length ? itemNames : noItemText;
   };
 
-  return {initCharacter, initType, initDescriptor, initFlavor, initFocus};
+  return {
+    initCharacter,
+    initType,
+    initDescriptor,
+    initFlavor,
+    initFocus,
+    initTier,
+    getSelectedItemsListText,
+  };
 }

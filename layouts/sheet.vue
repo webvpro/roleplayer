@@ -52,9 +52,18 @@
         </div>
       </div>
     </main>
+    <!-- modal open with @click = "window.sheet_modal.shoeModal" -->
+    <dialog
+      id="sheet_modal"
+      class="modal modal-bottom sm:modal-middle absolute"
+    >
+      <form method="dialog" class="modal-box p-0 bg-neutral">
+        <slot name="sheet-modal"></slot>
+      </form>
+    </dialog>
   </div>
 </template>
 <script setup>
-  const props = defineProps(['openDrawer', 'collections']);
+  const props = defineProps(['openDrawer', 'collections', 'openModal']);
   const openDrawer = toRef(props, 'openDrawer');
 </script>

@@ -1,7 +1,7 @@
 <script setup>
   const props = defineProps({
     tabData: {type: Object, default: () => {}},
-    selected: {type: String, default: 'skills'},
+    selected: {type: String, default: ''},
   });
 
   const active = ref(props.selected);
@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <div class="col-span-12 h-full shadow-xl lg:col-span-6 card bg-base-100">
+  <div class="col-span-12 h-full shadow-xl lg:col-span-3 card bg-base-100">
     <div class="card-title tabs">
       <a
         class="tab tab-lifted"

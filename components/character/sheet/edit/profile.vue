@@ -3,138 +3,189 @@
     v-slot="{values, handleSubmit, handleReset}"
     :validation-schema="profileScheme"
     :initial-values="initialValues"
+    class="bg-neutral text-neutral-content"
     as="div"
   >
-    <form @submit.prevent="handleSubmit($event, onSubmit)" class="h-full">
+    <form @submit.prevent="handleSubmit($event, onSubmit)" class="h-full p-6">
       <input type="submit" class="hidden" />
-      <div class="form-control w-full">
-        <label class="label">
+      <div class="join join-vertical input-bordered my-3 w-full">
+        <label for="name" class="input-label">
           <span class="label-text">Name</span>
-          <VeeField
-            type="text"
-            name="name"
-            placeholder="Type name here"
-            class="input input-bordered w-full"
-            validate-on-change="true"
-          />
         </label>
-        <ErrorMessage name="name" />
+        <VeeField
+          type="text"
+          name="name"
+          placeholder="Type name here"
+          class="join-item bg-neutral text-neutral-content"
+          validate-on-change="true"
+        />
+
+        <ErrorMessage name="name" class="join-item" />
       </div>
-      <div class="form-control w-full">
-        <label class="label">
+      <div class="join join-vertical input-bordered my-3 w-full">
+        <label class="input-label">
           <span class="label-text">Image URL</span>
-          <VeeField
-            type="text"
-            name="imgURL"
-            placeholder="Type name here"
-            class="input input-bordered w-full"
-          />
         </label>
-        <ErrorMessage name="imgURL" />
+        <VeeField
+          type="text"
+          name="url"
+          placeholder="Type name here"
+          class="join-item bg-neutral text-neutral-content"
+        />
+
+        <ErrorMessage name="url" class="join-item" />
       </div>
-      <div class="flex flex-col lg:flex-row justify-between items-center">
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">XP</span>
-            <VeeField
-              type="number"
-              name="xp"
-              min="0"
-              max="10"
-              size="2"
-              class="input input-bordered w-full"
-              validate-on-change="true"
-            />
-          </label>
-          <ErrorMessage name="name" />
-        </div>
-        <div class="form-control">
-          <label class="input-group input-group-md input-group-vertical">
-            <span class="bg-primary text-primary-content">Effort</span>
-            <VeeField
-              type="number"
-              name="effort"
-              min="0"
-              max="10"
-              size="2"
-              class="input input-bordered w-full"
-              validate-on-change="true"
-            />
-          </label>
-          <ErrorMessage name="name" />
-        </div>
+
+      <div class="join input-bordered w-full my-3">
+        <label class="input-label w-1/4">
+          <span class="label-text">XP</span>
+        </label>
+        <VeeField
+          type="number"
+          name="xp"
+          min="0"
+          max="10"
+          size="2"
+          class="join-item bg-neutral text-neutral-content w-1/4"
+          validate-on-change="true"
+        />
+
+        <label class="input-label w-1/4">
+          <span class="label-text">Effort</span>
+        </label>
+        <VeeField
+          type="number"
+          name="effort"
+          min="0"
+          max="6"
+          size="2"
+          class="join-item bg-neutral text-neutral-content w-1/4"
+          validate-on-change="true"
+        />
       </div>
-      <!-- pool and edge inputs -->
+
       <InputPoolStats
-        v-for="(pool, index) in character.pools"
-        :pool-key="pool.key"
-        :pool-value="pool.value"
+        v-for="(pool, index) in sheet.pools"
+        :pool="pool"
         @pool-change="changeValue"
       />
       <div class="divider"></div>
-
-      <h2>Sentence</h2>
-
-      <div class="form-control w-full">
-        <label class="input-group input-group-md input-group-vertical">
-          <span class="bg-primary text-primary-content">Descriptor</span>
-          <VeeField
-            v-slot="{values}"
-            name="descriptor"
-            as="select"
-            class="select select-bordered w-full max-w-full"
-            validate-on-change="true"
-          >
-            <option value="">Select Descriptor</option>
-            <option>Han Solo</option>
-            <option>Greedo</option>
-          </VeeField>
-        </label>
-        <ErrorMessage name="name" />
+      <h1 class="text-xl">Recovery (#d6+#)</h1>
+      <div class="join join-horizontal input-bordered my-3 w-full">
+        <label class="join-item input-label w-5/12 capitalize"
+          ><span class="label-text">(#)d6</span></label
+        >
+        <input
+          type="number"
+          name="die"
+          min="0"
+          max="100"
+          size="3"
+          class="join-item bg-neutral text-neutral-content"
+          v-model="characterRecovery.die"
+          @change.prevent="handleRecoveryChange"
+        />
+        <label class="input-label join-item"
+          ><span class="label-text">+(#)</span></label
+        >
+        <input
+          type="number"
+          name="mod"
+          min="0"
+          max="100"
+          size="3"
+          v-model="characterRecovery.mod"
+          class="join-item bg-neutral text-neutral-content"
+          @change.prevent="handleRecoveryChange"
+        />
       </div>
-      <div class="form-control w-full">
-        <label class="input-group input-group-md input-group-vertical">
-          <span class="bg-primary text-primary-content">Sub Descriptor</span>
-          <VeeField
-            v-slot="{values}"
-            name="sub_descriptor"
-            as="select"
-            class="select select-bordered w-full max-w-xs"
-            validate-on-change="true"
-          >
-            <option value="">Select Descriptor</option>
-            <option>Han Solo</option>
-            <option>Greedo</option>
-          </VeeField>
-        </label>
-        <ErrorMessage name="name" />
+      <div class="divider"></div>
+      <h1 class="text-xl">Sentence</h1>
+      <p
+        class="w-full border-2 border-neutral-400 p-3 indent-3 border-dashed my-3"
+      >
+        {{ sentence }}
+      </p>
+      <div class="m-3">
+        <h1 class="text-base">Descriptors</h1>
+        <div
+          class="w-full border-2 border-neutral-400 p-3 indent-3 border-dashed my-3 text-sm"
+        >
+          <div v-if="characterDescriptors.length >= 1">
+            <div
+              v-for="descriptor in characterDescriptors"
+              class="btn btn-ghost btn-sm capitalize"
+            >
+              {{ descriptor.name }}
+            </div>
+          </div>
+          <div v-else class="">None Added</div>
+        </div>
+        <InputPicker
+          :collection="collections?.descriptors"
+          label="Descriptor"
+          @item-click="onPickerClick"
+        />
       </div>
-      <div class="form-control w-full">
-        <label class="input-group input-group-md input-group-vertical">
-          <span class="bg-primary text-primary-content">Type</span>
-          <VeeField
-            v-slot="{values}"
-            name="type"
-            as="select"
-            class="select select-bordered w-full max-w-xs"
-            validate-on-change="true"
-          >
-            <option value="">Select Type</option>
-            <option>Han Solo</option>
-            <option>Greedo</option>
-          </VeeField>
-        </label>
-        <ErrorMessage name="name" />
+      <div class="m-3">
+        <h1 class="text-base">Types</h1>
+        <div
+          class="w-full border-2 border-neutral-400 p-3 indent-3 border-dashed my-3 text-sm"
+        >
+          <div v-if="characterTypes.length >= 1">
+            <div
+              v-for="pcType in characterTypes"
+              class="btn btn-ghost btn-sm capitalize"
+            >
+              {{ pcType.name }}
+            </div>
+          </div>
+          <div v-else class="">None Added</div>
+        </div>
+        <InputPicker
+          :collection="collections?.types"
+          label="Type"
+          @item-click="onPickerClick"
+        />
       </div>
-
+      <div class="m-3">
+        <h1 class="text-base">Foci</h1>
+        <div
+          class="w-full border-2 border-neutral-400 p-3 indent-3 border-dashed my-3 text-sm"
+        >
+          <div
+            v-if="characterFoci.length >= 1"
+            class="flex flex-wrap justify-start"
+          >
+            <div
+              v-for="focus in characterFoci"
+              class="btn btn-ghost btn-sm capitalize"
+            >
+              {{ focus.name }}
+            </div>
+          </div>
+          <div v-else class="">None Added</div>
+        </div>
+        <InputPicker
+          :collection="collections?.foci"
+          label="Focus"
+          @item-click="onPickerClick"
+        />
+      </div>
+      <div class="divider"></div>
+      <h1 class="text-xl">Tiers and Advancements</h1>
       <!-- button form controls -->
-      <div class="fixed bottom-3 right-6 btn-group btn-group-horizontal">
-        <button class="btn" @click.prevent="handleReset">Reset</button>
-        <button class="btn" @click="onClose">Close</button>
-        <button name="submit" type="Submit" class="btn btn-active">Save</button>
-      </div>
+      <CharacterSheetEditAdvancementTracks
+        v-for="(tier, idx) in characterAdvancements"
+        :key="idx"
+        :advancements="collections.advancements"
+        :character-advancements="characterAdvancements"
+        :tier="tier.tier"
+      />
+      <button class="btn btn-primary w-full" @click.prevent="onAddTier">
+        Add Tier Track
+      </button>
     </form>
-    <pre>{{ compendium.collections.type }}</pre>
   </VeeForm>
 </template>
 
@@ -153,22 +204,44 @@
     character: {type: Object, default: () => {}},
     compendium: {type: Object, default: () => {}},
     editedBy: {type: String, default: 'owner'},
+    sentence: {type: String, default: ''},
   });
+  const characterUtils = utilsCharacters();
+  const sheet = reactive(props.character.value);
+  const characterFoci = computed(() => sheet.foci ?? []);
+  const characterTypes = computed(() => sheet.types ?? []);
+  const characterDescriptors = computed(() => sheet.descriptors ?? []);
+  const characterRecovery = computed(() => sheet.recovery ?? {});
+  const characterAdvancements = computed(() => sheet.advancements ?? []);
+  const characterPools = computed(() => sheet.pools ?? []);
+
   const toggle = ref(true);
   function onToggle(e) {
     console.log('toggle:', toggle.value);
   }
-  const {value: name} = useField('name');
-  const {value: imgURL} = useField('imgURL');
+  const collections = reactive(props.compendium.collections);
 
-  const initialValues = {
-    name: props.character.name,
-    imgURL: props.character.url ?? '',
-    xp: props.character.xp ?? 0,
-    effort: props.character.effort ?? 0,
-  };
+  const initialValues = computed(() => ({
+    name: sheet.name,
+    url: sheet?.url ?? '',
+    xp: sheet?.xp ?? 0,
+    effort: sheet?.effort ?? 0,
+  }));
 
-  const emit = defineEmits(['update-character', 'close']);
+  const emit = defineEmits(['update-character', 'close', 'open-modal']);
+
+  function onAddTier() {
+    const tierCount = characterAdvancements.value.length ?? 0;
+    const currentTiers = characterAdvancements.value ?? [];
+    const newTier = {
+      tier: currentTiers.length + 1,
+      name: 'tier',
+      advancements: [],
+    };
+    currentTiers.push(newTier);
+    console.log(tierCount, currentTiers);
+    emit('update-character', {advancements: currentTiers});
+  }
 
   function onClose() {
     emit('close');
@@ -176,26 +249,46 @@
 
   const onSubmit = values => {
     //handleSubmit(values => {
-    emit('update-character', {...{values}, scope: 'profile'});
-    //console.log(vals);
+    emit('update-character', {...values});
+    console.log(values);
   };
   const changeValue = e => {
-    console.log(e);
+    const idx = sheet.pools.findIndex(pool => pool.key === e.key);
+    sheet.pools[idx] = e;
+    //console.log('pool update', sheet.pools);
+    emit('update-character', {pools: sheet.pools});
   };
   const profileScheme = yup.object({
     name: yup.string().required().min(1),
-    imgURL: yup.string().url().default('').nullable(),
+    url: yup.string().url().default('').nullable(),
   });
+
+  function handleRecoveryChange(e) {
+    const cr = characterRecovery.value;
+    cr[e.target.name] = parseInt(e.target.value);
+    console.log(`recovery change: ${e.target.name} new value`, cr);
+    emit('update-character', {recovery: cr});
+  }
+
+  const onItemClick = e => {
+    const data = {
+      kind: e.kind,
+      action: 'edit',
+      value: e.value,
+    };
+    //console.log(e);
+    emit('open-modal', data);
+  };
 </script>
 
 <style lang="postcss">
-  .form-control {
-    @apply mx-auto my-3;
+  .form-control-v {
+    @apply join join-vertical input-bordered my-3;
   }
   .pool-input {
-    @apply border-none w-auto m-1 bg-neutral text-neutral-content flex-1;
+    @apply border-none w-auto m-1 bg-secondary text-secondary-content flex-1;
   }
-  .profile-input {
-    @apply input-group input-group-md input-group-vertical;
+  .input-label {
+    @apply label join-item bg-primary text-primary-content;
   }
 </style>

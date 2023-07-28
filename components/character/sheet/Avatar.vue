@@ -1,113 +1,109 @@
 <script setup>
-  import advancements from '@/JSON/advancements.json';
   const props = defineProps({
     character: {type: Object, default: () => {}},
   });
+  const emit = defineEmits(['editMode']);
+  const characterUtils = utilsCharacters();
+  const {sheet} = inject('characterData');
+  const {collections} = inject('collectionsData');
+  const sheetData = computed(() => sheet.value);
 
-  const restTracker = ref([
-    {id: 'rest-action', label: 'Action', used: false},
-    {id: 'rest-ten-min', label: '1O mins', used: false},
-    {id: 'rest-1-hr', label: '1 hour', used: false},
-    {id: 'rest-ten-hrs', label: '1O hrs', used: false},
-  ]);
-
-  const tierNum = computed(() =>
-    props.character.tier ? props.character.tier.length : 0,
-  );
-
-  const characterImg = computed(() =>
-    props.character.url
-      ? props.character.url
-      : '/images/CSOLLogo-CypherSystemCompatible-ColorWhite-Large.png',
-  );
-
-  const descriptorsTxt = computed(() =>
-    props.character.descriptors
-      ? props.character.descriptors.join(',')
-      : '[-descriptors-]',
-  );
-  const fociTxt = computed(() =>
-    props.character.foci.map(focus => foci.name)
-      ? props.character.foci.map(focus => focus.name).join(',')
-      : '[-foci-]',
-  );
-
-  const typeTxt = computed(() =>
-    props.character.types.map(type => type.name).join(',')
-      ? props.character.types.map(type => type.name).join(',')
-      : '[-types-]',
-  );
+  const tierNum = computed(() => (sheetData.tier ? sheetData.tier.length : 0));
 
   const sentenceText = computed(() => {
-    if (props?.sentence) return props.sentence;
-
-    const descriptorTxt = props.character.descriptors
-      .map(descriptor => descriptor.name)
-      .join(',')
-      ? props.character.descriptors.map(type => type.name).join(',')
-      : '[-descriptor-]';
-    const fociTxt = props.character.foci.map(focus => focus.name).join(',')
-      ? props.character.foci.map(focus => focus.name).join(',')
-      : '[-focus-]';
-
-    const typeTxt = props.character.types.map(type => type.name).join(',')
-      ? props.character.descriptors.map(type => type.name).join(',')
-      : '[-type-]';
-
-    return `is a ${descriptorTxt} ${typeTxt} who ${fociTxt}`;
+    return `Is a ${characterUtils.getSelectedItemsListText(
+      sheet.value.descriptors,
+      '[-descriptors-]',
+    )} ${characterUtils.getSelectedItemsListText(
+      sheet.value.types,
+      '[-types-]',
+    )} who ${characterUtils.getSelectedItemsListText(
+      sheet.value.foci,
+      '[-foci-]',
+    )} ${
+      sheet.value.flavors
+        ? 'flavored with,' +
+          characterUtils.getSelectedItemsListText(sheet.value.flavors, '')
+        : ''
+    }`;
   });
 
-  console.log(sentenceText);
-  const advancementSteps = ref(advancements);
+  const lastTier = computed(
+    () => sheet.value.advancements[sheet.value.advancements.length - 1] ?? null,
+  );
+  const tierButtonText = computed(() => {
+    return lastTier.value
+      ? `${lastTier.value.name}: ${lastTier.value.tier}`
+      : 'Add Tier';
+  });
+  function handleTierClick(e) {
+    console.log(e);
+    return emit('editMode', {mode: 'profile'});
+  }
+  const sheetPortrait = computed(() => {
+    return sheet.value.url
+      ? sheet.value.url
+      : '/images/CSOLLogo-CypherSystemCompatible-ColorWhite-Large.png';
+  });
 </script>
 
 <template>
   <div
-    v-if="character"
-    class="col-span-12 lg:row-span-3 shadow-xl lg:col-span-3 card card-compact"
+    v-if="sheetData"
+    class="col-span-12 lg:row-span-4 shadow-xl lg:col-span-3 card card-compact"
   >
-    <figure class="bg-secondary h-auto relative text-secondary-content">
+    <figure class="relative text-secondary-content my-3">
       <!-- name -->
       <div
-        class="absolute text-4xl top-1 left-2 bg-accent bg-opacity-60 text-accent-content p-3 z-20"
+        class="absolute text-2xl top-0 left-2 bg-accent bg-opacity-60 text-accent-content p-1 z-20"
       >
-        {{ character.name }}
+        {{ sheetData.name }}
       </div>
 
       <!-- stats -->
 
-      <div class="absolute bottom-1 justify-around flex w-full z-20">
-        <div class="flex flex-col items-center justify-center">
-          <span class="pb-1 text-sm font-semibold">Tier</span>
-          <div class="w-12 h-12 text-xl btn-lg md:btn-sm btn btn-circle">
-            <span class="">{{ tierNum }}</span>
+      <img
+        class="h-auto w-full bg-accent"
+        :src="sheetPortrait"
+        alt="character portrait"
+      />
+    </figure>
+    <div class="card-body">
+      <div class="card-title">
+        <div
+          class="justify-around flex w-full bg-accent bg-opacity-40 text-accent-content p-3 z-20"
+        >
+          <div class="flex flex-col items-center justify-center">
+            <span class="pb-1 text-sm font-semibold">Effort</span>
+            <div class="w-12 h-12 text-xl btn-lg md:btn-sm btn btn-circle">
+              <span class="">{{ sheetData.effort }}</span>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <span class="pb-1 text-sm font-semibold">Effort</span>
-          <div class="w-12 h-12 text-xl btn-lg md:btn-sm btn btn-circle">
-            <span class="">{{ character.effort ?? '' }}</span>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <span class="pb-1 text-sm font-semibold">XP</span>
-          <div class="w-12 h-12 text-xl btn-lg md:btn-sm btn btn-circle">
-            <span class="">{{ character.xp ?? '' }}</span>
+          <div class="flex flex-col items-center justify-center">
+            <span class="pb-1 text-sm font-semibold">XP</span>
+            <div class="w-12 h-12 text-xl btn-lg md:btn-sm btn btn-circle">
+              <span class="">{{ sheetData.xp }}</span>
+            </div>
           </div>
         </div>
       </div>
-      <img class="lg:h-56 w-full" :src="characterImg" alt="Shoes" />
-    </figure>
-    <div class="card-body">
-      <p>
-        {{ sentenceText }}
-      </p>
-      <ul class="steps">
-        <li data-content="1" class="step step-secondary"></li>
-        <li data-content="2" class="step"></li>
-        <li data-content="3" class="step"></li>
-        <li data-content="4" class="step"></li>
-      </ul>
+      <p>{{ sentenceText }}</p>
+      <div class="flex flex-col justify-center items-center my-3">
+        <button
+          class="btn btn-primary capitalize text-xs w-full whitespace-nowrap"
+          @click="handleTierClick"
+        >
+          {{ tierButtonText }}
+        </button>
+        <ul v-if="lastTier" class="steps mt-3">
+          <li
+            class="step"
+            :class="{'step-primary': lastTier?.advancements[index - 1]}"
+            v-for="index in 4"
+            :key="index"
+          ></li>
+        </ul>
+      </div>
     </div>
     <!-- </div> -->
   </div>

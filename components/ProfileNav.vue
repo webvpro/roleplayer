@@ -33,7 +33,7 @@
       <span v-if="user" class="font-bold text-lg">{{ user.name }}</span>
       <li class="py-2">
         <select
-          class="select select-bordered select-sm w-full max-w-xs capitalize text-base-content pb-1"
+          class="select select-bordered select-sm w-full max-w-xs p-0 pl-3 capitalize text-base-content pb-1"
           v-model="colorMode.preference"
         >
           <option disabled selected>Theme</option>

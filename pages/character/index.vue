@@ -54,7 +54,8 @@
     const openCreate = () => (createModelToggle.value = true);
 const { myCharacters, character } = useMyCharacter();
     const characterUtils = utilsCharacters()
-    const createNewCharacter = (cName) => {
+const createNewCharacter = (cName) => {
+      console.log('create new', characterUtils.initCharacter(v4(), cName))
       character.value = characterUtils.initCharacter(v4(), cName)
       //character.value = { id: v4(), name: cName };
         return navigateTo({path:`/character/${character.value.id}`})
@@ -69,7 +70,7 @@ const { myCharacters, character } = useMyCharacter();
         return true
     }  
 const onSubmit = handleSubmit(values => {
-console.log(values)
+console.log('Submit new character',values)
     if (values) {
         createNewCharacter(values.characterName)
     }    
