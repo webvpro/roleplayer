@@ -1,0 +1,29 @@
+{
+    "advancements": [
+        {
+            "key": "INCREASE_CAPABILITIES",
+            "description": "+4 points into stat Pools",
+            "options": []
+        },
+        {
+            "key": "MOVE_TOWARD_PERFECTION",
+            "description": "+1 to the Edge of your choice",
+            "options": []
+        },
+        {
+            "key": "EXTRA_EFFORT",
+            "description": "+1 into Effort",
+            "options": []
+        },
+        {
+            "key": "SKILL_TRAINING",
+            "description": "Train in a skill or specialize in a trained skill",
+            "options": []
+        },
+        {
+            "key": "OTHER",
+            "description": "Refer with GM",
+            "options": []
+        }
+    ]
+}
