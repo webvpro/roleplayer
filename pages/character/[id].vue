@@ -51,13 +51,7 @@
             </div>
           </div>
           <div class="m-3">
-            <component
-              :is="editDrawerContent.component"
-              :character="sheet"
-              :compendium="compendium"
-              @open-modal="openSheetModal"
-              @update-character="onCharacterUpdate"
-            />
+            {{ editDrawerContent }}
           </div>
           <div
             class="sticky justify-items-center w-full bottom-0 right-0 p-3 bg-secondary text-secondary-content z-30"
