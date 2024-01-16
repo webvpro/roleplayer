@@ -63,6 +63,129 @@
           validate-on-change="true"
         />
       </div>
+
+      <InputPoolStats
+        v-for="(pool, index) in sheet.pools"
+        :pool="pool"
+        @pool-change="changeValue"
+      />
+      <div class="divider"></div>
+      <h1 class="text-xl">Recovery (#d6+#)</h1>
+      <div class="join join-horizontal input-bordered my-3 w-full">
+        <label class="join-item input-label w-5/12 capitalize"
+          ><span class="label-text">(#)d6</span></label
+        >
+        <input
+          type="number"
+          name="die"
+          min="0"
+          max="100"
+          size="3"
+          class="join-item bg-neutral text-neutral-content"
+          v-model="characterRecovery.die"
+          @change.prevent="handleRecoveryChange"
+        />
+        <label class="input-label join-item"
+          ><span class="label-text">+(#)</span></label
+        >
+        <input
+          type="number"
+          name="mod"
+          min="0"
+          max="100"
+          size="3"
+          v-model="characterRecovery.mod"
+          class="join-item bg-neutral text-neutral-content"
+          @change.prevent="handleRecoveryChange"
+        />
+      </div>
+      <div class="divider"></div>
+      <h1 class="text-xl">Sentence</h1>
+      <p
+        class="w-full border-2 border-neutral-400 p-3 indent-3 border-dashed my-3"
+      >
+        {{ sentence }}
+      </p>
+      <div class="m-3">
+        <h1 class="text-base">Descriptors</h1>
+        <div
+          class="w-full border-2 border-neutral-400 p-3 indent-3 border-dashed my-3 text-sm"
+        >
+          <div v-if="sheet.descriptors.length >= 1">
+            <div
+              v-for="(descriptor, IDX) in characterDescriptors"
+              class="btn btn-ghost btn-sm capitalize"
+              :key="IDX"
+            >
+              {{ `${descriptor}` }}
+            </div>
+          </div>
+          <div v-else class="">None Added</div>
+        </div>
+        <InputPicker
+          :collection="collections.descriptors"
+          label="Descriptor"
+          @item-click="onPickerClick"
+        />
+      </div>
+      <div class="m-3">
+        <h1 class="text-base">Types</h1>
+        <div
+          class="w-full border-2 border-neutral-400 p-3 indent-3 border-dashed my-3 text-sm"
+        >
+          <div v-if="characterTypes.length >= 1">
+            <div
+              v-for="pcType in characterTypes"
+              class="btn btn-ghost btn-sm capitalize"
+            >
+              {{ pcType.name }}
+            </div>
+          </div>
+          <div v-else class="">None Added</div>
+        </div>
+        <InputPicker
+          :collection="collections?.types"
+          label="Type"
+          @item-click="onPickerClick"
+        />
+      </div>
+      <div class="m-3">
+        <h1 class="text-base">Foci</h1>
+        <div
+          class="w-full border-2 border-neutral-400 p-3 indent-3 border-dashed my-3 text-sm"
+        >
+          <div
+            v-if="sheet.foci.length >= 1"
+            class="flex flex-wrap justify-start"
+          >
+            <div
+              v-for="focus in sheet.foci"
+              class="btn btn-ghost btn-sm capitalize"
+            >
+              {{ focus.name }}
+            </div>
+          </div>
+          <div v-else class="">None Added</div>
+        </div>
+        <InputPicker
+          :collection="collections?.foci"
+          label="Focus"
+          @item-click="onPickerClick"
+        />
+      </div>
+      <div class="divider"></div>
+      <h1 class="text-xl">Tiers and Advancements</h1>
+      <!-- button form controls -->
+      <CharacterSheetEditAdvancementTracks
+        v-for="(tier, idx) in characterAdvancements"
+        :key="idx"
+        :advancements="collections.advancements"
+        :character-advancements="characterAdvancements"
+        :tier="tier.tier"
+      />
+      <button class="btn btn-primary w-full" @click.prevent="onAddTier">
+        Add Tier Track
+      </button>
     </form>
   </VeeForm>
 </template>
@@ -81,13 +204,26 @@
   const props = defineProps({
     editedBy: {type: String, default: 'owner'},
   });
-  const characterUtils = utilsCharacters();
-  const sheet = reactive(props.character.value);
+  const character = inject('characterData');
+  const sheet = computed(() => character.value);
+  const characterFoci = computed(() => sheet.value.foci ?? []);
+  const characterTypes = computed(() => sheet.value.types ?? []);
+  const characterDescriptors = computed(() => {
+    let descriptors = character.value.descriptors;
+    //fix hack bug on data?
+
+    return descriptors ?? [];
+  });
+  const characterRecovery = computed(() => sheet.value.recovery ?? {});
+  const characterAdvancements = computed(() => sheet.value.advancements ?? []);
+  const characterPools = computed(() => sheet.value.pools ?? []);
 
   const toggle = ref(true);
   function onToggle(e) {
     console.log('toggle:', toggle.value);
   }
+  const compendium = inject('collectionsData');
+  const collections = computed(() => compendium.value);
 
   const initialValues = computed(() => ({
     name: sheet.value.name,
