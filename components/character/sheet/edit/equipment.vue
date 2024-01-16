@@ -1,16 +1,18 @@
 <template>
-  <h1>{{ characterData.name }}</h1>
+  <h1>{{ sheet.equipment }}</h1>
+  <h1>{{ compendium.types.items.warrior }}</h1>
 </template>
 
 <script setup>
   const props = defineProps({
-    character: {type: Object, default: () => {}},
-    compendium: {type: Object, default: () => {}},
     editedBy: {type: String, default: 'owner'},
     sentence: {type: String, default: ''},
   });
 
   const emit = defineEmits(['update-character', 'close', 'open-modal']);
 
-  const characterData = reactive(props.character);
+  const character = inject('characterData');
+  const sheet = computed(() => character.value);
+  const collections = inject('collectionsData');
+  const compendium = computed(() => collections.value);
 </script>

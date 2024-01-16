@@ -19,19 +19,18 @@
           <div
             class="drawer-content my-6 pb-3 grid grid-cols-12 gap-2 mx-auto grid-flow-row-dense h-min-full h-fit"
           >
-            <LazyCharacterSheetAvatar
-              :character="sheet"
-              @edit-mode="onEditMode"
-            />
-            <LazyCharacterSheetPools
-              :pools="character?.pools"
-              :recovery="character?.recovery"
-              @update-pools="handlePoolChange"
-            />
-            <CharacterSheetListSkills
-              selected="skills"
-              :tab-data="skillCardData"
-            />
+            <ClientOnly>
+              <LazyCharacterSheetAvatar @edit-mode="onEditMode" />
+              <LazyCharacterSheetPools
+                :pools="character?.pools"
+                :recovery="character?.recovery"
+                @update-pools="handlePoolChange"
+              />
+              <CharacterSheetListSkills
+                selected="skills"
+                :tab-data="skillCardData"
+              />
+            </ClientOnly>
           </div>
         </div>
       </template>
@@ -50,15 +49,39 @@
               </button>
             </div>
           </div>
-          <div class="m-3">
-            <component
-              :is="editDrawerContent.component"
-              :character="sheet"
-              :compendium="compendium"
-              @open-modal="openSheetModal"
-              @update-character="onCharacterUpdate"
-            />
+          <div v-if="editDrawerContent.label" class="m-3">
+            <ClientOnly>
+              <CharacterSheetEditProfile
+                v-if="editDrawerContent.label === drawerContent.PROFILE.label"
+                :character="sheet"
+                :compendium="compendium"
+                @open-modal="openSheetModal"
+                @update-character="onCharacterUpdate"
+              />
+              <CharacterSheetEditAbilities
+                v-if="editDrawerContent.label === drawerContent.ABILITIES.label"
+                :character="sheet"
+                :compendium="compendium"
+                @open-modal="openSheetModal"
+                @update-character="onCharacterUpdate"
+              />
+              <CharacterSheetEditSkills
+                v-if="editDrawerContent.label === drawerContent.SKILLS.label"
+                :character="sheet"
+                :compendium="compendium"
+                @open-modal="openSheetModal"
+                @update-character="onCharacterUpdate"
+              />
+              <CharacterSheetEditEquipment
+                v-if="editDrawerContent.label === drawerContent.EQUIPMENT.label"
+                :character="sheet"
+                :compendium="compendium"
+                @open-modal="openSheetModal"
+                @update-character="onCharacterUpdate"
+              />
+            </ClientOnly>
           </div>
+
           <div
             class="sticky justify-items-center w-full bottom-0 right-0 p-3 bg-secondary text-secondary-content z-30"
           >
@@ -70,13 +93,45 @@
         </div>
       </template>
       <template #sheet-modal>
-        <component
-          :is="modalContent.component"
-          :kind="modalContent.kind"
-          :item="modalContent.item"
-          :action="modalContent.action"
-          @selected-item="onModalSelect"
-        />
+        <div v-if="modalContent.kind">
+          <CharacterSheetModalPreviewType
+            v-if="
+              modalContent.kind === 'types' && modalContent.action === 'select'
+            "
+            @selected-item="onModalSelect"
+          />
+          <CharacterSheetModalPreviewDescriptor
+            v-if="
+              modalContent.kind === 'descriptors' &&
+              modalContent.action === 'select'
+            "
+          />
+          <CharacterSheetModalPreviewFocus
+            v-if="
+              modalContent.kind === 'foci' && modalContent.action === 'select'
+            "
+            @selected-item="onModalSelect"
+          />
+          <CharacterSheetModalEditType
+            v-if="
+              modalContent.kind === 'types' && modalContent.action === 'edit'
+            "
+            @selected-item="onModalSelect"
+          />
+          <CharacterSheetModalEditDescriptor
+            v-if="
+              modalContent.kind === 'descriptors' &&
+              modalContent.action === 'edit'
+            "
+            @selected-item="onModalSelect"
+          />
+          <CharacterSheetModalEditFocus
+            v-if="
+              modalContent.kind === 'foci' && modalContent.action === 'edit'
+            "
+            @selected-item="onModalSelect"
+          />
+        </div>
         <div
           class="sticky modal-action bottom-0 right-0 p-3 bg-neutral-300 bg-opacity-50 justify-center w-full z-30"
         >
@@ -113,19 +168,15 @@
   const drawerContent = {
     PROFILE: {
       label: 'Profile',
-      component: resolveComponent('CharacterSheetEditProfile'),
     },
     ABILITIES: {
       label: 'Abilities',
-      component: resolveComponent('CharacterSheetEditAbilities'),
     },
     SKILLS: {
       label: 'Skills',
-      component: resolveComponent('CharacterSheetEditSkills'),
     },
     EQUIPMENT: {
       label: 'Equipment',
-      component: resolveComponent('CharacterSheetEditEquipment'),
     },
   };
 
@@ -133,9 +184,15 @@
   const {compendium, fetchCompendium} = useCompendium();
   await fetchCompendium();
   const sheet = reactive(characterUtils.initCharacter());
-  provide('characterData', {sheet});
+  provide(
+    'characterData',
+    computed(() => sheet.value),
+  );
   const collections = reactive(compendium.value.collections);
-  provide('collectionsData', {collections});
+  provide(
+    'collectionsData',
+    computed(() => compendium.value.collections),
+  );
 
   const toggleDetailDrawer = ref(false);
 
@@ -237,38 +294,24 @@
     modalContent.item = collections[e.kind].items[e.value];
     modalContent.action = e.action;
     if (e.kind === 'types' && e.action === 'select') {
-      modalContent.component = resolveComponent(
-        'CharacterSheetModalPreviewType',
-      );
       modalContent.label = 'type';
     }
     if (e.kind === 'descriptors' && e.action === 'select') {
-      modalContent.component = resolveComponent(
-        'CharacterSheetModalPreviewDescriptor',
-      );
       modalContent.label = 'descriptor';
     }
     if (e.kind === 'foci' && e.action === 'select') {
-      modalContent.component = resolveComponent(
-        'CharacterSheetModalPreviewFocus',
-      );
       modalContent.label = 'focus';
     }
     if (e.kind === 'types' && e.action === 'edit') {
-      modalContent.component = resolveComponent('CharacterSheetModalEditType');
       modalContent.label = 'type';
     }
     if (e.kind === 'descriptors' && e.action === 'edit') {
-      modalContent.component = resolveComponent(
-        'CharacterSheetModalEditDescriptor',
-      );
       modalContent.label = 'descriptor';
     }
     if (e.kind === 'foci' && e.action === 'edit') {
-      modalContent.component = resolveComponent('CharacterSheetModalEditFocus');
       modalContent.label = 'focus';
     }
-    //console.log(modalContent);
+    console.log(modalContent);
     window.sheet_modal.showModal();
   }
   watch(

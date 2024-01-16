@@ -111,18 +111,19 @@
         <div
           class="w-full border-2 border-neutral-400 p-3 indent-3 border-dashed my-3 text-sm"
         >
-          <div v-if="characterDescriptors.length >= 1">
+          <div v-if="sheet.descriptors.length >= 1">
             <div
-              v-for="descriptor in characterDescriptors"
+              v-for="(descriptor, IDX) in characterDescriptors"
               class="btn btn-ghost btn-sm capitalize"
+              :key="IDX"
             >
-              {{ descriptor.name }}
+              {{ `${descriptor}` }}
             </div>
           </div>
           <div v-else class="">None Added</div>
         </div>
         <InputPicker
-          :collection="collections?.descriptors"
+          :collection="collections.descriptors"
           label="Descriptor"
           @item-click="onPickerClick"
         />
@@ -154,11 +155,11 @@
           class="w-full border-2 border-neutral-400 p-3 indent-3 border-dashed my-3 text-sm"
         >
           <div
-            v-if="characterFoci.length >= 1"
+            v-if="sheet.foci.length >= 1"
             class="flex flex-wrap justify-start"
           >
             <div
-              v-for="focus in characterFoci"
+              v-for="focus in sheet.foci"
               class="btn btn-ghost btn-sm capitalize"
             >
               {{ focus.name }}
@@ -201,31 +202,34 @@
   import * as yup from 'yup';
 
   const props = defineProps({
-    character: {type: Object, default: () => {}},
-    compendium: {type: Object, default: () => {}},
     editedBy: {type: String, default: 'owner'},
-    sentence: {type: String, default: ''},
   });
-  const characterUtils = utilsCharacters();
-  const sheet = reactive(props.character.value);
-  const characterFoci = computed(() => sheet.foci ?? []);
-  const characterTypes = computed(() => sheet.types ?? []);
-  const characterDescriptors = computed(() => sheet.descriptors ?? []);
-  const characterRecovery = computed(() => sheet.recovery ?? {});
-  const characterAdvancements = computed(() => sheet.advancements ?? []);
-  const characterPools = computed(() => sheet.pools ?? []);
+  const character = inject('characterData');
+  const sheet = computed(() => character.value);
+  const characterFoci = computed(() => sheet.value.foci ?? []);
+  const characterTypes = computed(() => sheet.value.types ?? []);
+  const characterDescriptors = computed(() => {
+    let descriptors = character.value.descriptors;
+    //fix hack bug on data?
+
+    return descriptors ?? [];
+  });
+  const characterRecovery = computed(() => sheet.value.recovery ?? {});
+  const characterAdvancements = computed(() => sheet.value.advancements ?? []);
+  const characterPools = computed(() => sheet.value.pools ?? []);
 
   const toggle = ref(true);
   function onToggle(e) {
     console.log('toggle:', toggle.value);
   }
-  const collections = reactive(props.compendium.collections);
+  const compendium = inject('collectionsData');
+  const collections = computed(() => compendium.value);
 
   const initialValues = computed(() => ({
-    name: sheet.name,
-    url: sheet?.url ?? '',
-    xp: sheet?.xp ?? 0,
-    effort: sheet?.effort ?? 0,
+    name: sheet.value.name,
+    url: sheet.value.url ?? '',
+    xp: sheet.value.xp ?? 0,
+    effort: sheet.value.effort ?? 0,
   }));
 
   const emit = defineEmits(['update-character', 'close', 'open-modal']);
@@ -253,8 +257,8 @@
     console.log(values);
   };
   const changeValue = e => {
-    const idx = sheet.pools.findIndex(pool => pool.key === e.key);
-    sheet.pools[idx] = e;
+    const idx = sheet.value.pools.findIndex(pool => pool.key === e.key);
+    sheet.value.pools[idx] = e;
     //console.log('pool update', sheet.pools);
     emit('update-character', {pools: sheet.pools});
   };
