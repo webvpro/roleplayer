@@ -4,32 +4,35 @@
   });
   const emit = defineEmits(['editMode']);
   const characterUtils = utilsCharacters();
-  const {sheet} = inject('characterData');
+  const sheetData = inject('characterData');
   const {collections} = inject('collectionsData');
-  const sheetData = computed(() => sheet.value);
+  const sheet = computed(() => sheetData.value);
 
   const tierNum = computed(() => (sheetData.tier ? sheetData.tier.length : 0));
 
   const sentenceText = computed(() => {
+    console.log('js lists', [sheetData.value.descriptors]);
     return `Is a ${characterUtils.getSelectedItemsListText(
-      sheet.value.descriptors,
+      sheetData.value.descriptors,
       '[-descriptors-]',
     )} ${characterUtils.getSelectedItemsListText(
-      sheet.value.types,
+      sheetData.value.types,
       '[-types-]',
     )} who ${characterUtils.getSelectedItemsListText(
-      sheet.value.foci,
+      sheetData.value.foci,
       '[-foci-]',
     )} ${
-      sheet.value.flavors
+      sheetData.value.flavors
         ? 'flavored with,' +
-          characterUtils.getSelectedItemsListText(sheet.value.flavors, '')
+          characterUtils.getSelectedItemsListText(sheetData.value.flavors, '')
         : ''
     }`;
   });
 
   const lastTier = computed(
-    () => sheet.value.advancements[sheet.value.advancements.length - 1] ?? null,
+    () =>
+      sheetData.value.advancements[sheetData.value.advancements.length - 1] ??
+      null,
   );
   const tierButtonText = computed(() => {
     return lastTier.value
@@ -41,8 +44,8 @@
     return emit('editMode', {mode: 'profile'});
   }
   const sheetPortrait = computed(() => {
-    return sheet.value.url
-      ? sheet.value.url
+    return sheetData.value.url
+      ? sheetData.value.url
       : '/images/CSOLLogo-CypherSystemCompatible-ColorWhite-Large.png';
   });
 </script>

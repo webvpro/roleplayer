@@ -97,8 +97,12 @@ export default function (character = {}) {
   ) => {
     let itemNames = [];
     items.map(d => {
-      console.log(d[itemLabel]);
-      itemNames.push(d[itemLabel]);
+      console.log(d);
+      if (d[itemLabel]) {
+        itemNames.push(d[itemLabel]);
+      } else {
+        error.log(' error', Object.keys(d));
+      }
     });
     return itemNames.length ? itemNames : noItemText;
   };

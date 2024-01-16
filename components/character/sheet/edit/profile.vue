@@ -79,10 +79,7 @@
   import * as yup from 'yup';
 
   const props = defineProps({
-    character: {type: Object, default: () => {}},
-    compendium: {type: Object, default: () => {}},
     editedBy: {type: String, default: 'owner'},
-    sentence: {type: String, default: ''},
   });
   const characterUtils = utilsCharacters();
   const sheet = reactive(props.character.value);
@@ -93,10 +90,10 @@
   }
 
   const initialValues = computed(() => ({
-    name: sheet.name,
-    url: sheet?.url ?? '',
-    xp: sheet?.xp ?? 0,
-    effort: sheet?.effort ?? 0,
+    name: sheet.value.name,
+    url: sheet.value.url ?? '',
+    xp: sheet.value.xp ?? 0,
+    effort: sheet.value.effort ?? 0,
   }));
 
   const emit = defineEmits(['update-character', 'close', 'open-modal']);
@@ -124,8 +121,8 @@
     console.log(values);
   };
   const changeValue = e => {
-    const idx = sheet.pools.findIndex(pool => pool.key === e.key);
-    sheet.pools[idx] = e;
+    const idx = sheet.value.pools.findIndex(pool => pool.key === e.key);
+    sheet.value.pools[idx] = e;
     //console.log('pool update', sheet.pools);
     emit('update-character', {pools: sheet.pools});
   };

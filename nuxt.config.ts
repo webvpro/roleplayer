@@ -7,6 +7,15 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@nuxt/devtools',
   ],
+  components: {
+    dirs: [
+      {
+        path: '~/components/global',
+        global: true,
+      },
+      '~/components',
+    ],
+  },
   colorMode: {
     preference: 'wireframe', // default theme
     dataValue: 'theme', // activate data-theme in <html> tag
@@ -30,7 +39,7 @@ export default defineNuxtConfig({
   },
   devtools: {
     // Enable devtools (default: true)
-    enabled: false,
+    enabled: true,
     // VS Code Server options
     //vscode: {},
     // ...other options
