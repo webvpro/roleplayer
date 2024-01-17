@@ -260,7 +260,7 @@
     const idx = sheet.value.pools.findIndex(pool => pool.key === e.key);
     sheet.value.pools[idx] = e;
     //console.log('pool update', sheet.pools);
-    emit('update-character', {pools: sheet.pools});
+    emit('update-character', {pools: sheet.value.pools});
   };
   const profileScheme = yup.object({
     name: yup.string().required().min(1),
