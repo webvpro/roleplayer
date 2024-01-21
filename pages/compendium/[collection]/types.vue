@@ -1,36 +1,46 @@
 <template>
   <div>
     <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
-      <template #main-content :collections="collections">
+      <template #main-content :collections="compendium">
         <div class="mx-auto snap-start container">
           <div
             class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-3 xl:grid-cols-4"
           >
             <div
-              v-for="(typeKey, tIdx) in Object.keys(pcTypes)"
+              v-for="(archeType, tIdx) in archeTypes"
               class="shadow-xl p-3 card card-compact w-full bg-base-100 h-full min-w-full sm:mb-2"
               :key="tIdx"
             >
               <div class="card-body">
-                <h2 class="card-title">{{ pcTypes[typeKey].name }}</h2>
-                <p>{{ pcTypes[typeKey].description }}</p>
+                <h2 class="card-title w-full text-center">
+                  {{ archeType.name }}
+                </h2>
+                <p>{{ archeType.description }}</p>
+                <ul v-if="archeType.archTypes" class="list-none">
+                  <li class="card-title text-lg">Example Archetypes</li>
+                  <li v-for="genreArcheTypes in archeType.archTypes">
+                    <h3 class="font-semibold">{{ genreArcheTypes.label }}:</h3>
+                    <span class="italic">{{
+                      genreArcheTypes.items.join(', ')
+                    }}</span>
+                  </li>
+                </ul>
                 <div>
                   <h4>Starting Pools</h4>
+
                   <div
-                    v-for="(poolKey, pIdx) in Object.keys(
-                      pcTypes[typeKey].starting_pools,
-                    )"
+                    v-for="(poolKey, pIdx) in Object.keys(archeType.stat_pools)"
                     class="badge badge-primary m-1"
                     :key="pIdx"
                   >
                     {{ poolKey }}:
-                    {{ pcTypes[typeKey].starting_pools[poolKey] }}
+                    {{ archeType.stat_pools[pIdx] }}
                   </div>
                 </div>
                 <div class="card-actions justify-end">
                   <button
                     class="btn btn-primary"
-                    @click="getSelectedItem(typeKey)"
+                    @click="getSelectedItem(tIdx)"
                   >
                     Details
                   </button>
@@ -93,15 +103,15 @@
               <label class="text-lg p-1 font-semibold w-full block"
                 >Pools</label
               >
+              {{ selectedItem.stat_pools }}
+              <!--
               <div
-                v-for="(poolKey, apIdx) in Object.keys(
-                  selectedItem.starting_pools,
-                )"
+                v-for="(poolKey, apIdx) in Object.keys(selectedItem.stat_pools)"
                 class="badge badge-accent p-2 text-accent-content m-1 text-start md:text-lg"
                 :key="apIdx"
               >
-                {{ poolKey }}: {{ selectedItem.starting_pools[poolKey] }}
-              </div>
+                {{ poolKey }}: {{ selectedItem.stat_pools[poolKey] }}
+              </div> -->
             </div>
             <div
               v-for="feature in selectedItem.starting_features"
@@ -130,11 +140,12 @@
             </div>
           </div>
           <div class="divider"></div>
+          <!--
           <TierAbilitiesAccordion
             :tier_abilities="selectedItem.tier_abilities"
             @selected-item="openAbilityModal"
             collection="types"
-          />
+          /> -->
         </div>
       </template>
     </NuxtLayout>
@@ -142,13 +153,13 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, fetchCompendium} = useCompendium();
+  const {compendium, fetchCompendium} = useCompendium();
   await fetchCompendium();
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
   const selectedTab = ref('features');
-  const pcTypes = compendium.value.collections.types.items;
-  const abilities = compendium.value.collections.abilities;
+  const archeTypes = computed(() => compendium.value.types.data);
+  const abilities = compendium.value.abilities.data;
   const selectedItem = ref(null);
 
   watch(toggleDetailDrawer, value => {
@@ -157,15 +168,16 @@
     }
   });
 
-  const getSelectedItem = id => {
-    selectedItem.value = pcTypes[id];
+  const getSelectedItem = idx => {
+    selectedItem.value = archeTypes.value[idx];
+    console.log(selectedItem.value);
     toggleDetailDrawer.value = true;
   };
   const closeDrawer = () => {
     toggleDetailDrawer.value = false;
   };
   const openAbilityModal = id => {
-    selectedAbility.value = abilities.items[id];
+    selectedAbility.value = abilities[id];
   };
   const closeAbilityModal = () => {
     selectedAbility.value = null;

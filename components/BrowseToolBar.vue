@@ -1,7 +1,7 @@
 <script setup>
   const {compendium, fetchCompendium} = useCompendium();
   await fetchCompendium();
-  const collections = computed(() => compendium.value.collections);
+  const collections = computed(() => compendium.value);
 
   const router = useRouter();
   const route = useRoute();

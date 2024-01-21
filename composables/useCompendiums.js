@@ -16,6 +16,7 @@ export const useCompendium = (id = null) => {
   });
 
   async function fetchCompendium() {
+    console.log(fileID.value);
     try {
       const {data: compendiumData} = await useFetch(
         storage.getFileView(
@@ -25,7 +26,7 @@ export const useCompendium = (id = null) => {
       );
       compendium.value = JSON.parse(compendiumData.value);
     } catch (e) {
-      console.log('ERROR:fetchCompendium', e);
+      console.log('fetch Comp', e);
       compendium.value = null;
     }
   }

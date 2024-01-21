@@ -8,9 +8,9 @@ export const useAuth = () => {
   const user = useUser();
   const isLoggedIn = computed(() => !!user.value);
   const config = useRuntimeConfig();
+  const envVars = config.public ? config.public : config;
 
   async function fetchUser() {
-    console.log('config', config.public.DISCORD_LOGIN_REDIRECT);
     try {
       user.value = await account.get();
     } catch {
@@ -26,12 +26,11 @@ export const useAuth = () => {
   }
 
   function discordLogin() {
-    console.log('user', user.value, 'redirect', config.DISCORD_LOGIN_REDIRECT);
     if (isLoggedIn.value) return;
     account.createOAuth2Session(
       'discord',
-      config.public.DISCORD_LOGIN_REDIRECT,
-      config.public.DISCORD_LOGIN_REDIRECT,
+      envVars.DISCORD_LOGIN_REDIRECT,
+      envVars.DISCORD_LOGIN_REDIRECT,
     );
   }
 

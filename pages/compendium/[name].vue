@@ -12,8 +12,11 @@
         >
           <div>
             <div class="text-center">
-              <label for="item-details" class="card-title">
-                {{ collections[key].name }}
+              <label
+                for="item-details"
+                class="card-title capitalize w-full text-center"
+              >
+                {{ collections[key].label }}
               </label>
             </div>
             <div class="card-body">
@@ -35,9 +38,9 @@
 <script async setup>
   const {compendium, fetchCompendium} = useCompendium();
   await fetchCompendium();
-  const collections = computed(() => compendium.value.collections);
+  const collections = computed(() => compendium.value);
   const router = useRouter();
-
+  console.log('compendium loaded', Object.keys(compendium.value));
   const route = useRoute();
   const viewCollection = collectionName => {
     router.push(`${route.path}/${collectionName}`);
