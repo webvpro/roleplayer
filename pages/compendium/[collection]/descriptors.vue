@@ -104,7 +104,9 @@
   await fetchCompendium();
   const toggleDetailDrawer = ref(false);
   const selectedTab = ref('characteristics');
-  const descriptors = compendium.value.collections.descriptors.items;
+  const descriptors = computed(() =>
+    mapSort(compendium.value.descriptors.data),
+  );
   const selectedItem = ref(null);
 
   watch(toggleDetailDrawer, value => {

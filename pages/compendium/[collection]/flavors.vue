@@ -77,8 +77,8 @@
   await fetchCompendium();
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
-  const flavors = compendium.value.collections.flavors.items;
-  const abilities = compendium.value.collections.abilities;
+  const flavors = computed(() => mapSort(compendium.value.flavors.data));
+  const abilities = compendium.value.abilities.data;
   const selectedItem = ref(null);
 
   watch(toggleDetailDrawer, value => {

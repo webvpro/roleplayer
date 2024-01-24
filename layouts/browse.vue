@@ -56,7 +56,7 @@
   </div>
 </template>
 <script setup>
-  const props = defineProps(['openDrawer', 'collections']);
+  const props = defineProps(['openDrawer', 'collections', 'collectionKey']);
   const openDrawer = toRef(props, 'openDrawer');
   console.log(openDrawer.value);
 </script>

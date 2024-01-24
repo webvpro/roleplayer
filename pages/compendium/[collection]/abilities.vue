@@ -1,7 +1,11 @@
 <template>
   <div>
-    <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
-      <template #main-content :collections="collections">
+    <NuxtLayout
+      name="browse"
+      :open-drawer="toggleDetailDrawer"
+      collectionKey="abilities"
+    >
+      <template #main-content collections="collections">
         <div class="mx-auto snap-start container">
           <div
             class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-3 xl:grid-cols-4"
@@ -9,12 +13,10 @@
             <div
               v-for="abilityKey in Object.keys(abilities)"
               class="shadow-xl p-3 card card-compact w-full bg-base-100 h-96 min-w-98 sm:mb-2"
-              :key="abilityKey"
+              :key="ability"
             >
               <div class="card-body">
-                <h2 class="card-title">
-                  {{ abilities[abilityKey].name }}
-                </h2>
+                <h2 class="card-title">{{ abilities[abilityKey].name }}</h2>
                 <p class="line-clamp-5 max-h-24">
                   {{ abilities[abilityKey].description }}
                 </p>
@@ -80,7 +82,10 @@
   const {compendium, collections, fetchCompendium} = useCompendium();
   await fetchCompendium();
   const toggleDetailDrawer = ref(false);
-  const abilities = computed(() => compendium.value.abilities.data);
+  const abilities = computed(() => {
+    // apply the sort
+    return mapSort(compendium.value.abilities.data);
+  });
 
   const selectedItem = ref(null);
   watch(toggleDetailDrawer, value => {
@@ -89,7 +94,7 @@
     }
   });
   const getSelectedItem = id => {
-    selectedItem.value = compendium.value.collections.abilities.data[id];
+    selectedItem.value = compendium.value.abilities.data[id];
     //console.log(compendium.value.collections.abilities.items[id]);
     toggleDetailDrawer.value = true;
   };

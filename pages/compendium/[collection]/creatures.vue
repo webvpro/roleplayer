@@ -227,10 +227,10 @@
   const toggleDetailDrawer = ref(false);
   const selectedTab = ref('details');
   //const drawerTabs = reactive(initTabs);
-  const creatures = computed(
-    () => compendium.value.collections.creatures.items,
-  );
-
+  const creatures = computed(() => mapSort(compendium.value.creatures.data));
+  const filterOnlyCreatures = Object.entries(creatures.value).filter(item => {
+    return item[1].kind === 'NPC';
+  });
   const selectedItem = ref(null);
 
   watch(selectedItem, value => {

@@ -61,8 +61,8 @@
   await fetchCompendium();
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
-  const foci = compendium.value.collections.foci.items;
-  const abilities = compendium.value.collections.abilities;
+  const foci = computed( () => mapSort(compendium.value.foci.data));
+  const abilities = compendium.value.abilities.data;
   const selectedItem = ref(null);
 
   watch(toggleDetailDrawer, value => {

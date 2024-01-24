@@ -79,9 +79,7 @@
   const {compendium, collections, fetchCompendium} = useCompendium();
   await fetchCompendium();
   const toggleDetailDrawer = ref(false);
-  const artifacts = computed(
-    () => compendium.value.collections.artifacts.items,
-  );
+  const artifacts = computed(() => mapSort(compendium.value.artifacts.data));
   const selectedItem = ref(null);
   watch(selectedItem, value => {
     if (!value) {

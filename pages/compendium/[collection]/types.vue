@@ -158,7 +158,7 @@
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
   const selectedTab = ref('features');
-  const archeTypes = computed(() => compendium.value.types.data);
+  const archeTypes = computed(() => mapSort(compendium.value.types.data));
   const abilities = compendium.value.abilities.data;
   const selectedItem = ref(null);
 
@@ -170,7 +170,6 @@
 
   const getSelectedItem = idx => {
     selectedItem.value = archeTypes.value[idx];
-    console.log(selectedItem.value);
     toggleDetailDrawer.value = true;
   };
   const closeDrawer = () => {

@@ -6,7 +6,9 @@
       >
         <div
           v-if="collections"
-          v-for="(key, idx) in Object.keys(collections)"
+          v-for="(key, idx) in Object.keys(collections).filter(collection => {
+            return !hideCollections.includes(collection);
+          })"
           :key="key"
           class="shadow-xl p-3 card card-compact w-full bg-base-100 h-full min-w-full sm:mb-2"
         >
@@ -37,10 +39,16 @@
 </template>
 <script async setup>
   const {compendium, fetchCompendium} = useCompendium();
+  const hideCollections = ['advancements', 'pools', 'shifts'];
   await fetchCompendium();
-  const collections = computed(() => compendium.value);
+  const collections = computed(() => mapSort(compendium.value));
   const router = useRouter();
-  console.log('compendium loaded', Object.keys(compendium.value));
+  console.log(
+    'compendium loaded',
+    Object.keys(compendium.value).filter(collection => {
+      return !hideCollections.includes(collection);
+    }),
+  );
   const route = useRoute();
   const viewCollection = collectionName => {
     router.push(`${route.path}/${collectionName}`);

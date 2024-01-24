@@ -1,6 +1,10 @@
 <template>
   <div>
-    <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
+    <NuxtLayout
+      name="browse"
+      :open-drawer="toggleDetailDrawer"
+      collectionKey="cyphers"
+    >
       <template #main-content>
         <div class="mx-auto snap-start container">
           <div
@@ -98,7 +102,7 @@
   const {compendium, collections, fetchCompendium} = useCompendium();
   await fetchCompendium();
   const toggleDetailDrawer = ref(false);
-  const cyphers = computed(() => compendium.value.collections.cyphers.items);
+  const cyphers = computed(() => mapSort(compendium.value.cyphers.data));
   const selectedItem = ref(null);
   watch(toggleDetailDrawer, value => {
     if (!value) {
@@ -106,7 +110,7 @@
     }
   });
   const getSelectedItem = id => {
-    selectedItem.value = compendium.value.collections.cyphers.items[id];
+    selectedItem.value = compendium.value.cyphers.data[id];
     //console.log(compendium.value.collections.abilities.items[id]);
     toggleDetailDrawer.value = true;
   };

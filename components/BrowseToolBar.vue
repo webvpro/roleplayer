@@ -45,8 +45,9 @@
             v-for="(key, idx) in Object.keys(collections)"
             :value="key"
             :key="idx"
+            class="capitalize"
           >
-            {{ collections[key].name }}
+            {{ collections[key].label }}
           </option>
         </select>
       </div>
