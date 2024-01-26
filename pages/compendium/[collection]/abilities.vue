@@ -79,13 +79,11 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, fetchCompendium} = useCompendium();
-  await fetchCompendium();
+  const {compendium, collections, collection, fetchCompendium} =
+    useCompendium();
+  await fetchCompendium({collectionKey: 'abilities'});
   const toggleDetailDrawer = ref(false);
-  const abilities = computed(() => {
-    // apply the sort
-    return mapSort(compendium.value.abilities.data);
-  });
+  const abilities = computed(() => collection.value.data);
 
   const selectedItem = ref(null);
   watch(toggleDetailDrawer, value => {
@@ -94,7 +92,7 @@
     }
   });
   const getSelectedItem = id => {
-    selectedItem.value = compendium.value.abilities.data[id];
+    selectedItem.value = abilities.value[id];
     //console.log(compendium.value.collections.abilities.items[id]);
     toggleDetailDrawer.value = true;
   };

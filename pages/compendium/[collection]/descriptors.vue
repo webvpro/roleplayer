@@ -100,13 +100,12 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, fetchCompendium} = useCompendium();
-  await fetchCompendium();
+  const {compendium, collections, collection, fetchCompendium} =
+    useCompendium();
+  await fetchCompendium({collectionKey: 'descriptors'});
   const toggleDetailDrawer = ref(false);
   const selectedTab = ref('characteristics');
-  const descriptors = computed(() =>
-    mapSort(compendium.value.descriptors.data),
-  );
+  const descriptors = computed(() => collection.value.data);
   const selectedItem = ref(null);
 
   watch(toggleDetailDrawer, value => {
@@ -115,7 +114,7 @@
     }
   });
   const getSelectedItem = id => {
-    selectedItem.value = descriptors[id];
+    selectedItem.value = descriptors.value[id];
     toggleDetailDrawer.value = true;
   };
   const closeDrawer = () => {

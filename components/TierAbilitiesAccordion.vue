@@ -44,7 +44,7 @@
       const tierAbilitiesObj = {
         key: '',
         granted: [],
-        select: [],
+        preselected: [],
         limitTxt: '',
       };
 
@@ -52,12 +52,12 @@
         console.log(limit);
         tierAbilitiesObj.key = tierKey;
         tierAbilitiesObj.granted = [];
-        tierAbilitiesObj.select = abilities;
+        tierAbilitiesObj.preselected = abilities;
         tierAbilitiesObj.limitTxt = limit.name;
       } else {
         tierAbilitiesObj.key = tierKey;
         tierAbilitiesObj.granted = abilities.granted;
-        tierAbilitiesObj.select = abilities.select;
+        tierAbilitiesObj.preselected = abilities.select;
       }
       returnAry.push(tierAbilitiesObj);
     });
@@ -103,7 +103,10 @@
           {{ ability.split('_').join(' ') }}
         </a>
       </div>
-      <div v-if="tier.granted.length && tier.select.length" class="divider">
+      <div
+        v-if="tier.granted.length && tier.preselected.length"
+        class="divider"
+      >
         And
       </div>
       <div v-if="tier.select.length">

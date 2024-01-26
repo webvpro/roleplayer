@@ -49,15 +49,9 @@
               </button>
             </div>
           </div>
-          <div v-if="selectedItem.level.dice">
-            <div class="badge badge-accent m-1">
-              {{
-                `Level: ${selectedItem.level.dice}+${selectedItem.level.mod}`
-              }}
-            </div>
-            <div class="badge badge-warning m-1">
-              {{ `Depletion: ${selectedItem.depletion}` }}
-            </div>
+          <div>
+            <div class="badge badge-accent m-1"></div>
+            <div class="badge badge-warning m-1"></div>
           </div>
           <div class="divider"></div>
           <div
@@ -76,10 +70,11 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, fetchCompendium} = useCompendium();
-  await fetchCompendium();
+  const {compendium, collections, collection, fetchCompendium} =
+    useCompendium();
+  await fetchCompendium({collectionKey: 'artifacts'});
   const toggleDetailDrawer = ref(false);
-  const artifacts = computed(() => mapSort(compendium.value.artifacts.data));
+  const artifacts = computed(() => collection.value.data);
   const selectedItem = ref(null);
   watch(selectedItem, value => {
     if (!value) {
@@ -89,7 +84,7 @@
     }
   });
   const getSelectedItem = id => {
-    selectedItem.value = compendium.value.collections.artifacts.items[id];
+    selectedItem.value = artifacts.value[id];
   };
   const closeDrawer = () => {
     selectedItem.value = null;

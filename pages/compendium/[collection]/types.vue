@@ -153,12 +153,12 @@
   </div>
 </template>
 <script setup>
-  const {compendium, fetchCompendium} = useCompendium();
-  await fetchCompendium();
+  const {compendium, collection, fetchCompendium} = useCompendium();
+  await fetchCompendium({collectionKey: 'types'});
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
   const selectedTab = ref('features');
-  const archeTypes = computed(() => mapSort(compendium.value.types.data));
+  const archeTypes = computed(() => collection.value.data);
   const abilities = compendium.value.abilities.data;
   const selectedItem = ref(null);
 

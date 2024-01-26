@@ -1,7 +1,17 @@
 <script setup>
+  const props = defineProps({
+    filters: {
+      type: Object,
+      default: {},
+    },
+    setFilter: {
+      type: Function,
+      default: () => {},
+    },
+  });
   const {compendium, fetchCompendium} = useCompendium();
   await fetchCompendium();
-  const collections = computed(() => compendium.value);
+  const collections = computed(() => mapSort(compendium.value));
 
   const router = useRouter();
   const route = useRoute();
@@ -19,6 +29,7 @@
       ? selectedCollection.value.toLowerCase()
       : selectedCompendium.value,
   );
+  const quickFilters = reactive(props.filters);
 </script>
 
 <template>
@@ -36,13 +47,19 @@
         </select>
         <select
           v-if="collections"
-          class="select select-bordered w-auto max-w-xs text-lg"
+          class="select select-bordered w-auto max-w-xs text-lg capitalize"
           v-model="selectedCollection"
           @change="changeCollection"
         >
           <option disabled selected>Select Collection</option>
           <option
-            v-for="(key, idx) in Object.keys(collections)"
+            v-for="(key, idx) in Object.keys(collections).filter(
+              collectionKey => {
+                return !['advancements', 'pools', 'shifts'].includes(
+                  collectionKey,
+                );
+              },
+            )"
             :value="key"
             :key="idx"
             class="capitalize"
@@ -50,6 +67,21 @@
             {{ collections[key].label }}
           </option>
         </select>
+        <div
+          v-if="Object.keys(quickFilters).length > 0"
+          class="dropdown dropdown-right"
+        >
+          <div tabindex="0" role="button" class="btn btn-primary m-1">
+            Filters
+          </div>
+          <ul
+            tabindex="0"
+            class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+          </ul>
+        </div>
       </div>
       <div class="dropdown md:hidden">
         <label
@@ -86,6 +118,18 @@
                 {{ collections[key].name }}
               </option>
             </select>
+          </li>
+          <li>
+            <div class="dropdown dropdown-right">
+              <div tabindex="0" role="button" class="btn m-1">Filters</div>
+              <ul
+                tabindex="0"
+                class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li><a>Item 1</a></li>
+                <li><a>Item 2</a></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>

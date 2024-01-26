@@ -9,7 +9,7 @@
             <div
               v-for="creatureKey in Object.keys(creatures)"
               class="shadow-xl p-3 card card-compact w-full bg-base-100 h-96 min-w-98 sm:mb-2"
-              :key="artifactKey"
+              :key="creatureKey"
             >
               <h2 class="card-title capitalize">
                 {{ creatures[creatureKey].name }}
@@ -222,12 +222,13 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, fetchCompendium} = useCompendium();
-  await fetchCompendium();
+  const {compendium, collections, collection, fetchCompendium} =
+    useCompendium();
+  await fetchCompendium({collectionKey: 'creatures'});
   const toggleDetailDrawer = ref(false);
   const selectedTab = ref('details');
   //const drawerTabs = reactive(initTabs);
-  const creatures = computed(() => mapSort(compendium.value.creatures.data));
+  const creatures = computed(() => collection.value.data);
   const filterOnlyCreatures = Object.entries(creatures.value).filter(item => {
     return item[1].kind === 'NPC';
   });
@@ -242,7 +243,7 @@
     setActiveTab('details');
   });
   const getSelectedItem = id => {
-    selectedItem.value = compendium.value.collections.creatures.items[id];
+    selectedItem.value = creatures.value[id];
   };
   const closeDrawer = () => {
     selectedItem.value = null;

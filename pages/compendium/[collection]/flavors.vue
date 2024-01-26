@@ -62,7 +62,7 @@
             standard abilities from a type.
           </p>
           <TierAbilitiesAccordion
-            :tier_abilities="selectedItem.tier_abilities"
+            :tier_abilities="selectedItem.abilities"
             @selected-item="openAbilityModal"
             collection="flavors"
           />
@@ -73,11 +73,12 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, fetchCompendium} = useCompendium();
-  await fetchCompendium();
+  const {compendium, collections, collection, fetchCompendium} =
+    useCompendium();
+  await fetchCompendium({collectionKey: 'flavors'});
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
-  const flavors = computed(() => mapSort(compendium.value.flavors.data));
+  const flavors = computed(() => collection.value.data);
   const abilities = compendium.value.abilities.data;
   const selectedItem = ref(null);
 
@@ -89,7 +90,7 @@
 
   const getSelectedItem = id => {
     console.log(id);
-    selectedItem.value = flavors[id];
+    selectedItem.value = flavors.value[id];
     toggleDetailDrawer.value = true;
   };
   const openAbilityModal = id => {

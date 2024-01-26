@@ -45,7 +45,7 @@
           v-model="openDrawer"
         />
         <div class="drawer-content overflow-y-scroll">
-          <BrowseToolBar />
+          <BrowseToolBar :filters="filters" />
           <slot name="main-content"></slot>
         </div>
         <div class="drawer-side z-50">
@@ -56,7 +56,12 @@
   </div>
 </template>
 <script setup>
-  const props = defineProps(['openDrawer', 'collections', 'collectionKey']);
+  const props = defineProps([
+    'openDrawer',
+    'collections',
+    'collectionKey',
+    'filters',
+  ]);
   const openDrawer = toRef(props, 'openDrawer');
   console.log(openDrawer.value);
 </script>

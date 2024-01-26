@@ -3,7 +3,7 @@
     <NuxtLayout
       name="browse"
       :open-drawer="toggleDetailDrawer"
-      collectionKey="cyphers"
+      :filters="quickFilters"
     >
       <template #main-content>
         <div class="mx-auto snap-start container">
@@ -53,14 +53,13 @@
               </button>
             </div>
           </div>
-          <div v-if="selectedItem.level.dice">
+          <div>
             <div class="badge badge-accent m-1">
               {{
-                `Level: ${selectedItem.level.dice}+${selectedItem.level.mod}`
+                'Level: ${selectedItem.level.dice}+${selectedItem.level.mod}'
               }}
             </div>
             <div
-              v-if="selectedItem.categories.length"
               v-for="category in selectedItem.categories"
               class="badge badge-primary capitalize m-1"
             >
@@ -99,19 +98,24 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, fetchCompendium} = useCompendium();
-  await fetchCompendium();
+  const {compendium, collections, collection, fetchCompendium} =
+    useCompendium();
+  await fetchCompendium({collectionKey: 'cyphers'});
+
   const toggleDetailDrawer = ref(false);
-  const cyphers = computed(() => mapSort(compendium.value.cyphers.data));
+  const cyphers = computed(() => collection.value.data);
   const selectedItem = ref(null);
+  const quickFilters = reactive({
+    categories: [{label: 'thing', selected: true}],
+  });
   watch(toggleDetailDrawer, value => {
     if (!value) {
       selectedItem.value = null;
     }
   });
   const getSelectedItem = id => {
-    selectedItem.value = compendium.value.cyphers.data[id];
-    //console.log(compendium.value.collections.abilities.items[id]);
+    selectedItem.value = cyphers.value[id];
+    console.log('Selected Item', selectedItem.value);
     toggleDetailDrawer.value = true;
   };
   const closeDrawer = () => {

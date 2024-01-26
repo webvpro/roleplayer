@@ -2,7 +2,7 @@
   <div>
   <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
     <template #main-content>
-      <div class="mx-auto snap-start container">
+      <div class="mx-auto snap-start container"> 
         <div
           class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-3 xl:grid-cols-4"
         >
@@ -57,12 +57,14 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, fetchCompendium} = useCompendium();
-  await fetchCompendium();
+  const {compendium, collections, collection, fetchCompendium, getCollection} = useCompendium('CSRD');
+  await fetchCompendium({ collectionKey: 'foci' });
+  const fociOptions = reactive({})
+
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
-  const foci = computed( () => mapSort(compendium.value.foci.data));
-  const abilities = compendium.value.abilities.data;
+  const foci = computed( () => getCollection('foci', fociOptions.value).data);
+  const abilities = computed(() => getCollection('abilities'));
   const selectedItem = ref(null);
 
   watch(toggleDetailDrawer, value => {
@@ -71,9 +73,10 @@
     }
   });
 const getSelectedItem = id => {
-    console.log(id)
+    console.log(foci.value[id])
     selectedItem.value = foci[id];
-    toggleDetailDrawer.value = true;
+  toggleDetailDrawer.value = true;
+  fociOptions.value = { search: 'name'}
   };
   const closeDrawer = () => {
     toggleDetailDrawer.value = false;
