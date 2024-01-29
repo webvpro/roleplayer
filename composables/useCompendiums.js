@@ -1,3 +1,5 @@
+import abilitiesVue from '~/pages/compendium/[collection]/abilities.vue';
+
 export const useCompendiums = key => {
   return useState(key, () => undefined);
 };
@@ -7,7 +9,32 @@ export const useCompendium = (id = null) => {
   const config = useRuntimeConfig();
   const fileID = ref(id ?? config.public.CSRD_COMPENDIUM_FILE_ID);
   const compendium = useCompendiums(fileID.value);
-
+  const tierLimits = ref([
+    {
+      tier: 1,
+      limit: null,
+    },
+    {
+      tier: 2,
+      limit: null,
+    },
+    {
+      tier: 3,
+      limit: null,
+    },
+    {
+      tier: 4,
+      limit: null,
+    },
+    {
+      tier: 5,
+      limit: null,
+    },
+    {
+      tier: 6,
+      limit: null,
+    },
+  ]);
   const collections = reactive({});
   const collectionOptions = reactive({});
   const collectionKey = ref(null);
@@ -61,6 +88,7 @@ export const useCompendium = (id = null) => {
 
     return collection;
   }
+
   return {
     compendium,
     fetchCompendium,
@@ -69,3 +97,10 @@ export const useCompendium = (id = null) => {
     getCollection,
   };
 };
+function replacer(key, value) {
+  if (value instanceof Map) {
+    return Object.fromEntries(value); // or with spread: value: [...value]
+  } else {
+    return value;
+  }
+}

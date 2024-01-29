@@ -4,129 +4,102 @@
       type: Map,
       required: true,
     },
-    collection: {
-      type: String,
-      default: 'foci',
+    tier_selection_text: {
+      type: Array[Object],
+      default: null,
+    },
+    limits: {
+      type: Array[Object],
+      default: null,
     },
     tab_index_bump: {
       type: Number,
       default: 10,
     },
   });
+  const tierData = props.limits ?? [{key: 'tier', groupsMin: 6}];
+  const groupedAbilities = computed(() =>
+    groupBy(props.tier_abilities, 'tier', tierData),
+  );
+  function getGrantedAbilities(abilities) {
+    return abilities.filter(ability => ability.preselected);
+  }
+  function getAbilityOptions(abilities) {
+    return abilities.filter(ability => !ability.preselected);
+  }
+  const tierSelectionText = computed(() => {
+    return props.tier_selection_text;
+  });
   const collectionTierAbilityText = tier => {
     const tierNum = parseInt(tier.key.split('_').slice(-1));
-    if (props.collection === 'foci') {
+    if (!props.limits) {
       return `Choose one of the abilities listed`;
-    } else if (props.collection === 'types') {
+    } else {
       //console.log(tier);
       return tierNum == 1
         ? `Choose four of the abilities listed below. You can't choose the same ability more than once unless its description says otherwise. The full description for each listed ability can be found in Abilities, which also has descriptions for flavor and focus abilities in a single vast catalog.`
-        : `Choose ${tier.limitTxt} of the abilities listed below (or from a lower tier) to add to your repertoire. In addition, you can replace one of your lower-tier abilities with a different one`;
+        : `Choose ${
+            tier.limit ?? 1
+          } of the abilities listed below (or from a lower tier) to add to your repertoire. In addition, you can replace one of your lower-tier abilities with a different one`;
     }
     return '';
   };
+  const tierAccordionName = 'tier-view';
   const emit = defineEmits(['SelectedItem']);
   const tierCollapseModel = reactive({});
   const itemClick = id => {
-    //console.log(id);
     emit('SelectedItem', id);
   };
   const tierToggle = key => {
-    // toggle tiers not working
-    //console.log(key, tierCollapseModel[key], !tierCollapseModel[key]);
     tierCollapseModel[key] = !tierCollapseModel[key];
   };
-  const tierAbilities = computed(() => {
-    const tiers = Object.keys(props.tier_abilities);
-    const returnAry = [];
-    tiers.forEach(tierKey => {
-      const {abilities, limit} = props.tier_abilities[tierKey];
-      const tierAbilitiesObj = {
-        key: '',
-        granted: [],
-        preselected: [],
-        limitTxt: '',
-      };
-
-      if (props.collection === 'types') {
-        console.log(limit);
-        tierAbilitiesObj.key = tierKey;
-        tierAbilitiesObj.granted = [];
-        tierAbilitiesObj.preselected = abilities;
-        tierAbilitiesObj.limitTxt = limit.name;
-      } else {
-        tierAbilitiesObj.key = tierKey;
-        tierAbilitiesObj.granted = abilities.granted;
-        tierAbilitiesObj.preselected = abilities.select;
-      }
-      returnAry.push(tierAbilitiesObj);
-    });
-    return returnAry;
-  });
-  onMounted(() => {
-    //auto open 1st tier not working
-    Object.keys(props.tier_abilities).forEach(key => {
-      tierCollapseModel[key] = key == 'tier_1' ? true : false;
-    });
-  });
 </script>
 
 <template>
-  <div
-    v-for="(tier, idx) in tierAbilities"
-    :key="tier.key"
-    :id="`collapse_${tier.key}`"
-    :tabindex="idx + tab_index_bump"
-    @click.prevent="tierToggle(tier.key)"
-    class="collapse collapse-arrow text-primary-content m-3 p-0 rounded-md peer-checked:rounded-b-none"
-  >
-    <input
-      :id="`input_${tier.key}`"
-      :v-model="tierAbilities[tier.key]"
-      type="checkbox"
-      class="peer"
-    />
+  <div v-if="groupedAbilities">
     <div
-      class="collapse-title text-xl btn rounded-t-md rounded-b-none text-left text-lg text-neutral-content capitalize"
-      id="tier.key"
+      v-for="(tier, idx) in groupedAbilities"
+      :key="tier.key"
+      :id="`collapse_${tier.key}`"
+      :tabindex="idx + tab_index_bump"
+      @click.prevent="tierToggle(tier.key)"
+      class="collapse collapse-arrow m-3 bg-primary p-0 rounded-md peer-checked:rounded-b-none"
     >
-      {{ tier.key.split('_').join(': ') }}
-    </div>
-    <div :id="`list_${tier.key}`" class="collapse-content bg-primary">
-      <div v-if="tier.granted.length" class="">
-        <a
-          v-for="ability in tier.granted"
-          class="capitalize btn btn-ghost text-center text-lg m-3"
-          :key="ability"
-          @click.stop="itemClick(ability)"
-        >
-          {{ ability.split('_').join(' ') }}
-        </a>
-      </div>
+      <input type="radio" :name="tierAccordionName" />
       <div
-        v-if="tier.granted.length && tier.preselected.length"
-        class="divider"
+        class="collapse-title text-xl btn-primary rounded-t-md rounded-b-none text-left text-primary-content capitalize"
+        id="tier.key"
       >
-        And
+        {{ tier.key.split('-').join(': ') }}
       </div>
-      <div v-if="tier.select.length">
-        <p
-          v-if="collection !== 'flavors'"
-          class="p-6 rounded-md bg-secondary text-secondary-content border-2 border-base-content m-2"
-        >
-          {{ collectionTierAbilityText(tier) }}
-        </p>
+      <div class="collapse-content">
         <a
-          v-for="(ability, sIdx) in tier.select"
-          class="capitalize btn btn-ghost m-3 text-center text-lg"
-          :key="ability"
-          @click.stop="itemClick(ability)"
+          v-for="ability in getGrantedAbilities(tier.items)"
+          class="capitalize btn btn-info text-center text-lg m-3"
+          :key="ability.key"
+          @click.stop="itemClick(ability.key)"
         >
-          {{ ability.split('_').join(' ') }}
+          {{ ability.name }}
         </a>
+
+        <div v-if="getAbilityOptions(tier.items).length > 0">
+          <p
+            class="p-6 rounded-md bg-secondary text-secondary-content border-2 border-base-content m-2"
+          >
+            {{
+              tierSelectionText[idx]?.text ?? tierSelectionText[0]?.text ?? ''
+            }}
+          </p>
+          <a
+            v-for="ability in getAbilityOptions(tier.items)"
+            class="capitalize btn btn-base-100 m-3 text-center text-lg"
+            :key="ability.key"
+            @click.stop="itemClick(ability.key)"
+          >
+            {{ ability.name }}
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped></style>

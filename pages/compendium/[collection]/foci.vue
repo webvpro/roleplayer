@@ -27,11 +27,11 @@
     </template>
     <template #drawer-side>
       <div class="drawer-overlay" @click="closeDrawer"></div>
-      <div v-if="selectedItem" class="w-96 md:w-2/3 bg-secondary text-secondary-content min-h-full h-fit">
+      <div v-if="selectedFocus" class="w-96 md:w-2/3 bg-secondary text-secondary-content min-h-full h-fit">
         <div class="navbar">
           <div class="navbar-start">
-            <a class="btn btn-ghost text-xl capitalize">{{
-              selectedItem.name
+            <a class="btn btn-ghost text-xl capitalize" @click.prevent="closeDrawer">{{
+              selectedFocus.name
             }}</a>
           </div>
           <div class="navbar-center hidden lg:flex"></div>
@@ -45,10 +45,35 @@
         <div
           class="p-6 rounded-md border-dashed border-2 border-base-content m-2"
         >
-          {{ selectedItem.description }}
+          {{ selectedFocus.description }}
         </div>
-
-        <TierAbilitiesAccordion :tier_abilities="selectedItem.tier_abilities" @selected-item="openAbilityModal" />
+        
+        <div role="tablist" class="tabs tabs-bordered w-full pt-10 px-2">
+          <a
+              class="tab tab-bordered text-xl text-neutral"
+              :class="isActiveTab('abilities')"
+              @click.prevent="setActiveTab('abilities')"
+              >Abilities</a
+            >
+            <a
+              class="tab tab-bordered text-xl"
+              :class="isActiveTab('intrusions')"
+              @click.prevent="setActiveTab('intrusions')"
+              >Intrusions</a
+            >
+         
+        </div>
+        <div v-if="selectedTab === 'abilities'" class="p-10">
+          <TierAbilitiesAccordion :tier_abilities="selectedFocus.abilities" :tier_selection_text="tierSelectionText" @selected-item="openAbilityModal" />
+        </div>
+        
+          <ul v-if="selectedTab === 'intrusions'" class="list-none w-full p-10">
+            <li v-for="(intrusion, idx) in formatIntrusionList(selectedFocus.intrusions)"
+              class="p-6 rounded-md border-dashed bg-primary text-primary-content border-2 border-base-content m-2">
+              {{ intrusion }}.
+            </li>
+          </ul>
+         
       </div>
     </template>
     
@@ -57,37 +82,51 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, collection, fetchCompendium, getCollection} = useCompendium('CSRD');
+  //loading data
+  const {collection, fetchCompendium, getCollection} = useCompendium('CSRD');
   await fetchCompendium({ collectionKey: 'foci' });
+  //setup reactive and computed
   const fociOptions = reactive({})
-
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
-  const foci = computed( () => getCollection('foci', fociOptions.value).data);
+  const selectedFocusID = ref(null);
+  const foci = computed(() => getCollection('foci', fociOptions.value).data);
   const abilities = computed(() => getCollection('abilities'));
-  const selectedItem = ref(null);
-
-  watch(toggleDetailDrawer, value => {
+  const selectedFocus = computed(() => foci.value[selectedFocusID.value])
+  const tierSelectionText = [{ tier:null, text: "Choose one of the abilities listed below."}]
+  const selectedTab = ref('abilities');
+  watch(selectedFocusID, value => {
     if (!value) {
-      selectedItem.value = null;
+      toggleDetailDrawer.value = null;
+    } else {
+       toggleDetailDrawer.value = true;
     }
   });
-const getSelectedItem = id => {
-    console.log(foci.value[id])
-    selectedItem.value = foci[id];
-  toggleDetailDrawer.value = true;
-  fociOptions.value = { search: 'name'}
+  const isActiveTab = tab => {
+    return tab === selectedTab.value ? 'tab-active text-base-content font-semibold' : '';
   };
+  const setActiveTab = tab => {
+    selectedTab.value = tab;
+  };
+  const getSelectedItem = id => {
+      selectedFocusID.value = id;
+  };
+  
   const closeDrawer = () => {
-    toggleDetailDrawer.value = false;
+    selectedFocusID.value = null;
   };
-const openAbilityModal = id => {
-    console.log(id)
-    selectedAbility.value = abilities.items[id];
+  const openAbilityModal = id => {
+    //console.log(id)
+    selectedAbility.value = abilities.value.data[id];
   };
   const closeAbilityModal = () => {
     selectedAbility.value = null;
   };
+  function formatIntrusionList(str) {
+    const list = str.split('.')
+    list.splice(list.length - 1, 1)
+    return list;
+  }
   definePageMeta({
     layout: false,
   });
