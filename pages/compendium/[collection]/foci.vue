@@ -9,12 +9,17 @@
           <div
             v-for="(fociKey, tIdx) in Object.keys(foci)"
             class="shadow-xl p-3 card card-compact w-full bg-base-100 h-96 min-w-98 sm:mb-2"
-            :key="tIdx"
+            :key="`${fociKey}-${tIdx}`"
           >
             <div class="card-body">
               <h2 class="card-title capitalize">{{ foci[fociKey].name }}</h2>
               <p>{{ foci[fociKey].description }}</p>
-              <p class="p-2 rounded-md border-dashed border-2 border-base-content m-2"><h3 class="font-semibold">GM Intrusion</h3>{{ foci[fociKey].intrusion }}</p>
+              <p class="p-2 rounded-md border-dashed border-2 border-base-content m-2"><h3 class="font-semibold w-full">GM Intrusions</h3>
+              {{ foci[fociKey].intrusion }}
+              <ul>
+                <li v-for="(gmi, idx) in formatIntrusionList(foci[fociKey].intrusions)">{{ gmi }}</li>
+              </ul>
+              </p>
               <div class="card-actions justify-end">
                 <button class="btn btn-primary" @click="getSelectedItem(fociKey)">
                   Details

@@ -100,12 +100,12 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, collection, fetchCompendium} =
+  const {compendium, collections, collection, fetchCompendium, getCollection} =
     useCompendium();
   await fetchCompendium({collectionKey: 'descriptors'});
   const toggleDetailDrawer = ref(false);
   const selectedTab = ref('characteristics');
-  const descriptors = computed(() => collection.value.data);
+  const descriptors = computed(() => getCollection('descriptors').data);
   const selectedItem = ref(null);
 
   watch(toggleDetailDrawer, value => {

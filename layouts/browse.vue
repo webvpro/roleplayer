@@ -33,7 +33,9 @@
         </div>
       </div>
       <div class="navbar-end">
-        <ProfileNav />
+        <ClientOnly>
+          <ProfileNav />
+        </ClientOnly>
       </div>
     </div>
     <main id="main-body" class="relative flex flex-col flex-1 overflow-hidden">
@@ -45,7 +47,9 @@
           v-model="openDrawer"
         />
         <div class="drawer-content overflow-y-scroll">
-          <BrowseToolBar :filters="filters" />
+          <ClientOnly>
+            <BrowseToolBar :filters="filters" />
+          </ClientOnly>
           <slot name="main-content"></slot>
         </div>
         <div class="drawer-side z-50">

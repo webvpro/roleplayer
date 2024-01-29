@@ -77,16 +77,16 @@ export const useCompendium = (id = null) => {
     }
   }
   function getCollection(key, options = {}) {
-    const collection = compendium.value[key];
-    if (collection) {
-      console.log('GET and Sort', key);
-      collection.data = mapSort(compendium.value[key].data);
+    if (compendium.value[key]) {
+      const sortedData = mapSort(compendium.value[key].data);
+      compendium.value[key].data = sortedData;
+      if (Object.keys(options).length > 0) {
+        // where filters should go
+        console.log(`Options for ${key}`, options);
+      }
+      return compendium.value[key];
     }
-    if (Object.keys(options).length > 0) {
-      console.log(`Options for ${key}`, options);
-    }
-
-    return collection;
+    return {};
   }
 
   return {
