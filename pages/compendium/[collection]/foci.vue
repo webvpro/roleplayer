@@ -27,6 +27,7 @@
     </template>
     <template #drawer-side>
       <div class="drawer-overlay" @click="closeDrawer"></div>
+
       <div v-if="selectedFocus" class="w-96 md:w-2/3 bg-secondary text-secondary-content min-h-full h-fit">
         <div class="navbar">
           <div class="navbar-start">
@@ -116,7 +117,6 @@
     selectedFocusID.value = null;
   };
   const openAbilityModal = id => {
-    //console.log(id)
     selectedAbility.value = abilities.value.data[id];
   };
   const closeAbilityModal = () => {

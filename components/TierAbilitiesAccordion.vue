@@ -1,7 +1,7 @@
 <script setup>
   const props = defineProps({
     tier_abilities: {
-      type: Map,
+      type: Object,
       required: true,
     },
     tier_selection_text: {
@@ -30,20 +30,7 @@
   const tierSelectionText = computed(() => {
     return props.tier_selection_text;
   });
-  const collectionTierAbilityText = tier => {
-    const tierNum = parseInt(tier.key.split('_').slice(-1));
-    if (!props.limits) {
-      return `Choose one of the abilities listed`;
-    } else {
-      //console.log(tier);
-      return tierNum == 1
-        ? `Choose four of the abilities listed below. You can't choose the same ability more than once unless its description says otherwise. The full description for each listed ability can be found in Abilities, which also has descriptions for flavor and focus abilities in a single vast catalog.`
-        : `Choose ${
-            tier.limit ?? 1
-          } of the abilities listed below (or from a lower tier) to add to your repertoire. In addition, you can replace one of your lower-tier abilities with a different one`;
-    }
-    return '';
-  };
+
   const tierAccordionName = 'tier-view';
   const emit = defineEmits(['SelectedItem']);
   const tierCollapseModel = reactive({});
