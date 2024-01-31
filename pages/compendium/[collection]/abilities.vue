@@ -4,6 +4,7 @@
       name="browse"
       collectionKey="abilities"
       :filters="abilityFilters"
+      :open-drawer="toggleDetailDrawer"
       @filter-change.once="onFilterChange"
     >
       <template #main-content>
@@ -20,19 +21,14 @@
               <div class="card-body h-full">
                 <h2 class="card-title">{{ abilities[abilityKey].name }}</h2>
                 <div class="flex-warp w-full h-auto">
+                  <!-- pool badge -->
                   <div
                     v-if="abilities[abilityKey].pool"
                     v-for="pool in abilities[abilityKey].pool"
-                    class="badge badge-primary m-1 text-primary-content capitalize text-nowrap"
+                    class="badge badge-success m-1 text-success-content capitalize text-nowrap"
                   >
                     {{ pool }}:
                     {{ abilities[abilityKey].cost }}
-                  </div>
-                  <div
-                    v-if="abilities[abilityKey].tier"
-                    class="badge badge-secondary m-1 text-secondary-content capitalize text-nowrap"
-                  >
-                    tier: {{ abilities[abilityKey].tier }}
                   </div>
                   <div
                     v-if="abilities[abilityKey].tier"
@@ -40,6 +36,13 @@
                   >
                     {{ abilities[abilityKey].kind }}
                   </div>
+                  <div
+                    v-if="abilities[abilityKey].tier"
+                    class="badge badge-secondary m-1 text-secondary-content capitalize text-nowrap"
+                  >
+                    tier: {{ abilities[abilityKey].tier }}
+                  </div>
+
                   <div
                     v-for="category in abilities[abilityKey].category"
                     class="badge badge-accent m-1 text-accent-content capitalize text-nowrap"
@@ -55,7 +58,7 @@
                 <div class="card-actions justify-end mt-2">
                   <button
                     class="btn btn-primary"
-                    @click="getSelectedItem(abilityKey)"
+                    @click.prevent="getSelectedItem(abilityKey)"
                   >
                     Details
                   </button>
@@ -84,20 +87,23 @@
             </div>
           </div>
           <div
-            v-if="selectedItem.pool"
-            class="badge badge-primary m-1 capitalize"
+            v-if="selectedItem.pool[0]"
+            class="badge badge-success m-1 capitalize"
           >
-            {{ selectedItem.pool }}: {{ selectedItem.cost }}
+            {{ selectedItem.pool[0] }}: {{ selectedItem.cost }}
+          </div>
+          <div v-if="selectedItem.kind" class="badge badge-info m-1 capitalize">
+            {{ selectedItem.kind }}
           </div>
           <div v-if="selectedItem.tier" class="badge m-1 capitalize">
             tier: {{ selectedItem.tier }}
           </div>
           <div
-            v-if="category"
-            v-for="category in selectedItem.categories"
-            class="badge badge-accent m-1 capitalize"
+            v-if="Array.isArray(selectedItem.category)"
+            v-for="cat in selectedItem.category"
+            class="badge badge-primary m-1 capitalize"
           >
-            {{ category.split('_').join(' ').trim() }}
+            {{ cat.split('_').join(' ').trim() }}
           </div>
           <div class="divider"></div>
           <div
@@ -145,6 +151,7 @@
   });
 
   const getSelectedItem = id => {
+    console.log(id);
     selectedItem.value = abilities.value[id];
     //console.log(compendium.value.collections.abilities.items[id]);
     toggleDetailDrawer.value = true;
