@@ -53,7 +53,7 @@
           v-if="collections"
           class="select select-bordered join-item w-auto max-w-xs text-lg capitalize"
           v-model="selectedCollection"
-          @change="changeCollection"
+          @change.prevent="changeCollection"
         >
           <option disabled selected>Select Collection</option>
           <option
@@ -77,7 +77,7 @@
           class="select select-bordered join-item w-auto max-w-xs text-lg capitalize"
           v-model="quickFilters[filter].value"
           :key="`${filter}-select`"
-          @change="changeFilter(filter)"
+          @change.prevent="changeFilter(filter)"
         >
           <option selected :value="null">
             Filter {{ quickFilters[filter].label }}
@@ -115,7 +115,7 @@
             v-if="collections"
             class="select select-bordered join-item w-auto max-w-xs text-lg capitalize"
             v-model="selectedCollection"
-            @change="changeCollection"
+            @change.prevent="changeCollection"
           >
             <option disabled selected>Select Collection</option>
             <option
@@ -139,7 +139,7 @@
             class="select select-bordered join-item w-full text-lg capitalize"
             v-model="quickFilters[filter].value"
             :key="`${filter}-select`"
-            @change="changeFilter(filter)"
+            @change.prevent="changeFilter(filter)"
           >
             <option selected :value="null">
               Filter {{ quickFilters[filter].label }}

@@ -1,42 +1,60 @@
 export default function (data, filters) {
   const dataMap = Object.entries(data);
   const dataArray = Array.from(dataMap);
-  const filterValues = new Array();
+  const filterValues = {};
   Object.keys(filters).forEach(fKey => {
     const val = filters[fKey].value;
     if (Array.isArray(val) && val.length) {
-      filterValues.push(filters[fKey]);
+      filterValues.push({[fKey]: val});
     } else if (val) {
-      filterValues.push(filters[fKey]);
-      filterValues;
+      filterValues[fKey] = val;
     }
   });
   if (filters === undefined) return data;
-  if (!filterValues.length) return data;
+  if (!Object.keys(filterValues).length) return data;
 
-  const filteredData = dataMap.filter(iObj => {
-    Object.keys(filters).forEach(fObj => {
+  console.log('filter values', filterValues);
+  let newItemArray = dataArray;
+  console.log('filter keys val', filterValues['category']);
+  Object.keys(filterValues).forEach(filter => {
+    newItemArray = newItemArray.filter(itm => {
+      const item = itm[1][filter];
+      if (!item) return false;
       if (
-        iObj[1][fObj] &&
-        Array.isArray(iObj[1][fObj]) &&
-        filters[fObj].value &&
-        iObj[1][fObj].includes(filters[fObj].value.toUpperCase())
+        Array.isArray(item) &&
+        item.includes(filterValues[filter].toUpperCase())
       ) {
-        console.log(iObj[1]);
-        return iObj;
+        return true;
       } else if (
-        iObj[1][fObj] &&
-        filters[fObj].value &&
-        !Array.isArray(iObj[1][fObj]) &&
-        iObj[1][fObj].toUpperCase() === filters[fObj].value.toUpperCase()
+        !Array.isArray(item) &&
+        item.toUpperCase() === filterValues[filter].toUpperCase()
       ) {
-        console.log(iObj[1]);
-        return iObj;
+        return true;
+      }
+      return false;
+    });
+  });
+  //console.log('dataArray', dataArray);
+
+  /*
+  const filteredData = dataArray.filter(iObj => {
+    Object.keys(filterValues).forEach(filter => {
+      if (
+        Array.isArray(iObj[1][filter]) &&
+        iObj[1][filter].includes(filterValues[filter].toUpperCase())
+      ) {
+        return true;
+      } else if (
+        iObj[1][filter] &&
+        iObj[1][filter].toUpperCase() === filterValues[filter].toUpperCase()
+      ) {
+        //console.log(iObj[1]);
+        return true;
       } else {
         return false;
       }
     });
-  });
+  }); */
   /*
   const filteredData = Object.entries(dataArray).filter(iObj => {
     filters.forEach(fObj => {
@@ -49,6 +67,6 @@ export default function (data, filters) {
     });
   });*/
   console.log('util-filters ', filters);
-  console.log('filtered data', filteredData);
+  console.log('filtered data', newItemArray);
   return data;
 }

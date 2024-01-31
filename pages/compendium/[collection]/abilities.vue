@@ -4,7 +4,7 @@
       name="browse"
       collectionKey="abilities"
       :filters="abilityFilters"
-      @filter-change="onFilterChange"
+      @filter-change.once="onFilterChange"
     >
       <template #main-content>
         <div class="mx-auto snap-start container">
