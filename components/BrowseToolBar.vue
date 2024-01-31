@@ -9,6 +9,7 @@
       default: () => {},
     },
   });
+  const emit = defineEmits(['filter-change']);
   const {compendium, fetchCompendium} = useCompendium();
   await fetchCompendium();
   const collections = computed(() => mapSort(compendium.value));
@@ -20,21 +21,24 @@
     route.name.split('-').slice(-1).join('').trim(),
   );
 
-  const changeCollection = () => {
-    //console.log(selectedCollection.value);
-    router.push(selectedCollection.value);
-  };
   const menuLocation = computed(() =>
     selectedCollection.value
       ? selectedCollection.value.toLowerCase()
       : selectedCompendium.value,
   );
   const quickFilters = reactive(props.filters);
+  const changeCollection = () => {
+    //console.log(selectedCollection.value);
+    router.push(selectedCollection.value);
+  };
+  const changeFilter = filter => {
+    emit('filter-change', {...quickFilters});
+  };
 </script>
 
 <template>
   <div class="navbar sticky top-0 z-10 bg-neutral max-h-12">
-    <div class="navbar-start">
+    <div class="">
       <div class="join join-vertical hidden lg:block join-horizontal">
         <select
           class="select select-bordered join-item w-auto max-w-xs text-lg"
@@ -67,22 +71,24 @@
             {{ collections[key].label }}
           </option>
         </select>
-
-        <div
+        <select
           v-if="Object.keys(quickFilters).length > 0"
-          class="dropdown join-item dropdown-right"
+          v-for="(filter, fIdx) in Object.keys(quickFilters)"
+          class="select select-bordered join-item w-auto max-w-xs text-lg capitalize"
+          v-model="quickFilters[filter].value"
+          :key="`${filter}-select`"
+          @change="changeFilter(filter)"
         >
-          <div tabindex="0" role="button" class="btn btn-primary m-1">
-            Filters
-          </div>
-          <ul
-            tabindex="0"
-            class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+          <option selected :value="null">
+            Filter {{ quickFilters[filter].label }}
+          </option>
+          <option
+            v-for="(option, oIdx) in quickFilters[filter].options"
+            :key="`${filter}-${oIdx}`"
           >
-            <li><a>Item 1</a></li>
-            <li><a>Item 2</a></li>
-          </ul>
-        </div>
+            {{ option.toLowerCase() }}
+          </option>
+        </select>
       </div>
 
       <div class="dropdown block lg:hidden">
@@ -127,11 +133,28 @@
               {{ collections[key].label }}
             </option>
           </select>
+          <select
+            v-if="Object.keys(quickFilters).length > 0"
+            v-for="(filter, fIdx) in Object.keys(quickFilters)"
+            class="select select-bordered join-item w-full text-lg capitalize"
+            v-model="quickFilters[filter].value"
+            :key="`${filter}-select`"
+            @change="changeFilter(filter)"
+          >
+            <option selected :value="null">
+              Filter {{ quickFilters[filter].label }}
+            </option>
+            <option
+              v-for="(option, oIdx) in quickFilters[filter].options"
+              :key="`${filter}-${oIdx}`"
+              class="capitalize"
+            >
+              {{ option.toLowerCase() }}
+            </option>
+          </select>
         </div>
       </div>
     </div>
-    <div class="navbar-center"></div>
-    <div class="navbar-end"></div>
   </div>
 </template>
 

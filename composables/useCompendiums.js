@@ -83,6 +83,9 @@ export const useCompendium = (id = null) => {
       if (Object.keys(options).length > 0) {
         // where filters should go
         console.log(`Options for ${key}`, options);
+        if (key == 'filters') {
+          console.log(`Filters for ${key}`, options[key]);
+        }
       }
       return compendium.value[key];
     }

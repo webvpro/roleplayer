@@ -5,7 +5,9 @@
     >
       <div class="navbar-start">
         <div class="dropdown sm:hidden">
-          <button class="btn btn-square btn-ghost text-base-content text-2xl">
+          <button
+            class="btn btn-square btn-ghost text-scondary-content text-2xl"
+          >
             <Icon name="ic:outline-menu" />
           </button>
           <ul
@@ -47,9 +49,7 @@
           v-model="openDrawer"
         />
         <div class="drawer-content overflow-y-scroll">
-          <ClientOnly>
-            <BrowseToolBar :filters="filters" />
-          </ClientOnly>
+          <BrowseToolBar :filters="filters" @filter-change="onChangeFilter" />
           <slot name="main-content"></slot>
         </div>
         <div class="drawer-side z-50">
@@ -65,7 +65,11 @@
     'collections',
     'collectionKey',
     'filters',
+    'onEvent',
   ]);
+  const emit = defineEmits(['filter-change']);
   const openDrawer = toRef(props, 'openDrawer');
-  console.log(openDrawer.value);
+  const onChangeFilter = filters => {
+    emit('filter-change', {...filters});
+  };
 </script>
