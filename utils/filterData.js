@@ -16,7 +16,7 @@ export default function (data, filters) {
   if (!Object.keys(filterValues).length) return data;
 
   let newFilteredArray = dataArray;
-  console.log('filter keys val', filterValues['category']);
+
   Object.keys(filterValues).forEach(filter => {
     newFilteredArray = newFilteredArray.filter(itm => {
       const item = itm[1][filter];

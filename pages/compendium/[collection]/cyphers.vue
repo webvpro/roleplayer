@@ -3,7 +3,8 @@
     <NuxtLayout
       name="browse"
       :open-drawer="toggleDetailDrawer"
-      :filters="quickFilters"
+      :filters="cypherFilters"
+      @filter-change="onFilterChange"
     >
       <template #main-content>
         <div class="mx-auto snap-start container">
@@ -19,6 +20,14 @@
                 {{ cyphers[cypherKey].name }}
               </h2>
               <div class="card-body">
+                <div class="flex-warp w-full h-auto">
+                  <div
+                    v-for="kind in cyphers[cypherKey].kinds"
+                    class="badge badge-info capitalize m-1"
+                  >
+                    {{ kind.toLowerCase() }}
+                  </div>
+                </div>
                 <p class="line-clamp-5 max-h-56">
                   {{ cyphers[cypherKey].effect }}
                 </p>
@@ -63,7 +72,7 @@
             </div>
             <div
               v-for="kind in selectedItem.kinds"
-              class="badge badge-primary capitalize m-1"
+              class="badge badge-info capitalize m-1"
             >
               {{ kind.toLowerCase() }}
             </div>
@@ -88,8 +97,10 @@
               <tbody>
                 <!-- row 1 -->
                 <tr v-for="option in selectedItem.options">
-                  <th>{{ rangeTxt(option.range) }}</th>
-                  <td>{{ option.description }}</td>
+                  <td class="text-nowrap">
+                    {{ `${option.start}-${option.end}` }}
+                  </td>
+                  <td>{{ option.entry }}</td>
                 </tr>
               </tbody>
             </table>
@@ -100,15 +111,21 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, collection, fetchCompendium} =
-    useCompendium();
-  await fetchCompendium({collectionKey: 'cyphers'});
+  const {fetchCompendium, getCollection} = useCompendium();
+  await fetchCompendium();
 
   const toggleDetailDrawer = ref(false);
-  const cyphers = computed(() => collection.value.data);
+  const cypherCollection = computed(() => getCollection('cyphers'));
+  const cyphers = computed(() =>
+    filterData(cypherCollection.value.data, cypherFilters.value),
+  );
   const selectedItem = ref(null);
-  const quickFilters = reactive({
-    categories: [{label: 'thing', selected: true}],
+  const cypherFilters = ref({
+    kinds: {
+      label: 'kind',
+      options: cypherCollection.value.kinds,
+      value: null,
+    },
   });
   watch(toggleDetailDrawer, value => {
     if (!value) {
@@ -128,6 +145,9 @@
       return `${rng.start}-${rng.end}`;
     }
     return rng.start;
+  };
+  const onFilterChange = filterData => {
+    cypherFilters.value = filterData;
   };
   definePageMeta({
     layout: false,

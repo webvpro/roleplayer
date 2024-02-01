@@ -31,7 +31,7 @@
                     {{ abilities[abilityKey].cost }}
                   </div>
                   <div
-                    v-if="abilities[abilityKey].tier"
+                    v-if="abilities[abilityKey].kind"
                     class="badge badge-info m-1 text-info-content capitalize text-nowrap"
                   >
                     {{ abilities[abilityKey].kind }}
