@@ -16,15 +16,6 @@
                   {{ archeType.name }}
                 </h2>
                 <p>{{ archeType.description }}</p>
-                <ul v-if="archeType.archTypes" class="list-none">
-                  <li class="card-title text-lg">Example Archetypes</li>
-                  <li v-for="genreArcheTypes in archeType.archTypes">
-                    <h3 class="font-semibold">{{ genreArcheTypes.label }}:</h3>
-                    <span class="italic">{{
-                      genreArcheTypes.items.join(', ')
-                    }}</span>
-                  </li>
-                </ul>
                 <div>
                   <h4>Starting Pools</h4>
 
@@ -34,7 +25,7 @@
                     :key="pIdx"
                   >
                     {{ poolKey }}:
-                    {{ archeType.stat_pools[pIdx] }}
+                    {{ archeType.stat_pools[poolKey] }}
                   </div>
                 </div>
                 <div class="card-actions justify-end">
@@ -54,7 +45,7 @@
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full"
+          class="w-96 xl:w-1/3 bg-secondary text-secondary-content min-h-full"
         >
           <div class="navbar">
             <div class="navbar-start">
@@ -75,7 +66,23 @@
           >
             {{ selectedItem.description }}
           </div>
-
+          <div
+            v-if="selectedItem.stat_pools"
+            class="flex flex-col p-3 w-full items-center"
+          >
+            <h3 class="w-full m-2">Starting Pools</h3>
+            <div class="stats shadow mx-auto w-auto">
+              <div
+                v-for="statKey in Object.keys(selectedItem.stat_pools)"
+                class="stat place-items-center"
+              >
+                <div class="stat-title">{{ statKey }}</div>
+                <div class="stat-value">
+                  {{ selectedItem.stat_pools[statKey] }}
+                </div>
+              </div>
+            </div>
+          </div>
           <div role="tablist" class="tabs tabs-bordered w-full pt-10 px-2">
             <a
               class="tab tab-bordered text-xl text-neutral"
@@ -91,32 +98,19 @@
             >
             <a
               class="tab tab-bordered text-xl text-neutral"
-              :class="isActiveTab('backgrounds')"
-              @click="setActiveTab('backgrounds')"
+              :class="isActiveTab('tiers')"
+              @click="setActiveTab('tiers')"
               >Tiers</a
             >
           </div>
           <div v-if="selectedTab === 'features'" class="p-3">
             <div
+              v-for="feature in selectedItem.features"
               class="p-6 rounded-md border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
             >
-              <label class="text-lg p-1 font-semibold w-full block"
-                >Pools</label
-              >
-              {{ selectedItem.stat_pools }}
-              <!--
-              <div
-                v-for="(poolKey, apIdx) in Object.keys(selectedItem.stat_pools)"
-                class="badge badge-accent p-2 text-accent-content m-1 text-start md:text-lg"
-                :key="apIdx"
-              >
-                {{ poolKey }}: {{ selectedItem.stat_pools[poolKey] }}
-              </div> -->
-            </div>
-            <div
-              v-for="feature in selectedItem.starting_features"
-              class="p-6 rounded-md border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
-            >
+              <label class="text-lg mb-1 font-semibold">{{
+                feature.name
+              }}</label>
               <p>{{ feature.description }}</p>
             </div>
           </div>
@@ -131,21 +125,13 @@
               <p>{{ intrusion.description }}</p>
             </div>
           </div>
-          <div v-if="selectedTab === 'backgrounds'">
-            <div
-              v-for="background in selectedItem.backgrounds"
-              class="p-6 rounded-md border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
-            >
-              {{ background }}
-            </div>
+          <div v-if="selectedTab === 'tiers'" class="p-10">
+            <TierAbilitiesAccordion
+              :tier_abilities="selectedItem.abilities"
+              :tier_selection_text="tierSelectionText"
+              @selected-item="openAbilityModal"
+            />
           </div>
-          <div class="divider"></div>
-          <!--
-          <TierAbilitiesAccordion
-            :tier_abilities="selectedItem.tier_abilities"
-            @selected-item="openAbilityModal"
-            collection="types"
-          /> -->
         </div>
       </template>
     </NuxtLayout>
@@ -153,14 +139,35 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collection, fetchCompendium} = useCompendium();
-  await fetchCompendium({collectionKey: 'types'});
+  const {collections, fetchCompendium, getCollection} = useCompendium();
+  await fetchCompendium();
+  const typesCollection = computed(() => getCollection('types'));
   const toggleDetailDrawer = ref(false);
+  const selectedItem = ref(null);
   const selectedAbility = ref(null);
   const selectedTab = ref('features');
-  const archeTypes = computed(() => collection.value.data);
-  const abilities = compendium.value.abilities.data;
-  const selectedItem = ref(null);
+  const archeTypes = computed(() => typesCollection.value.data);
+  const abilities = computed(() => getCollection('abilities').data);
+  const tierSelectionText = computed(() => {
+    const tierTxtArray = [];
+    if (selectedItem && selectedItem.value.abilities_per_tier) {
+      selectedItem.value.abilities_per_tier.forEach(tierData =>
+        tierTxtArray.push({
+          tier: tierData.tier,
+          text: `Choose ${tierData.limit} of the abilities listed below.`,
+        }),
+      );
+    } else {
+      tierTxtArray.push({
+        tier: null,
+        text: 'Choose one of the abilities listed below.',
+      });
+    }
+    return tierTxtArray;
+  });
+  /*const tierSelectionText = [
+    {tier: null, text: 'Choose one of the abilities listed below.'},
+  ];*/
 
   watch(toggleDetailDrawer, value => {
     if (!value) {
@@ -176,7 +183,7 @@
     toggleDetailDrawer.value = false;
   };
   const openAbilityModal = id => {
-    selectedAbility.value = abilities[id];
+    selectedAbility.value = abilities.value[id];
   };
   const closeAbilityModal = () => {
     selectedAbility.value = null;

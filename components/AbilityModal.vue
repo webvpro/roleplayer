@@ -30,6 +30,20 @@
       <div class="modal-box p-0">
         <div v-if="ability" class="mockup-window border bg-base-300 p-6">
           <h3 class="font-bold text-lg">{{ ability.name }}</h3>
+          <div>
+            <div
+              v-if="ability.pool[0]"
+              class="badge badge-success m-1 capitalize"
+            >
+              {{ ability.pool[0] }}: {{ ability.cost }}
+            </div>
+            <div v-if="ability.kind" class="badge badge-info m-1 capitalize">
+              {{ ability.kind }}
+            </div>
+            <div v-if="ability.tier" class="badge m-1 capitalize">
+              tier: {{ ability.tier }}
+            </div>
+          </div>
           <p class="p-3">{{ ability.description }}</p>
           <div class="modal-action">
             <button
