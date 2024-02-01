@@ -33,7 +33,7 @@
     <template #drawer-side>
       <div class="drawer-overlay" @click="closeDrawer"></div>
 
-      <div v-if="selectedFocus" class="w-96 md:w-2/3 bg-secondary text-secondary-content min-h-full h-fit">
+      <div v-if="selectedFocus" class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full">
         <div class="navbar">
           <div class="navbar-start">
             <a class="btn btn-ghost text-xl capitalize" @click.prevent="closeDrawer">{{

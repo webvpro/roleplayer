@@ -35,7 +35,7 @@
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-2/3 bg-secondary text-secondary-content min-h-full h-fit"
+          class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full"
         >
           <div class="navbar h-16">
             <div class="navbar-start">
@@ -49,15 +49,23 @@
               </button>
             </div>
           </div>
-          <div>
-            <div class="badge badge-accent m-1"></div>
-            <div class="badge badge-warning m-1"></div>
+          <div class="h-full flex-col flex-grow">
+            <div v-if="selectedItem.level_dice" class="badge badge-accent m-1">
+              {{
+                `Level: ${selectedItem.level_dice}+${
+                  selectedItem.level_mod ?? 0
+                }`
+              }}
+            </div>
+            <div v-if="selectedItem.depletion" class="badge badge-info m-1">
+              {{ selectedItem.depletion }}
+            </div>
           </div>
           <div class="divider"></div>
           <div
             class="p-6 rounded-md border-dashed border-2 border-base-content m-2"
           >
-            {{ selectedItem.description }}
+            {{ selectedItem.form }}
           </div>
           <div
             class="p-6 rounded-md border-dashed border-2 border-base-content m-2"

@@ -54,7 +54,7 @@
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-2/3 bg-secondary text-secondary-content min-h-full h-fit"
+          class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full"
         >
           <div class="navbar">
             <div class="navbar-start">
@@ -76,24 +76,24 @@
             {{ selectedItem.description }}
           </div>
 
-          <div class="tabs w-full pl-2">
+          <div role="tablist" class="tabs tabs-bordered w-full pt-10 px-2">
             <a
-              class="tab tab-bordered text-xl"
+              class="tab tab-bordered text-xl text-neutral"
               :class="isActiveTab('features')"
               @click="setActiveTab('features')"
               >Features</a
             >
             <a
-              class="tab tab-bordered text-xl"
+              class="tab tab-bordered text-xl text-neutral"
               :class="isActiveTab('intrusions')"
               @click="setActiveTab('intrusions')"
               >Intrusions</a
             >
             <a
-              class="tab tab-bordered text-xl"
+              class="tab tab-bordered text-xl text-neutral"
               :class="isActiveTab('backgrounds')"
               @click="setActiveTab('backgrounds')"
-              >Backgrounds</a
+              >Tiers</a
             >
           </div>
           <div v-if="selectedTab === 'features'" class="p-3">

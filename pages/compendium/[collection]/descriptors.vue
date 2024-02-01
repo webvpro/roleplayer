@@ -56,15 +56,15 @@
           >
             {{ selectedItem.description }}
           </p>
-          <div class="tabs w-full pl-2">
+          <div role="tablist" class="tabs tabs-bordered w-full pt-10 px-2">
             <a
-              class="tab tab-bordered text-xl"
+              class="tab tab-bordered text-xl text-neutral"
               :class="isActiveTab('characteristics')"
               @click="setActiveTab('characteristics')"
               >Characteristics</a
             >
             <a
-              class="tab tab-bordered text-xl"
+              class="tab tab-bordered text-xl text-neutral"
               :class="isActiveTab('links')"
               @click="setActiveTab('links')"
               >Starter Links</a

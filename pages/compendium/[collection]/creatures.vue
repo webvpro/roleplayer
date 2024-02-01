@@ -79,7 +79,7 @@
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-2/3 bg-secondary text-secondary-content"
+          class="w-96 md:w-1/3 md:max-w-1/3 bg-secondary text-secondary-content min-h-full"
         >
           <div class="navbar h-16">
             <div class="navbar-start">
@@ -132,16 +132,16 @@
               </p>
             </div>
 
-            <div class="tabs w-full pl-2 mt-3">
+            <div role="tablist" class="tabs tabs-bordered w-full pt-10 px-2">
               <a
-                class="tab tab-bordered text-xl"
+                class="tab tab-bordered text-xl text-neutral"
                 :class="isActiveTab('details')"
                 @click="setActiveTab('details')"
                 >Details</a
               >
               <a
                 v-if="selectedItem.combat || selectedItem.modifications"
-                class="tab tab-bordered text-xl"
+                class="tab tab-bordered text-xl text-neutral"
                 :class="isActiveTab('actions')"
                 @click="setActiveTab('actions')"
                 >Actions</a
@@ -149,7 +149,7 @@
 
               <a
                 v-if="selectedItem.intrusions"
-                class="tab tab-bordered text-xl"
+                class="tab tab-bordered text-xl text-neutral"
                 :class="isActiveTab('intrusions')"
                 @click="setActiveTab('intrusions')"
                 >Intrusions</a
@@ -205,7 +205,7 @@
               <h3 v-if="selectedItem.combat" class="my-2 font-bold">Combat:</h3>
               <p
                 v-if="selectedItem.combat"
-                v-for="combat in selectedItem.combat"
+                v-for="combat in selectedItem.combat.split('\n')"
                 class="p-2 rounded-md border-dashed border-2 border-base-content m-2"
               >
                 {{ combat }}
@@ -223,7 +223,7 @@
             <div v-if="selectedTab === 'intrusions'" class="p-3 pt-0">
               <p
                 v-if="selectedItem.intrusions"
-                v-for="intrusion in selectedItem.intrusions"
+                v-for="intrusion in selectedItem.intrusions.split('\n')"
                 class="p-3 rounded-md border-dashed border-2 border-base-content m-3"
               >
                 {{ intrusion }}
