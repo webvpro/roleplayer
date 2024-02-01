@@ -35,7 +35,7 @@
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-2/3 bg-secondary text-secondary-content h-min-full h-fit"
+          class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full"
         >
           <div class="navbar">
             <div class="navbar-start">

@@ -39,7 +39,7 @@
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-2/3 bg-secondary text-secondary-content h-min-full h-fit"
+          class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full"
         >
           <div class="navbar h-16">
             <div class="navbar-start">
@@ -53,17 +53,19 @@
               </button>
             </div>
           </div>
-          <div>
-            <div class="badge badge-accent m-1">
+          <div class="h-full flex-col flex-grow">
+            <div v-if="selectedItem.level_dice" class="badge badge-accent m-1">
               {{
-                'Level: ${selectedItem.level.dice}+${selectedItem.level.mod}'
+                `Level: ${selectedItem.level_dice}+${
+                  selectedItem.level_mod ?? 0
+                }`
               }}
             </div>
             <div
-              v-for="category in selectedItem.categories"
+              v-for="kind in selectedItem.kinds"
               class="badge badge-primary capitalize m-1"
             >
-              {{ category.toLowerCase() }}
+              {{ kind.toLowerCase() }}
             </div>
           </div>
           <div class="divider"></div>

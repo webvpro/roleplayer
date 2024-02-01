@@ -1,6 +1,11 @@
 <template>
   <div>
-    <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
+    <NuxtLayout
+      name="browse"
+      :open-drawer="toggleDetailDrawer"
+      :filters="creatureFilters"
+      @filter-change.once="onFilterChange"
+    >
       <template #main-content>
         <div class="mx-auto snap-start container">
           <div
@@ -39,6 +44,9 @@
                     class="badge badge-error m-1"
                   >
                     {{ `Damage:${creatures[creatureKey].damage}` }}
+                  </div>
+                  <div class="badge badge-warning m-1 capitalize">
+                    Armor: {{ creatures[creatureKey].armor ?? 0 }}
                   </div>
                 </div>
                 <div
@@ -104,6 +112,12 @@
               </div>
               <div v-if="selectedItem.damage" class="badge badge-error m-1">
                 {{ `Damage:${selectedItem.damage}` }}
+              </div>
+              <div
+                v-if="selectedItem.armor"
+                class="badge badge-warning m-1 capitalize"
+              >
+                Armor: {{ selectedItem.armor }}
               </div>
             </div>
             <div
@@ -222,15 +236,38 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, collection, fetchCompendium} =
-    useCompendium();
+  import {array} from 'yup';
+
+  const {fetchCompendium, getCollection} = useCompendium();
   await fetchCompendium({collectionKey: 'creatures'});
   const toggleDetailDrawer = ref(false);
+
   const selectedTab = ref('details');
   //const drawerTabs = reactive(initTabs);
-  const creatures = computed(() => collection.value.data);
-  const filterOnlyCreatures = Object.entries(creatures.value).filter(item => {
-    return item[1].kind === 'NPC';
+  const creaturesCollection = computed(() => getCollection('creatures'));
+  const creatures = computed(() =>
+    filterData(creaturesCollection.value.data, creatureFilters.value),
+  );
+  const optsArray = Array.from(Array(10).keys()).map((itm, idx) => idx + 1);
+  const creatureLevelOptions = ref(optsArray);
+  const creatureArmorOptions = ref(optsArray);
+
+  const creatureFilters = ref({
+    kind: {
+      label: 'kind',
+      options: creaturesCollection.value.kinds,
+      value: null,
+    },
+    level: {
+      label: 'level',
+      options: creatureLevelOptions.value,
+      value: null,
+    },
+    armor: {
+      label: 'armor',
+      options: creatureArmorOptions.value,
+      value: null,
+    },
   });
   const selectedItem = ref(null);
 
@@ -256,6 +293,9 @@
   };
   const setActiveTab = tab => {
     selectedTab.value = tab;
+  };
+  const onFilterChange = filterData => {
+    abilityFilters.value = filterData;
   };
   definePageMeta({
     layout: false,

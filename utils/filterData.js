@@ -28,7 +28,14 @@ export default function (data, filters) {
         return true;
       } else if (
         !Array.isArray(item) &&
+        isNaN(item) &&
         item.toUpperCase() === filterValues[filter].toUpperCase()
+      ) {
+        return true;
+      } else if (
+        !Array.isArray(item) &&
+        !isNaN(item) &&
+        item == filterValues[filter]
       ) {
         return true;
       }

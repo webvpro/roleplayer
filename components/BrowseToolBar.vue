@@ -85,8 +85,9 @@
           <option
             v-for="(option, oIdx) in quickFilters[filter].options"
             :key="`${filter}-${oIdx}`"
+            :value="option"
           >
-            {{ option.toLowerCase() }}
+            {{ `${filter} ${option}` }}
           </option>
         </select>
       </div>
@@ -133,25 +134,29 @@
               {{ collections[key].label }}
             </option>
           </select>
-          <select
-            v-if="Object.keys(quickFilters).length > 0"
-            v-for="(filter, fIdx) in Object.keys(quickFilters)"
-            class="select select-bordered join-item w-full text-lg capitalize"
-            v-model="quickFilters[filter].value"
-            :key="`${filter}-select`"
-            @change.prevent="changeFilter(filter)"
-          >
-            <option selected :value="null">
-              Filter {{ quickFilters[filter].label }}
-            </option>
-            <option
-              v-for="(option, oIdx) in quickFilters[filter].options"
-              :key="`${filter}-${oIdx}`"
-              class="capitalize"
+          <div class="join-item join join-vertical">
+            <label class=""></label>
+            <select
+              v-if="Object.keys(quickFilters).length > 0"
+              v-for="(filter, fIdx) in Object.keys(quickFilters)"
+              class="select select-bordered join-item w-full text-lg capitalize"
+              v-model="quickFilters[filter].value"
+              :key="`${filter}-select`"
+              @change.prevent="changeFilter(filter)"
             >
-              {{ option.toLowerCase() }}
-            </option>
-          </select>
+              <option selected :value="null">
+                Filter {{ quickFilters[filter].label }}
+              </option>
+              <option
+                v-for="(option, oIdx) in quickFilters[filter].options"
+                :key="`${filter}-${oIdx}`"
+                class="capitalize"
+                :value="option"
+              >
+                {{ `${filter} ${option}` }}
+              </option>
+            </select>
+          </div>
         </div>
       </div>
     </div>

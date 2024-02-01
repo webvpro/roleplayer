@@ -72,7 +72,7 @@
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-2/3 bg-secondary text-secondary-content min-h-full h-fit"
+          class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full"
         >
           <div class="navbar h-auto">
             <div class="navbar-start">
@@ -119,30 +119,30 @@
 <script setup>
   import filterData from '../../../utils/filterData';
 
-  const {compendium, collections, collection, fetchCompendium, getCollection} =
-    useCompendium();
+  const {fetchCompendium, getCollection} = useCompendium();
   await fetchCompendium({collectionKey: 'abilities'});
-  const toggleDetailDrawer = ref(false);
+  const abilityCollection = computed(() => getCollection('abilities'));
   const abilities = computed(() =>
-    filterData(getCollection('abilities').data, abilityFilters.value),
+    filterData(abilityCollection.value.data, abilityFilters.value),
   );
   const abilityFilters = ref({
     category: {
       label: 'category',
-      options: collection.value.categories,
+      options: abilityCollection.value.categories,
       value: null,
     },
     tier: {
       label: 'tier',
-      options: collection.value.tier_categories,
+      options: abilityCollection.value.tier_categories,
       value: null,
     },
     kind: {
       label: 'kind',
-      options: collection.value.kinds,
+      options: abilityCollection.value.kinds,
       value: null,
     },
   });
+  const toggleDetailDrawer = ref(false);
   const selectedItem = ref(null);
   watch(toggleDetailDrawer, value => {
     if (!value) {
@@ -153,7 +153,6 @@
   const getSelectedItem = id => {
     console.log(id);
     selectedItem.value = abilities.value[id];
-    //console.log(compendium.value.collections.abilities.items[id]);
     toggleDetailDrawer.value = true;
   };
   const closeDrawer = () => {
