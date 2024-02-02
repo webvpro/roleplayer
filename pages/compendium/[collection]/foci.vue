@@ -17,7 +17,7 @@
               <p class="p-2 rounded-md border-dashed border-2 border-base-content m-2"><h3 class="font-semibold w-full">GM Intrusions</h3>
               {{ foci[fociKey].intrusion }}
               <ul>
-                <li v-for="(gmi, idx) in formatIntrusionList(foci[fociKey].intrusions)">{{ gmi }}</li>
+                <li v-for="(gmi, idx) in foci[fociKey].intrusions">{{ gmi }}</li>
               </ul>
               </p>
               <div class="card-actions justify-end">
@@ -74,9 +74,9 @@
         </div>
         
           <ul v-if="selectedTab === 'intrusions'" class="list-none w-full p-10">
-            <li v-for="(intrusion, idx) in formatIntrusionList(selectedFocus.intrusions)"
+            <li 
               class="p-6 rounded-md border-dashed bg-primary text-primary-content border-2 border-base-content m-2">
-              {{ intrusion }}.
+              {{ selectedFocus.intrusion.split('.') }}.
             </li>
           </ul>
          
