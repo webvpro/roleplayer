@@ -81,9 +81,10 @@
 
           <ul v-if="selectedTab === 'intrusions'" class="list-none w-full p-10">
             <li
+              v-for="gmi in formatIntrusionList(selectedFocus.intrusion)"
               class="p-6 rounded-md border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
             >
-              {{ selectedFocus.intrusion.split('.') }}.
+              {{ gmi }}
             </li>
           </ul>
         </div>

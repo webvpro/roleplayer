@@ -98,26 +98,34 @@
             >
             <a
               class="tab tab-bordered text-xl text-neutral"
-              :class="isActiveTab('tiers')"
-              @click="setActiveTab('tiers')"
-              >Tiers</a
+              :class="isActiveTab('background')"
+              @click="setActiveTab('background')"
+              >Background</a
             >
           </div>
           <div v-if="selectedTab === 'features'" class="p-3">
             <div
               v-for="feature in selectedItem.features"
-              class="p-6 rounded-md border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
+              class="p-6 rounded-md border-dashed bg-base-200 text-base-content border-2 border-base-content m-2"
             >
               <label class="text-lg mb-1 font-semibold">{{
                 feature.name
               }}</label>
               <p>{{ feature.description }}</p>
             </div>
+            <label class="text-lg m-3 font-semibold">Abilities</label>
+            <div class="px-3">
+              <TierAbilitiesAccordion
+                :tier_abilities="selectedItem.abilities"
+                :tier_selection_text="tierSelectionText"
+                @selected-item="openAbilityModal"
+              />
+            </div>
           </div>
           <div v-if="selectedTab === 'intrusions'" class="p-3">
             <div
               v-for="intrusion in selectedItem.intrusions"
-              class="p-6 rounded-md border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
+              class="p-6 rounded-md border-dashed bg-base-200 text-base-content border-2 border-base-content m-2"
             >
               <label class="text-lg mb-1 font-semibold">{{
                 intrusion.name
@@ -125,12 +133,18 @@
               <p>{{ intrusion.description }}</p>
             </div>
           </div>
-          <div v-if="selectedTab === 'tiers'" class="p-10">
-            <TierAbilitiesAccordion
-              :tier_abilities="selectedItem.abilities"
-              :tier_selection_text="tierSelectionText"
-              @selected-item="openAbilityModal"
-            />
+          <div v-if="selectedTab === 'background'" class="p-10">
+            <table className="table table-zebra">
+              <tbody>
+                <tr
+                  v-for="bg in selectedItem.background.table"
+                  className="bg-base-200"
+                >
+                  <th>{{ bg.end }}</th>
+                  <td>{{ bg.entry }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </template>
