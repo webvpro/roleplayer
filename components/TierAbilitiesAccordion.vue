@@ -71,6 +71,11 @@
 
         <div v-if="getAbilityOptions(tier.items).length > 0">
           <p
+            v-if="
+              tierSelectionText &&
+              Array.isArray(tierSelectionText) &&
+              tierSelectionText.length > 0
+            "
             class="p-6 rounded-md bg-secondary text-secondary-content border-2 border-base-content m-2"
           >
             {{

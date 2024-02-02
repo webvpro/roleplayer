@@ -7,59 +7,80 @@
       @filter-change.once="onFilterChange"
     >
       <template #main-content>
-        <div class="mx-auto snap-start container">
+        <div
+          class="mx-auto snap-start container h-full items-center justify-items-center"
+        >
+          <div v-if="!creatures || Object.keys(creatures).length <= 0" class="">
+            <div role="alert" class="alert alert-info w-fit mx-auto">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="stroke-current shrink-0 w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <span>No Creatures or NPCs Found, Time to make some more.</span>
+            </div>
+          </div>
           <div
-            class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-3 xl:grid-cols-4"
+            class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             <div
               v-for="creatureKey in Object.keys(creatures)"
-              class="shadow-xl p-3 card card-compact w-full bg-base-100 h-96 min-w-98 sm:mb-2"
+              class="shadow-xl p-3 card card-compact w-full bg-base-100 h-fit min-w-98 sm:mb-2"
               :key="creatureKey"
             >
-              <h2 class="card-title capitalize">
-                {{ creatures[creatureKey].name }}
-              </h2>
-              <div class="card-body">
-                <div class="mx-auto snap-start container h-14">
+              <div class="card-title flex flex-col p-3">
+                <h2
+                  class="capitalize snap-start w-full text-left md:text-sm font-semibold"
+                >
+                  {{ creatures[creatureKey].name.toLowerCase() }}
+                </h2>
+                <div class="mx-auto w-full h-fit min-h-14">
                   <div
                     v-if="creatures[creatureKey].level"
-                    class="badge badge-accent m-1"
+                    class="badge badge-accent text-accent-content m-1 text-nowrap"
                   >
                     {{ `Level: ${creatures[creatureKey].level}` }}
                   </div>
                   <div
                     v-if="creatures[creatureKey].kind"
-                    class="badge badge-accent m-1 capitalize"
+                    class="badge badge-accent text-accent-content m-1 capitalize text-nowrap"
                   >
                     {{ creatures[creatureKey].kind }}
                   </div>
                   <div
                     v-if="creatures[creatureKey].health"
-                    class="badge badge-success m-1"
+                    class="badge badge-success text-success-content m-1 text-nowrap"
                   >
                     {{ `Health:${creatures[creatureKey].health}` }}
                   </div>
-                  <div
+                  <!-- <div
                     v-if="creatures[creatureKey].damage"
-                    class="badge badge-error m-1"
+                    class="badge badge-error text-error-content m-1 text-nowrap"
                   >
                     {{ `Damage:${creatures[creatureKey].damage}` }}
-                  </div>
-                  <div class="badge badge-warning m-1 capitalize">
+                  </div> -->
+                  <div
+                    class="badge badge-warning text-error-content m-1 capitalize text-nowrap"
+                  >
                     Armor: {{ creatures[creatureKey].armor ?? 0 }}
                   </div>
                 </div>
+              </div>
+              <div class="card-body">
                 <div
                   v-if="creatures[creatureKey].description"
-                  class="line-clamp-5 w-64 p-2 mb-1 h-36"
+                  class="w-fit p-2 mb-1 min-h-32"
                 >
-                  <p
-                    class="indent-3 line-clamp-5 my-2"
-                    v-for="pTxt in getParagraphAry(
-                      creatures[creatureKey].description,
-                    )"
-                  >
-                    {{ pTxt }}
+                  <p class="indent-1 md:line-clamp-2 my-2">
+                    {{ creatures[creatureKey].description.split('\n')[0] }}
                   </p>
                 </div>
                 <div class="card-actions justify-end mt-2">
@@ -79,13 +100,14 @@
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-1/3 md:max-w-1/3 bg-secondary text-secondary-content min-h-full"
+          class="w-96 md:w-1/3 md:max-w-1/3 bg-neutral text-neutral-content h-full min-h-full"
         >
           <div class="navbar h-16">
             <div class="navbar-start">
-              <a class="btn btn-ghost text-xl capitalize">{{
-                selectedItem.name
-              }}</a>
+              <a
+                class="btn btn-ghost text-xl capitalize text-nowrap truncate text-ellipsis line-clamp-1"
+                >{{ selectedItem.name }}</a
+              >
             </div>
             <div class="navbar-end">
               <button class="btn btn-ghost" @click="closeDrawer">
@@ -94,36 +116,36 @@
             </div>
           </div>
           <div v-if="selectedItem" class="m-3">
-            <div class="mx-auto snap-start container h-14 text-lg">
-              <div
-                v-if="selectedItem.level"
-                class="badge badge-neutral text-neutral-content m-1"
-              >
+            <div class="mx-auto snap-start container h-fit text-lg">
+              <div v-if="selectedItem.level" class="badge m-1">
                 {{ `Level: ${selectedItem.level}` }}
               </div>
               <div
                 v-if="selectedItem.kind"
-                class="badge badge-neutral text-neutral-content m-1 capitalize"
+                class="badge badge-neutral border-neutral-content text-neutral-content m-1 capitalize"
               >
                 {{ selectedItem.kind }}
               </div>
-              <div v-if="selectedItem.health" class="badge badge-success m-1">
+              <div
+                v-if="selectedItem.health"
+                class="badge badge-success text-success-content m-1"
+              >
                 {{ `Health:${selectedItem.health}` }}
               </div>
-              <div v-if="selectedItem.damage" class="badge badge-error m-1">
+              <div
+                v-if="selectedItem.damage"
+                class="badge badge-error text-error-content m-1"
+              >
                 {{ `Damage:${selectedItem.damage}` }}
               </div>
               <div
                 v-if="selectedItem.armor"
-                class="badge badge-warning m-1 capitalize"
+                class="badge badge-warning text-warning-content m-1 capitalize"
               >
                 Armor: {{ selectedItem.armor }}
               </div>
             </div>
-            <div
-              v-if="selectedItem.description"
-              class="bg-neutral text-neutral-content border-accent border-solid border-2 p-2"
-            >
+            <div v-if="selectedItem.description" class="m-3 p-2">
               <p
                 class="indent-2 mb-3"
                 v-for="pTxt in getParagraphAry(selectedItem.description)"
@@ -131,103 +153,116 @@
                 {{ pTxt }}
               </p>
             </div>
+            <div class="p-3 bg-base-100 h-full">
+              <div role="tablist" class="tabs tabs-bordered">
+                <a
+                  role="tab"
+                  class="tab tab-bordered text-xl"
+                  :class="isActiveTab('details')"
+                  @click="setActiveTab('details')"
+                  >Details</a
+                >
+                <a
+                  v-if="selectedItem.combat || selectedItem.modifications"
+                  role="tab"
+                  class="tab tab-bordered text-xl"
+                  :class="isActiveTab('actions')"
+                  @click="setActiveTab('actions')"
+                  >Actions</a
+                >
 
-            <div role="tablist" class="tabs tabs-bordered w-full pt-10 px-2">
-              <a
-                class="tab tab-bordered text-xl text-neutral"
-                :class="isActiveTab('details')"
-                @click="setActiveTab('details')"
-                >Details</a
-              >
-              <a
-                v-if="selectedItem.combat || selectedItem.modifications"
-                class="tab tab-bordered text-xl text-neutral"
-                :class="isActiveTab('actions')"
-                @click="setActiveTab('actions')"
-                >Actions</a
-              >
+                <a
+                  v-if="selectedItem.intrusions"
+                  role="tab"
+                  class="tab tab-bordered text-xl"
+                  :class="isActiveTab('intrusions')"
+                  @click="setActiveTab('intrusions')"
+                  >Intrusions</a
+                >
+              </div>
 
-              <a
-                v-if="selectedItem.intrusions"
-                class="tab tab-bordered text-xl text-neutral"
-                :class="isActiveTab('intrusions')"
-                @click="setActiveTab('intrusions')"
-                >Intrusions</a
-              >
-            </div>
-            <div v-if="selectedTab === 'details'" class="p-3 pt-0">
-              <div
-                v-if="selectedItem.motive"
-                class="p-6 border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
-              >
-                <label class="text-2xl p-1 font-semibold w-full block"
-                  >Motive</label
-                >
-                <p class="indent-3">{{ selectedItem.motive }}</p>
-              </div>
-              <div
-                class="p-6 border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
-              >
-                <label class="text-2xl p-1 font-semibold w-full block"
-                  >Stats</label
-                >
+              <div v-if="selectedTab === 'details'" class="p-3 pt-0 h-full">
                 <div
-                  class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
+                  v-if="selectedItem.motive"
+                  class="p-6 border-dashed bg- text-primary-content border-2 border-base-content m-2"
                 >
-                  Health:
-                  {{
-                    selectedItem.health > 0 ? selectedItem.health : ` GM Set`
-                  }}
+                  <label class="text-2xl p-1 font-semibold w-full block"
+                    >Motive</label
+                  >
+                  <p class="indent-3">{{ selectedItem.motive }}</p>
                 </div>
                 <div
-                  class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-xl"
+                  class="p-6 border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
                 >
-                  Damage:
-                  {{
-                    parseInt(selectedItem.damage) > 0
-                      ? selectedItem.damage
-                      : ` GM Set `
-                  }}
-                </div>
-                <div
-                  class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
-                >
-                  Armor: {{ selectedItem.armor ?? 0 }}
-                </div>
-                <div
-                  class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
-                >
-                  Movement: {{ selectedItem.movement ?? ` GM Set ` }}
+                  <label class="text-2xl p-1 font-semibold w-full block"
+                    >Stats</label
+                  >
+                  <div
+                    class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
+                  >
+                    Health:
+                    {{
+                      selectedItem.health > 0 ? selectedItem.health : ` GM Set`
+                    }}
+                  </div>
+                  <div
+                    class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-xl"
+                  >
+                    Damage:
+                    {{
+                      parseInt(selectedItem.damage) > 0
+                        ? selectedItem.damage
+                        : ` GM Set `
+                    }}
+                  </div>
+                  <div
+                    class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
+                  >
+                    Armor: {{ selectedItem.armor ?? 0 }}
+                  </div>
+                  <div
+                    class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
+                  >
+                    Movement: {{ selectedItem.movement ?? ` GM Set ` }}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div v-if="selectedTab === 'actions'" class="p-3 pt-0">
-              <h3 v-if="selectedItem.combat" class="my-2 font-bold">Combat:</h3>
-              <p
-                v-if="selectedItem.combat"
-                v-for="combat in selectedItem.combat.split('\n')"
-                class="p-2 rounded-md border-dashed border-2 border-base-content m-2"
-              >
-                {{ combat }}
-              </p>
-              <h3 v-if="selectedItem.modifications" class="my-2 font-bold">
-                Modifications:
-              </h3>
-              <p
-                v-for="mod in selectedItem.modifications"
-                class="p-2 rounded-md border-dashed border-2 border-base-content m-2"
-              >
-                {{ mod }}
-              </p>
-            </div>
-            <div v-if="selectedTab === 'intrusions'" class="p-3 pt-0">
-              <p
-                v-if="selectedItem.intrusions"
-                v-for="intrusion in selectedItem.intrusions.split('\n')"
-                class="p-3 rounded-md border-dashed border-2 border-base-content m-3"
-              >
-                {{ intrusion }}
-              </p>
+              <div v-if="selectedTab === 'actions'" class="p-3 pt-0 h-full">
+                <h3
+                  v-if="selectedItem.combat"
+                  class="my-2 font-bold text-base-content"
+                >
+                  Combat:
+                </h3>
+                <p
+                  v-if="selectedItem.combat"
+                  v-for="combat in selectedItem.combat"
+                  class="p-2 rounded-md border-dashed border-2 border-base-content text-base-content m-2"
+                >
+                  {{ combat }}
+                </p>
+                <h3
+                  v-if="selectedItem.modifications"
+                  class="my-2 font-bold text-base-content"
+                >
+                  Modifications:
+                </h3>
+                <p
+                  v-for="mod in selectedItem.modifications"
+                  class="p-2 rounded-md border-dashed border-2 border-base-content text-base-content m-2"
+                >
+                  {{ mod }}
+                </p>
+              </div>
+              <div v-if="selectedTab === 'intrusions'" class="p-3 pt-0 h-full">
+                <p
+                  v-if="selectedItem.intrusions"
+                  v-for="intrusion in selectedItem.intrusions"
+                  class="p-3 rounded-md border-dashed border-2 border-base-content text-base-content m-3"
+                >
+                  {{ intrusion }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -289,7 +324,9 @@
     return pStr.split('\n') ?? [];
   };
   const isActiveTab = tab => {
-    return tab === selectedTab.value ? 'tab-active text-neutral-600' : '';
+    return tab === selectedTab.value
+      ? 'border-b-primary tab-active font-semibold'
+      : '';
   };
   const setActiveTab = tab => {
     selectedTab.value = tab;

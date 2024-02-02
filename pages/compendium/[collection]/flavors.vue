@@ -33,7 +33,7 @@
         <label for="item-details" class="drawer-overlay"></label>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-2/3 bg-secondary text-secondary-content"
+          class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full"
         >
           <div
             class="navbar border-b-base-300 border-b-2 text-secondary-content h-16"
@@ -51,6 +51,7 @@
             </div>
           </div>
           <div
+            v-if="selectedItem.description"
             class="p-6 rounded-md border-dashed border-2 border-base-content m-2"
           >
             {{ selectedItem.description }}
@@ -61,11 +62,13 @@
             At a given tier, abilities from a flavor are traded one for one with
             standard abilities from a type.
           </p>
-          <TierAbilitiesAccordion
-            :tier_abilities="selectedItem.abilities"
-            @selected-item="openAbilityModal"
-            collection="flavors"
-          />
+          <div v-if="selectedItem.abilities" class="p-10">
+            <TierAbilitiesAccordion
+              :tier_abilities="selectedItem.abilities"
+              :tier_selection_text="[]"
+              @selected-item="openAbilityModal"
+            />
+          </div>
         </div>
       </template>
     </NuxtLayout>
@@ -73,18 +76,21 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, collection, fetchCompendium} =
+  const {compendium, collections, collection, fetchCompendium, getCollection} =
     useCompendium();
-  await fetchCompendium({collectionKey: 'flavors'});
+  await fetchCompendium();
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
-  const flavors = computed(() => collection.value.data);
-  const abilities = compendium.value.abilities.data;
+  const flavorsCollection = computed(() => getCollection('flavors'));
+  const flavors = computed(() => flavorsCollection.value.data);
+  const abilities = computed(() => getCollection('abilities').data);
   const selectedItem = ref(null);
 
-  watch(toggleDetailDrawer, value => {
+  watch(selectedItem, value => {
     if (!value) {
-      selectedItem.value = null;
+      toggleDetailDrawer.value = null;
+    } else {
+      toggleDetailDrawer.value = true;
     }
   });
 
@@ -94,10 +100,13 @@
     toggleDetailDrawer.value = true;
   };
   const openAbilityModal = id => {
-    selectedAbility.value = abilities.items[id];
+    selectedAbility.value = abilities.value[id];
   };
   const closeAbilityModal = item => {
     selectedAbility.value = null;
+  };
+  const closeDrawer = () => {
+    selectedItem.value = null;
   };
   definePageMeta({
     layout: false,
