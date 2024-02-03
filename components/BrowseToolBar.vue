@@ -37,13 +37,11 @@
 </script>
 
 <template>
-  <div
-    class="navbar sticky top-0 z-10 bg-neutral text-neutral-content max-h-12"
-  >
+  <div class="navbar sticky top-0 z-10 bg-base-300 text-base-content max-h-12">
     <div class="">
       <div class="join join-vertical hidden lg:block join-horizontal">
         <select
-          class="select select-bordered border-neutral-content bg-neutral text-neutral-content join-item w-auto max-w-xs text-lg"
+          class="select select-bordered border-base-content bg-base-300 text-base-content join-item w-auto max-w-xs text-lg"
           v-model="selectedCompendium"
         >
           <option disabled selected>Select Compendium</option>
@@ -53,7 +51,7 @@
         </select>
         <select
           v-if="collections"
-          class="select select-bordered border-neutral-content bg-neutral text-neutral-content join-item w-auto max-w-xs text-lg capitalize"
+          class="select select-bordered border-base-content bg-base-300 text-base-content join-item w-auto max-w-xs text-lg capitalize"
           v-model="selectedCollection"
           @change.prevent="changeCollection"
         >
@@ -76,7 +74,7 @@
         <select
           v-if="Object.keys(quickFilters).length > 0"
           v-for="(filter, fIdx) in Object.keys(quickFilters)"
-          class="select select-bordered border-neutral-content bg-neutral text-neutral-content join-item w-auto max-w-xs text-lg capitalize"
+          class="select select-bordered border-base-content bg-base-300 text-base-content join-item w-auto max-w-xs text-lg capitalize"
           v-model="quickFilters[filter].value"
           :key="`${filter}-select`"
           @change.prevent="changeFilter(filter)"
@@ -97,16 +95,16 @@
       <div class="dropdown block lg:hidden">
         <summary
           tabindex="3"
-          class="btn btn-neutral bordered m-1 capitalize text-neutral-content"
+          class="btn border-base-content bg-base-300 text-base-content bordered m-1 capitalize"
         >
           {{ `${selectedCompendium.split('_').join(' ')} ${menuLocation}` }}
           <Icon class="text-xl" name="ic:baseline-keyboard-double-arrow-down" />
         </summary>
         <div
-          class="p-2 shadow menu dropdown-content z-[1] bg-neutral rounded-box w-fit"
+          class="p-2 shadow menu dropdown-content z-[1] bg-neutral rounded-box w-fit join join-vertical"
         >
           <select
-            class="select select-bordered border-neutral-content bg-neutral text-neutral-content join-item w-auto max-w-xs text-lg"
+            class="select select-bordered border-base-content bg-base-300 text-base-content join-item join w-auto max-w-xs text-lg"
             v-model="selectedCompendium"
           >
             <option disabled selected>Select Compendium</option>
@@ -116,7 +114,7 @@
           </select>
           <select
             v-if="collections"
-            class="select select-bordered border-neutral-content bg-neutral text-neutral-content join-item w-auto max-w-xs text-lg capitalize"
+            class="select select-bordered border-base-content bg-base-300 text-base-content join-item join w-auto max-w-xs text-lg capitalize"
             v-model="selectedCollection"
             @change.prevent="changeCollection"
           >
@@ -136,29 +134,26 @@
               {{ collections[key].label }}
             </option>
           </select>
-          <div class="join-item join join-vertical">
-            <label class=""></label>
-            <select
-              v-if="Object.keys(quickFilters).length > 0"
-              v-for="(filter, fIdx) in Object.keys(quickFilters)"
-              class="select select-bordered border-neutral-content bg-neutral text-neutral-content join-item w-full text-lg capitalize"
-              v-model="quickFilters[filter].value"
-              :key="`${filter}-select`"
-              @change.prevent="changeFilter(filter)"
+          <select
+            v-if="Object.keys(quickFilters).length > 0"
+            v-for="(filter, fIdx) in Object.keys(quickFilters)"
+            class="select select-bordered border-base-content bg-base-300 text-base-content join-item join w-full text-lg capitalize"
+            v-model="quickFilters[filter].value"
+            :key="`${filter}-select`"
+            @change.prevent="changeFilter(filter)"
+          >
+            <option selected :value="null">
+              Filter {{ quickFilters[filter].label }}
+            </option>
+            <option
+              v-for="(option, oIdx) in quickFilters[filter].options"
+              :key="`${filter}-${oIdx}`"
+              class="capitalize"
+              :value="option"
             >
-              <option selected :value="null">
-                Filter {{ quickFilters[filter].label }}
-              </option>
-              <option
-                v-for="(option, oIdx) in quickFilters[filter].options"
-                :key="`${filter}-${oIdx}`"
-                class="capitalize"
-                :value="option"
-              >
-                {{ `${filter} ${option}` }}
-              </option>
-            </select>
-          </div>
+              {{ `${filter} ${option}` }}
+            </option>
+          </select>
         </div>
       </div>
     </div>
