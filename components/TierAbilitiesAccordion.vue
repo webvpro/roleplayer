@@ -50,11 +50,11 @@
       :id="`collapse_${tier.key}`"
       :tabindex="idx + tab_index_bump"
       @click.prevent="tierToggle(tier.key)"
-      class="collapse collapse-arrow m-3 bg-primary p-0 rounded-md peer-checked:rounded-b-none"
+      class="collapse collapse-arrow m-3 bg-base-200 text-base-content p-0 rounded-md peer-checked:rounded-b-none mx-auto"
     >
       <input type="radio" :name="tierAccordionName" />
       <div
-        class="collapse-title text-xl btn-primary rounded-t-md rounded-b-none text-left text-primary-content capitalize"
+        class="collapse-title text-xl btn-base-200 text-base-content rounded-t-md rounded-b-none text-left capitalize"
         id="tier.key"
       >
         {{ tier.key.split('-').join(': ') }}
@@ -76,7 +76,7 @@
               Array.isArray(tierSelectionText) &&
               tierSelectionText.length > 0
             "
-            class="p-6 rounded-md bg-secondary text-secondary-content border-2 border-base-content m-2"
+            class="p-6 rounded-md bg-neutral text-neutral-content border-2 border-base-content m-2"
           >
             {{
               tierSelectionText[idx]?.text ?? tierSelectionText[0]?.text ?? ''
@@ -84,7 +84,7 @@
           </p>
           <a
             v-for="ability in getAbilityOptions(tier.items)"
-            class="capitalize btn btn-base-100 m-3 text-center text-lg"
+            class="capitalize btn btn-accent text-accent-content m-3 text-center text-lg"
             :key="ability.key"
             @click.stop="itemClick(ability.key)"
           >

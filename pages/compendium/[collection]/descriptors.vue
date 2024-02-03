@@ -35,7 +35,7 @@
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full"
+          class="w-10/12 md:8/12 lg:w-6/12 xxl:1/4 bg-neutral text-neutral-content min-h-full"
         >
           <div class="navbar">
             <div class="navbar-start">
@@ -52,19 +52,22 @@
           </div>
           <div class="divider"></div>
           <p
-            class="p-6 rounded-md border-dashed border-2 border-base-content m-2"
+            class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
           >
             {{ selectedItem.description }}
           </p>
-          <div role="tablist" class="tabs tabs-bordered w-full pt-10 px-2">
+          <div
+            role="tablist"
+            class="tabs tabs-boxed bg-neutral text-neutral-content border-neutral-content"
+          >
             <a
-              class="tab tab-bordered text-xl text-neutral"
+              class="tab text-neutral-content"
               :class="isActiveTab('characteristics')"
               @click="setActiveTab('characteristics')"
               >Characteristics</a
             >
             <a
-              class="tab tab-bordered text-xl text-neutral"
+              class="tab text-neutral-content"
               :class="isActiveTab('links')"
               @click="setActiveTab('links')"
               >Starter Links</a
@@ -73,7 +76,7 @@
           <div v-if="selectedTab === 'characteristics'" class="p-3">
             <div
               v-for="characteristic in selectedItem.characteristics"
-              class="p-6 rounded-md border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
+              class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
             >
               <label class="text-lg mb-1 font-semibold capitalize">{{
                 characteristic.name
@@ -87,13 +90,11 @@
           <div v-if="selectedTab === 'links'" class="p-3">
             <div
               v-for="link in selectedItem.links"
-              class="p-6 rounded-md border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
+              class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
             >
               <p>{{ link }}</p>
             </div>
           </div>
-
-          <div class="divider"></div>
         </div>
       </template>
     </NuxtLayout>
@@ -121,7 +122,7 @@
     toggleDetailDrawer.value = false;
   };
   const isActiveTab = tab => {
-    return tab === selectedTab.value ? 'tab-active text-neutral-600' : '';
+    return tab === selectedTab.value ? 'tab-active font-bold' : '';
   };
   const setActiveTab = tab => {
     selectedTab.value = tab;

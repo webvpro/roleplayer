@@ -47,7 +47,7 @@
           <p class="p-3">{{ ability.description }}</p>
           <div class="modal-action">
             <button
-              class="btn m-3"
+              class="btn btn-accent text-accent-content m-3"
               @click.prevent="emit('CloseModal', {ability})"
             >
               Close

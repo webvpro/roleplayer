@@ -33,7 +33,7 @@
 
         <div
           v-if="selectedFocus"
-          class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full"
+          class="w-10/12 md:8/12 lg:w-6/12 xxl:1/4 bg-neutral text-neutral-content min-h-full"
         >
           <div class="navbar">
             <div class="navbar-start">
@@ -52,20 +52,23 @@
           </div>
           <div class="divider"></div>
           <div
-            class="p-6 rounded-md border-dashed border-2 border-base-content m-2"
+            class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
           >
             {{ selectedFocus.description }}
           </div>
 
-          <div role="tablist" class="tabs tabs-bordered w-full pt-10 px-2">
+          <div
+            role="tablist"
+            class="tabs tabs-boxed bg-neutral text-neutral-content border-neutral-content"
+          >
             <a
-              class="tab tab-bordered text-xl text-neutral"
+              class="tab text-neutral-content"
               :class="isActiveTab('abilities')"
               @click.prevent="setActiveTab('abilities')"
               >Abilities</a
             >
             <a
-              class="tab tab-bordered text-xl"
+              class="tab text-neutral-content"
               :class="isActiveTab('intrusions')"
               @click.prevent="setActiveTab('intrusions')"
               >Intrusions</a
@@ -82,7 +85,7 @@
           <ul v-if="selectedTab === 'intrusions'" class="list-none w-full p-10">
             <li
               v-for="gmi in formatIntrusionList(selectedFocus.intrusion)"
-              class="p-6 rounded-md border-dashed bg-primary text-primary-content border-2 border-base-content m-2"
+              class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
             >
               {{ gmi }}
             </li>
@@ -117,9 +120,7 @@
     }
   });
   const isActiveTab = tab => {
-    return tab === selectedTab.value
-      ? 'tab-active text-base-content font-semibold'
-      : '';
+    return tab === selectedTab.value ? 'tab-active font-bold' : '';
   };
   const setActiveTab = tab => {
     selectedTab.value = tab;

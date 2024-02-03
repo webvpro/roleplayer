@@ -15,7 +15,9 @@
                 <h2 class="card-title capitalize">
                   {{ flavors[flavorKey].name }}
                 </h2>
-                <p>{{ flavors[flavorKey].description }}</p>
+                <p class="indent-1 md:line-clamp-2 my-2">
+                  {{ flavors[flavorKey].description.split('\n')[0] }}
+                </p>
                 <div class="card-actions justify-end">
                   <button
                     class="btn btn-primary"
@@ -33,7 +35,7 @@
         <label for="item-details" class="drawer-overlay"></label>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full"
+          class="w-10/12 md:8/12 lg:w-6/12 xxl:1/4 bg-neutral text-neutral-content min-h-full"
         >
           <div
             class="navbar border-b-base-300 border-b-2 text-secondary-content h-16"

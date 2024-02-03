@@ -67,7 +67,7 @@
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full"
+          class="w-10/12 md:3/4 lg:w-1/2 xxl:1/4 bg-neutral text-neutral-content border-neutral-content min-h-full"
         >
           <div class="navbar h-16">
             <div class="navbar-start">
@@ -98,13 +98,13 @@
           </div>
           <div class="divider"></div>
           <div
-            class="p-6 rounded-md border-dashed border-2 border-base-content m-2"
+            class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
           >
             {{ selectedItem.effect }}
           </div>
           <div
             v-if="selectedItem.options.length"
-            class="overflow-x-auto w-full mb-16 pb-3"
+            class="p-10 text-neutral-content"
           >
             <table class="table table-zebra mx-auto">
               <thead>

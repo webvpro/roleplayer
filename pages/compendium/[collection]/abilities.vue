@@ -72,7 +72,7 @@
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
           v-if="selectedItem"
-          class="w-96 md:w-1/3 bg-secondary text-secondary-content min-h-full"
+          class="w-10/12 md:8/12 lg:w-6/12 xxl:1/4 bg-neutral text-neutral-content min-h-full"
         >
           <div class="navbar h-auto">
             <div class="navbar-start">
@@ -107,7 +107,7 @@
           </div>
           <div class="divider"></div>
           <div
-            class="p-6 rounded-md border-dashed border-2 border-base-content m-2"
+            class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
           >
             {{ selectedItem.description }}
           </div>

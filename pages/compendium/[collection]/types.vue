@@ -45,7 +45,7 @@
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
           v-if="selectedItem"
-          class="w-96 xl:w-1/3 bg-secondary text-secondary-content min-h-full"
+          class="w-10/12 md:8/12 lg:w-6/12 xxl:1/4 bg-neutral text-neutral-content min-h-full"
         >
           <div class="navbar">
             <div class="navbar-start">
@@ -62,7 +62,7 @@
           </div>
           <div class="divider"></div>
           <div
-            class="p-6 rounded-md border-dashed border-2 border-base-content m-2"
+            class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
           >
             {{ selectedItem.description }}
           </div>
@@ -83,30 +83,36 @@
               </div>
             </div>
           </div>
-          <div role="tablist" class="tabs tabs-bordered w-full pt-10 px-2">
+          <div
+            role="tablist"
+            class="tabs tabs-boxed bg-neutral text-neutral-content border-neutral-content"
+          >
             <a
-              class="tab tab-bordered text-xl text-neutral"
+              class="tab text-neutral-content"
               :class="isActiveTab('features')"
               @click="setActiveTab('features')"
               >Features</a
             >
             <a
-              class="tab tab-bordered text-xl text-neutral"
+              class="tab text-neutral-content"
               :class="isActiveTab('intrusions')"
               @click="setActiveTab('intrusions')"
               >Intrusions</a
             >
             <a
-              class="tab tab-bordered text-xl text-neutral"
+              class="tab text-neutral-content"
               :class="isActiveTab('background')"
               @click="setActiveTab('background')"
               >Background</a
             >
           </div>
-          <div v-if="selectedTab === 'features'" class="p-3">
+          <div
+            v-if="selectedTab === 'features'"
+            class="p-3 text-neutral-content"
+          >
             <div
               v-for="feature in selectedItem.features"
-              class="p-6 rounded-md border-dashed bg-base-200 text-base-content border-2 border-base-content m-2"
+              class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
             >
               <label class="text-lg mb-1 font-semibold">{{
                 feature.name
@@ -114,7 +120,7 @@
               <p>{{ feature.description }}</p>
             </div>
             <label class="text-lg m-3 font-semibold">Abilities</label>
-            <div class="px-3">
+            <div class="px-3 mx-auto">
               <TierAbilitiesAccordion
                 :tier_abilities="selectedItem.abilities"
                 :tier_selection_text="tierSelectionText"
@@ -122,10 +128,13 @@
               />
             </div>
           </div>
-          <div v-if="selectedTab === 'intrusions'" class="p-3">
+          <div
+            v-if="selectedTab === 'intrusions'"
+            class="p-3 text-neutral-content"
+          >
             <div
               v-for="intrusion in selectedItem.intrusions"
-              class="p-6 rounded-md border-dashed bg-base-200 text-base-content border-2 border-base-content m-2"
+              class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
             >
               <label class="text-lg mb-1 font-semibold">{{
                 intrusion.name
@@ -133,13 +142,13 @@
               <p>{{ intrusion.description }}</p>
             </div>
           </div>
-          <div v-if="selectedTab === 'background'" class="p-10">
-            <table className="table table-zebra">
+          <div
+            v-if="selectedTab === 'background'"
+            class="p-10 text-neutral-content"
+          >
+            <table className="table table-zebra-zebra">
               <tbody>
-                <tr
-                  v-for="bg in selectedItem.background.table"
-                  className="bg-base-200"
-                >
+                <tr v-for="bg in selectedItem.background.table" class="">
                   <th>{{ bg.end }}</th>
                   <td>{{ bg.entry }}</td>
                 </tr>
@@ -203,7 +212,7 @@
     selectedAbility.value = null;
   };
   const isActiveTab = tab => {
-    return tab === selectedTab.value ? 'tab-active text-neutral-600' : '';
+    return tab === selectedTab.value ? 'tab-active font-bold' : '';
   };
   const setActiveTab = tab => {
     selectedTab.value = tab;
