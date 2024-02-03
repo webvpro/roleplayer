@@ -2,13 +2,13 @@
   <div>
     <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
       <template #main-content>
-        <div class="mx-auto snap-start container">
+        <div class="mx-auto mt-3 snap-start container">
           <div
             class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-3 xl:grid-cols-4"
           >
             <div
               v-for="artifactKey in Object.keys(artifacts)"
-              class="shadow-xl p-3 card card-compact w-full bg-base-100 h-96 min-w-98 sm:mb-2"
+              class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
               :key="artifactKey"
             >
               <h2 class="card-title capitalize">

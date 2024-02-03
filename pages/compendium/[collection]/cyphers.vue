@@ -7,7 +7,7 @@
       @filter-change="onFilterChange"
     >
       <template #main-content>
-        <div class="mx-auto snap-start container">
+        <div class="mx-auto mt-3 snap-start container">
           <div v-if="!cyphers && Object.keys(cyphers).length <= 0">
             <div role="alert" class="alert alert-info">
               <svg
@@ -32,7 +32,7 @@
           >
             <div
               v-for="cypherKey in Object.keys(cyphers)"
-              class="shadow-xl p-3 card card-compact w-full bg-base-100 h-96 min-w-98 sm:mb-2"
+              class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
               :key="cypherKey"
             >
               <h2 class="card-title capitalize">

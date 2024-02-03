@@ -2,13 +2,13 @@
   <div>
     <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
       <template #main-content>
-        <div class="mx-auto snap-start container">
+        <div class="mx-auto mt-3 snap-start container">
           <div
             class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             <div
               v-for="(descriptorKey, dIdx) in Object.keys(descriptors)"
-              class="shadow-xl p-3 card card-compact w-full bg-base-100 h-full min-w-full sm:mb-2"
+              class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
               :key="tIdx"
             >
               <div class="card-body">

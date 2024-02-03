@@ -8,7 +8,7 @@
     >
       <template #main-content>
         <div
-          class="mx-auto snap-start container h-full items-center justify-items-center"
+          class="mx-auto mt-3 snap-start container h-full items-center justify-items-center"
         >
           <div v-if="!creatures || Object.keys(creatures).length <= 0" class="">
             <div role="alert" class="alert alert-info w-fit mx-auto">
@@ -33,7 +33,7 @@
           >
             <div
               v-for="creatureKey in Object.keys(creatures)"
-              class="shadow-xl p-3 card card-compact w-full bg-base-100 h-fit min-w-98 sm:mb-2"
+              class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
               :key="creatureKey"
             >
               <div class="card-title flex flex-col p-3">
@@ -61,12 +61,12 @@
                   >
                     {{ `Health:${creatures[creatureKey].health}` }}
                   </div>
-                  <!-- <div
+                  <div
                     v-if="creatures[creatureKey].damage"
                     class="badge badge-error text-error-content m-1 text-nowrap"
                   >
                     {{ `Damage:${creatures[creatureKey].damage}` }}
-                  </div> -->
+                  </div>
                   <div
                     class="badge badge-warning text-error-content m-1 capitalize text-nowrap"
                   >

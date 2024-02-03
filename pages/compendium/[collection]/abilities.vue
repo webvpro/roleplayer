@@ -8,14 +8,14 @@
       @filter-change.once="onFilterChange"
     >
       <template #main-content>
-        <div class="mx-auto snap-start container">
+        <div class="mx-auto mt-3 snap-start container">
           <div
             class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-3 xl:grid-cols-4"
           >
             <div
               v-if="abilities"
               v-for="abilityKey in Object.keys(abilities)"
-              class="shadow-xl p-3 card card-compact w-full bg-base-100 min-h-96 min-w-98 sm:mb-2"
+              class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
               :key="abilityKey"
             >
               <div class="card-body h-full">
