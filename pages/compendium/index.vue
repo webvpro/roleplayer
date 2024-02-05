@@ -1,6 +1,27 @@
 <template>
   <div class="h-full mb-3 w-auto overflow-auto">
     <div class="mx-auto snap-start container">
+      <div class="hero min-h-screen bg-base-200">
+        <div class="hero-content flex-col lg:flex-row-reverse">
+          <img
+            src="/images/CSOLLogo-CypherSystemCompatible-ColorWhite-Large.png"
+            class="max-w-sm rounded-lg shadow-2xl bg-base-300"
+          />
+          <div>
+            <h1 class="text-5xl font-bold">Coming Soon!</h1>
+            <p class="py-6">
+              Build and Share, Cypher System compatible Compendiums then make
+              characters using one of these Compendiums. Until then checkout the
+              CSRD Compendium
+            </p>
+            <a href="../compendium/csrd" class="btn btn-primary"
+              >CSRD Compendium</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!--
       <div class="hero mx-auto bg-base-300">
         <div class="hero min-h-screen bg-base-300">
           <div class="hero-content flex-col lg:flex-row">
@@ -64,7 +85,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

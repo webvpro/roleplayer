@@ -13,17 +13,38 @@
             </h1>
             <p class="py-6">
               Here on PlayCypher.com we use the term Compendium to describe all
-              of the things that make up a Cypher System setting. These things
-              will be referred to as Collections. These are Cypher System
-              related collections such as Types, Descriptors, Foci, Abilities,
-              Cyphers, Artifacts, Creatures and NPCs.
+              of the things that make up a Cypher System setting. These "things"
+              will be referred to as "Collections". Examples of Cypher System
+              Collections are Types, Descriptors, Foci, Abilities, Cyphers,
+              Artifacts, Creatures and NPCs.
             </p>
             <p class="py-3">
-              Currently the only Compendium available to view is based off of
-              the CSRD (Cypher System Resource Document), In future releases we
-              will be granting the ability to create and curate custom
-              Compendiums and Collections.
+              PlayCypher.com is currently a work in progress, we will try to up
+              this page with new release features.
             </p>
+            <h3>What's up?</h3>
+            <ul class="steps steps-vertical text-left mb-2">
+              <li class="step step-primary">
+                <p class="text-left p-3">
+                  Themes are live you can change your theme by clicking on the
+                  Avatar/Profile Image in the upper right of the screen/browser
+                </p>
+              </li>
+              <li class="step step-primary">
+                <p class="text-left p-3">
+                  CSRD in Compendium format, all of the collections having been
+                  entered but some UI formatting may still be needed
+                </p>
+              </li>
+              <li class="step">
+                <p class="text-left p-3">
+                  Login is discord and this will be defacto, currently you can
+                  use the login and it will automatically make you a member
+                  account. If you setup and account, we can grant access to
+                  features in development.
+                </p>
+              </li>
+            </ul>
             <NuxtLink to="/compendium" class="btn btn-primary"
               >View CSRD Compendiums</NuxtLink
             >
@@ -72,7 +93,7 @@
     {
       name: 'CSRD Compendium',
       icon: 'game-icons:winged-sword',
-      path: '/compendium/csrd',
+      path: '/compendium',
       description:
         'A browse ready version of the CSRD great for a quick reference, we will be add own own custom compendiums soon.',
     },
@@ -86,7 +107,7 @@
     {
       name: 'Play',
       icon: 'game-icons:bookshelf',
-      path: '/sessions',
+      path: '/play',
       description:
         'Coming Soon create Game Dashboards to track your play sessions',
     },

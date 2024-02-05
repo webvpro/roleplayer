@@ -37,6 +37,12 @@ export default defineNuxtConfig({
       PUBLIC_COMPENDIUMS_BUCKET: process.env.PUBLIC_COMPENDIUMS_BUCKET,
     },
   },
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth',
+    },
+  },
+
   devtools: {
     // Enable devtools (default: true)
     enabled: true,

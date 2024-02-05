@@ -10,13 +10,22 @@
       <template #main-content>
         <div class="mx-auto mt-3 snap-start container">
           <div
-            class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-3 xl:grid-cols-4"
+            class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             <div
               v-if="abilities"
               v-for="abilityKey in Object.keys(abilities)"
               class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
+              :class="{
+                'bg-primary': abilityKey === selectedItemKey,
+              }"
               :key="abilityKey"
+              :id="abilityKey"
+              :ref="
+                el => {
+                  itemRefs[abilityKey] = el;
+                }
+              "
             >
               <div class="card-body h-full">
                 <h2 class="card-title">{{ abilities[abilityKey].name }}</h2>
@@ -118,13 +127,16 @@
 </template>
 <script setup>
   import filterData from '../../../utils/filterData';
-
+  const route = useRoute();
+  const itemRefs = ref([]);
+  const itemGrd = ref();
   const {fetchCompendium, getCollection} = useCompendium();
   await fetchCompendium({collectionKey: 'abilities'});
   const abilityCollection = computed(() => getCollection('abilities'));
   const abilities = computed(() =>
     filterData(abilityCollection.value.data, abilityFilters.value),
   );
+  const selectedItemKey = ref(null);
   const abilityFilters = ref({
     category: {
       label: 'category',
@@ -147,20 +159,31 @@
   watch(toggleDetailDrawer, value => {
     if (!value) {
       selectedItem.value = null;
+      selectedItemKey.value = null;
     }
   });
 
   const getSelectedItem = id => {
     console.log(id);
+    selectedItemKey.value = id;
     selectedItem.value = abilities.value[id];
     toggleDetailDrawer.value = true;
   };
+
   const closeDrawer = () => {
     toggleDetailDrawer.value = false;
   };
   const onFilterChange = filterData => {
     abilityFilters.value = filterData;
   };
+
+  onMounted(() => {
+    if (route.hash && itemRefs.value) {
+      const el = document.querySelector(route.hash);
+      el.scrollTo(0, -40);
+      getSelectedItem(route.hash.split('#')[1]);
+    }
+  });
   definePageMeta({
     layout: false,
   });

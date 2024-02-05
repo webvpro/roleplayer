@@ -10,7 +10,7 @@
             return !hideCollections.includes(collection);
           })"
           :key="key"
-          class="shadow-xl p-3 card card-compact w-full bg-base-100 h-full min-w-full sm:mb-2"
+          class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
         >
           <div>
             <div class="text-center">
@@ -25,7 +25,7 @@
               <p class="overflow-ellipsis overflow-hidden w-80 p-2 h-48">
                 {{ collections[key].description }}
               </p>
-              <div class="justify-center card-actions">
+              <div class="card-actions justify-end mt-2">
                 <button class="btn btn-secondary" @click="viewCollection(key)">
                   View
                 </button>

@@ -10,8 +10,8 @@
           <div>
             <h1 class="text-5xl font-bold">Characters Coming Soon!</h1>
             <p class="py-6">
-              Build and Share, Cypher System compatible Characters. Until then
-              checkout the CSRD Compendium
+              Play your characters with others in realtime. Until then checkout
+              the CSRD Compendium
             </p>
             <a href="../compendium/csrd" class="btn btn-primary"
               >CSRD Compendium</a

@@ -234,9 +234,7 @@
               </div>
             </div>
             <div v-if="selectedTab === 'actions'" class="p-3 pt-0 h-full">
-              <div
-                class="p-6 border-dashed border-2 border-neutral-content m-2"
-              >
+              <div class="p-6 m-2">
                 <label
                   v-if="selectedItem.combat"
                   class="text-2xl p-1 font-semibold w-full block"
@@ -250,9 +248,7 @@
                   {{ combat }}
                 </p>
               </div>
-              <div
-                class="p-6 border-dashed border-2 border-neutral-content m-2"
-              >
+              <div class="p-6 m-2">
                 <label
                   v-if="selectedItem.modifications"
                   class="text-2xl p-1 font-semibold w-full block"
@@ -268,9 +264,7 @@
               </div>
             </div>
             <div v-if="selectedTab === 'intrusions'" class="p-3 pt-0 h-full">
-              <div
-                class="p-6 border-dashed border-2 border-neutral-content m-2"
-              >
+              <div class="p-6 m-2">
                 <p
                   v-if="selectedItem.intrusions"
                   v-for="intrusion in selectedItem.intrusions"

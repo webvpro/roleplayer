@@ -15,11 +15,11 @@
             class="dropdown-content menu bg-base-100 text-base-content w-56"
           >
             <li><NuxtLink to="/compendium">Compendiums</NuxtLink></li>
-            <li><NuxtLink to="/characters">Characters</NuxtLink></li>
-            <li><NuxtLink to="/play">Play</NuxtLink></li>
+            <li><NuxtLink to="/character">Characters</NuxtLink></li>
+            <li><a>Play</a></li>
           </ul>
         </div>
-        <a href="/play" class="btn btn-ghost normal-case md:text-xl text-sm"
+        <a href="/" class="btn btn-ghost normal-case md:text-xl text-sm"
           >PlayCypher.com</a
         >
       </div>
@@ -49,7 +49,6 @@
           v-model="openDrawer"
         />
         <div class="drawer-content overflow-y-scroll">
-          <BrowseToolBar :filters="filters" />
           <slot name="main-content"></slot>
         </div>
         <div class="drawer-side z-50">
@@ -60,12 +59,6 @@
   </div>
 </template>
 <script setup>
-  const props = defineProps([
-    'openDrawer',
-    'collections',
-    'collectionKey',
-    'filters',
-    'onEvent',
-  ]);
+  const props = defineProps(['openDrawer', 'onEvent']);
   const openDrawer = toRef(props, 'openDrawer');
 </script>

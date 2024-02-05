@@ -57,9 +57,6 @@
                 }`
               }}
             </div>
-            <div v-if="selectedItem.depletion" class="badge badge-info m-1">
-              {{ selectedItem.depletion }}
-            </div>
           </div>
           <div class="divider"></div>
           <div
@@ -70,7 +67,19 @@
           <div
             class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
           >
-            {{ selectedItem.effect }}
+            <label class="text-2xl p-1 font-semibold w-full capitalize"
+              >effect</label
+            >
+            <p>{{ selectedItem.effect }}</p>
+          </div>
+          <div
+            v-if="selectedItem.depletion"
+            class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
+          >
+            <label class="text-2xl p-1 font-semibold w-full capitalize"
+              >depletion</label
+            >
+            <p>{{ selectedItem.depletion }}</p>
           </div>
         </div>
       </template>
