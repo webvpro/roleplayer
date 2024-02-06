@@ -118,7 +118,31 @@
           <div
             class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
           >
-            {{ selectedItem.description }}
+            <p
+              v-if="selectedItem.description"
+              v-for="desc in getParagraphAry(selectedItem.description)"
+              class="p-1"
+            >
+              {{ desc }}
+            </p>
+          </div>
+          <div
+            v-if="
+              selectedItem.options &&
+              Array.isArray(selectedItem.options.items) &&
+              selectedItem.options.items.length > 0
+            "
+            class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
+          >
+            <label class="text-2xl p-1 font-semibold w-full block">{{
+              selectedItem.options.limit.text
+            }}</label>
+            <ul>
+              <li v-for="opts in selectedItem.options.items">
+                <h4 class="m-1 font-semibold">{{ opts.label }}:</h4>
+                <p class="indent-2 p-1">{{ opts.detail }}</p>
+              </li>
+            </ul>
           </div>
         </div>
       </template>
@@ -176,7 +200,9 @@
   const onFilterChange = filterData => {
     abilityFilters.value = filterData;
   };
-
+  const getParagraphAry = pStr => {
+    return pStr.split('\n') ?? [];
+  };
   onMounted(() => {
     if (route.hash && itemRefs.value) {
       const el = document.querySelector(route.hash);

@@ -232,12 +232,25 @@
                   Movement: {{ selectedItem.movement ?? ` GM Set ` }}
                 </div>
               </div>
+              <div
+                v-if="selectedItem.use"
+                class="p-6 border-dashed border-2 border-neutral-content m-2"
+              >
+                <label class="text-2xl p-1 font-semibold w-full block"
+                  >Use</label
+                >
+                <p class="indent-3">{{ selectedItem.use }}</p>
+              </div>
             </div>
             <div v-if="selectedTab === 'actions'" class="p-3 pt-0 h-full">
-              <div class="p-6 m-2">
-                <label
-                  v-if="selectedItem.combat"
-                  class="text-2xl p-1 font-semibold w-full block"
+              <div
+                v-if="
+                  Array.isArray(selectedItem.combat) &&
+                  selectedItem.combat.length > 0
+                "
+                class="p-6 m-2"
+              >
+                <label class="text-2xl p-1 font-semibold w-full block"
                   >Combat</label
                 >
                 <p
@@ -248,11 +261,15 @@
                   {{ combat }}
                 </p>
               </div>
-              <div class="p-6 m-2">
-                <label
-                  v-if="selectedItem.modifications"
-                  class="text-2xl p-1 font-semibold w-full block"
-                >
+              <div
+                v-if="
+                  selectedItem.modifications &&
+                  Array.isArray(selectedItem.modifications) &&
+                  selectedItem.modifications.length > 0
+                "
+                class="p-6 m-2"
+              >
+                <label class="text-2xl p-1 font-semibold w-full block">
                   Modifications
                 </label>
                 <p
