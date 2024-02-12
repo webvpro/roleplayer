@@ -19,8 +19,8 @@
               Artifacts, Creatures and NPCs.
             </p>
             <p class="py-3">
-              PlayCypher.com is currently a work in progress, we will try to up
-              this page with new release features.
+              PlayCypher.com is currently a work in progress, we will try to
+              update this page with progress.
             </p>
             <h3>What's up?</h3>
             <ul class="steps steps-vertical text-left mb-2">
@@ -38,10 +38,10 @@
               </li>
               <li class="step">
                 <p class="text-left p-3">
-                  Login is discord and this will be defacto, currently you can
-                  use the login and it will automatically make you a member
-                  account. If you setup and account, we can grant access to
-                  features in development.
+                  Login is discord, currently you can use the login and it will
+                  automatically make you a member account. If you setup and
+                  account, we can grant access to features in development at
+                  some point.
                 </p>
               </li>
             </ul>

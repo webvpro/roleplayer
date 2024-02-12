@@ -15,8 +15,8 @@
             class="dropdown-content menu bg-base-100 text-base-content w-56"
           >
             <li><NuxtLink to="/compendium">Compendiums</NuxtLink></li>
-            <li><NuxtLink to="/character">Characters</NuxtLink></li>
-            <li><a>Play</a></li>
+            <li><NuxtLink to="/characters">Characters</NuxtLink></li>
+            <li><NuxtLink to="/play">Play</NuxtLink></li>
           </ul>
         </div>
         <a href="/" class="btn btn-ghost normal-case md:text-xl text-sm"
@@ -29,8 +29,8 @@
             class="menu menu-horizontal bg-base-100 text-base-content rounded-box"
           >
             <li><NuxtLink to="/compendium">Compendiums</NuxtLink></li>
-            <li><NuxtLink to="/character">Characters</NuxtLink></li>
-            <li><a>Play</a></li>
+            <li><NuxtLink to="/characters">Characters</NuxtLink></li>
+            <li><NuxtLink to="/play">Play</NuxtLink></li>
           </ul>
         </div>
       </div>

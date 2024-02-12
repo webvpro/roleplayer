@@ -106,7 +106,7 @@
   const selectedAbility = ref(null);
   const selectedFocusID = ref(null);
   const foci = computed(() => getCollection('foci', fociOptions.value).data);
-  const abilities = computed(() => getCollection('abilities'));
+  const abilities = computed(() => getCollection('abilities').data);
   const selectedFocus = computed(() => foci.value[selectedFocusID.value]);
   const tierSelectionText = [
     {tier: null, text: 'Choose one of the abilities listed below.'},
@@ -133,7 +133,8 @@
     selectedFocusID.value = null;
   };
   const openAbilityModal = id => {
-    selectedAbility.value = abilities.value.data[id];
+    console.log(id);
+    selectedAbility.value = abilities.value[id];
   };
   const closeAbilityModal = () => {
     selectedAbility.value = null;

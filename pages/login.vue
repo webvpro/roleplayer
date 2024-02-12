@@ -5,9 +5,12 @@
         <h2 class="card-title text-secondary-content" v-if="!isLoggedIn">
           Login
         </h2>
-        <p></p>
+        <p>
+          You can logging using discord and this will create a profile, but this
+          really doesn't grant you anything yet.
+        </p>
         <div class="card-actions" v-if="!isLoggedIn">
-          <button class="btn-info btn-lg" @click="handleDiscordLogin">
+          <button class="btn btn-neutral btn-lg" @click="handleDiscordLogin">
             Login with Discord <Icon class="" name="ic:baseline-discord" />
           </button>
         </div>

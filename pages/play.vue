@@ -8,7 +8,7 @@
             class="max-w-sm rounded-lg shadow-2xl bg-base-300"
           />
           <div>
-            <h1 class="text-5xl font-bold">Characters Coming Soon!</h1>
+            <h1 class="text-5xl font-bold">Play Coming Soon!</h1>
             <p class="py-6">
               Play your characters with others in realtime. Until then checkout
               the CSRD Compendium
