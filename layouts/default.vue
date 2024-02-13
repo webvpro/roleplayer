@@ -5,7 +5,9 @@
     >
       <div class="navbar-start">
         <div class="dropdown sm:hidden">
-          <button class="btn btn-square btn-ghost text-base-content text-2xl">
+          <button
+            class="btn btn-square btn-ghost text-neutral-content text-2xl"
+          >
             <Icon name="ic:outline-menu" />
           </button>
           <ul
