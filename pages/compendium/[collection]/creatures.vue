@@ -7,9 +7,7 @@
       @filter-change.once="onFilterChange"
     >
       <template #main-content>
-        <div
-          class="mx-auto mt-3 snap-start container h-full items-center justify-items-center"
-        >
+        <div class="mx-auto scroll-mt-24 my-3 snap-start container">
           <div v-if="!creatures || Object.keys(creatures).length <= 0" class="">
             <div role="alert" class="alert alert-info w-fit mx-auto">
               <svg
@@ -33,7 +31,8 @@
           >
             <div
               v-for="creatureKey in Object.keys(creatures)"
-              class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
+              class="shadow-xl p-3 card card-compact scroll-mt-24 snap-start w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
+              :id="creatureKey"
               :key="creatureKey"
             >
               <div class="card-title flex flex-col p-3">
@@ -299,6 +298,7 @@
 </template>
 <script setup>
   const {fetchCompendium, getCollection} = useCompendium();
+  const route = useRoute();
   await fetchCompendium({collectionKey: 'creatures'});
   const toggleDetailDrawer = ref(false);
 
@@ -359,6 +359,11 @@
   const onFilterChange = filterData => {
     abilityFilters.value = filterData;
   };
+  onMounted(() => {
+    if (route.hash) {
+      getSelectedItem(route.hash.split('#')[1]);
+    }
+  });
   definePageMeta({
     layout: false,
   });

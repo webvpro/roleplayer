@@ -8,14 +8,14 @@
       @filter-change.once="onFilterChange"
     >
       <template #main-content>
-        <div class="mx-auto mt-3 snap-start container">
+        <div class="mx-auto scroll-mt-24 my-3 snap-start container">
           <div
             class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             <div
               v-if="abilities"
               v-for="abilityKey in Object.keys(abilities)"
-              class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
+              class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full scroll-mt-20 snap-start min-w-98 sm:mb-2"
               :class="{
                 'bg-primary': abilityKey === selectedItemKey,
               }"
@@ -205,8 +205,6 @@
   };
   onMounted(() => {
     if (route.hash && itemRefs.value) {
-      const el = document.querySelector(route.hash);
-      el.scrollTo(0, -40);
       getSelectedItem(route.hash.split('#')[1]);
     }
   });

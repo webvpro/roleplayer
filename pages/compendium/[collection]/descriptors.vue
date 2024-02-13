@@ -2,14 +2,15 @@
   <div>
     <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
       <template #main-content>
-        <div class="mx-auto mt-3 snap-start container">
+        <div class="mx-auto scroll-mt-24 my-3 snap-start container">
           <div
             class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             <div
               v-for="(descriptorKey, dIdx) in Object.keys(descriptors)"
-              class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
-              :key="tIdx"
+              class="shadow-xl p-3 card card-compact scroll-mt-24 snap-start w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
+              :id="descriptorKey"
+              :key="descriptorKey"
             >
               <div class="card-body">
                 <h2 class="card-title capitalize">
@@ -103,6 +104,7 @@
 <script setup>
   const {compendium, collections, collection, fetchCompendium, getCollection} =
     useCompendium();
+  const route = useRoute();
   await fetchCompendium({collectionKey: 'descriptors'});
   const toggleDetailDrawer = ref(false);
   const selectedTab = ref('characteristics');
@@ -127,6 +129,11 @@
   const setActiveTab = tab => {
     selectedTab.value = tab;
   };
+  onMounted(() => {
+    if (route.hash) {
+      getSelectedItem(route.hash.split('#')[1]);
+    }
+  });
   definePageMeta({
     layout: false,
   });

@@ -2,14 +2,15 @@
   <div>
     <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
       <template #main-content>
-        <div class="mx-auto mt-3 snap-start container">
+        <div class="mx-auto scroll-mt-24 my-3 snap-start container">
           <div
             class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-3 xl:grid-cols-4"
           >
             <div
               v-for="(flavorKey, tIdx) in Object.keys(flavors)"
-              class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
-              :key="tIdx"
+              class="shadow-xl p-3 card card-compact w-full scroll-mt-24 snap-start bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
+              :id="flavorKey"
+              :key="flavorKey"
             >
               <div class="card-body">
                 <h2 class="card-title capitalize">
@@ -80,6 +81,7 @@
 <script setup>
   const {compendium, collections, collection, fetchCompendium, getCollection} =
     useCompendium();
+  const route = useRoute();
   await fetchCompendium();
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
@@ -110,6 +112,11 @@
   const closeDrawer = () => {
     selectedItem.value = null;
   };
+  onMounted(() => {
+    if (route.hash) {
+      getSelectedItem(route.hash.split('#')[1]);
+    }
+  });
   definePageMeta({
     layout: false,
   });

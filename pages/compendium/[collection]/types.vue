@@ -2,14 +2,15 @@
   <div>
     <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
       <template #main-content :collections="compendium">
-        <div class="mx-auto mt-3 snap-start container">
+        <div class="mx-auto scroll-mt-24 m-3 snap-start container">
           <div
-            class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-3 xl:grid-cols-4"
+            class="grid justify-center gap-5 gap-x-6 auto-cols-fr auto-rows grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mx-3"
           >
             <div
               v-for="(archeType, tIdx) in archeTypes"
-              class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
-              :key="tIdx"
+              class="shadow-xl p-3 card card-compact w-full scroll-mt-24 snap-start bg-neutral text-neutral-content h-full min-w-fit"
+              :id="archeType"
+              :key="archeType"
             >
               <div class="card-body">
                 <h2 class="card-title w-full text-center">
@@ -30,7 +31,7 @@
                 </div>
                 <div class="card-actions justify-end">
                   <button
-                    class="btn btn-primary"
+                    class="btn btn-neutral"
                     @click="getSelectedItem(tIdx)"
                   >
                     Details
@@ -163,6 +164,7 @@
 </template>
 <script setup>
   const {collections, fetchCompendium, getCollection} = useCompendium();
+  const route = useRoute();
   await fetchCompendium();
   const typesCollection = computed(() => getCollection('types'));
   const toggleDetailDrawer = ref(false);
@@ -217,6 +219,11 @@
   const setActiveTab = tab => {
     selectedTab.value = tab;
   };
+  onMounted(() => {
+    if (route.hash) {
+      getSelectedItem(route.hash.split('#')[1]);
+    }
+  });
   definePageMeta({
     layout: false,
   });

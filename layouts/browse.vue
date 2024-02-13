@@ -6,13 +6,13 @@
       <div class="navbar-start">
         <div class="dropdown sm:hidden">
           <button
-            class="btn btn-square btn-ghost text-secondary-content text-2xl"
+            class="btn btn-square btn-ghost text-neutral-content text-2xl"
           >
             <Icon name="ic:outline-menu" />
           </button>
           <ul
             tabindex="0"
-            class="dropdown-content menu bg-base-100 text-base-content w-56"
+            class="dropdown-content menu bg-base-100 text-neutral-content w-56"
           >
             <li><NuxtLink to="/compendium">Compendiums</NuxtLink></li>
             <li><NuxtLink to="/characters">Characters</NuxtLink></li>
@@ -48,7 +48,7 @@
           class="drawer-toggle"
           v-model="openDrawer"
         />
-        <div class="drawer-content overflow-y-scroll">
+        <div class="drawer-content snap-y overflow-y-scroll">
           <BrowseToolBar :filters="filters" />
           <slot name="main-content"></slot>
         </div>

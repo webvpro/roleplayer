@@ -7,7 +7,7 @@
       @filter-change="onFilterChange"
     >
       <template #main-content>
-        <div class="mx-auto mt-3 snap-start container">
+        <div class="mx-auto scroll-mt-24 my-3 snap-start container">
           <div v-if="!cyphers && Object.keys(cyphers).length <= 0">
             <div role="alert" class="alert alert-info">
               <svg
@@ -32,7 +32,8 @@
           >
             <div
               v-for="cypherKey in Object.keys(cyphers)"
-              class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
+              class="shadow-xl p-3 card card-compact scroll-mt-24 snap-start w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
+              :id="cypherKey"
               :key="cypherKey"
             >
               <h2 class="card-title capitalize">
@@ -131,6 +132,7 @@
 </template>
 <script setup>
   const {fetchCompendium, getCollection} = useCompendium();
+  const route = useRoute();
   await fetchCompendium();
 
   const toggleDetailDrawer = ref(false);
@@ -153,7 +155,7 @@
   });
   const getSelectedItem = id => {
     selectedItem.value = cyphers.value[id];
-    console.log('Selected Item', selectedItem.value);
+    console.log('Selected Item', id);
     toggleDetailDrawer.value = true;
   };
   const closeDrawer = () => {
@@ -168,6 +170,11 @@
   const onFilterChange = filterData => {
     cypherFilters.value = filterData;
   };
+  onMounted(() => {
+    if (route.hash) {
+      getSelectedItem(route.hash.split('#')[1]);
+    }
+  });
   definePageMeta({
     layout: false,
   });
