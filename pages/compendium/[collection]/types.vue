@@ -4,7 +4,7 @@
       <template #main-content :collections="compendium">
         <div class="mx-auto scroll-mt-24 m-3 snap-start container">
           <div
-            class="grid justify-center gap-5 gap-x-6 auto-cols-fr auto-rows grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mx-3"
+            class="grid justify-center gap-3 auto-cols-fr auto-rows grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mx-3"
           >
             <div
               v-for="(archeType, tIdx) in archeTypes"

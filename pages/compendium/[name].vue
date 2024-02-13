@@ -1,8 +1,8 @@
 <template>
   <div class="h-full mb-3 w-auto overflow-auto">
-    <div class="mx-auto snap-start container">
+    <div class="mx-auto scroll-mt-24 my-3 snap-start container">
       <div
-        class="grid justify-center gap-4 auto-cols-fr auto-rows-auto md:auto-rows-fr md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        class="grid justify-center gap-3 auto-cols-fr auto-rows grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mx-3"
       >
         <div
           v-if="collections"
@@ -10,7 +10,7 @@
             return !hideCollections.includes(collection);
           })"
           :key="key"
-          class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
+          class="shadow-xl p-3 card card-compact w-full scroll-mt-24 snap-start bg-neutral text-neutral-content h-full min-w-98 sm:mb-2"
         >
           <div>
             <div class="text-center">
