@@ -38,13 +38,13 @@
           </div>
           <div class="h-full flex-col flex-grow p-3">Stuff</div>
           <div class="btm-nav">
-            <button class="text-warning">
+            <button class="bg-warning text-warning-content">
               <Icon name="game-icons:globe" />
-              Select All
+              <span class="btm-nav-label">Select All</span>
             </button>
-            <button class="text-success">
+            <button class="bg-success text-success-content">
               <Icon name="game-icons:globe" />
-              Create
+              <span class="btm-nav-label">Create</span>
             </button>
           </div>
         </div>
@@ -63,6 +63,10 @@
   const closeDrawer = () => {
     toggleCreateDrawer.value = false;
   };
+  useHead({
+    title: `PlayCypher.com - Your Compendiums`,
+    meta: [{name: 'viewport', content: 'viewport-fit=cover'}],
+  });
   definePageMeta({
     layout: false,
     middleware: ['auth'],
