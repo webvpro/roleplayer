@@ -24,6 +24,22 @@ export const useMyCompendium = (id = null) => {
       console.error('Error fetching Compendiums', error);
     }
   }
+  async function createCompendium(options = {}) {
+    const queryParams = {...options.queryParams} ?? {};
+    try {
+      await functions.createExecution(
+        '65cea1a226bc762d4c1f',
+        JSON.stringify(queryParams),
+        false,
+        '/',
+        'POST',
+        {},
+      );
+      await fetchMyCompendiums();
+    } catch (error) {
+      console.error('Error fetching Compendiums', error);
+    }
+  }
   async function createNewCompendiums() {}
   onMounted(async () => {
     await fetchMyCompendiums();

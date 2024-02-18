@@ -22,13 +22,16 @@
       <template #drawer-side>
         <div class="drawer-overlay" @click="closeDrawer"></div>
         <div
+          v-if="newCompendium"
+          name="create_compendium"
           class="w-10/12 md:3/4 lg:w-1/2 xxl:1/4 bg-neutral text-neutral-content border-neutral-content min-h-full"
+          @submit.prevent="onSubmit"
         >
           <div class="sticky z-50 navbar h-16">
             <div class="navbar-start">
-              <a class="btn btn-ghost text-xl capitalize">
+              <label class="btn btn-ghost text-xl capitalize">
                 Create a Compendium
-              </a>
+              </label>
             </div>
             <div class="navbar-end">
               <button class="btn btn-ghost mr-3" @click="closeDrawer">
@@ -36,13 +39,19 @@
               </button>
             </div>
           </div>
-          <div class="h-full flex-col flex-grow p-3">Stuff</div>
+          <div class="p-2 md: p-6">
+            <LazyJsonforms
+              :formSchema="formScheme"
+              :formUiSchema="formUiScheme"
+              :formData="newCompendium"
+            />
+          </div>
           <div class="btm-nav">
             <button class="bg-warning text-warning-content">
               <Icon name="game-icons:globe" />
               <span class="btm-nav-label">Select All</span>
             </button>
-            <button class="bg-success text-success-content">
+            <button class="bg-success text-success-content" type="submit">
               <Icon name="game-icons:globe" />
               <span class="btm-nav-label">Create</span>
             </button>
@@ -54,14 +63,27 @@
 </template>
 <script setup>
   const route = useRoute();
+
   const toggleCreateDrawer = ref(false);
   const {compendiums} = useMyCompendium();
   const myCompendiums = computed(() => compendiums.value);
+  const newCompendium = reactive({
+    name: '',
+    description: '',
+  });
+
+  const formScheme = utilsCompendiumScheme().scheme;
+  const formUiScheme = utilsCompendiumScheme().uiScheme;
+
   const onCreateClick = () => {
     toggleCreateDrawer.value = true;
   };
   const closeDrawer = () => {
     toggleCreateDrawer.value = false;
+  };
+
+  const onSubmit = () => {
+    console.log(formUiScheme);
   };
   useHead({
     title: `PlayCypher.com - Your Compendiums`,
