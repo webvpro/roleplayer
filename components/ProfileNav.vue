@@ -95,5 +95,8 @@
     'night',
     'coffee',
     'winter',
+    'dim',
+    'nord',
+    'sunset',
   ];
 </script>
