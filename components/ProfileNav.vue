@@ -1,29 +1,14 @@
 <template>
   <div class="ml-2 dropdown dropdown-end">
     <label
-      v-show="online"
       tabindex="0"
       class="btn btn-ghost btn-circle bg-primary-content avatar online"
+      :class="{online: online, offline: !online}"
     >
       <div
         class="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
       >
         <img class="" :src="getSvgUrl" alt="avatar" />
-      </div>
-    </label>
-    <label
-      v-show="offline"
-      tabindex="0"
-      class="btn btn-ghost btn-circle bg-slate-300 avatar offline"
-    >
-      <div
-        class="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
-      >
-        <img
-          class=""
-          src="https://api.dicebear.com/5.x/bottts-neutral/svg?seed=Unknown"
-          alt="avatar"
-        />
       </div>
     </label>
     <ul
@@ -36,7 +21,7 @@
           class="select select-bordered select-sm w-full max-w-xs p-0 pl-3 capitalize text-base-content pb-1"
           v-model="colorMode.preference"
         >
-          <option disabled selected>Theme</option>
+          <option disabled selected>Select Theme</option>
           <option v-for="theme of themes" :key="theme">
             {{ theme }}
           </option>
@@ -58,13 +43,14 @@
   const colorMode = useColorMode();
   const {user, logout} = useAuth();
 
-  const userNM = user.value ? user.value.name : 'NobodyWeKnow';
+  const userNM = computed(() => {
+    return user.value ? user.value.name : 'NobodyWeKnow';
+  });
   const getSvgUrl = computed(
-    () => `https://api.dicebear.com/5.x/bottts/svg?seed="${userNM}"`,
+    () => `https://api.dicebear.com/5.x/bottts/svg?seed="${userNM.value}"`,
   );
 
-  const online = user.value;
-  const offline = !user.value;
+  const online = ref(user.value);
   const themes = [
     'light',
     'dark',
