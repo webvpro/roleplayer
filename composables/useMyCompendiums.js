@@ -42,8 +42,8 @@ export const useMyCompendium = (id = null) => {
   }
   async function createNewCompendiums() {}
   onMounted(async () => {
-    await fetchMyCompendiums();
     await fetchCompendium();
+    await fetchMyCompendiums();
   });
 
   return {
