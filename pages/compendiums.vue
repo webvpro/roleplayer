@@ -39,8 +39,8 @@
               </button>
             </div>
           </div>
-          <div class="p-2 md: p-6">
-            <LazyJsonforms
+          <div class="p-2 md:p-6 mb-2">
+            <Jsonforms
               :formSchema="formScheme"
               :formUiSchema="formUiScheme"
               :formData="newCompendium"
@@ -67,7 +67,7 @@
 
   const toggleCreateDrawer = ref(false);
   const {compendiums} = useMyCompendium();
-  const myCompendiums = computed(() => compendiums.value);
+  const myCompendiums = ref(compendiums.value);
   const newCompendium = reactive({
     name: '',
     description: '',
@@ -99,7 +99,7 @@
   };
   useHead({
     title: `PlayCypher.com - Your Compendiums`,
-    meta: [{name: 'viewport', content: 'viewport-fit=cover'}],
+    meta: [],
   });
   definePageMeta({
     layout: false,

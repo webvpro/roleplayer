@@ -158,11 +158,11 @@
   });
   watch(abilityFilters, value => {
     if (value) {
-      console.log('filter change', value);
+      //console.log('filter change', value);
       abilities.value = filterData(getCollection('abilities').data, value);
     }
   });
-  console.log('collection filters', getCollection('abilities').filters);
+  //console.log('collection filters', getCollection('abilities').filters);
   const getSelectedItem = id => {
     console.log(id);
     selectedItemKey.value = id;

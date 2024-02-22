@@ -43,7 +43,7 @@
 <template>
   <div class="navbar sticky top-0 z-10 bg-base-300 text-base-content max-h-12">
     <div class="">
-      <div class="join join-vertical hidden lg:block join-horizontal">
+      <div class="join hidden lg:block join-horizontal">
         <select
           class="select select-bordered border-base-content bg-base-300 text-base-content join-item w-auto max-w-xs text-lg"
           v-model="selectedCompendium"
@@ -105,7 +105,7 @@
           <Icon class="text-xl" name="ic:baseline-keyboard-double-arrow-down" />
         </summary>
         <div
-          class="p-2 shadow menu dropdown-content z-[1] bg-neutral rounded-box w-fit join join-vertical"
+          class="p-2 shadow menu dropdown-content z-[5] bg-neutral rounded-box w-fit h-auto join-horizontal md:join-vertical"
         >
           <select
             class="select select-bordered border-base-content bg-base-300 text-base-content join-item join w-auto max-w-xs text-lg"
@@ -141,7 +141,7 @@
           <select
             v-if="Object.keys(browseFilters).length > 0"
             v-for="(filter, fIdx) in Object.keys(browseFilters)"
-            class="select select-bordered border-base-content bg-base-300 text-base-content join-item join w-full text-lg capitalize"
+            class="select select-bordered border-base-content bg-base-300 text-base-content join-item w-full text-lg capitalize"
             v-model="browseFilters[filter].value"
             :key="`${filter}-select`"
             @change.prevent="changeFilter(filter)"
@@ -150,9 +150,10 @@
               Filter {{ browseFilters[filter].label }}
             </option>
             <option
-              v-for="(option, oIdx) in browseFilters[filter].options"
+              v-for="(option, oIdx) in getOptions(
+                browseFilters[filter].options,
+              )"
               :key="`${filter}-${oIdx}`"
-              class="capitalize"
               :value="option"
             >
               {{ `${filter} ${option}` }}
