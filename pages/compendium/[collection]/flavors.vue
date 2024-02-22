@@ -85,8 +85,8 @@
   await fetchCompendium();
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
-  const flavorsCollection = computed(() => getCollection('flavors'));
-  const flavors = computed(() => flavorsCollection.value.data);
+
+  const flavors = ref(getCollection('flavors').data);
   const abilities = computed(() => getCollection('abilities').data);
   const selectedItem = ref(null);
 

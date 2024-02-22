@@ -44,14 +44,15 @@
               :formSchema="formScheme"
               :formUiSchema="formUiScheme"
               :formData="newCompendium"
+              @frmChange="onChange"
             />
           </div>
           <div class="btm-nav">
-            <button class="bg-warning text-warning-content">
-              <Icon name="game-icons:globe" />
-              <span class="btm-nav-label">Select All</span>
-            </button>
-            <button class="bg-success text-success-content" type="submit">
+            <button
+              class="bg-success text-success-content"
+              :disabled="newCompendiumErrors.length > 0"
+              @click.prevent="onSubmit"
+            >
               <Icon name="game-icons:globe" />
               <span class="btm-nav-label">Create</span>
             </button>
@@ -71,6 +72,7 @@
     name: '',
     description: '',
   });
+  const newCompendiumErrors = ref([]);
 
   const formScheme = utilsCompendiumScheme().scheme;
   const formUiScheme = utilsCompendiumScheme().uiScheme;
@@ -83,7 +85,17 @@
   };
 
   const onSubmit = () => {
-    console.log(formUiScheme);
+    console.log(
+      'data:',
+      newCompendium.value,
+      'errors',
+      newCompendiumErrors.value,
+    );
+  };
+  const onChange = JsonFormsChangeEvent => {
+    console.log(JsonFormsChangeEvent);
+    newCompendium.value = JsonFormsChangeEvent.data;
+    newCompendiumErrors.value = JsonFormsChangeEvent.errors;
   };
   useHead({
     title: `PlayCypher.com - Your Compendiums`,

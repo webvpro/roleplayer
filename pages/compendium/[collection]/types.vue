@@ -7,7 +7,7 @@
             class="grid justify-center gap-3 auto-cols-fr auto-rows grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mx-3"
           >
             <div
-              v-for="(archeType, tIdx) in archeTypes"
+              v-for="(archeType, tIdx) in archeTypes.data"
               class="shadow-xl p-3 card card-compact w-full scroll-mt-24 snap-start bg-neutral text-neutral-content h-full min-w-fit"
               :id="archeType"
               :key="archeType"
@@ -166,12 +166,11 @@
   const {collections, fetchCompendium, getCollection} = useCompendium();
   const route = useRoute();
   await fetchCompendium();
-  const typesCollection = computed(() => getCollection('types'));
   const toggleDetailDrawer = ref(false);
   const selectedItem = ref(null);
   const selectedAbility = ref(null);
   const selectedTab = ref('features');
-  const archeTypes = computed(() => typesCollection.value.data);
+  const archeTypes = getCollection('types');
   const abilities = computed(() => getCollection('abilities').data);
   const tierSelectionText = computed(() => {
     const tierTxtArray = [];
@@ -201,7 +200,7 @@
   });
 
   const getSelectedItem = idx => {
-    selectedItem.value = archeTypes.value[idx];
+    selectedItem.value = archeTypes.data[idx];
     toggleDetailDrawer.value = true;
   };
   const closeDrawer = () => {

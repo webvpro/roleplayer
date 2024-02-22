@@ -59,7 +59,9 @@
   const {user, logout} = useAuth();
 
   const userNM = user.value ? user.value.name : 'NobodyWeKnow';
-  const getSvgUrl = `https://api.dicebear.com/5.x/bottts/svg?seed=${userNM}`;
+  const getSvgUrl = computed(
+    () => `https://api.dicebear.com/5.x/bottts/svg?seed="${userNM}"`,
+  );
 
   const online = user.value;
   const offline = !user.value;

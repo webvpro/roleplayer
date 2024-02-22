@@ -102,13 +102,12 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, collection, fetchCompendium, getCollection} =
-    useCompendium();
+  const {getCollection, fetchCompendium} = useCompendium();
   const route = useRoute();
-  await fetchCompendium({collectionKey: 'descriptors'});
+  await fetchCompendium();
   const toggleDetailDrawer = ref(false);
   const selectedTab = ref('characteristics');
-  const descriptors = computed(() => getCollection('descriptors').data);
+  const descriptors = ref(getCollection('descriptors').data);
   const selectedItem = ref(null);
 
   watch(toggleDetailDrawer, value => {

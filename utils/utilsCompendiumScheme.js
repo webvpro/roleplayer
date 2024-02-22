@@ -1,15 +1,16 @@
 export default function (character = {}) {
   const scheme = {
-    required: ['name'],
+    required: ['compendiumName'],
     properties: {
-      name: {
+      compendiumName: {
         type: 'string',
         minLength: 4,
         description: "The Compendium's name",
       },
-      description: {
+      compendiumDescription: {
+        title: 'Description',
         type: 'string',
-        description: "The Compendium's description",
+        description: "the task's name",
       },
     },
   };
@@ -18,12 +19,12 @@ export default function (character = {}) {
     elements: [
       {
         type: 'Control',
-        scope: '#/properties/name',
+        scope: '#/properties/compendiumName',
         label: 'Compendium Name',
       },
       {
         type: 'Control',
-        scope: '#/properties/description',
+        scope: '#/properties/compendiumDescription',
         label: 'Description',
         options: {
           multi: true,

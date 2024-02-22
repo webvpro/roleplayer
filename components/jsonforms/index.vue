@@ -1,9 +1,9 @@
 <template>
   <json-forms
-    :data="formData"
-    :renderers="formRenderers"
-    :schema="formSchema"
-    :uischema="formUiSchema"
+    :data="data"
+    :renderers="renderers"
+    :schema="schema"
+    :uischema="uischema"
     @change="onChange"
   >
   </json-forms>
@@ -30,15 +30,19 @@
     formUiSchema: {},
     formRenderers: {type: Array, default: [...vanillaRenderers]},
   });
-  const data = props.formData.value;
-  const emit = defineEmits(['frmChange', 'frmSubmit']);
+  const emit = defineEmits(['frmChange', 'frmSubmit', 'frmError']);
+  const data = props.formData;
+  const schema = props.formSchema;
+  const uischema = props.formUiSchema;
+  const renderers = props.formRenderers;
+  const myStyles = computed(() => mergeStyles(defaultStyles, props.formRoot));
+
+  provide('styles', myStyles.value);
 
   const onChange = event => {
     console.log('Form Change', event);
     emit('frmChange', event);
   };
-  const myStyles = computed(() => mergeStyles(defaultStyles, props.formRoot));
-  provide('styles', myStyles.value);
 </script>
 <style lang="postcss">
   .vertical-layout > .vertical-layout-item > .control {
@@ -58,10 +62,11 @@
     > .control.daisy-ui-control
     > .wrapper
     > .text-area,
+  .vertical-layout > .vertical-layout-item > .control.daisy-ui-control > .error,
   .vertical-layout
     > .vertical-layout-item
     > .control.daisy-ui-control
-    > .error {
+    > .description {
     @apply w-full;
   }
   .vertical-layout
@@ -76,5 +81,25 @@
     > .control.daisy-ui-control
     > .error {
     @apply text-error lowercase first-letter:capitalize;
+  }
+  .vertical-layout
+    > .vertical-layout-item
+    > .control.daisy-ui-control
+    > .description {
+    @apply text-info lowercase first-letter:capitalize;
+  }
+  .vertical-layout
+    > .vertical-layout-item
+    > .control.daisy-ui-control
+    > .wrapper
+    > .input:invalid {
+    @apply input-error;
+  }
+  .vertical-layout
+    > .vertical-layout-item
+    > .control.daisy-ui-control
+    > .wrapper
+    > .input:focus {
+    @apply input-info border-none;
   }
 </style>

@@ -1,7 +1,14 @@
 import abilitiesVue from '~/pages/compendium/[collection]/abilities.vue';
 
 export const useCompendiums = key => {
-  return useState('key', () => undefined);
+  return useState(key, () => undefined);
+};
+export const useCollection = key => {
+  return useState(key, () => undefined);
+};
+
+export const useCollectionFilters = key => {
+  return useState(key, () => undefined);
 };
 
 export const useCompendium = (id = null) => {
@@ -9,20 +16,25 @@ export const useCompendium = (id = null) => {
   const config = useRuntimeConfig();
   const fileID = ref(id ?? config.public.CSRD_COMPENDIUM_FILE_ID);
   const compendium = useCompendiums(fileID.value);
-
-  const collections = reactive({});
+  const collection = ref({});
+  const collectionFilters = ref([]);
+  const collections = ref({});
   const collectionOptions = reactive({});
   const collectionKey = ref(null);
   const collectionDataFilters = reactive({});
-  const collection = computed(() => {
+
+  /*const collection = computed(() => {
     if (compendium.value[collectionKey.value]) {
       const sortedData = mapSort(compendium.value[collectionKey.value].data);
       compendium.value[collectionKey.value].data = sortedData;
       return compendium.value[collectionKey.value];
     }
     return {};
-  });
-
+  });*/
+  const loadCollection = key => {
+    collection.value = useCollection(key);
+    collection.value = compendium.value[key];
+  };
   watch(compendium, value => {
     if (value) {
       collections.value = {...value.collections};

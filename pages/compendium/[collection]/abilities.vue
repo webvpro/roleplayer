@@ -5,7 +5,7 @@
       collectionKey="abilities"
       :filters="abilityFilters"
       :open-drawer="toggleDetailDrawer"
-      @filter-change.once="onFilterChange"
+      @filter-change="onFilterChange"
     >
       <template #main-content>
         <div class="mx-auto scroll-mt-24 my-3 snap-start container">
@@ -16,21 +16,10 @@
               v-if="abilities"
               v-for="abilityKey in Object.keys(abilities)"
               class="shadow-xl p-3 card card-compact w-full bg-neutral text-neutral-content h-full scroll-mt-20 snap-start min-w-98 sm:mb-2"
-              :class="{
-                'bg-primary': abilityKey === selectedItemKey,
-              }"
-              :key="abilityKey"
-              :id="abilityKey"
-              :ref="
-                el => {
-                  itemRefs[abilityKey] = el;
-                }
-              "
             >
               <div class="card-body h-full">
                 <h2 class="card-title">{{ abilities[abilityKey].name }}</h2>
                 <div class="flex-warp w-full h-auto">
-                  <!-- pool badge -->
                   <div
                     v-if="abilities[abilityKey].pool"
                     v-for="pool in abilities[abilityKey].pool"
@@ -150,34 +139,15 @@
   </div>
 </template>
 <script setup>
-  import filterData from '../../../utils/filterData';
   const route = useRoute();
   const itemRefs = ref([]);
   const itemGrd = ref();
   const {fetchCompendium, getCollection} = useCompendium();
-  await fetchCompendium({collectionKey: 'abilities'});
-  const abilityCollection = computed(() => getCollection('abilities'));
-  const abilities = computed(() =>
-    filterData(abilityCollection.value.data, abilityFilters.value),
-  );
+  await fetchCompendium();
+  getCollection('abilities').filters;
   const selectedItemKey = ref(null);
-  const abilityFilters = ref({
-    category: {
-      label: 'category',
-      options: abilityCollection.value.categories,
-      value: null,
-    },
-    tier: {
-      label: 'tier',
-      options: abilityCollection.value.tier_categories,
-      value: null,
-    },
-    kind: {
-      label: 'kind',
-      options: abilityCollection.value.kinds,
-      value: null,
-    },
-  });
+  const abilityFilters = ref(getCollection('abilities').filters);
+  const abilities = ref(getCollection('abilities').data);
   const toggleDetailDrawer = ref(false);
   const selectedItem = ref(null);
   watch(toggleDetailDrawer, value => {
@@ -186,7 +156,13 @@
       selectedItemKey.value = null;
     }
   });
-
+  watch(abilityFilters, value => {
+    if (value) {
+      console.log('filter change', value);
+      abilities.value = filterData(getCollection('abilities').data, value);
+    }
+  });
+  console.log('collection filters', getCollection('abilities').filters);
   const getSelectedItem = id => {
     console.log(id);
     selectedItemKey.value = id;
@@ -197,13 +173,14 @@
   const closeDrawer = () => {
     toggleDetailDrawer.value = false;
   };
-  const onFilterChange = filterData => {
-    abilityFilters.value = filterData;
+  const onFilterChange = filters => {
+    console.log('f-change', filters);
+    abilityFilters.value = {...filters};
   };
   const getParagraphAry = pStr => {
     return pStr.split('\n') ?? [];
   };
-  onMounted(() => {
+  onMounted(async () => {
     if (route.hash && itemRefs.value) {
       getSelectedItem(route.hash.split('#')[1]);
     }

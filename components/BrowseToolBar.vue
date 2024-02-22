@@ -20,20 +20,24 @@
   const selectedCollection = ref(
     route.name.split('-').slice(-1).join('').trim(),
   );
+  const optsArray = Array.from(Array(10).keys()).map((itm, idx) => idx + 1);
 
   const menuLocation = computed(() =>
     selectedCollection.value
       ? selectedCollection.value.toLowerCase()
       : selectedCompendium.value,
   );
-  const quickFilters = reactive(props.filters);
+  const browseFilters = ref(props.filters);
   const changeCollection = () => {
-    //console.log(selectedCollection.value);
     router.push(selectedCollection.value);
   };
   const changeFilter = filter => {
-    emit('filter-change', {...quickFilters});
+    //console.log('browsefilter', browseFilters.value);
+    emit('filter-change', browseFilters.value);
   };
+  function getOptions(opts) {
+    return opts.length > 0 ? [...opts] : [...optsArray];
+  }
 </script>
 
 <template>
@@ -72,18 +76,18 @@
           </option>
         </select>
         <select
-          v-if="Object.keys(quickFilters).length > 0"
-          v-for="(filter, fIdx) in Object.keys(quickFilters)"
+          v-if="Object.keys(browseFilters)"
+          v-for="(filter, fIdx) in Object.keys(browseFilters)"
           class="select select-bordered border-base-content bg-base-300 text-base-content join-item w-auto max-w-xs text-lg capitalize"
-          v-model="quickFilters[filter].value"
+          v-model="browseFilters[filter].value"
           :key="`${filter}-select`"
           @change.prevent="changeFilter(filter)"
         >
           <option selected :value="null">
-            Filter {{ quickFilters[filter].label }}
+            Filter {{ browseFilters[filter].label }}
           </option>
           <option
-            v-for="(option, oIdx) in quickFilters[filter].options"
+            v-for="(option, oIdx) in getOptions(browseFilters[filter].options)"
             :key="`${filter}-${oIdx}`"
             :value="option"
           >
@@ -135,18 +139,18 @@
             </option>
           </select>
           <select
-            v-if="Object.keys(quickFilters).length > 0"
-            v-for="(filter, fIdx) in Object.keys(quickFilters)"
+            v-if="Object.keys(browseFilters).length > 0"
+            v-for="(filter, fIdx) in Object.keys(browseFilters)"
             class="select select-bordered border-base-content bg-base-300 text-base-content join-item join w-full text-lg capitalize"
-            v-model="quickFilters[filter].value"
+            v-model="browseFilters[filter].value"
             :key="`${filter}-select`"
             @change.prevent="changeFilter(filter)"
           >
             <option selected :value="null">
-              Filter {{ quickFilters[filter].label }}
+              Filter {{ browseFilters[filter].label }}
             </option>
             <option
-              v-for="(option, oIdx) in quickFilters[filter].options"
+              v-for="(option, oIdx) in browseFilters[filter].options"
               :key="`${filter}-${oIdx}`"
               class="capitalize"
               :value="option"
