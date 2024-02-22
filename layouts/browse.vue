@@ -49,7 +49,7 @@
           v-model="openDrawer"
         />
         <div class="drawer-content snap-y overflow-y-scroll">
-          <BrowseToolBar :filters="filters" />
+          <BrowseToolBar :filters="filters" @filter-change="onFilterChange" />
           <slot name="main-content"></slot>
         </div>
         <div class="drawer-side z-50">
@@ -67,5 +67,10 @@
     'filters',
     'onEvent',
   ]);
+  const emit = defineEmits(['filter-change']);
   const openDrawer = toRef(props, 'openDrawer');
+  const onFilterChange = event => {
+    console.log(event);
+    emit('filter-change', event);
+  };
 </script>

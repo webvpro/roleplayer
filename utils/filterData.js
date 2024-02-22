@@ -3,18 +3,19 @@ export default function (data, filters) {
   const dataArray = Array.from(dataMap);
   const filterValues = {};
   //  find if there are any filters
+  //debugger;
+  if (filters === undefined) return data;
+  //console.log('filterData', filters.kind);
   Object.keys(filters).forEach(fKey => {
-    const val = filters[fKey].value;
-    if (Array.isArray(val) && val.length) {
-      filterValues.push({[fKey]: val});
-    } else if (val) {
+    const val = filters[fKey]?.value ?? null;
+    //console.log('filterKey val', val);
+    if (val || (Array.isArray(val) && val.length)) {
       filterValues[fKey] = val;
     }
   });
 
-  if (filters === undefined) return data;
   if (!Object.keys(filterValues).length) return data;
-
+  ///console.log('filterVals', filterValues);
   let newFilteredArray = dataArray;
 
   Object.keys(filterValues).forEach(filter => {
@@ -42,41 +43,10 @@ export default function (data, filters) {
       return false;
     });
   });
-  //console.log('dataArray', dataArray);
 
-  /*
-  const filteredData = dataArray.filter(iObj => {
-    Object.keys(filterValues).forEach(filter => {
-      if (
-        Array.isArray(iObj[1][filter]) &&
-        iObj[1][filter].includes(filterValues[filter].toUpperCase())
-      ) {
-        return true;
-      } else if (
-        iObj[1][filter] &&
-        iObj[1][filter].toUpperCase() === filterValues[filter].toUpperCase()
-      ) {
-        //console.log(iObj[1]);
-        return true;
-      } else {
-        return false;
-      }
-    });
-  }); */
-  /*
-  const filteredData = Object.entries(dataArray).filter(iObj => {
-    filters.forEach(fObj => {
-      if (
-        iObj[1][fObj.filter] !== undefined ||
-        iObj[1][fObj.filter].includes(fObj.filter.value)
-      ) {
-        console.log(iObj[0]);
-      }
-    });
-  });*/
   console.log('util-filters ', filters);
-  console.log('filtered data', newFilteredArray);
-  console.log('pre filter data', data);
+  console.log('filtered data', Object.keys(newFilteredArray).length);
+  console.log('pre filter data', Object.keys(data).length);
   function replacer(key, value) {
     if (value instanceof Map) {
       return Object.fromEntries(value); // or with spread: value: [...value]
@@ -90,6 +60,6 @@ export default function (data, filters) {
     newFilteredMap.set(item[1][0], item[1][1]);
   });
   const newFilteredJSON = JSON.stringify(newFilteredMap, replacer);
-  console.log(JSON.parse(newFilteredJSON));
+  //console.log(JSON.parse(newFilteredJSON));
   return JSON.parse(newFilteredJSON);
 }

@@ -99,14 +99,14 @@
 </template>
 <script setup>
   //loading data
-  const {collection, fetchCompendium, getCollection} = useCompendium('CSRD');
+  const {fetchCompendium, getCollection} = useCompendium('CSRD');
   await fetchCompendium({collectionKey: 'foci'});
   //setup reactive and computed
   const fociOptions = reactive({});
   const toggleDetailDrawer = ref(false);
   const selectedAbility = ref(null);
   const selectedFocusID = ref(null);
-  const foci = computed(() => getCollection('foci', fociOptions.value).data);
+  const foci = ref(getCollection('foci').data);
   const abilities = computed(() => getCollection('abilities').data);
   const selectedFocus = computed(() => foci.value[selectedFocusID.value]);
   const tierSelectionText = [

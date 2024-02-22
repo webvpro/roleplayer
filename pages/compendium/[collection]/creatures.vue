@@ -4,7 +4,7 @@
       name="browse"
       :open-drawer="toggleDetailDrawer"
       :filters="creatureFilters"
-      @filter-change.once="onFilterChange"
+      @filter-change="onFilterChange"
     >
       <template #main-content>
         <div class="mx-auto scroll-mt-24 my-3 snap-start container">
@@ -73,6 +73,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="card-body">
                 <div
                   v-if="creatures[creatureKey].description"
@@ -299,36 +300,14 @@
 <script setup>
   const {fetchCompendium, getCollection} = useCompendium();
   const route = useRoute();
-  await fetchCompendium({collectionKey: 'creatures'});
+  await fetchCompendium();
   const toggleDetailDrawer = ref(false);
 
   const selectedTab = ref('details');
   //const drawerTabs = reactive(initTabs);
-  const creaturesCollection = computed(() => getCollection('creatures'));
-  const creatures = computed(() =>
-    filterData(creaturesCollection.value.data, creatureFilters.value),
-  );
-  const optsArray = Array.from(Array(10).keys()).map((itm, idx) => idx + 1);
-  const creatureLevelOptions = ref(optsArray);
-  const creatureArmorOptions = ref(optsArray);
+  const creatureFilters = ref(getCollection('creatures').filters);
+  const creatures = ref(getCollection('creatures').data);
 
-  const creatureFilters = ref({
-    kind: {
-      label: 'kind',
-      options: creaturesCollection.value.kinds,
-      value: null,
-    },
-    level: {
-      label: 'level',
-      options: creatureLevelOptions.value,
-      value: null,
-    },
-    armor: {
-      label: 'armor',
-      options: creatureArmorOptions.value,
-      value: null,
-    },
-  });
   const selectedItem = ref(null);
 
   watch(selectedItem, value => {
@@ -338,6 +317,12 @@
       toggleDetailDrawer.value = true;
     }
     setActiveTab('details');
+  });
+  watch(creatureFilters, value => {
+    if (value) {
+      //console.log('filter change', value.kind);
+      creatures.value = filterData(getCollection('creatures').data, value);
+    }
   });
   const getSelectedItem = id => {
     selectedItem.value = creatures.value[id];
@@ -357,7 +342,8 @@
     selectedTab.value = tab;
   };
   const onFilterChange = filterData => {
-    abilityFilters.value = filterData;
+    console.log('change', filterData);
+    creatureFilters.value = {...filterData};
   };
   onMounted(() => {
     if (route.hash) {

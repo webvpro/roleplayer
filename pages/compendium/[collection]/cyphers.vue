@@ -3,7 +3,7 @@
     <NuxtLayout
       name="browse"
       :open-drawer="toggleDetailDrawer"
-      :filters="cypherFilters"
+      :filters="cyphersFilters"
       @filter-change="onFilterChange"
     >
       <template #main-content>
@@ -136,21 +136,19 @@
   await fetchCompendium();
 
   const toggleDetailDrawer = ref(false);
-  const cypherCollection = computed(() => getCollection('cyphers'));
-  const cyphers = computed(() =>
-    filterData(cypherCollection.value.data, cypherFilters.value),
-  );
+  const cyphersFilters = ref(getCollection('cyphers').filters);
+  const cyphers = ref(getCollection('cyphers').data);
   const selectedItem = ref(null);
-  const cypherFilters = ref({
-    kinds: {
-      label: 'kind',
-      options: cypherCollection.value.kinds,
-      value: null,
-    },
-  });
+
   watch(toggleDetailDrawer, value => {
     if (!value) {
       selectedItem.value = null;
+    }
+  });
+  watch(cyphersFilters, value => {
+    if (value) {
+      console.log('filter change', value);
+      cyphers.value = filterData(getCollection('cyphers').data, value);
     }
   });
   const getSelectedItem = id => {
@@ -167,8 +165,9 @@
     }
     return rng.start;
   };
-  const onFilterChange = filterData => {
-    cypherFilters.value = filterData;
+  const onFilterChange = filters => {
+    console.log('f-change', filters);
+    cyphersFilters.value = {...filters};
   };
   onMounted(() => {
     if (route.hash) {

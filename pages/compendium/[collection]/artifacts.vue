@@ -1,6 +1,11 @@
 <template>
   <div>
-    <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
+    <NuxtLayout
+      name="browse"
+      :open-drawer="toggleDetailDrawer"
+      :filters="artifactsFilters"
+      @filter-change="onFilterChange"
+    >
       <template #main-content>
         <div class="mx-auto scroll-mt-24 my-3 snap-start container">
           <div
@@ -88,12 +93,12 @@
   </div>
 </template>
 <script setup>
-  const {compendium, collections, collection, fetchCompendium} =
-    useCompendium();
+  const {getCollection, fetchCompendium} = useCompendium();
   const route = useRoute();
-  await fetchCompendium({collectionKey: 'artifacts'});
+  await fetchCompendium();
   const toggleDetailDrawer = ref(false);
-  const artifacts = computed(() => collection.value.data);
+  const artifactsFilters = ref(getCollection('artifacts').filters ?? {});
+  const artifacts = ref(getCollection('artifacts').data);
   const selectedItem = ref(null);
   watch(selectedItem, value => {
     if (!value) {
