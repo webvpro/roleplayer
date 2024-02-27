@@ -39,24 +39,10 @@
               </button>
             </div>
           </div>
-          <div class="p-2 md:p-6 mb-2">
-            <Jsonforms
-              :formSchema="formScheme"
-              :formUiSchema="formUiScheme"
-              :formData="newCompendium"
-              @frmChange="onChange"
-            />
-          </div>
-          <div class="btm-nav">
-            <button
-              class="bg-success text-success-content"
-              :disabled="newCompendiumErrors.length > 0"
-              @click.prevent="onSubmit"
-            >
-              <Icon name="game-icons:globe" />
-              <span class="btm-nav-label">Create</span>
-            </button>
-          </div>
+
+          <ClientOnly>
+            <FormNewCompendium @onSubmit="onSubmit" />
+          </ClientOnly>
         </div>
       </template>
     </NuxtLayout>
@@ -84,13 +70,8 @@
     toggleCreateDrawer.value = false;
   };
 
-  const onSubmit = () => {
-    console.log(
-      'data:',
-      newCompendium.value,
-      'errors',
-      newCompendiumErrors.value,
-    );
+  const onSubmit = event => {
+    console.log('form submit', event);
   };
   const onChange = JsonFormsChangeEvent => {
     console.log(JsonFormsChangeEvent);
