@@ -15,7 +15,27 @@
           <div
             class="grid justify-center gap-3 auto-cols-fr auto-rows grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mx-3"
           >
-            {{ myCompendiums }}
+            <div
+              v-if="!myCompendiums?.total"
+              role="alert"
+              class="alert alert-info col-span-full"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="stroke-current shrink-0 w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <span>Please Create a Compendium</span>
+            </div>
+            {{ myCompendiums?.documents }}
           </div>
         </div>
       </template>
@@ -41,7 +61,10 @@
           </div>
 
           <ClientOnly>
-            <FormNewCompendium @onSubmit="onSubmit" />
+            <FormNewCompendium
+              @onSubmit="onFormSubmit"
+              :formValues="newCompendium"
+            />
           </ClientOnly>
         </div>
       </template>
@@ -49,34 +72,34 @@
   </div>
 </template>
 <script setup>
+  const {client, databases, account} = useAppwrite;
+  const {user} = useAuth();
   const route = useRoute();
 
   const toggleCreateDrawer = ref(false);
   const {compendiums} = useMyCompendium();
-  const myCompendiums = ref(compendiums.value);
-  const newCompendium = reactive({
+
+  const myCompendiums = reactive({});
+
+  const newCompendium = ref({
     name: '',
     description: '',
+    seeds: ['CSRD'],
   });
-  const newCompendiumErrors = ref([]);
-
-  const formScheme = utilsCompendiumScheme().scheme;
-  const formUiScheme = utilsCompendiumScheme().uiScheme;
 
   const onCreateClick = () => {
     toggleCreateDrawer.value = true;
   };
+
   const closeDrawer = () => {
     toggleCreateDrawer.value = false;
   };
-
-  const onSubmit = event => {
+  const formValues = reactive({
+    seeds: ['CSRD'],
+  });
+  const onFormSubmit = event => {
     console.log('form submit', event);
-  };
-  const onChange = JsonFormsChangeEvent => {
-    console.log(JsonFormsChangeEvent);
-    newCompendium.value = JsonFormsChangeEvent.data;
-    newCompendiumErrors.value = JsonFormsChangeEvent.errors;
+    newCompendium.value = event;
   };
   useHead({
     title: `PlayCypher.com - Your Compendiums`,
