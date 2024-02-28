@@ -15,7 +15,27 @@
           <div
             class="grid justify-center gap-3 auto-cols-fr auto-rows grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mx-3"
           >
-            {{ myCompendiums }}
+            <div
+              v-if="!myCompendiums?.total"
+              role="alert"
+              class="alert alert-info col-span-full"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="stroke-current shrink-0 w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <span>Please Create a Compendium</span>
+            </div>
+            {{ myCompendiums?.documents }}
           </div>
         </div>
       </template>
@@ -39,63 +59,47 @@
               </button>
             </div>
           </div>
-          <div class="p-2 md:p-6 mb-2">
-            <Jsonforms
-              :formSchema="formScheme"
-              :formUiSchema="formUiScheme"
-              :formData="newCompendium"
-              @frmChange="onChange"
+
+          <ClientOnly>
+            <FormNewCompendium
+              @onSubmit="onFormSubmit"
+              :formValues="newCompendium"
             />
-          </div>
-          <div class="btm-nav">
-            <button
-              class="bg-success text-success-content"
-              :disabled="newCompendiumErrors.length > 0"
-              @click.prevent="onSubmit"
-            >
-              <Icon name="game-icons:globe" />
-              <span class="btm-nav-label">Create</span>
-            </button>
-          </div>
+          </ClientOnly>
         </div>
       </template>
     </NuxtLayout>
   </div>
 </template>
 <script setup>
+  const {client, databases, account} = useAppwrite;
+  const {user} = useAuth();
   const route = useRoute();
 
   const toggleCreateDrawer = ref(false);
   const {compendiums} = useMyCompendium();
-  const myCompendiums = ref(compendiums.value);
-  const newCompendium = reactive({
+
+  const myCompendiums = reactive({});
+
+  const newCompendium = ref({
     name: '',
     description: '',
+    seeds: ['CSRD'],
   });
-  const newCompendiumErrors = ref([]);
-
-  const formScheme = utilsCompendiumScheme().scheme;
-  const formUiScheme = utilsCompendiumScheme().uiScheme;
 
   const onCreateClick = () => {
     toggleCreateDrawer.value = true;
   };
+
   const closeDrawer = () => {
     toggleCreateDrawer.value = false;
   };
-
-  const onSubmit = () => {
-    console.log(
-      'data:',
-      newCompendium.value,
-      'errors',
-      newCompendiumErrors.value,
-    );
-  };
-  const onChange = JsonFormsChangeEvent => {
-    console.log(JsonFormsChangeEvent);
-    newCompendium.value = JsonFormsChangeEvent.data;
-    newCompendiumErrors.value = JsonFormsChangeEvent.errors;
+  const formValues = reactive({
+    seeds: ['CSRD'],
+  });
+  const onFormSubmit = event => {
+    console.log('form submit', event);
+    newCompendium.value = event;
   };
   useHead({
     title: `PlayCypher.com - Your Compendiums`,

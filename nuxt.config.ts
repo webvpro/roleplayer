@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     'nuxt-icon',
     '@nuxt/devtools',
+    '@vee-validate/nuxt',
   ],
   components: {
     dirs: [
