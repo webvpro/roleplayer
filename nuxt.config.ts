@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@nuxt/devtools',
     '@vee-validate/nuxt',
+    '@nuxt/content',
   ],
   components: {
     dirs: [

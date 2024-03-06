@@ -10,7 +10,7 @@
         >
           <Icon name="streamline:add-1-solid" />
         </button>
-
+        <MdTable table="mutations/beneficial" />
         <div class="mx-auto scroll-mt-24 my-3 snap-start container">
           <div
             class="grid justify-center gap-3 auto-cols-fr auto-rows grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mx-3"
@@ -72,7 +72,6 @@
   </div>
 </template>
 <script setup>
-  const {client, databases, account} = useAppwrite;
   const {user} = useAuth();
   const route = useRoute();
 
@@ -110,3 +109,8 @@
     middleware: ['auth'],
   });
 </script>
+<style lang="postcss">
+  .cell-adjust > table > tbody > tr > td:last-of-type {
+    @apply text-wrap;
+  }
+</style>

@@ -52,48 +52,61 @@
             </div>
           </div>
           <div class="divider"></div>
-          <p
-            class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
-          >
-            {{ selectedItem.description }}
-          </p>
-          <div
-            role="tablist"
-            class="tabs tabs-boxed bg-neutral text-neutral-content border-neutral-content"
-          >
-            <a
-              class="tab text-neutral-content"
-              :class="isActiveTab('characteristics')"
-              @click="setActiveTab('characteristics')"
-              >Characteristics</a
-            >
-            <a
-              class="tab text-neutral-content"
-              :class="isActiveTab('links')"
-              @click="setActiveTab('links')"
-              >Starter Links</a
-            >
-          </div>
-          <div v-if="selectedTab === 'characteristics'" class="p-3">
-            <div
-              v-for="characteristic in selectedItem.characteristics"
+          <div class="container p-4 pr-6">
+            <p
               class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
             >
-              <label class="text-lg mb-1 font-semibold capitalize">{{
-                characteristic.name
-              }}</label>
+              {{ selectedItem.description }}
+            </p>
+            <div class="w-full p-3 pt-6">
+              <div
+                role="tablist"
+                class="tabs tabs-bordered bg-neutral text-neutral-content border-neutral-content min-w-full"
+              >
+                <input
+                  type="radio"
+                  name="descriptor-tab-1"
+                  role="tab"
+                  class="tab text-lg"
+                  aria-label="Characteristics"
+                  checked
+                />
+                <div
+                  role="tabpanel"
+                  class="tab-content p-6 text-neutral-content col-span-2"
+                >
+                  <div
+                    v-for="characteristic in selectedItem.characteristics"
+                    class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
+                  >
+                    <label class="text-lg mb-1 font-semibold capitalize">{{
+                      characteristic.name
+                    }}</label>
 
-              <p class="">
-                {{ characteristic.description }}
-              </p>
-            </div>
-          </div>
-          <div v-if="selectedTab === 'links'" class="p-3">
-            <div
-              v-for="link in selectedItem.links"
-              class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
-            >
-              <p>{{ link }}</p>
+                    <p class="">
+                      {{ characteristic.description }}
+                    </p>
+                  </div>
+                </div>
+                <input
+                  type="radio"
+                  name="descriptor-tab-1"
+                  role="tab"
+                  class="tab text-lg"
+                  aria-label="Starter Links"
+                />
+                <div
+                  role="tabpanel"
+                  class="tab-content p-6 text-neutral-content col-span-2"
+                >
+                  <div
+                    v-for="link in selectedItem.links"
+                    class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
+                  >
+                    <p>{{ link }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

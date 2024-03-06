@@ -52,45 +52,60 @@
             </div>
           </div>
           <div class="divider"></div>
-          <div
-            class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
-          >
-            {{ selectedFocus.description }}
-          </div>
-
-          <div
-            role="tablist"
-            class="tabs tabs-boxed bg-neutral text-neutral-content border-neutral-content"
-          >
-            <a
-              class="tab text-neutral-content"
-              :class="isActiveTab('abilities')"
-              @click.prevent="setActiveTab('abilities')"
-              >Abilities</a
+          <div class="container p-4 pr-6">
+            <div
+              class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content w-full text-xl"
             >
-            <a
-              class="tab text-neutral-content"
-              :class="isActiveTab('intrusions')"
-              @click.prevent="setActiveTab('intrusions')"
-              >Intrusions</a
-            >
+              {{ selectedFocus.description }}
+            </div>
+            <div class="w-full p-3 pt-6">
+              <div
+                role="tablist"
+                class="tabs tabs-bordered bg-neutral text-neutral-content border-neutral-content min-w-full"
+              >
+                <input
+                  type="radio"
+                  name="foci-tab-1"
+                  role="tab"
+                  class="tab text-lg"
+                  aria-label="Abilities"
+                  checked
+                />
+                <div
+                  role="tabpanel"
+                  class="tab-content p-6 text-neutral-content col-span-2"
+                >
+                  <TierAbilitiesAccordion
+                    :tier_abilities="selectedFocus.abilities"
+                    :tier_selection_text="tierSelectionText"
+                    @selected-item="openAbilityModal"
+                  />
+                </div>
+                <input
+                  type="radio"
+                  name="foci-tab-1"
+                  role="tab"
+                  class="tab text-lg"
+                  aria-label="Intrusions"
+                />
+                <div
+                  role="tabpanel"
+                  class="tab-content p-1 text-neutral-content col-span-2"
+                >
+                  <ul class="list-none w-full p-10">
+                    <li
+                      v-for="gmi in formatIntrusionList(
+                        selectedFocus.intrusion,
+                      )"
+                      class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
+                    >
+                      {{ gmi }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div v-if="selectedTab === 'abilities'" class="p-10">
-            <TierAbilitiesAccordion
-              :tier_abilities="selectedFocus.abilities"
-              :tier_selection_text="tierSelectionText"
-              @selected-item="openAbilityModal"
-            />
-          </div>
-
-          <ul v-if="selectedTab === 'intrusions'" class="list-none w-full p-10">
-            <li
-              v-for="gmi in formatIntrusionList(selectedFocus.intrusion)"
-              class="p-6 rounded-md border-dashed bg-neutral border-2 border-neutral-content m-2"
-            >
-              {{ gmi }}
-            </li>
-          </ul>
         </div>
       </template>
     </NuxtLayout>

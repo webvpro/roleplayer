@@ -1,4 +1,6 @@
 <script setup>
+  import {classes} from '@jsonforms/vue-vanilla';
+
   const props = defineProps({
     tier_abilities: {
       type: Object,
@@ -38,59 +40,58 @@
     emit('SelectedItem', id);
   };
   const tierToggle = key => {
-    tierCollapseModel[key] = !tierCollapseModel[key];
+    if (tierCollapseModel[key]) {
+      delete tierCollapseModel[key];
+    } else {
+      tierCollapseModel[key] = !tierCollapseModel[key];
+    }
   };
 </script>
 
 <template>
-  <div v-if="groupedAbilities">
+  <div
+    v-if="groupedAbilities"
+    v-for="(tier, idx) in groupedAbilities"
+    :key="tier.key"
+    :id="`collapse_${tier.key}`"
+    @click.prevent="tierToggle(tier.key)"
+    class="collapse collapse-arrow m-3 bg-base-200 text-base-content p-0 rounded-md peer-checked:rounded-b-none mx-auto"
+    :class="tierCollapseModel[tier.key] ? 'collapse-open' : 'collapse-close'"
+  >
     <div
-      v-for="(tier, idx) in groupedAbilities"
-      :key="tier.key"
-      :id="`collapse_${tier.key}`"
-      :tabindex="idx + tab_index_bump"
-      @click.prevent="tierToggle(tier.key)"
-      class="collapse collapse-arrow m-3 bg-base-200 text-base-content p-0 rounded-md peer-checked:rounded-b-none mx-auto"
+      class="collapse-title text-xl btn-base-200 text-base-content rounded-t-md rounded-b-none text-left capitalize"
     >
-      <input type="radio" :name="tierAccordionName" />
-      <div
-        class="collapse-title text-xl btn-base-200 text-base-content rounded-t-md rounded-b-none text-left capitalize"
-        id="tier.key"
+      {{ tier.key.split('-').join(': ') }}
+    </div>
+    <div class="collapse-content">
+      <a
+        v-for="ability in getGrantedAbilities(tier.items)"
+        class="capitalize btn btn-info text-center text-lg m-3"
+        :key="ability.key"
+        @click.stop="itemClick(ability.key)"
       >
-        {{ tier.key.split('-').join(': ') }}
-      </div>
-      <div class="collapse-content">
+        {{ ability.name }}
+      </a>
+
+      <div v-if="getAbilityOptions(tier.items).length > 0">
+        <p
+          v-if="
+            tierSelectionText &&
+            Array.isArray(tierSelectionText) &&
+            tierSelectionText.length > 0
+          "
+          class="p-6 rounded-md bg-neutral text-neutral-content border-2 border-base-content m-2"
+        >
+          {{ tierSelectionText[idx]?.text ?? tierSelectionText[0]?.text ?? '' }}
+        </p>
         <a
-          v-for="ability in getGrantedAbilities(tier.items)"
-          class="capitalize btn btn-info text-center text-lg m-3"
+          v-for="ability in getAbilityOptions(tier.items)"
+          class="capitalize btn btn-accent text-accent-content m-3 text-center text-lg"
           :key="ability.key"
           @click.stop="itemClick(ability.key)"
         >
           {{ ability.name }}
         </a>
-
-        <div v-if="getAbilityOptions(tier.items).length > 0">
-          <p
-            v-if="
-              tierSelectionText &&
-              Array.isArray(tierSelectionText) &&
-              tierSelectionText.length > 0
-            "
-            class="p-6 rounded-md bg-neutral text-neutral-content border-2 border-base-content m-2"
-          >
-            {{
-              tierSelectionText[idx]?.text ?? tierSelectionText[0]?.text ?? ''
-            }}
-          </p>
-          <a
-            v-for="ability in getAbilityOptions(tier.items)"
-            class="capitalize btn btn-accent text-accent-content m-3 text-center text-lg"
-            :key="ability.key"
-            @click.stop="itemClick(ability.key)"
-          >
-            {{ ability.name }}
-          </a>
-        </div>
       </div>
     </div>
   </div>

@@ -115,7 +115,8 @@
               </button>
             </div>
           </div>
-          <div v-if="selectedItem" class="m-3">
+          <div class="divider"></div>
+          <div class="container p-4 pr-6">
             <div class="mx-auto snap-start container h-fit text-lg">
               <div v-if="selectedItem.level" class="badge m-1">
                 {{ `Level: ${selectedItem.level}` }}
@@ -156,139 +157,145 @@
                 {{ pTxt }}
               </p>
             </div>
-            <div class="p-3">
+            <div class="w-full p-3 pt-6">
               <div
                 role="tablist"
-                class="tabs tabs-boxed bg-neutral text-neutral-content border-neutral-content"
+                class="tabs tabs-bordered bg-neutral text-neutral-content border-neutral-content min-w-full"
               >
-                <a
+                <input
+                  type="radio"
+                  name="creature-tab-1"
                   role="tab"
-                  class="tab tab-bordered tab-border-neutral-content border-neutral-content text-neutral-content"
-                  :class="isActiveTab('details')"
-                  @click="setActiveTab('details')"
-                  >Details</a
+                  class="tab text-lg"
+                  aria-label="Details"
+                  checked
+                />
+                <div
+                  role="tabpanel"
+                  class="tab-content p-6 text-neutral-content col-span-3"
                 >
-                <a
+                  <div
+                    class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
+                  >
+                    <h1 class="text-xl font-semibold">Motive</h1>
+                    <p class="indent-3">{{ selectedItem.motive }}</p>
+                  </div>
+                  <div
+                    class="p-6 border-dashed border-2 border-neutral-content m-2"
+                  >
+                    <label class="text-2xl p-1 font-semibold w-full block"
+                      >Stats</label
+                    >
+                    <div
+                      class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
+                    >
+                      Health:
+                      {{
+                        selectedItem.health > 0
+                          ? selectedItem.health
+                          : ` GM Set`
+                      }}
+                    </div>
+                    <div
+                      class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-xl"
+                    >
+                      Damage:
+                      {{
+                        parseInt(selectedItem.damage) > 0
+                          ? selectedItem.damage
+                          : ` GM Set `
+                      }}
+                    </div>
+                    <div
+                      class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
+                    >
+                      Armor: {{ selectedItem.armor ?? 0 }}
+                    </div>
+                    <div
+                      class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
+                    >
+                      Movement: {{ selectedItem.movement ?? ` GM Set ` }}
+                    </div>
+                  </div>
+                  <div
+                    v-if="selectedItem.use"
+                    class="p-6 border-dashed border-2 border-neutral-content m-2"
+                  >
+                    <label class="text-2xl p-1 font-semibold w-full block"
+                      >Use</label
+                    >
+                    <p class="indent-3">{{ selectedItem.use }}</p>
+                  </div>
+                </div>
+                <input
                   v-if="selectedItem.combat || selectedItem.modifications"
+                  type="radio"
+                  name="creature-tab-1"
                   role="tab"
-                  class="tab tab-bordered border-neutral-content text-neutral-content"
-                  :class="isActiveTab('actions')"
-                  @click="setActiveTab('actions')"
-                  >Actions</a
+                  class="tab text-lg"
+                  aria-label="Actions"
+                />
+                <div
+                  role="tabpanel"
+                  class="tab-content p-6 text-neutral-content col-span-3"
                 >
-
-                <a
+                  <div
+                    v-if="
+                      Array.isArray(selectedItem.combat) &&
+                      selectedItem.combat.length > 0
+                    "
+                    class="p-6 m-2"
+                  >
+                    <label class="text-2xl p-1 font-semibold w-full block"
+                      >Combat</label
+                    >
+                    <p
+                      v-if="selectedItem.combat"
+                      v-for="combat in selectedItem.combat"
+                      class="p-2 rounded-md border-dashed border-2 border-base-content m-2"
+                    >
+                      {{ combat }}
+                    </p>
+                  </div>
+                  <div
+                    v-if="
+                      selectedItem.modifications &&
+                      Array.isArray(selectedItem.modifications) &&
+                      selectedItem.modifications.length > 0
+                    "
+                    class="p-6 m-2"
+                  >
+                    <label class="text-2xl p-1 font-semibold w-full block">
+                      Modifications
+                    </label>
+                    <p
+                      v-for="mod in selectedItem.modifications"
+                      class="p-2 rounded-md border-dashed border-2 border-base-content m-2"
+                    >
+                      {{ mod }}
+                    </p>
+                  </div>
+                </div>
+                <input
                   v-if="selectedItem.intrusions"
+                  type="radio"
+                  name="creature-tab-1"
                   role="tab"
-                  class="tab tab-bordered border-neutral-content text-neutral-content"
-                  :class="isActiveTab('intrusions')"
-                  @click="setActiveTab('intrusions')"
-                  >Intrusions</a
-                >
-              </div>
-            </div>
-            <div v-if="selectedTab === 'details'" class="p-3 pt-0 h-full">
-              <div
-                v-if="selectedItem.motive"
-                class="p-6 border-dashed border-2 border-neutral-content m-2"
-              >
-                <label class="text-2xl p-1 font-semibold w-full block"
-                  >Motive</label
-                >
-                <p class="indent-3">{{ selectedItem.motive }}</p>
-              </div>
-              <div
-                class="p-6 border-dashed border-2 border-neutral-content m-2"
-              >
-                <label class="text-2xl p-1 font-semibold w-full block"
-                  >Stats</label
-                >
+                  class="tab text-lg"
+                  aria-label="Intrusions"
+                />
                 <div
-                  class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
+                  role="tabpanel"
+                  class="tab-content p-6 text-neutral-content col-span-3"
                 >
-                  Health:
-                  {{
-                    selectedItem.health > 0 ? selectedItem.health : ` GM Set`
-                  }}
+                  <p
+                    v-if="selectedItem.intrusions"
+                    v-for="intrusion in selectedItem.intrusions"
+                    class="p-3 rounded-md border-dashed border-2 border-base-content m-3"
+                  >
+                    {{ intrusion }}
+                  </p>
                 </div>
-                <div
-                  class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-xl"
-                >
-                  Damage:
-                  {{
-                    parseInt(selectedItem.damage) > 0
-                      ? selectedItem.damage
-                      : ` GM Set `
-                  }}
-                </div>
-                <div
-                  class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
-                >
-                  Armor: {{ selectedItem.armor ?? 0 }}
-                </div>
-                <div
-                  class="badge badge-accent p-3 text-accent-content m-1 text-start md:text-lg"
-                >
-                  Movement: {{ selectedItem.movement ?? ` GM Set ` }}
-                </div>
-              </div>
-              <div
-                v-if="selectedItem.use"
-                class="p-6 border-dashed border-2 border-neutral-content m-2"
-              >
-                <label class="text-2xl p-1 font-semibold w-full block"
-                  >Use</label
-                >
-                <p class="indent-3">{{ selectedItem.use }}</p>
-              </div>
-            </div>
-            <div v-if="selectedTab === 'actions'" class="p-3 pt-0 h-full">
-              <div
-                v-if="
-                  Array.isArray(selectedItem.combat) &&
-                  selectedItem.combat.length > 0
-                "
-                class="p-6 m-2"
-              >
-                <label class="text-2xl p-1 font-semibold w-full block"
-                  >Combat</label
-                >
-                <p
-                  v-if="selectedItem.combat"
-                  v-for="combat in selectedItem.combat"
-                  class="p-2 rounded-md border-dashed border-2 border-base-content m-2"
-                >
-                  {{ combat }}
-                </p>
-              </div>
-              <div
-                v-if="
-                  selectedItem.modifications &&
-                  Array.isArray(selectedItem.modifications) &&
-                  selectedItem.modifications.length > 0
-                "
-                class="p-6 m-2"
-              >
-                <label class="text-2xl p-1 font-semibold w-full block">
-                  Modifications
-                </label>
-                <p
-                  v-for="mod in selectedItem.modifications"
-                  class="p-2 rounded-md border-dashed border-2 border-base-content m-2"
-                >
-                  {{ mod }}
-                </p>
-              </div>
-            </div>
-            <div v-if="selectedTab === 'intrusions'" class="p-3 pt-0 h-full">
-              <div class="p-6 m-2">
-                <p
-                  v-if="selectedItem.intrusions"
-                  v-for="intrusion in selectedItem.intrusions"
-                  class="p-3 rounded-md border-dashed border-2 border-base-content m-3"
-                >
-                  {{ intrusion }}
-                </p>
               </div>
             </div>
           </div>
