@@ -15,5 +15,5 @@ export const useAppwrite = () => {
   const account = new Account(client.value);
   const storage = new Storage(client.value);
   const functions = new Functions(client.value);
-  return {account, storage, functions, ID};
+  return {account, client, storage, functions, ID};
 };

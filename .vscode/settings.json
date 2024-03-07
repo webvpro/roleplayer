@@ -21,5 +21,6 @@
   "editor.formatOnType": true,
   "cSpell.words": [
     "uischema"
-  ]
+  ],
+  "dmbinder.chromeExecutablePath": "/Applications/Google Chrome.app"
 }
