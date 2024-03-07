@@ -1,6 +1,11 @@
 <template>
   <div>
-    <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
+    <NuxtLayout
+      name="browse"
+      :open-drawer="toggleDetailDrawer"
+      :drawer-label="selectedItem?.name"
+      @drawer-close="closeDrawer"
+    >
       <template #main-content>
         <div class="mx-auto scroll-mt-24 my-3 snap-start container">
           <div
@@ -33,78 +38,58 @@
         </div>
       </template>
       <template #drawer-side>
-        <div class="drawer-overlay" @click="closeDrawer"></div>
-        <div
-          v-if="selectedItem"
-          class="w-10/12 md:8/12 lg:w-6/12 xxl:1/4 bg-neutral text-neutral-content min-h-full"
-        >
-          <div class="navbar">
-            <div class="navbar-start">
-              <a class="btn btn-ghost normal-case text-3xl"
-                ><span class="capitalize">{{ selectedItem.name }}</span></a
-              >
-            </div>
-            <div class="navbar-center hidden lg:flex"></div>
-            <div class="navbar-end">
-              <button class="btn btn-ghost" @click="closeDrawer">
-                <Icon class="text-3xl" name="radix-icons:cross-2" />
-              </button>
-            </div>
-          </div>
-          <div class="divider"></div>
-          <div class="container p-4 pr-6">
-            <p
-              class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
+        <div class="container p-4 pr-6">
+          <p
+            class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
+          >
+            {{ selectedItem.description }}
+          </p>
+          <div class="w-full p-3 pt-6">
+            <div
+              role="tablist"
+              class="tabs tabs-bordered bg-neutral text-neutral-content border-neutral-content min-w-full"
             >
-              {{ selectedItem.description }}
-            </p>
-            <div class="w-full p-3 pt-6">
+              <input
+                type="radio"
+                name="descriptor-tab-1"
+                role="tab"
+                class="tab text-lg"
+                aria-label="Characteristics"
+                checked
+              />
               <div
-                role="tablist"
-                class="tabs tabs-bordered bg-neutral text-neutral-content border-neutral-content min-w-full"
+                role="tabpanel"
+                class="tab-content p-6 text-neutral-content col-span-2"
               >
-                <input
-                  type="radio"
-                  name="descriptor-tab-1"
-                  role="tab"
-                  class="tab text-lg"
-                  aria-label="Characteristics"
-                  checked
-                />
                 <div
-                  role="tabpanel"
-                  class="tab-content p-6 text-neutral-content col-span-2"
+                  v-for="characteristic in selectedItem.characteristics"
+                  class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
                 >
-                  <div
-                    v-for="characteristic in selectedItem.characteristics"
-                    class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
-                  >
-                    <label class="text-lg mb-1 font-semibold capitalize">{{
-                      characteristic.name
-                    }}</label>
+                  <label class="text-lg mb-1 font-semibold capitalize">{{
+                    characteristic.name
+                  }}</label>
 
-                    <p class="">
-                      {{ characteristic.description }}
-                    </p>
-                  </div>
+                  <p class="">
+                    {{ characteristic.description }}
+                  </p>
                 </div>
-                <input
-                  type="radio"
-                  name="descriptor-tab-1"
-                  role="tab"
-                  class="tab text-lg"
-                  aria-label="Starter Links"
-                />
+              </div>
+              <input
+                type="radio"
+                name="descriptor-tab-1"
+                role="tab"
+                class="tab text-lg"
+                aria-label="Starter Links"
+              />
+              <div
+                role="tabpanel"
+                class="tab-content p-6 text-neutral-content col-span-2"
+              >
                 <div
-                  role="tabpanel"
-                  class="tab-content p-6 text-neutral-content col-span-2"
+                  v-for="link in selectedItem.links"
+                  class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
                 >
-                  <div
-                    v-for="link in selectedItem.links"
-                    class="p-6 rounded-md border-dashed bg-neutral text-neutral-content border-2 border-neutral-content m-2"
-                  >
-                    <p>{{ link }}</p>
-                  </div>
+                  <p>{{ link }}</p>
                 </div>
               </div>
             </div>

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <NuxtLayout name="browse" :open-drawer="toggleDetailDrawer">
+    <NuxtLayout
+      name="browse"
+      :open-drawer="toggleDetailDrawer"
+      :drawer-label="selectedItem?.name"
+      @drawer-close="closeDrawer"
+    >
       <template #main-content>
         <div class="mx-auto scroll-mt-24 my-3 snap-start container">
           <div
@@ -33,11 +38,7 @@
         </div>
       </template>
       <template #drawer-side>
-        <label for="item-details" class="drawer-overlay"></label>
-        <div
-          v-if="selectedItem"
-          class="w-10/12 md:8/12 lg:w-6/12 xxl:1/4 bg-neutral text-neutral-content min-h-full"
-        >
+        <div class="w-full p-3 pt-6">
           <div
             class="navbar border-b-base-300 border-b-2 text-secondary-content h-16"
           >

@@ -5,6 +5,8 @@
       :open-drawer="toggleDetailDrawer"
       :filters="artifactsFilters"
       @filter-change="onFilterChange"
+      :drawer-label="selectedItem?.name"
+      @drawer-close="closeDrawer"
     >
       <template #main-content>
         <div class="mx-auto scroll-mt-24 my-3 snap-start container">
@@ -38,11 +40,7 @@
         </div>
       </template>
       <template #drawer-side>
-        <div class="drawer-overlay" @click="closeDrawer"></div>
-        <div
-          v-if="selectedItem"
-          class="w-10/12 md:8/12 lg:w-6/12 xxl:1/4 bg-neutral text-neutral-content min-h-full"
-        >
+        <div class="container p-4 pr-6">
           <div class="navbar h-16">
             <div class="navbar-start">
               <a class="btn btn-ghost text-xl capitalize">{{
