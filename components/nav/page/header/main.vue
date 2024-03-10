@@ -9,7 +9,7 @@
         </summary>
         <ul
           tabindex="0"
-          class="dropdown-content menu bg-base-100 z-50 text-base-content w-56"
+          class="p-2 shadow menu dropdown-content z-[5] bg-base-100 rounded-box w-fit"
         >
           <li><NuxtLink to="/compendium">Compendiums</NuxtLink></li>
           <li><NuxtLink to="/characters">Characters</NuxtLink></li>

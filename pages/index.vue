@@ -57,7 +57,7 @@
       >
         <div
           v-for="feature in features"
-          :key="key"
+          :key="nameKeyMaker(feature.name)"
           class="shadow-xl p-6 card card-compact w-auto bg-base-100 h-full sm:mb-2"
         >
           <div>
@@ -92,7 +92,7 @@
   const features = [
     {
       name: 'CSRD Compendium',
-      icon: 'game-icons:winged-sword',
+      icon: 'game-icons:bookshelf',
       path: '/compendium',
       description:
         'A browse ready version of the CSRD great for a quick reference, we will be add own own custom compendiums soon.',
@@ -106,7 +106,7 @@
     },
     {
       name: 'Play',
-      icon: 'game-icons:bookshelf',
+      icon: 'game-icons:winged-sword',
       path: '/play',
       description:
         'Coming Soon create Game Dashboards to track your play sessions',
